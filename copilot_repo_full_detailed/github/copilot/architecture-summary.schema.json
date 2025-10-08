@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "projects",
+    "crossCutting",
+    "unknowns",
+    "riskHotspots",
+    "docsToUpdate"
+  ],
+  "properties": {
+    "projects": {
+      "type": "array"
+    },
+    "crossCutting": {
+      "type": "object"
+    },
+    "unknowns": {
+      "type": "array"
+    },
+    "riskHotspots": {
+      "type": "array"
+    },
+    "docsToUpdate": {
+      "type": "array"
+    }
+  }
+}
