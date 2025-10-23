@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "name": "Copilot Agent \u2014 .NET Discovery Commands",
+    "description": "Quick commands to drive Copilot Agent Mode to analyze legacy .NET (MVC, jQuery, AngularJS, WCF, ASMX).",
+    "version": "2025-10-23"
+  },
+  "commands": [
+    {
+      "id": "analyze-dotnet",
+      "title": "Analyze .NET solution (Agent Mode)",
+      "description": "Full pass: repo overview, services, UI, database, config map.",
+      "prompt": "Use the instructions in `analysis/context/instructions/AGENT_MODE_INSTRUCTIONS.md`.\nStart with the kickoff flow from `analysis/context/prompts/00_kickoff_prompt.md`.\nGoals: generate all `/analysis/*.md` reports and `dependencies.json` + `databases.json`\nusing the schemas and templates in `analysis/context/schemas/*` and `analysis/context/templates/*`.\nRedact any secrets. Provide a concise progress log and any blockers.",
+      "contextHints": [
+        "analysis/context/instructions/AGENT_MODE_INSTRUCTIONS.md",
+        "analysis/context/prompts/00_kickoff_prompt.md",
+        "analysis/context/prompts/02_output_contracts.md",
+        "analysis/context/schemas/",
+        "analysis/context/templates/"
+      ]
+    },
+    {
+      "id": "refresh-services",
+      "title": "Refresh Services Inventory (WCF/ASMX/REST)",
+      "description": "Scan for .svc, [ServiceContract]/[OperationContract], .asmx+[WebMethod], REST routes; update `02_services_inventory.md`.",
+      "prompt": "Re-scan only service layers:\n- WCF: `.svc`, `[ServiceContract]`, `[OperationContract]`, bindings and endpoints in config\n- ASMX: `.asmx`, `[WebMethod]`, web references / generated proxies\n- REST: Web API controllers, attribute routes\nEmit: `analysis/02_services_inventory.md` and update relevant entries in `analysis/dependencies.json`.\nFollow the template `analysis/context/templates/report_services_inventory.md`.",
+      "contextHints": [
+        "analysis/context/templates/report_services_inventory.md",
+        "analysis/context/schemas/dependencies.schema.json"
+      ]
+    },
+    {
+      "id": "refresh-ui",
+      "title": "Refresh UI Inventory (MVC + jQuery + AngularJS)",
+      "description": "Update MVC actions, jQuery/Fetch calls, AngularJS $http/$resource usage.",
+      "prompt": "Re-scan UI surfaces:\n- MVC controllers/actions (attributes, routes, return types)\n- jQuery / fetch AJAX calls: method, URL, payload shape\n- AngularJS: modules, routes, services using $http/$resource\nEmit: `analysis/04_ui_inventory.md` using `report_ui_inventory.md` template and JSON structures in `ui-inventory.schema.json` (if needed).",
+      "contextHints": [
+        "analysis/context/templates/report_ui_inventory.md",
+        "analysis/context/schemas/ui-inventory.schema.json"
+      ]
+    },
+    {
+      "id": "refresh-db",
+      "title": "Refresh Database Inventory",
+      "description": "Update connection strings, ORMs, stored procedures, and inline SQL references.",
+      "prompt": "Re-scan database usage:\n- Extract all `connectionStrings` (redact secrets) and where they are used\n- Identify EF/Dapper/ADO.NET access patterns\n- List stored procedures and parameter signatures; record call sites\n- Capture inline SQL (short snippet + file:line)\nEmit: `analysis/03_database_inventory.md` and `analysis/databases.json` following `databases.schema.json` and `report_database_inventory.md`.",
+      "contextHints": [
+        "analysis/context/templates/report_database_inventory.md",
+        "analysis/context/schemas/databases.schema.json"
+      ]
+    },
+    {
+      "id": "refresh-config-security",
+      "title": "Refresh Config Map & Security",
+      "description": "Map appSettings, connectionStrings, serviceModel; update auth/authz/CSRF notes.",
+      "prompt": "Create/refresh:\n- `analysis/06_config_map.md`: appSettings, connectionStrings, system.serviceModel sections (bindings/endpoints/behaviors)\n- `analysis/05_security_authz.md`: auth mode, cookies/tokens, [Authorize] attributes, policies, CSRF tokens/validation\nUse the relevant templates in `analysis/context/templates/`.",
+      "contextHints": [
+        "analysis/context/templates/report_config_map.md",
+        "analysis/context/templates/report_security_authz.md"
+      ]
+    },
+    {
+      "id": "summarize-risks-next",
+      "title": "Summarize Risks & Next Actions",
+      "description": "Collect legacy hotspots, gaps, and propose concrete next steps.",
+      "prompt": "Synthesize findings across the analysis and produce `analysis/risks_todos.md`:\n- High-risk tech (unsupported frameworks/versions)\n- Missing tests/docs\n- Security concerns\n- Concrete next actions (checklists with owners and ETA placeholders)\nUse the `report_risks_todos.md` template.",
+      "contextHints": [
+        "analysis/context/templates/report_risks_todos.md"
+      ]
+    }
+  ]
+}
