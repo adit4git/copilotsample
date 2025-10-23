@@ -104,3 +104,36 @@ Edit the instructions/AGENT_MODE_INSTRUCTIONS.md to skip or include certain patt
 Add more search recipes to prompts/01_cli_search_recipes.md.
 
 Extend schema files to include proprietary frameworks.
+
+
+
+How to use it
+
+Put the file in your repo root (alongside your .sln):
+
+your-solution/
+├── .copilot.json   ← here
+├── analysis/
+│   └── context/    ← the pack you unzipped earlier
+└── ...
+
+
+Reload VS Code (so Copilot sees the workspace file).
+
+Open Copilot Chat. Then run one of these commands by copying its title into chat (or select it if your build shows workspace commands):
+
+Analyze .NET solution (Agent Mode)
+
+Refresh Services Inventory (WCF/ASMX/REST)
+
+Refresh UI Inventory (MVC + jQuery + AngularJS)
+
+Refresh Database Inventory
+
+Refresh Config Map & Security
+
+Summarize Risks & Next Actions
+
+Each command points Copilot to the instruction + prompt files in analysis/context/ and tells it exactly which reports to emit/refresh under /analysis.
+
+Tip: Start with Analyze .NET solution (Agent Mode) for a full pass. Then use the four “Refresh …” commands when you change parts of the repo and want to regenerate only those sections.
