@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dependencies Inventory",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "WCF",
+              "ASMX",
+              "REST",
+              "ExternalAPI"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "contract": {
+            "type": "string"
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "binding": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "configFile": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "name"
+        ]
+      }
+    },
+    "clientCalls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "line": {
+            "type": "integer"
+          },
+          "method": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "payloadShape": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "file",
+          "method",
+          "url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "projects"
+  ]
+}

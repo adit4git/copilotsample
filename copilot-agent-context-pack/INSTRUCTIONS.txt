@@ -1,0 +1,4 @@
+Start here:
+1) Open `instructions/AGENT_MODE_INSTRUCTIONS.md`
+2) Use `prompts/00_kickoff_prompt.md` to launch the analysis
+3) Conform outputs to `context/schemas/*` using `context/templates/*`

@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Inventory",
+  "type": "object",
+  "properties": {
+    "mvc": {
+      "type": "array"
+    },
+    "jqueryCalls": {
+      "type": "array"
+    },
+    "angularCalls": {
+      "type": "array"
+    }
+  }
+}
