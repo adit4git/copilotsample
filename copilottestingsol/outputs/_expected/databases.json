@@ -1,0 +1,33 @@
+{
+  "connections": [
+    {
+      "name": "ContosoDb",
+      "provider": "System.Data.SqlClient",
+      "files": [
+        "src/Contoso.BackendServices/Web.config"
+      ]
+    }
+  ],
+  "storedProcedures": [
+    {
+      "name": "dbo.usp_GetCustomerById",
+      "params": [
+        "@Id int"
+      ],
+      "callSites": [
+        "src/Contoso.BackendServices/Services/CustomerService.svc.cs:20-40"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "name": "dbo.Customers",
+      "operations": [
+        "SELECT"
+      ],
+      "callSites": [
+        "src/Contoso.BackendServices/Services/CustomerService.svc.cs:28-34"
+      ]
+    }
+  ]
+}

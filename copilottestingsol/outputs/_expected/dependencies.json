@@ -1,0 +1,35 @@
+{
+  "nuget": [
+    {
+      "name": "Microsoft.AspNet.Mvc",
+      "version": "5.x",
+      "files": [
+        "src/Contoso.LegacyMvc/Web.config"
+      ]
+    },
+    {
+      "name": "Newtonsoft.Json",
+      "version": null,
+      "files": [
+        "src/Contoso.LegacyMvc/Handlers/WcfCustomerProxy.ashx.cs"
+      ]
+    }
+  ],
+  "frontend": [
+    {
+      "library": "jQuery",
+      "version": "3.6.0",
+      "locations": [
+        "src/Contoso.LegacyMvc/Views/Home/Index.cshtml"
+      ]
+    },
+    {
+      "library": "AngularJS",
+      "version": "1.8.3",
+      "locations": [
+        "src/Contoso.LegacyMvc/Views/Home/Index.cshtml"
+      ]
+    }
+  ],
+  "customDlls": []
+}

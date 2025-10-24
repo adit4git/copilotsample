@@ -1,0 +1,14 @@
+{
+  "nuget": [
+    { "name": "System.Web", "version": null, "files": ["src/Contoso.LegacyMvc/Contoso.LegacyMvc.csproj"] },
+    { "name": "System.Web.Mvc", "version": null, "files": ["src/Contoso.LegacyMvc/Contoso.LegacyMvc.csproj"] },
+    { "name": "System.ServiceModel", "version": null, "files": ["src/Contoso.LegacyMvc/Contoso.LegacyMvc.csproj", "src/Contoso.BackendServices/Contoso.BackendServices.csproj"] },
+    { "name": "System.Web.Services", "version": null, "files": ["src/Contoso.BackendServices/Contoso.BackendServices.csproj"] },
+    { "name": "System.Data", "version": null, "files": ["src/Contoso.BackendServices/Contoso.BackendServices.csproj"] }
+  ],
+  "frontend": [
+    { "library": "jQuery", "version": "3.6.0", "locations": ["src/Contoso.LegacyMvc/Views/Home/Index.cshtml"] },
+    { "library": "AngularJS", "version": "1.8.3", "locations": ["src/Contoso.LegacyMvc/Views/Home/Index.cshtml"] }
+  ],
+  "customDlls": []
+}

@@ -1,0 +1,30 @@
+{
+  "appSettings": {
+    "LegacyMathUrl": "(redacted)",
+    "CustomerServiceUrl": "(redacted)"
+  },
+  "connectionStrings": [
+    {
+      "name": "ContosoDb",
+      "provider": "System.Data.SqlClient",
+      "usedBy": [
+        "src/Contoso.BackendServices/Services/CustomerService.svc.cs"
+      ]
+    }
+  ],
+  "serviceModel": {
+    "services": [
+      "Contoso.BackendServices.Services.CustomerService"
+    ],
+    "bindings": [
+      "basicHttpBinding"
+    ],
+    "behaviors": [
+      "serviceMetadata",
+      "serviceDebug"
+    ],
+    "endpoints": [
+      "/Services/CustomerService.svc"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "version": "1",
+  "name": "Contoso Legacy .NET 4.8 Analyzer",
+  "description": "Command set for Copilot Agent Mode to analyze a legacy .NET Framework 4.8 repo (MVC + jQuery + AngularJS + WCF + ASMX) and inventory dependencies, services, and database usage.",
+  "commands": [
+    {
+      "id": "analyze-codebase",
+      "name": "Analyze codebase overview",
+      "prompt": "You are a software archaeologist analyzing a legacy .NET Framework 4.8 monorepo. Read ALL files in /src and /context.\nProduce: (1) high-level architecture, (2) project list with purpose, (3) main data flows UI\u2194WCF\u2194DB, (4) external dependencies, (5) risks & hotspots.\nUse /context/03_Architecture_Map.md as the shape, update with specifics found."
+    },
+    {
+      "id": "inventory-web-services",
+      "name": "Inventory web services (WCF/ASMX/Web API + external)",
+      "prompt": "Scan /src for: WCF *.svc + contracts/bindings/addresses, ASMX services + methods, any Web API controllers, and any external API calls (HttpClient/WebRequest/jQuery.ajax/AngularJS $http). Emit JSON that conforms to /schemas/services.schema.json and save it to /outputs/services.json. Also append a human-readable table to /context/Template_Services_Report.md. Include file paths and line numbers for each finding. Validate the JSON; if invalid, correct and re-emit."
+    },
+    {
+      "id": "inventory-database",
+      "name": "Inventory database usage",
+      "prompt": "Find database connection strings, any ADO.NET, EF, Dapper usage, and all SQL scripts in /src/** and /src/**/App_Data. Extract list of tables, stored procedures, parameters, and call sites (file + line). Update /context/06_Database_Points.md with a \u2018Findings\u2019 section."
+    },
+    {
+      "id": "dependency-audit",
+      "name": "Dependency audit",
+      "prompt": "Enumerate NuGet packages, script libs (jQuery/AngularJS), custom DLLs, and third-party SDKs. For each: version (if known), usage locations, and security/upgrade notes. Append results to /context/04_Dependencies_Inventory.md."
+    },
+    {
+      "id": "generate-migration-brief",
+      "name": "Generate migration brief",
+      "prompt": "Based on current findings, draft a 1\u20132 page brief for a future migration to modern stacks. Focus on risk, sequence, and prerequisites. Use /context/08_Migration_Notes.md as a template and fill in specifics."
+    },
+    {
+      "id": "produce-exec-summary",
+      "name": "Produce executive summary (1 page)",
+      "prompt": "Create a plain-English 1-page executive summary explaining what the system does, where data lives, how it moves, and immediate risks. Target non-technical leaders. Save into /context/01_Repo_Overview.md under a new 'Executive Summary (Generated)' section."
+    },
+    {
+      "id": "analyze-ui",
+      "name": "Analyze UI (static)",
+      "prompt": "Read /src/Contoso.LegacyMvc. Inventory controllers, actions, views, scripts (jQuery/AngularJS), and service calls. Emit JSON that conforms to /schemas/ui_inventory.schema.json and save it to /outputs/ui_inventory.json. If validation fails, fix and re-emit."
+    },
+    {
+      "id": "extract-config-map",
+      "name": "Extract Config Map (static)",
+      "prompt": "Parse Web.config files and system.serviceModel. Emit JSON conforming to /schemas/config_map.schema.json and save to /outputs/config_map.json. Redact secrets. Validate, fix if needed."
+    },
+    {
+      "id": "static-discovery-complete",
+      "name": "Static Discovery \u2013 complete",
+      "prompt": "Perform static discovery across /src (no execution). Produce and save: /outputs/dependencies.json (schema: /schemas/dependencies.schema.json), /outputs/databases.json (schema: /schemas/databases.schema.json), /outputs/ui_inventory.json (schema: /schemas/ui_inventory.schema.json), /outputs/config_map.json (schema: /schemas/config_map.schema.json). Then append tables to /context/Template_* reports and a 1-page summary under /context/01_Repo_Overview.md."
+    },
+    {
+      "id": "inventory-external-apis",
+      "name": "Inventory external APIs used",
+      "prompt": "Search for outbound HTTP calls to third-party domains via HttpClient, WebRequest, jQuery.ajax, AngularJS $http. Identify base URLs, endpoints, auth headers/tokens (redact values), and call sites. Update /outputs/services.json under 'externalApis' (schema: /schemas/services.schema.json). Append rows to the 'External APIs Used' table in /context/Template_Services_Report.md."
+    }
+  ]
+}

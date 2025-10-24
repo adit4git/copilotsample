@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Inventory",
+  "type": "object",
+  "properties": {
+    "controllers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "framework": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "uses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "file"
+        ]
+      }
+    },
+    "serviceCalls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "caller": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "caller",
+          "target"
+        ]
+      }
+    }
+  }
+}

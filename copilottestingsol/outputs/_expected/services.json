@@ -1,0 +1,39 @@
+{
+  "wcf": [
+    {
+      "service": "Contoso.BackendServices.Services.CustomerService",
+      "contract": "ICustomerService",
+      "binding": "basicHttpBinding",
+      "address": "/Services/CustomerService.svc",
+      "methods": [
+        "GetCustomer(int)"
+      ],
+      "consumers": [
+        "Contoso.LegacyMvc/Handlers/WcfCustomerProxy.ashx"
+      ],
+      "files": [
+        "src/Contoso.BackendServices/Services/CustomerService.svc",
+        "src/Contoso.BackendServices/Services/CustomerService.svc.cs",
+        "src/Contoso.BackendServices/Web.config"
+      ]
+    }
+  ],
+  "asmx": [
+    {
+      "service": "Contoso.BackendServices.Legacy.LegacyMath",
+      "address": "/Legacy/LegacyMath.asmx",
+      "methods": [
+        "Add(int,int)"
+      ],
+      "consumers": [
+        "Contoso.LegacyMvc/Views/Home/Index.cshtml (jQuery POST)"
+      ],
+      "files": [
+        "src/Contoso.BackendServices/Legacy/LegacyMath.asmx",
+        "src/Contoso.BackendServices/Legacy/LegacyMath.asmx.cs"
+      ]
+    }
+  ],
+  "webApi": [],
+  "externalApis": []
+}

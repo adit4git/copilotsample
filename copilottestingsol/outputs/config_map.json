@@ -1,0 +1,30 @@
+{
+  "appSettings": {
+    "LegacyMathUrl": "http://localhost:8085/Legacy/LegacyMath.asmx",
+    "CustomerServiceUrl": "http://localhost:8085/Services/CustomerService.svc"
+  },
+  "connectionStrings": [
+    {
+      "name": "ContosoDb",
+      "provider": "System.Data.SqlClient",
+      "usedBy": [
+        "src/Contoso.BackendServices/Services/CustomerService.svc.cs"
+      ]
+    }
+  ],
+  "serviceModel": {
+    "services": [
+      {
+        "name": "Contoso.BackendServices.Services.CustomerService",
+        "endpoints": [
+          {
+            "address": "",
+            "binding": "basicHttpBinding",
+            "contract": "Contoso.BackendServices.Services.ICustomerService",
+            "baseAddress": "http://localhost:8085/Services/CustomerService.svc"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+@{
+    ViewBag.Title = "Home";
+    var asmx = (string)ViewBag.LegacyMathUrl;
+    var wcf = (string)ViewBag.CustomerServiceUrl;
+}
+<h2>Legacy MVC Home</h2>
+
+<p>ASMX endpoint: @asmx</p>
+<p>WCF endpoint: @wcf</p>
+
+<input id="a" type="number" value="2" /> + 
+<input id="b" type="number" value="3" />
+<button id="btnAdd">Call ASMX Add</button>
+<div id="sum"></div>
+
+<hr/>
+
+<input id="custId" type="number" value="1" />
+<button id="btnGetCustomer">Get Customer (WCF)</button>
+<pre id="cust"></pre>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+<script>
+// jQuery call to ASMX
+$('#btnAdd').on('click', function() {
+  $.ajax({
+    type: "POST",
+    url: "@asmx/Add",
+    contentType: "application/x-www-form-urlencoded",
+    data: { a: $('#a').val(), b: $('#b').val() }
+  }).done(function(res){
+    $('#sum').text('ASMX Add result: ' + res);
+  }).fail(function(e){ $('#sum').text('Error: ' + e.statusText); });
+});
+
+// AngularJS module calling WCF (basic JSON wrapper)
+var app = angular.module('app', []);
+</script>
+<div ng-app="app" ng-controller="Main as vm">
+  <script>
+  app.controller('Main', function($http, $scope){
+    $scope.getCustomer = function(){
+      var id = document.getElementById('custId').value;
+      // Simple JSON facade assumed on WCF; for demo we hit a pseudo JSON endpoint via handler/proxy (omitted).
+      // In practice, expose a WebHttpBinding endpoint or add a thin API proxy.
+      $http.get('/Handlers/WcfCustomerProxy.ashx?id=' + id).then(function(resp){
+        document.getElementById('cust').textContent = JSON.stringify(resp.data, null, 2);
+      }, function(err){
+        document.getElementById('cust').textContent = 'Proxy not implemented in sample; WCF is available at: ' + '@wcf';
+      });
+    };
+  });
+  </script>
+  <button ng-click="getCustomer()">Angular: Get Customer via Proxy</button>
+</div>

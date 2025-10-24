@@ -1,0 +1,43 @@
+{
+  "controllers": [
+    {
+      "name": "HomeController",
+      "actions": [
+        "Index"
+      ],
+      "views": [
+        "Views/Home/Index.cshtml"
+      ]
+    }
+  ],
+  "scripts": [
+    {
+      "file": "Views/Home/Index.cshtml",
+      "framework": "jQuery",
+      "uses": [
+        "$.ajax POST to ASMX Add"
+      ]
+    },
+    {
+      "file": "Views/Home/Index.cshtml",
+      "framework": "AngularJS",
+      "uses": [
+        "$http GET to MVC handler proxy /Handlers/WcfCustomerProxy.ashx"
+      ]
+    }
+  ],
+  "serviceCalls": [
+    {
+      "caller": "Index.cshtml (jQuery)",
+      "target": "LegacyMath.asmx",
+      "method": "Add",
+      "file": "Views/Home/Index.cshtml"
+    },
+    {
+      "caller": "Index.cshtml (AngularJS via handler)",
+      "target": "CustomerService.svc",
+      "method": "GetCustomer",
+      "file": "Views/Home/Index.cshtml"
+    }
+  ]
+}
