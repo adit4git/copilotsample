@@ -1,0 +1,27 @@
+<db2Queries>
+  <command id="GetCustomerSummary">
+    <sql>
+      <![CDATA[
+SELECT C.CUSTOMER_ID, C.NAME, C.REGION_CODE, SUM(O.AMOUNT) AS TOTAL_SPEND
+FROM CUSTOMERS C
+LEFT JOIN ORDERS O ON C.CUSTOMER_ID = O.CUSTOMER_ID
+WHERE C.CUSTOMER_ID = @CustomerId
+GROUP BY C.CUSTOMER_ID, C.NAME, C.REGION_CODE
+WITH UR
+      ]]>
+    </sql>
+  </command>
+
+  <command id="GetHighValueCustomers">
+    <sql>
+      <![CDATA[
+SELECT C.CUSTOMER_ID, C.NAME, SUM(O.AMOUNT) AS TOTAL_SPEND
+FROM CUSTOMERS C
+JOIN ORDERS O ON C.CUSTOMER_ID = O.CUSTOMER_ID
+GROUP BY C.CUSTOMER_ID, C.NAME
+HAVING SUM(O.AMOUNT) > 10000
+WITH UR
+      ]]>
+    </sql>
+  </command>
+</db2Queries>

@@ -1,0 +1,4 @@
+<db2Config>
+  <connection name="MainDb2" connectionString="Server=DB2HOST;Database=LegacyDb2;User Id=legacy;Password=redacted;" />
+  <mapping file="../Core.DataAccess/DB2/DB2Queries.xml" />
+</db2Config>

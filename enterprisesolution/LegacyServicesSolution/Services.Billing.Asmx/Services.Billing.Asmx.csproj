@@ -1,0 +1,21 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Services.Billing.Asmx</RootNamespace>
+    <AssemblyName>Services.Billing.Asmx</AssemblyName>
+    <ProjectGuid>{33333333-3333-3333-3333-333333333333}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillingService.asmx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BillingService.asmx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+</Project>

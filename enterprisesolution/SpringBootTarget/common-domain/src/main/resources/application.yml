@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: common-domain
+server:
+  port: 0

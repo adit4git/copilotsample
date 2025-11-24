@@ -1,0 +1,6 @@
+<oracleMappings>
+  <procedure id="CalcInvoiceTotal" name="BILLING_PKG.CALC_INVOICE_TOTAL">
+    <param name="p_order_id" direction="In" dbType="Varchar2"/>
+    <param name="p_total" direction="Out" dbType="Decimal"/>
+  </procedure>
+</oracleMappings>

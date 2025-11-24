@@ -1,0 +1,7 @@
+CREATE TABLE Orders (
+    OrderId VARCHAR(32) NOT NULL,
+    CustomerId VARCHAR(32) NOT NULL,
+    Amount NUMERIC(15,2) NOT NULL,
+    Status VARCHAR(16) NOT NULL,
+    NeedsSync BIT NOT NULL DEFAULT 0
+);

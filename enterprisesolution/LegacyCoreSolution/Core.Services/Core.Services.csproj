@@ -1,0 +1,28 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Core.Services</RootNamespace>
+    <AssemblyName>Core.Services</AssemblyName>
+    <ProjectGuid>{55555555-5555-5555-5555-555555555555}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
+      <Project>{44444444-4444-4444-4444-444444444444}</Project>
+      <Name>Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.DataAccess\Core.DataAccess.csproj">
+      <Project>{66666666-6666-6666-6666-666666666666}</Project>
+      <Name>Core.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomerManager.cs" />
+    <Compile Include="OrderManager.cs" />
+    <Compile Include="BillingManager.cs" />
+  </ItemGroup>
+</Project>

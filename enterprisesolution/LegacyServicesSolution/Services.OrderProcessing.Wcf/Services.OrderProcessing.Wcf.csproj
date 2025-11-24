@@ -1,0 +1,24 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Services.OrderProcessing.Wcf</RootNamespace>
+    <AssemblyName>Services.OrderProcessing.Wcf</AssemblyName>
+    <ProjectGuid>{22222222-2222-2222-2222-222222222222}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IOrderService.cs" />
+    <Compile Include="OrderService.svc.cs" />
+    <Compile Include="Models\OrderDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OrderService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+</Project>

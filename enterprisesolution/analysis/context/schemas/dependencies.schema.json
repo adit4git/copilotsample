@@ -1,0 +1,15 @@
+{
+  "title": "Dependencies",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "type": "array"
+    },
+    "services": {
+      "type": "array"
+    },
+    "databases": {
+      "type": "array"
+    }
+  }
+}

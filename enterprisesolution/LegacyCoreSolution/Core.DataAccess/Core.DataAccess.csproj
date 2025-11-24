@@ -1,0 +1,30 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Core.DataAccess</RootNamespace>
+    <AssemblyName>Core.DataAccess</AssemblyName>
+    <ProjectGuid>{66666666-6666-6666-6666-666666666666}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbRouter.cs" />
+    <Compile Include="DalConfigLoader.cs" />
+    <Compile Include="DB2\DB2AccountDao.cs" />
+    <Compile Include="DB2\DB2OrderDao.cs" />
+    <Compile Include="DB2\DB2ConnectionFactory.cs" />
+    <Compile Include="Oracle\OracleBillingDao.cs" />
+    <Compile Include="Sybase\SybaseOrderDao.cs" />
+    <Compile Include="SqlServer\SqlServerHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB2\DB2Queries.xml" />
+    <Content Include="Oracle\OracleMapping.xml" />
+    <Content Include="Sybase\queries.ini" />
+  </ItemGroup>
+</Project>

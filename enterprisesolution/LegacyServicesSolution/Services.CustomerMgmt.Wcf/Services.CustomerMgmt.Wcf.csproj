@@ -1,0 +1,24 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Services.CustomerMgmt.Wcf</RootNamespace>
+    <AssemblyName>Services.CustomerMgmt.Wcf</AssemblyName>
+    <ProjectGuid>{11111111-1111-1111-1111-111111111111}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ICustomerService.cs" />
+    <Compile Include="CustomerService.svc.cs" />
+    <Compile Include="Models\CustomerDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CustomerService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+</Project>

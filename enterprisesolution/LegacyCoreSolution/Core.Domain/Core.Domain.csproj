@@ -1,0 +1,16 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Core.Domain</RootNamespace>
+    <AssemblyName>Core.Domain</AssemblyName>
+    <ProjectGuid>{44444444-4444-4444-4444-444444444444}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Customer.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="AccountBalance.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+  </ItemGroup>
+</Project>

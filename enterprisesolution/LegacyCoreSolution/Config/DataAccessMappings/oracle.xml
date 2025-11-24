@@ -1,0 +1,4 @@
+<oracleConfig>
+  <connection name="BillingOracle" connectionString="Data Source=ORCL;User Id=billing;Password=redacted;" />
+  <mapping file="../Core.DataAccess/Oracle/OracleMapping.xml" />
+</oracleConfig>

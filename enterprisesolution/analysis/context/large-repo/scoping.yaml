@@ -1,0 +1,3 @@
+targets:
+  include: ["**/*.sln","**/*.csproj","**/*.svc","**/*.asmx","**/*.cs","**/*.config","**/*.xml","**/*.ini"]
+  exclude: ["**/bin/**","**/obj/**","**/node_modules/**"]

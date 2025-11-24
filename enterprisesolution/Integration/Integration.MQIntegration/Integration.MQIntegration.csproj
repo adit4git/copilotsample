@@ -1,0 +1,16 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Integration.MQIntegration</RootNamespace>
+    <AssemblyName>Integration.MQIntegration</AssemblyName>
+    <ProjectGuid>{88888888-8888-8888-8888-888888888888}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MqClient.cs" />
+  </ItemGroup>
+</Project>

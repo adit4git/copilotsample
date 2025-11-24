@@ -1,0 +1,17 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Integration.Mainframe.CicsGateway</RootNamespace>
+    <AssemblyName>Integration.Mainframe.CicsGateway</AssemblyName>
+    <ProjectGuid>{77777777-7777-7777-7777-777777777777}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CicsAdapter.cs" />
+    <Compile Include="CicsMapping.cs" />
+  </ItemGroup>
+</Project>
