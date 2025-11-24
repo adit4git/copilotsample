@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "commands": [
+    {
+      "name": "Discover .NET Solution",
+      "description": "Perform a full generic discovery of a legacy .NET 4.x solution.",
+      "prompt": "Use analysis/context/instructions/GENERIC_DOTNET_DISCOVERY_GUIDE.md and analysis/context/prompts/GENERIC_DISCOVERY_PROMPT.md. Discover ALL architecture components in the .NET solution including controllers, WCF/ASMX endpoints, DAL layers, EF6, ADO.NET, Unity DI, namespaces, configs, integrations, stored procedure usage, and dependency graphs. Write results ONLY to analysis/output/01_discovery.md. Do not output inline."
+    },
+    {
+      "name": "Extract All APIs",
+      "description": "Extract every REST/SOAP/WCF/ASMX/API surface from the .NET app.",
+      "prompt": "Using GENERIC_API_EXTRACTION_GUIDE.md, extract ALL API endpoints from MVC, Web API, WCF, ASMX, handlers, and any custom routing. Include routes, verbs, DTOs, returns, exceptions. Write the full service catalog to analysis/output/02_service_catalog.md. No inline output."
+    },
+    {
+      "name": "Extract All DAL",
+      "description": "Extract all ADO.NET, EF6, stored procedures, queries, LINQ, DataSets and custom DAL logic.",
+      "prompt": "Use GENERIC_DAL_DISCOVERY_GUIDE.md and GENERIC_DAL_MODERNIZATION_GUIDE.md to extract ALL DAL patterns. Include connection strings, SQL commands, SP calls, XML/INI mappers, EF models, repository methods, LINQ expressions. Output to analysis/output/03_dal_inventory.md ONLY."
+    },
+    {
+      "name": "Extract Domain Model",
+      "description": "Analyze domain entities, services, relationships, DI graphs.",
+      "prompt": "Apply GENERIC_DOMAIN_INFERENCE_GUIDE.md. Infer domain entities from classes, namespaces, DTOs, EF models, Unity configuration, Core.Services, controllers, and DAL object graphs. Build a domain map. Output to analysis/output/04_domain_model.md. No inline output."
+    },
+    {
+      "name": "Propose Microservices",
+      "description": "Generate bounded contexts and microservice candidates.",
+      "prompt": "Use GENERIC_MICROSERVICE_DECOMPOSITION_GUIDE.md to infer bounded contexts, entity ownership, transactional boundaries, workflow clusters, and API cohesion. Propose microservices. Output to analysis/output/05_microservice_candidates.md."
+    },
+    {
+      "name": "Generate Migration Plan",
+      "description": "Produce a full .NET → Spring Boot modernization plan.",
+      "prompt": "Use GENERIC_SPRINGBOOT_MIGRATION_BLUEPRINT.md and TEMPLATE_MIGRATION_PLAN.md to generate a vendor-neutral migration plan including phases, architecture strategy, data strategy, API rewrite plan, DAL migration, integration approach, and rollout stages. Output to analysis/output/06_migration_plan.md ONLY."
+    },
+    {
+      "name": "Generate Required Spring Boot Services",
+      "description": "Selective code generation for only the services the app actually needs.",
+      "prompt": "Use CODE_GENERATION_PIPELINE.md. Based on extracted domain and microservice candidates, generate ONLY the Spring Boot modules required. Include: Maven multi-module structure, module POMs, application.java, configs, logging, exceptions, basic controller skeletons, and package layout. Output folder: SpringBootGenerated/. No inline output."
+    },
+    {
+      "name": "Generate JPA Entities",
+      "description": "Selective generation of Spring Boot JPA entities.",
+      "prompt": "Based on DAL and domain discovery, generate ONLY required JPA entities. Use naming rules and conventions from CODE_GENERATION_PIPELINE.md and TEMPLATE_SPRINGBOOT_MODULE.md. Write results to SpringBootGenerated/entities.md and entity source files under SpringBootGenerated/<service>/src/main/java/. No inline output."
+    },
+    {
+      "name": "Generate Repositories",
+      "description": "Create Spring Data JPA and MyBatis repositories.",
+      "prompt": "Use TEMPLATE_SPRINGBOOT_MODULE.md and GENERIC_DAL_MODERNIZATION_GUIDE.md. Generate JPA repositories for simple queries and MyBatis XML mappers/JdbcTemplate for complex SQL. Write output under SpringBootGenerated/<service>/src/main/java/... and SpringBootGenerated/<service>/src/main/resources/mappers/. No inline output."
+    },
+    {
+      "name": "Generate Controllers",
+      "description": "Generate REST controllers for migrated microservices (Spring MVC).",
+      "prompt": "Transform .NET controllers, WCF contracts, ASMX WebMethods, Web API controllers using GENERIC_API_EXTRACTION_GUIDE.md and TEMPLATE_SPRINGBOOT_MODULE.md. Output to SpringBootGenerated/<service>/src/main/java/... No inline output."
+    },
+    {
+      "name": "Generate WebFlux Integrations",
+      "description": "Generate non-blocking WebFlux clients for async/remote integrations.",
+      "prompt": "Using TEMPLATE_SPRINGBOOT_WEBFLUX_CLIENT.md and the hybrid design, generate WebClient-based async integration clients for external services, queues, or legacy endpoints. Output to SpringBootGenerated/<service>/src/main/java/... No inline output."
+    },
+    {
+      "name": "Generate Maven Multi-Module Structure",
+      "description": "Generate parent POM + child modules for Option 2 multi-module build.",
+      "prompt": "Based on CODE_GENERATION_PIPELINE.md, generate a multi-module Maven build with parent pom.xml and child services. Output all files to SpringBootGenerated/. No inline output."
+    }
+  ]
+}
