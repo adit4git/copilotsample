@@ -1,0 +1,162 @@
+spring:
+  application:
+    name: spring-batch-multi-db-s3
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # Profile-based configuration
+  profiles:
+    active: local  # Change to 's3' for S3 mode
+
+  datasource:
+    # file-based H2 so the console can always see it while the app runs
+    url: jdbc:h2:file:${user.dir}/target/h2db/app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=Oracle;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+  batch:
+    jdbc:
+      initialize-schema: always
+    # Use the embedded Spring Batch schema for H2
+    schema: classpath:org/springframework/batch/core/schema-h2.sql
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:org/springframework/batch/core/schema-h2.sql
+
+  # Ensure Spring Batch schema is initialized on startup (redundant fallback)
+  initialize-schema: always
+
+# Batch mode: 'local' for CSV file, 'oracle' for Oracle target, 's3' for S3 bucket
+batch:
+  mode: local
+
+# Local CSV configuration
+local:
+  csv:
+    path: classpath:data/customers.csv
+
+aws:
+  s3:
+    bucket-name: your-bucket-name
+    key: path/to/customers.csv
+    endpoint: "" # set to StorageGRID endpoint, e.g. https://s3.storagegrid.company.com
+    path-style-access-enabled: true
+  region: us-east-1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.batch: DEBUG
+    com.example.batchmultidb: DEBUG
+
+---
+# S3 Profile
+spring:
+  config:
+    activate:
+      on-profile: s3
+  datasource:
+    oracle:
+      url: jdbc:oracle:thin:@//YOUR-ORACLE-HOST:1521/YOURSERVICE
+      username: oracle_user
+      password: oracle_password
+      driver-class-name: oracle.jdbc.OracleDriver
+    h2: # audit DB
+      url: jdbc:h2:file:./target/h2db/app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=Oracle;AUTO_SERVER=TRUE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:org/springframework/batch/core/schema-h2.sql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+    show-sql: true
+
+batch:
+  mode: s3
+
+aws:
+  s3:
+    bucket-name: your-bucket-name
+    key: path/to/customers.csv
+    endpoint: "" # StorageGRID endpoint if used
+    path-style-access-enabled: true
+  region: us-east-1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.batch: DEBUG
+    com.example.batchmultidb: DEBUG
+
+---
+# Oracle Profile (local CSV -> Oracle DB)
+spring:
+  config:
+    activate:
+      on-profile: oracle
+  datasource:
+    oracle:
+      url: jdbc:oracle:thin:@//YOUR-ORACLE-HOST:1521/YOURSERVICE
+      username: oracle_user
+      password: oracle_password
+      driver-class-name: oracle.jdbc.OracleDriver
+    h2: # optional audit/secondary store
+      url: jdbc:h2:file:./target/h2db/app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=Oracle;AUTO_SERVER=TRUE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:org/springframework/batch/core/schema-h2.sql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+    show-sql: true
+
+batch:
+  mode: oracle
+
+local:
+  csv:
+    path: classpath:data/customers.csv
+
+logging:
+  level:
+    root: INFO
+    org.springframework.batch: DEBUG
+    com.example.batchmultidb: DEBUG
+    
+server:
+  port: 8085
