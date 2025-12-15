@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+
+# ---- S3 / StorageGRID settings ----
+# IMPORTANT: endpoint must be the BASE endpoint only (no bucket in the URL).
+# Example StorageGRID endpoint styles:
+#   Path-style:        https://s3.company.com:10443   + bucket set in requests
+#   Virtual-hosted:    https://bucket.s3.company.com:10443  (requires endpoint domain names + DNS + cert)
+s3:
+  endpoint: "https://CHANGE-ME:10443"
+  region: "us-east-1"
+  accessKey: "CHANGE_ME"
+  secretKey: "CHANGE_ME"
+  bucket: "CHANGE_ME"
+
+  # For StorageGRID, path-style often avoids "bucket-in-hostname" issues unless endpoint domain names are configured
+  pathStyle: true
+
+  # If you see weird PUT/LIST failures on some S3-compatible systems, try chunkedEncoding: false
+  chunkedEncoding: true
+
+  # If your target doesn't like checksum headers/validation, set false
+  checksumValidation: true
