@@ -1,0 +1,479 @@
+{
+  "description": "Synthetic robustness probes derived from source-query scenarios; hypotheses, not independently adjudicated gold labels.",
+  "poc_version": "0.5.0",
+  "source_workbook": "visible_rows_investment_agent(3).xlsx",
+  "monitor_mode": "one_time",
+  "groups": [
+    {
+      "id": "G01",
+      "source_rows": [
+        114
+      ],
+      "title": "Named client populations",
+      "dimension": "scope",
+      "relationship": "preserve_meaning",
+      "expected": null,
+      "queries": [
+        "Flag major estimate revisions for top holdings across my prioritized clients.",
+        "Flag major estimate revisions for top holdings across John Example, Smith Example and Rita Example's accounts.",
+        "Flag major estimate revisions for top holdings across the selected clients.",
+        "Flag major estimate revisions for top holdings across these three clients."
+      ]
+    },
+    {
+      "id": "G02",
+      "source_rows": [
+        25
+      ],
+      "title": "Equivalent client references",
+      "dimension": "scope",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "account_or_client",
+        "output": "email_draft"
+      },
+      "queries": [
+        "Draft an email explaining recent market volatility to this client.",
+        "Draft an email explaining recent market volatility to the selected client.",
+        "Draft an email explaining recent market volatility to client Avery Example.",
+        "Draft an email explaining recent market volatility to this customer."
+      ]
+    },
+    {
+      "id": "G03",
+      "source_rows": [
+        134
+      ],
+      "title": "One household expressed differently",
+      "dimension": "scope",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "household",
+        "intents": [
+          "portfolio.exposure"
+        ]
+      },
+      "queries": [
+        "Show concentration for this household.",
+        "Show concentration for the selected household.",
+        "Show concentration for the Example family's accounts.",
+        "Show concentration for the accounts in this household."
+      ]
+    },
+    {
+      "id": "G04",
+      "source_rows": [
+        73,
+        134
+      ],
+      "title": "Account group scope",
+      "dimension": "scope",
+      "relationship": "preserve_meaning",
+      "expected": null,
+      "queries": [
+        "Show concentration in this account group.",
+        "Show concentration across these accounts.",
+        "Show concentration in the selected account group.",
+        "Show concentration across this group of accounts."
+      ]
+    },
+    {
+      "id": "G05",
+      "source_rows": [
+        80
+      ],
+      "title": "Credit-spread terminology",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "security_or_instrument",
+        "metric": "credit_spread",
+        "capability_id": "research.credit_spread_explanation"
+      },
+      "queries": [
+        "How has credit spread moved for this issue, and what is driving it?",
+        "How has the credit spread changed for this bond, and why?",
+        "Explain the change in this bond's spread over Treasuries and its drivers.",
+        "Explain the widening or tightening of this issue's credit spread."
+      ]
+    },
+    {
+      "id": "G06",
+      "source_rows": [
+        77,
+        114
+      ],
+      "title": "Estimate-revision terminology",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "security_or_instrument",
+        "metric": "estimate_revisions"
+      },
+      "queries": [
+        "How did estimate revisions change for this stock over the last quarter?",
+        "How were analysts' earnings estimates revised for this stock over the last quarter?",
+        "Explain the changes in consensus earnings forecasts for this stock over the last quarter.",
+        "Summarize analyst upgrades and downgrades to earnings estimates for this stock over the last quarter."
+      ]
+    },
+    {
+      "id": "G07",
+      "source_rows": [
+        2
+      ],
+      "title": "CIO phrasing",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "intents": [
+          "research.cio"
+        ]
+      },
+      "queries": [
+        "What is the current CIO view on interest rates?",
+        "What is the house view on interest rates?",
+        "What does our Chief Investment Office currently think about interest rates?",
+        "What is our investment office's current outlook on interest rates?"
+      ]
+    },
+    {
+      "id": "G08",
+      "source_rows": [
+        66,
+        67
+      ],
+      "title": "Equivalent year-to-date periods",
+      "dimension": "time",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "intents": [
+          "performance.attribution"
+        ]
+      },
+      "queries": [
+        "Explain performance for this portfolio YTD.",
+        "Explain performance for this portfolio year to date.",
+        "Explain performance for this portfolio from the start of this year through today.",
+        "Explain performance for this portfolio since January 1 of this year."
+      ]
+    },
+    {
+      "id": "G09",
+      "source_rows": [
+        49
+      ],
+      "title": "Comparison connective",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "intents": [
+          "product.compare"
+        ],
+        "scope": "account_or_client"
+      },
+      "queries": [
+        "Compare SMA vs ETF for this client.",
+        "Compare an SMA versus an ETF for this client.",
+        "Compare an SMA with an ETF for this client.",
+        "Compare an SMA and an ETF for this client."
+      ]
+    },
+    {
+      "id": "G10",
+      "source_rows": [
+        90,
+        154
+      ],
+      "title": "Task order in a compound request",
+      "dimension": "order",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "goal": "design_tax_aware_concentrated_stock_transition",
+        "output": "tax_aware_transition_proposal",
+        "capability_id": "portfolio.tax_aware_concentration_transition"
+      },
+      "queries": [
+        "Analyze concentration for this client; prepare a tax-aware transition proposal.",
+        "Prepare a tax-aware transition proposal for this client; analyze concentration.",
+        "For this client, analyze concentration and prepare a tax-aware transition proposal.",
+        "Prepare a tax-aware transition proposal after analyzing concentration for this client."
+      ]
+    },
+    {
+      "id": "G11",
+      "source_rows": [
+        25,
+        33
+      ],
+      "title": "Client audience phrasing",
+      "dimension": "audience",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "audience": "client",
+        "output": "email_draft",
+        "scope": "account_or_client"
+      },
+      "queries": [
+        "Draft an email about volatility to this client.",
+        "Draft an email about volatility for this client.",
+        "Draft a client-facing email about volatility for this client.",
+        "Draft an email addressed to this client about volatility."
+      ]
+    },
+    {
+      "id": "G12",
+      "source_rows": [
+        103
+      ],
+      "title": "High-cash screening paraphrases",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "intents": [
+          "book.screen"
+        ],
+        "scope": "advisor_book"
+      },
+      "queries": [
+        "Show clients with high cash balances.",
+        "Identify clients holding unusually large cash positions.",
+        "List clients with excessive cash allocations.",
+        "Find cash-heavy clients in my book."
+      ]
+    },
+    {
+      "id": "G13",
+      "source_rows": [
+        72
+      ],
+      "title": "Drift paraphrases",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "advisor_book",
+        "intents": [
+          "portfolio.drift",
+          "research.cio"
+        ]
+      },
+      "queries": [
+        "Show portfolios outside CIO tactical ranges.",
+        "Show portfolios out of alignment with CIO tactical ranges.",
+        "Show portfolios deviating from CIO allocation bands.",
+        "Show portfolios whose weights have drifted from CIO targets."
+      ]
+    },
+    {
+      "id": "G14",
+      "source_rows": [
+        148
+      ],
+      "title": "Enrollment execution with polite prefixes",
+      "dimension": "effect",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "requested_effect": "operational_action"
+      },
+      "queries": [
+        "Enroll this client in PAS.",
+        "Please enroll this client in PAS.",
+        "Could you enroll this client in PAS?",
+        "I would like you to enroll this client in PAS."
+      ]
+    },
+    {
+      "id": "G15",
+      "source_rows": [
+        148
+      ],
+      "title": "Enrollment guidance paraphrases",
+      "dimension": "effect",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "requested_effect": "read_only",
+        "intents": [
+          "operations.enrollment"
+        ]
+      },
+      "queries": [
+        "How do I enroll this client in PAS?",
+        "Explain how to enroll this client in PAS.",
+        "Tell me the steps to enroll this client in PAS.",
+        "Please explain how I can enroll this client in PAS."
+      ]
+    },
+    {
+      "id": "G16",
+      "source_rows": [
+        32
+      ],
+      "title": "Voicemail rewriting",
+      "dimension": "format",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "output": "voicemail_bullets",
+        "capability_id": "communication.content_transform"
+      },
+      "queries": [
+        "Turn this into three bullets I can say on a voicemail.",
+        "Rewrite this as three voicemail bullets.",
+        "Convert this explanation into three bullets for a voicemail.",
+        "Make this explanation into three voicemail bullets."
+      ]
+    },
+    {
+      "id": "G17",
+      "source_rows": [
+        80
+      ],
+      "title": "Equivalent pending source references",
+      "dimension": "attachment",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "security_or_instrument",
+        "capability_id": "research.credit_spread_explanation"
+      },
+      "queries": [
+        "How has credit spread moved for this issue? See the attached article.",
+        "How has credit spread moved for this issue? See this article.",
+        "How has credit spread moved for this issue? See the enclosed article.",
+        "How has credit spread moved for this issue? See the uploaded screenshot."
+      ]
+    },
+    {
+      "id": "G18",
+      "source_rows": [
+        90,
+        154
+      ],
+      "title": "Tax proposal terminology",
+      "dimension": "synonym",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "output": "tax_aware_transition_proposal",
+        "capability_id": "portfolio.tax_aware_concentration_transition"
+      },
+      "queries": [
+        "Prepare a tax-aware transition proposal for concentrated stock for this client.",
+        "Prepare a tax-sensitive diversification proposal for concentrated stock for this client.",
+        "Prepare a proposal to diversify this client's concentrated stock while minimizing realized taxes.",
+        "Prepare a proposal for this client to transition a concentrated stock position within a gain budget."
+      ]
+    },
+    {
+      "id": "G19",
+      "source_rows": [
+        67
+      ],
+      "title": "Explicit table request",
+      "dimension": "format",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "output": "analysis_table"
+      },
+      "queries": [
+        "Show portfolio performance in a table for this client.",
+        "Explain portfolio performance in a table for this client.",
+        "Summarize portfolio performance in a table for this client.",
+        "Provide a table of portfolio performance for this client."
+      ]
+    },
+    {
+      "id": "G20",
+      "source_rows": [
+        18
+      ],
+      "title": "Punctuation and harmless preamble",
+      "dimension": "surface",
+      "relationship": "preserve_meaning",
+      "expected": {
+        "scope": "advisor_book"
+      },
+      "queries": [
+        "Is today's tech selloff going to impact my client book?",
+        "Hello. Is today's tech selloff going to impact my client book?",
+        "Is today's tech selloff going to impact my client book? Thank you.",
+        "Please assess whether today's tech selloff is going to impact my client book."
+      ]
+    },
+    {
+      "id": "C01",
+      "source_rows": [
+        72
+      ],
+      "title": "Negated drift must not return drift goal",
+      "dimension": "negation",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Show portfolios out of alignment with CIO tactical ranges.",
+        "Do not check portfolios out of alignment with CIO tactical ranges. Find approved funds."
+      ]
+    },
+    {
+      "id": "C02",
+      "source_rows": [
+        80
+      ],
+      "title": "Negated metric must not override requested earnings",
+      "dimension": "metric_negation",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Explain the credit spread for this issue.",
+        "Do not explain credit spread. Explain earnings for this issue."
+      ]
+    },
+    {
+      "id": "C03",
+      "source_rows": [
+        114
+      ],
+      "title": "Top-holdings count",
+      "dimension": "parameter",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Flag major estimate revisions for the top 5 holdings across my prioritized clients.",
+        "Flag major estimate revisions for the top 10 holdings across my prioritized clients."
+      ]
+    },
+    {
+      "id": "C04",
+      "source_rows": [
+        114
+      ],
+      "title": "Materiality value",
+      "dimension": "parameter",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Flag estimate revisions above 5% for holdings across my prioritized clients.",
+        "Flag estimate revisions above 20% for holdings across my prioritized clients."
+      ]
+    },
+    {
+      "id": "C05",
+      "source_rows": [
+        80
+      ],
+      "title": "Negated attachment presence",
+      "dimension": "attachment_negation",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Explain credit spread changes for this issue; see the attached article.",
+        "Explain credit spread changes for this issue; no article is attached."
+      ]
+    },
+    {
+      "id": "C06",
+      "source_rows": [
+        25
+      ],
+      "title": "Draft versus send",
+      "dimension": "effect",
+      "relationship": "deliberate_contrast",
+      "queries": [
+        "Draft an email about volatility to this client.",
+        "Send an email about volatility to this client."
+      ]
+    }
+  ]
+}

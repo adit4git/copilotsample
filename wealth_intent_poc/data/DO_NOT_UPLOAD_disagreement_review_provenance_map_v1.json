@@ -1,0 +1,3529 @@
+{
+  "schema_version": "review_provenance_map.1",
+  "cases": {
+    "base_5": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_6": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_13": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_16": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_17": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_18": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_19": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_21": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_26": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_28": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.content_transform",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.content_transform",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "communication.content_transform",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_30": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_33": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_34": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_38": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.content_transform",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "communication.content_transform",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_39": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_40": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_41": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_42": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_49": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_50": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.approved_discovery",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.approved_discovery",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.approved_discovery",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_56": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_57": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_58": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.approved_discovery",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_68": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "performance.driver_explanation",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "performance.driver_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_71": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.cio_guidance",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_73": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "performance.driver_explanation",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "performance.driver_explanation",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "performance.driver_explanation",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_75": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_76": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_77": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_81": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "research.security_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_86": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.overlap_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_87": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "meeting.review_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "meeting.review_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_89": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "tax.transition_scenario",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "tax.transition_scenario",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_90": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_92": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_94": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "tax.transition_scenario",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "tax.transition_scenario",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_95": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_98": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_101": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.household_screening",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "book.household_screening",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_104": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_106": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_107": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.household_screening",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "book.household_screening",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "book.household_screening",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_108": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_109": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_112": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "monitor.specification",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_114": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_116": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.terms_explanation",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "product.terms_explanation",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.terms_explanation",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_119": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_120": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_121": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_124": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_125": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_126": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "decision.readiness_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_127": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.general_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "communication.client_market_update",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_128": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_132": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "meeting.review_package",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          },
+          {
+            "capability_id": "meeting.review_package",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_133": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.client_exposure_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "base_135": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "solution.objective_proposal",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_137": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "tax.transition_scenario",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_142": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "product.comparison",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "product.terms_explanation",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "base_147": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "operations.enrollment_guidance",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "operations.enrollment_guidance",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "operations.enrollment_guidance",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "base_154": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g01_1": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g01_2": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g01_3": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g01_4": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g10_1": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g10_2": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g10_3": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g10_4": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g13_1": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g13_2": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g13_3": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      }
+    },
+    "g13_4": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CAPABILITY_GAP"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_2",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.drift_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g18_1": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g18_2": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g18_3": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g18_4": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1",
+          "LLM_PASS_3",
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "ROUTE_PREVIEW"
+          },
+          {
+            "capability_id": "portfolio.tax_aware_concentration_transition",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g20_1": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "g20_2": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g20_3": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "g20_4": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "c03_1": {
+      "option_1": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "c03_2": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "monitor.book_signal_specification",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    },
+    "c04_1": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      }
+    },
+    "c04_2": {
+      "option_1": {
+        "sources": [
+          "LLM_PASS_3"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_2": {
+        "sources": [
+          "LLM_PASS_2"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": null,
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_3": {
+        "sources": [
+          "POC_0.6.1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "CLARIFY"
+          }
+        ]
+      },
+      "option_4": {
+        "sources": [
+          "LLM_PASS_1"
+        ],
+        "reported_routes": [
+          {
+            "capability_id": "book.holdings_signal_analysis",
+            "decision": "ROUTE_PREVIEW"
+          }
+        ]
+      }
+    }
+  }
+}

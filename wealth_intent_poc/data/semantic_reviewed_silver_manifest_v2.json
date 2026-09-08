@@ -1,0 +1,23 @@
+{
+  "schema_version": "semantic_reviewed_silver_manifest.2",
+  "records": 242,
+  "quality_tiers": {
+    "CROSS_MODEL_REVIEW_HIGH_CONFIDENCE": 83,
+    "CROSS_MODEL_REVIEW_MEDIUM_CONFIDENCE": 1,
+    "DIAGNOSTIC_ONLY_NO_COMPLETE_MAJORITY": 34,
+    "HIGH_CONFIDENCE_SILVER": 63,
+    "MEDIUM_CONFIDENCE_SILVER": 59,
+    "PENDING_CONTRACT_REVIEW": 1,
+    "PENDING_UNRESOLVED": 1
+  },
+  "usable_semantic_silver_records": 206,
+  "step5_cases": 86,
+  "accepted_step5_cases": 84,
+  "pending_step5_cases": 2,
+  "independent_llm_reviewed_records": 86,
+  "human_reviewed_records": 0,
+  "training_eligible_records": 0,
+  "llm_routing_fields_excluded": true,
+  "dataset_sha256": "807420c71ff06292ba4ec9f3af59d27ae2e9f006ab1cfc211a799d3592ac4512",
+  "assurance": "CROSS_MODEL_LLM_SILVER_ONLY_NOT_HUMAN_GROUND_TRUTH"
+}

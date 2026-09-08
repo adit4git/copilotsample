@@ -1,0 +1,31 @@
+{
+  "schema_version": "semantic_silver_manifest.1",
+  "records": 242,
+  "quality_tiers": {
+    "DIAGNOSTIC_ONLY_CONTRACT_INVALID": 3,
+    "DIAGNOSTIC_ONLY_NO_COMPLETE_MAJORITY": 72,
+    "EXCLUDED_UNRESOLVED": 5,
+    "HIGH_CONFIDENCE_SILVER": 73,
+    "MEDIUM_CONFIDENCE_SILVER": 89
+  },
+  "usable_semantic_silver_records": 162,
+  "training_eligible": 0,
+  "independent_review": false,
+  "semantic_fields_retained": [
+    "intents",
+    "scope",
+    "goal",
+    "output",
+    "audience",
+    "metric",
+    "subject_selection",
+    "requested_effect"
+  ],
+  "llm_routing_fields_excluded": [
+    "capability_id",
+    "decision",
+    "missing_context"
+  ],
+  "dataset_sha256": "7e6f4b5caca93324dec5f995b3d6a70422d4e00dafa5de3791399777c94e930b",
+  "note": "Capability, clarification, decision, and DAG must be derived by deterministic runtime logic."
+}

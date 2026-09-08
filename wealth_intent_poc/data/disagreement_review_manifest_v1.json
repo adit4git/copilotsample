@@ -1,0 +1,17 @@
+{
+  "schema_version": "focused_disagreement_review_manifest.1",
+  "cases": 86,
+  "chunks": 8,
+  "maximum_cases_per_chunk": 12,
+  "reason_counts": {
+    "contract_invalid": 3,
+    "downstream_route_disagreement": 39,
+    "intent_disagreement": 35,
+    "scope_changes_downstream_capability": 19,
+    "unresolved": 5
+  },
+  "candidate_sources_anonymized": true,
+  "master_sha256": "0c0cb65c5d98648445984e440e09f0eb4f63a5803a875c38e7b986703aa3168d",
+  "hidden_provenance_map": "data/DO_NOT_UPLOAD_disagreement_review_provenance_map_v1.json",
+  "assurance": "LLM_SILVER_REVIEW_ONLY_NOT_HUMAN_GROUND_TRUTH"
+}

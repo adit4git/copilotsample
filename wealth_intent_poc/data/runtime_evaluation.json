@@ -1,0 +1,580 @@
+{
+  "schema_version": "5.1",
+  "reports": [
+    {
+      "mode": "rules_only",
+      "threshold": 0.23,
+      "margin": 0.035,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 37,
+            "CAPABILITY_GAP": 46,
+            "CLARIFY": 61
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 85,
+            "UNSUPPORTED": 56,
+            "CONTRACTED_COMPOSITION_PREVIEW": 3
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 10,
+            "CAPABILITY_GAP": 56,
+            "communication.client_market_update": 3,
+            "book.holdings_signal_analysis": 3,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "directory.specialist_lookup": 4,
+            "product.approved_discovery": 5,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 2,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 5,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 2,
+            "tax.planning_guidance": 2,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.transfer_assessment": 1,
+            "operations.order_diagnosis": 3
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.18,
+      "margin": 0.02,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 32,
+            "CAPABILITY_GAP": 60,
+            "CLARIFY": 52
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 73,
+            "UNSUPPORTED": 69,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 69,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 2,
+            "solution.objective_proposal": 2,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "portfolio.overlap_analysis": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 1
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.18,
+      "margin": 0.035,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 33,
+            "CAPABILITY_GAP": 56,
+            "CLARIFY": 55
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 75,
+            "UNSUPPORTED": 67,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 67,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 2,
+            "solution.objective_proposal": 2,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.18,
+      "margin": 0.05,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 33,
+            "CAPABILITY_GAP": 56,
+            "CLARIFY": 55
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 75,
+            "UNSUPPORTED": 67,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 67,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 2,
+            "solution.objective_proposal": 2,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.23,
+      "margin": 0.02,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 51,
+            "CLARIFY": 58
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 81,
+            "UNSUPPORTED": 61,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 61,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 2,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.23,
+      "margin": 0.035,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 50,
+            "CLARIFY": 59
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 81,
+            "UNSUPPORTED": 61,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 61,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 2,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.23,
+      "margin": 0.05,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 50,
+            "CLARIFY": 59
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 81,
+            "UNSUPPORTED": 61,
+            "CONTRACTED_COMPOSITION_PREVIEW": 2
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 61,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 2,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 6,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 1,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 1,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 2,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.28,
+      "margin": 0.02,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 49,
+            "CLARIFY": 60
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 83,
+            "UNSUPPORTED": 58,
+            "CONTRACTED_COMPOSITION_PREVIEW": 3
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 58,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 3,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 5,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 2,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 2,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 3,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.28,
+      "margin": 0.035,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 48,
+            "CLARIFY": 61
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 83,
+            "UNSUPPORTED": 58,
+            "CONTRACTED_COMPOSITION_PREVIEW": 3
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 58,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 3,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 5,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 2,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 2,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 3,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "threshold": 0.28,
+      "margin": 0.05,
+      "strata": [
+        {
+          "provenance": "unknown",
+          "outcome_family": "unknown",
+          "cases": 144,
+          "reviewed_cases": 0,
+          "exact_route_matches": null,
+          "dimension_correct_counts": null,
+          "decisions": {
+            "ROUTE_PREVIEW": 35,
+            "CAPABILITY_GAP": 48,
+            "CLARIFY": 61
+          },
+          "support": {
+            "AUTHORED_TASK_PREVIEW": 83,
+            "UNSUPPORTED": 58,
+            "CONTRACTED_COMPOSITION_PREVIEW": 3
+          },
+          "capabilities": {
+            "research.cio_guidance": 10,
+            "research.guidance_comparison": 1,
+            "communication.general_market_update": 9,
+            "CAPABILITY_GAP": 58,
+            "communication.client_market_update": 4,
+            "book.holdings_signal_analysis": 3,
+            "portfolio.client_exposure_analysis": 3,
+            "communication.content_transform": 3,
+            "product.approved_discovery": 5,
+            "product.comparison": 3,
+            "solution.objective_proposal": 3,
+            "book.household_screening": 1,
+            "performance.driver_explanation": 1,
+            "portfolio.rebalance_scenario": 1,
+            "research.security_explanation": 5,
+            "research.credit_spread_explanation": 1,
+            "portfolio.correlation_analysis": 1,
+            "tax.transition_scenario": 2,
+            "monitor.book_signal_specification": 4,
+            "monitor.specification": 4,
+            "instrument.maturity_analysis": 1,
+            "operations.data_diagnosis": 1,
+            "decision.readiness_package": 6,
+            "meeting.review_package": 2,
+            "product.terms_explanation": 2,
+            "operations.transfer_assessment": 1,
+            "tax.planning_guidance": 1,
+            "directory.specialist_lookup": 3,
+            "tax.wash_sale_review": 1,
+            "operations.enrollment_guidance": 2,
+            "operations.order_diagnosis": 2
+          }
+        }
+      ]
+    }
+  ],
+  "metric_status": "No accuracy without independently adjudicated complete expected routes. Reviewer independence is asserted, not authenticated.",
+  "inference_columns": [
+    "query"
+  ],
+  "llm_requests": 0
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "semantic_annotation.1",
+  "label_fields": [
+    "intents",
+    "scope",
+    "goal",
+    "output",
+    "audience",
+    "metric",
+    "subject_selection",
+    "requested_effect",
+    "capability_id",
+    "decision",
+    "missing_context"
+  ],
+  "multi_value_separator": "|",
+  "required_independent_reviews": 3,
+  "training_gate": {
+    "annotation_status": "adjudicated",
+    "independent_review": true,
+    "labels_complete": true,
+    "minimum_distinct_reviewers": 3,
+    "excluded_provenance": [
+      "rewritten_fixture",
+      "synthetic_probe"
+    ]
+  },
+  "allowed_provenance": [
+    "advisor_email",
+    "template_prompt",
+    "rewritten_fixture",
+    "synthetic_probe",
+    "unknown"
+  ],
+  "note": "Author hypotheses and business workbook columns are never training labels."
+}

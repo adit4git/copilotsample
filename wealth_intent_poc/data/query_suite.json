@@ -1,0 +1,1588 @@
+[
+  {
+    "id": "source_row_2",
+    "source_row": 2,
+    "query": "What is the current CIO view on interest rates?",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_3",
+    "source_row": 3,
+    "query": "Summarize the latest CIO capital market outlook.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_4",
+    "source_row": 4,
+    "query": "What changed in CIO guidance since last month?",
+    "expected_intents": [
+      "research.change"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_5",
+    "source_row": 5,
+    "query": "Prepare client-friendly talking points about CIO guidance on inflation.",
+    "expected_intents": [
+      "research.cio",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_6",
+    "source_row": 6,
+    "query": "What is the CIO view on equities versus fixed income?",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_7",
+    "source_row": 7,
+    "query": "List the most relevant CIO investment themes today.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_8",
+    "source_row": 8,
+    "query": "What is the CIO case for diversification?",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_9",
+    "source_row": 9,
+    "query": "Explain the CIO view on international equities and currency risks.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_10",
+    "source_row": 10,
+    "query": "Find CIO guidance for retirement planning conversations.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_11",
+    "source_row": 11,
+    "query": "Describe the CIO outlook on private markets.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_12",
+    "source_row": 12,
+    "query": "Find current CIO guidance about cash and liquidity.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_13",
+    "source_row": 13,
+    "query": "What should I say about CIO guidance when investors ask about going to cash?",
+    "expected_intents": [
+      "research.cio",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_14",
+    "source_row": 14,
+    "query": "Explain CIO duration positioning today.",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_15",
+    "source_row": 15,
+    "query": "What risks does CIO highlight this quarter?",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_16",
+    "source_row": 16,
+    "query": "Find CIO guidance relevant to concentrated positions.",
+    "expected_intents": [
+      "research.cio",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_17",
+    "source_row": 17,
+    "query": "The market declined today. Explain what happened and draft talking points.",
+    "expected_intents": [
+      "research.security",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_18",
+    "source_row": 18,
+    "query": "How will the technology selloff impact my client book?",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_19",
+    "source_row": 19,
+    "query": "Which clients are exposed to today's macro market moves?",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_20",
+    "source_row": 20,
+    "query": "What CIO market themes should I discuss this morning?",
+    "expected_intents": [
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_21",
+    "source_row": 21,
+    "query": "Where can I find analyst coverage and price targets with the research rationale?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_22",
+    "source_row": 22,
+    "query": "Compare municipal bond laddering versus active bond management.",
+    "expected_intents": [
+      "product.compare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_23",
+    "source_row": 23,
+    "query": "Find the approved model portfolio referred to in a research article.",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_24",
+    "source_row": 24,
+    "query": "Find asset classes whose returns are less correlated.",
+    "expected_intents": [
+      "portfolio.correlation"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_25",
+    "source_row": 25,
+    "query": "Draft an email about recent volatility for this client.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_26",
+    "source_row": 26,
+    "query": "Prepare talking points for an afternoon client call.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_27",
+    "source_row": 27,
+    "query": "Simplify this explanation for a novice investor.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_28",
+    "source_row": 28,
+    "query": "Rewrite this paragraph as a more technical explanation.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_29",
+    "source_row": 29,
+    "query": "Write a one-paragraph market update for an email.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_30",
+    "source_row": 30,
+    "query": "Draft a follow-up email after a volatile week.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_31",
+    "source_row": 31,
+    "query": "Create a script for inbound calls about market movements.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_32",
+    "source_row": 32,
+    "query": "Turn an approved explanation into a voicemail script.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_33",
+    "source_row": 33,
+    "query": "Draft a client-friendly explanation about remaining invested.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_34",
+    "source_row": 34,
+    "query": "Draft a quarterly recap using approved CIO guidance.",
+    "expected_intents": [
+      "research.cio",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_35",
+    "source_row": 35,
+    "query": "Create a message suitable for a tax-sensitive investor.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_36",
+    "source_row": 36,
+    "query": "Create a version for a very risk-averse investor.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_37",
+    "source_row": 37,
+    "query": "Draft a follow-up email with a checklist of pros, cons and next steps.",
+    "expected_intents": [
+      "content.draft",
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_38",
+    "source_row": 38,
+    "query": "Convert CIO guidance into a client-facing paragraph.",
+    "expected_intents": [
+      "research.cio",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_39",
+    "source_row": 39,
+    "query": "Draft a client note on interest rates and cash yields.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_40",
+    "source_row": 40,
+    "query": "Prepare talking points for a structured-note reinvestment proposal.",
+    "expected_intents": [
+      "content.draft",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_41",
+    "source_row": 41,
+    "query": "Compare SMA versus ETF approaches in client-friendly language.",
+    "expected_intents": [
+      "product.compare",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_42",
+    "source_row": 42,
+    "query": "Explain international exposure versus CIO guidance and draft talking points.",
+    "expected_intents": [
+      "portfolio.exposure",
+      "research.cio",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_43",
+    "source_row": 43,
+    "query": "The manager says the fund is up but account reports are down. Reconcile the returns.",
+    "expected_intents": [
+      "performance.reconcile"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_44",
+    "source_row": 44,
+    "query": "Explain differences in the mechanics and performance reporting of a strategy.",
+    "expected_intents": [
+      "performance.reconcile"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_45",
+    "source_row": 45,
+    "query": "Find research on software industry risks and the best way to connect to a specialist.",
+    "expected_intents": [
+      "research.security",
+      "directory.specialist"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_46",
+    "source_row": 46,
+    "query": "Reconcile the distributable amount with a payment and check withholding and W8BEN status.",
+    "expected_intents": [
+      "operations.distribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_47",
+    "source_row": 47,
+    "query": "What approved large cap growth funds are available?",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_48",
+    "source_row": 48,
+    "query": "What approved ways provide small cap exposure?",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_49",
+    "source_row": 49,
+    "query": "Compare SMA versus ETF versus mutual fund options that fit this client.",
+    "expected_intents": [
+      "product.compare",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_50",
+    "source_row": 50,
+    "query": "Which approved strategies fit an income objective?",
+    "expected_intents": [
+      "product.search",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_51",
+    "source_row": 51,
+    "query": "What investment options balance yield and liquidity for this client?",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_52",
+    "source_row": 52,
+    "query": "Design tiered liquidity using short, medium and longer investment horizons.",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_53",
+    "source_row": 53,
+    "query": "Compare direct indexing versus ETF investing for tax efficiency.",
+    "expected_intents": [
+      "product.compare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_54",
+    "source_row": 54,
+    "query": "Find approved products for tax-efficient small company exposure.",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_55",
+    "source_row": 55,
+    "query": "Which approved alternatives options are available on the platform?",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_56",
+    "source_row": 56,
+    "query": "Find CIO-aligned hedging approaches for concentrated positions.",
+    "expected_intents": [
+      "solution.match",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_57",
+    "source_row": 57,
+    "query": "Build a proposal using the current CIO model allocation.",
+    "expected_intents": [
+      "solution.match",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_58",
+    "source_row": 58,
+    "query": "List products that fit this objective and include eligibility constraints.",
+    "expected_intents": [
+      "product.search",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_59",
+    "source_row": 59,
+    "query": "Recommend an investment proposal to reduce volatility while maintaining income.",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_60",
+    "source_row": 60,
+    "query": "Which approved strategies diversify equity exposure across regions?",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_61",
+    "source_row": 61,
+    "query": "A manager is on hold. Find approved alternatives.",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_62",
+    "source_row": 62,
+    "query": "Help identify the best solution for this client's objectives.",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_63",
+    "source_row": 63,
+    "query": "Which strategies are available on the platform for an income objective?",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_64",
+    "source_row": 64,
+    "query": "Compare a structured note versus an SMA.",
+    "expected_intents": [
+      "product.compare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_65",
+    "source_row": 65,
+    "query": "Which clients qualify for alts but do not currently use them?",
+    "expected_intents": [
+      "book.screen"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_66",
+    "source_row": 66,
+    "query": "Explain the main performance drivers in this portfolio.",
+    "expected_intents": [
+      "performance.attribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_67",
+    "source_row": 67,
+    "query": "Which sector allocations contributed to YTD performance?",
+    "expected_intents": [
+      "performance.attribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_68",
+    "source_row": 68,
+    "query": "Explain portfolio underperformance with CIO guidance and benchmark data.",
+    "expected_intents": [
+      "performance.attribution",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_69",
+    "source_row": 69,
+    "query": "Show allocation drift and a proposal to rebalance toward CIO targets.",
+    "expected_intents": [
+      "portfolio.drift",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_70",
+    "source_row": 70,
+    "query": "Calculate rate sensitivity and duration exposure for this client.",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_71",
+    "source_row": 71,
+    "query": "Explain concentration risk using CIO guidance.",
+    "expected_intents": [
+      "portfolio.exposure",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_72",
+    "source_row": 72,
+    "query": "Find portfolios out of alignment with tactical ranges and prioritize outreach.",
+    "expected_intents": [
+      "portfolio.drift",
+      "book.screen"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_73",
+    "source_row": 73,
+    "query": "Explain a performance outlier in an account group.",
+    "expected_intents": [
+      "performance.attribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_74",
+    "source_row": 74,
+    "query": "What reallocations would reduce risk while preserving the intended allocation?",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_75",
+    "source_row": 75,
+    "query": "Which clients are exposed to interest rates moving higher?",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_76",
+    "source_row": 76,
+    "query": "Who is affected by today's technology selloff?",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_77",
+    "source_row": 77,
+    "query": "How did analyst estimate revisions change over the last quarter?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_78",
+    "source_row": 78,
+    "query": "Summarize the latest earnings call and major risks.",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_79",
+    "source_row": 79,
+    "query": "When is the next earnings date and what is consensus expecting?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_80",
+    "source_row": 80,
+    "query": "Explain the recent credit spread movement for this bond issuer.",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_81",
+    "source_row": 81,
+    "query": "Did a ratings agency change the outlook for this issuer?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_82",
+    "source_row": 82,
+    "query": "How has short interest changed for this company?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_83",
+    "source_row": 83,
+    "query": "What news drivers affect this security today?",
+    "expected_intents": [
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_84",
+    "source_row": 84,
+    "query": "Compare practice sales volume with the firm total and show where we rank over twelve months.",
+    "expected_intents": [
+      "practice.analytics"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_85",
+    "source_row": 85,
+    "query": "Run a correlation analysis of a strategy against broad market benchmarks.",
+    "expected_intents": [
+      "portfolio.correlation"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_86",
+    "source_row": 86,
+    "query": "Find the best holdings overlap for a tax-aware transition into an SMA.",
+    "expected_intents": [
+      "portfolio.overlap",
+      "tax.transition"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_87",
+    "source_row": 87,
+    "query": "Prepare an annual review of manager performance and current CIO guidance.",
+    "expected_intents": [
+      "performance.attribution",
+      "research.cio",
+      "meeting.prepare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_88",
+    "source_row": 88,
+    "query": "Build an investment proposal around tax management, lower volatility and income.",
+    "expected_intents": [
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_89",
+    "source_row": 89,
+    "query": "Plan a transition from taxable bonds to munis without selling stocks and realizing gains.",
+    "expected_intents": [
+      "tax.transition"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_90",
+    "source_row": 90,
+    "query": "Build a tax-aware diversification proposal for concentrated stock with unrealized gains.",
+    "expected_intents": [
+      "tax.transition",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_91",
+    "source_row": 91,
+    "query": "Run overlap analysis against two strategies and estimate the transition tax impact.",
+    "expected_intents": [
+      "portfolio.overlap",
+      "tax.transition"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_92",
+    "source_row": 92,
+    "query": "Prepare a direct-indexing proposal for appreciated stock and future tax-loss harvesting.",
+    "expected_intents": [
+      "tax.transition",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_93",
+    "source_row": 93,
+    "query": "Transition a self-directed account into a managed strategy and evaluate holdings overlap.",
+    "expected_intents": [
+      "tax.transition",
+      "portfolio.overlap"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_94",
+    "source_row": 94,
+    "query": "Find a transition path for an appreciated account below the strategy minimum.",
+    "expected_intents": [
+      "tax.transition",
+      "product.terms"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_95",
+    "source_row": 95,
+    "query": "Compare laddered versus actively managed municipal bonds on cost and performance.",
+    "expected_intents": [
+      "product.compare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_96",
+    "source_row": 96,
+    "query": "Find back-tested and full-cycle performance for a tax-aware model.",
+    "expected_intents": [
+      "performance.attribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_97",
+    "source_row": 97,
+    "query": "Measure overlap and international exposure across two blended equity strategies.",
+    "expected_intents": [
+      "portfolio.overlap",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_98",
+    "source_row": 98,
+    "query": "Suggest a proposal with less technology concentration and similar tax-management objectives.",
+    "expected_intents": [
+      "portfolio.exposure",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_99",
+    "source_row": 99,
+    "query": "Compile alternative-fund performance and correlation over several horizons.",
+    "expected_intents": [
+      "portfolio.correlation",
+      "performance.attribution"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_100",
+    "source_row": 100,
+    "query": "Provide a private fund's top ten holdings and weights.",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_101",
+    "source_row": 101,
+    "query": "Which clients are impacted by the CIO update and what next-best-actions should be considered?",
+    "expected_intents": [
+      "portfolio.exposure",
+      "book.screen",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_102",
+    "source_row": 102,
+    "query": "Notify me when portfolios drift beyond CIO targets and draft a client explanation.",
+    "expected_intents": [
+      "monitor.manage",
+      "portfolio.drift",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_103",
+    "source_row": 103,
+    "query": "Show clients with high cash balances and draft outreach talking points.",
+    "expected_intents": [
+      "book.screen",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_104",
+    "source_row": 104,
+    "query": "Alert me to concentration risk above a threshold.",
+    "expected_intents": [
+      "monitor.manage",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_105",
+    "source_row": 105,
+    "query": "Which clients qualify for alts but do not use them, and what proposal fits their objectives?",
+    "expected_intents": [
+      "book.screen",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_106",
+    "source_row": 106,
+    "query": "Proactively flag rising portfolio volatility and prepare a risk-mitigation proposal.",
+    "expected_intents": [
+      "monitor.manage",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_107",
+    "source_row": 107,
+    "query": "Surface next-best-actions across my book with CIO citations.",
+    "expected_intents": [
+      "book.screen",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_108",
+    "source_row": 108,
+    "query": "Alert me when a ratings agency changes an issuer outlook.",
+    "expected_intents": [
+      "monitor.manage",
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_109",
+    "source_row": 109,
+    "query": "Notify me when changes in CIO guidance are material for clients.",
+    "expected_intents": [
+      "monitor.manage",
+      "research.change"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_110",
+    "source_row": 110,
+    "query": "Create a daily market brief showing client exposure to market events.",
+    "expected_intents": [
+      "monitor.manage",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_111",
+    "source_row": 111,
+    "query": "Alert me if a closed-end fund discount widens beyond my threshold.",
+    "expected_intents": [
+      "monitor.manage"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_112",
+    "source_row": 112,
+    "query": "Notify me when the manager fee changes for a strategy.",
+    "expected_intents": [
+      "monitor.manage",
+      "product.terms"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_113",
+    "source_row": 113,
+    "query": "Alert me when a fund research rating changes.",
+    "expected_intents": [
+      "monitor.manage"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_114",
+    "source_row": 114,
+    "query": "Flag major estimate revisions for top holdings.",
+    "expected_intents": [
+      "monitor.manage",
+      "research.security"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_115",
+    "source_row": 115,
+    "query": "Calculate the maturity proceeds and return for a note maturing after its calculation date.",
+    "expected_intents": [
+      "instrument.payout"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_116",
+    "source_row": 116,
+    "query": "Retrieve the maturity terms for two structured notes.",
+    "expected_intents": [
+      "product.terms"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_117",
+    "source_row": 117,
+    "query": "Duplicate ticker symbols in the product archive are distorting percentages.",
+    "expected_intents": [
+      "operations.data_issue"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_118",
+    "source_row": 118,
+    "query": "Summarize the decision trade-offs to discuss with a client.",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_119",
+    "source_row": 119,
+    "query": "List key risks, benefits and required disclosures for a proposal.",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_120",
+    "source_row": 120,
+    "query": "Which approvals should I confirm before presenting this recommendation?",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_121",
+    "source_row": 121,
+    "query": "What disclosures should accompany this recommendation?",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_122",
+    "source_row": 122,
+    "query": "Create a decision summary for documentation after the meeting.",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_123",
+    "source_row": 123,
+    "query": "Generate follow-up tasks and a checklist of next steps.",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_124",
+    "source_row": 124,
+    "query": "Draft a post-meeting recap and next steps note.",
+    "expected_intents": [
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_125",
+    "source_row": 125,
+    "query": "What questions is the client likely to ask about this proposal?",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_126",
+    "source_row": 126,
+    "query": "Which assumptions affect the recommendation most?",
+    "expected_intents": [
+      "decision.readiness"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_127",
+    "source_row": 127,
+    "query": "Draft a compliance-friendly rationale for client notes.",
+    "expected_intents": [
+      "decision.readiness",
+      "content.draft"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_128",
+    "source_row": 128,
+    "query": "What portfolio proposal makes sense given current CIO guidance and client objectives?",
+    "expected_intents": [
+      "solution.match",
+      "research.cio"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_129",
+    "source_row": 129,
+    "query": "Identify concentration risks across my book and prepare a mitigation proposal.",
+    "expected_intents": [
+      "portfolio.exposure",
+      "book.screen",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_130",
+    "source_row": 130,
+    "query": "Generate a meeting book with standard sections and custom content.",
+    "expected_intents": [
+      "meeting.prepare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_131",
+    "source_row": 131,
+    "query": "Can the prospect assets transfer and what target portfolio should we propose?",
+    "expected_intents": [
+      "operations.transfer",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_132",
+    "source_row": 132,
+    "query": "What changed since the last review?",
+    "expected_intents": [
+      "meeting.prepare"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_133",
+    "source_row": 133,
+    "query": "Before the meeting, review the client's concentration in market-linked investments.",
+    "expected_intents": [
+      "meeting.prepare",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_134",
+    "source_row": 134,
+    "query": "Analyze concentration across several accounts using a statement.",
+    "expected_intents": [
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_135",
+    "source_row": 135,
+    "query": "Find downside protection strategies for a concentrated position.",
+    "expected_intents": [
+      "solution.match",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_136",
+    "source_row": 136,
+    "query": "Explain STARS notes, their mechanics and applicable investor characteristics.",
+    "expected_intents": [
+      "product.terms"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_137",
+    "source_row": 137,
+    "query": "Prepare a transition proposal for company shares after a lockup expires.",
+    "expected_intents": [
+      "tax.transition",
+      "solution.match"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_138",
+    "source_row": 138,
+    "query": "A commercial property sale needs tax planning and consideration of a DST.",
+    "expected_intents": [
+      "tax.planning"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_139",
+    "source_row": 139,
+    "query": "Find approved platform options for investing in a private company.",
+    "expected_intents": [
+      "product.search"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_140",
+    "source_row": 140,
+    "query": "Which approaches address passive income needs and passive real estate losses?",
+    "expected_intents": [
+      "tax.planning"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_141",
+    "source_row": 141,
+    "query": "Find a specialist for family office and philanthropic services.",
+    "expected_intents": [
+      "directory.specialist"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_142",
+    "source_row": 142,
+    "query": "Compare incentive fees, share classes and subscription windows for private funds.",
+    "expected_intents": [
+      "product.terms"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_143",
+    "source_row": 143,
+    "query": "Find a product representative for a direct-indexing strategy.",
+    "expected_intents": [
+      "directory.specialist"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_144",
+    "source_row": 144,
+    "query": "Could dividend reinvestment in another account create a wash sale?",
+    "expected_intents": [
+      "tax.wash_sale"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_145",
+    "source_row": 145,
+    "query": "Explain how to enroll clients in an approved MLP strategy.",
+    "expected_intents": [
+      "operations.enrollment"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_146",
+    "source_row": 146,
+    "query": "Can we enroll in a tax overlay before the cash arrives?",
+    "expected_intents": [
+      "operations.enrollment"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_147",
+    "source_row": 147,
+    "query": "During enrollment, what goes in the manager fee rate field versus the total client rate?",
+    "expected_intents": [
+      "operations.enrollment"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_148",
+    "source_row": 148,
+    "query": "What are the steps to enroll in a PAS account?",
+    "expected_intents": [
+      "operations.enrollment"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_149",
+    "source_row": 149,
+    "query": "Put me in contact with a wholesaler for a private fund.",
+    "expected_intents": [
+      "directory.specialist"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_150",
+    "source_row": 150,
+    "query": "Can these alternative-fund positions transfer in kind from a contra firm?",
+    "expected_intents": [
+      "operations.transfer"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_151",
+    "source_row": 151,
+    "query": "Diagnose a submitted order with a grayed out submit button and an expired profile.",
+    "expected_intents": [
+      "operations.order"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_152",
+    "source_row": 152,
+    "query": "Review entity eligibility for requests to invest through a US corporation.",
+    "expected_intents": [
+      "operations.order"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_153",
+    "source_row": 153,
+    "query": "Will an approver's sabbatical affect an order already submitted?",
+    "expected_intents": [
+      "operations.order"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  },
+  {
+    "id": "source_row_154",
+    "source_row": 154,
+    "query": "Prepare a tax-aware diversification proposal for concentrated stock holdings with capital gains.",
+    "expected_intents": [
+      "tax.transition",
+      "solution.match",
+      "portfolio.exposure"
+    ],
+    "annotation_status": "proposed_required_labels",
+    "origin": "manually_rewritten_from_source_scenario"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "schema_version": "semantic_corpus.1",
+  "records": 242,
+  "source_groups": 170,
+  "training_eligible": 0,
+  "source_inputs": [
+    "data/query_suite.json",
+    "synthetic_semantic_queries.json"
+  ],
+  "corpus_sha256": "ace14d3699a15fb3555c08d948b46bd2d996bf6f3d5cc765fed4f1e0db52d6d2",
+  "note": "All records require independent annotation; current authored/synthetic records are excluded from model training."
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "step5_review_analysis.1",
+  "review_cases_issued": 86,
+  "review_cases_returned": 86,
+  "coverage_complete": true,
+  "resolution_counts": {
+    "SELECT_OPTION": 85,
+    "UNRESOLVED": 1
+  },
+  "confidence_counts": {
+    "high": 83,
+    "medium": 3
+  },
+  "acceptance_counts": {
+    "ACCEPTED_SEMANTIC_SILVER": 84,
+    "PENDING_CONTRACT_REVIEW": 1,
+    "PENDING_UNRESOLVED": 1
+  },
+  "selected_candidate_source_combinations": {
+    "POC_0.6.1": 20,
+    "LLM_PASS_2": 16,
+    "LLM_PASS_1": 14,
+    "LLM_PASS_1 + LLM_PASS_2 + LLM_PASS_3": 10,
+    "LLM_PASS_1 + LLM_PASS_3": 8,
+    "LLM_PASS_2 + LLM_PASS_3": 6,
+    "LLM_PASS_1 + LLM_PASS_3 + POC_0.6.1": 6,
+    "LLM_PASS_3": 4,
+    "LLM_PASS_1 + LLM_PASS_2 + POC_0.6.1": 1
+  },
+  "accepted_choice_includes_issued_poc": 27,
+  "accepted_baseline_exact": 45,
+  "accepted_baseline_exact_rate": 0.5357,
+  "accepted_baseline_changed": 39,
+  "baseline_changed_field_counts": {
+    "intents": 32,
+    "scope": 17,
+    "subject_selection": 15,
+    "goal": 12,
+    "audience": 8,
+    "output": 7,
+    "metric": 5,
+    "requested_effect": 5
+  },
+  "poc_comparison": {
+    "accepted_cases": 84,
+    "issued_poc_version": "0.6.1",
+    "current_poc_version": "0.7.0",
+    "pre_change_exact": 29,
+    "pre_change_exact_rate": 0.3452,
+    "current_exact": 29,
+    "current_exact_rate": 0.3452,
+    "pre_change_field_agreement": {
+      "intents": {
+        "count": 44,
+        "rate": 0.5238
+      },
+      "scope": {
+        "count": 54,
+        "rate": 0.6429
+      },
+      "goal": {
+        "count": 71,
+        "rate": 0.8452
+      },
+      "output": {
+        "count": 48,
+        "rate": 0.5714
+      },
+      "audience": {
+        "count": 82,
+        "rate": 0.9762
+      },
+      "metric": {
+        "count": 81,
+        "rate": 0.9643
+      },
+      "subject_selection": {
+        "count": 64,
+        "rate": 0.7619
+      },
+      "requested_effect": {
+        "count": 82,
+        "rate": 0.9762
+      }
+    },
+    "current_field_agreement": {
+      "intents": {
+        "count": 44,
+        "rate": 0.5238
+      },
+      "scope": {
+        "count": 54,
+        "rate": 0.6429
+      },
+      "goal": {
+        "count": 72,
+        "rate": 0.8571
+      },
+      "output": {
+        "count": 58,
+        "rate": 0.6905
+      },
+      "audience": {
+        "count": 82,
+        "rate": 0.9762
+      },
+      "metric": {
+        "count": 82,
+        "rate": 0.9762
+      },
+      "subject_selection": {
+        "count": 64,
+        "rate": 0.7619
+      },
+      "requested_effect": {
+        "count": 82,
+        "rate": 0.9762
+      }
+    },
+    "interpretation": "Agreement with targeted LLM silver labels, not accuracy or financial validation."
+  },
+  "consolidated_records": 242,
+  "consolidated_usable_semantic_silver_records": 206,
+  "consolidated_quality_tiers": {
+    "CROSS_MODEL_REVIEW_HIGH_CONFIDENCE": 83,
+    "CROSS_MODEL_REVIEW_MEDIUM_CONFIDENCE": 1,
+    "DIAGNOSTIC_ONLY_NO_COMPLETE_MAJORITY": 34,
+    "HIGH_CONFIDENCE_SILVER": 63,
+    "MEDIUM_CONFIDENCE_SILVER": 59,
+    "PENDING_CONTRACT_REVIEW": 1,
+    "PENDING_UNRESOLVED": 1
+  },
+  "human_reviewed_records": 0,
+  "training_eligible_records": 0,
+  "reviewer_routing_fields_imported": false,
+  "adjudicated_sha256": "ed2c7a49d41071272008277576bb30dc04d612436e38cb898d7ce4e4d2edc4f5",
+  "consolidated_sha256": "807420c71ff06292ba4ec9f3af59d27ae2e9f006ab1cfc211a799d3592ac4512"
+}

@@ -1,0 +1,346 @@
+{
+  "version": "focused-semantic-review.1",
+  "intents": {
+    "research.cio": {
+      "description": "CIO guidance",
+      "operation": "retrieve",
+      "examples": [
+        "What is the house view on interest rates?",
+        "Find the latest CIO outlook for equities and bonds.",
+        "Explain our investment office guidance on liquidity.",
+        "What is CIO saying about retirement and private markets?"
+      ]
+    },
+    "research.change": {
+      "description": "Compare guidance versions",
+      "operation": "compare",
+      "examples": [
+        "Compare this month's investment guidance with last month's.",
+        "What changed in our CIO position since the previous review?",
+        "Identify differences between the current and prior CIO publications."
+      ]
+    },
+    "research.security": {
+      "description": "Security and market research",
+      "operation": "retrieve",
+      "examples": [
+        "When is the next earnings announcement and what is consensus?",
+        "Explain the drivers of the technology selloff.",
+        "Find a company's short interest and analyst price targets.",
+        "Summarize issuer credit spread changes and rating outlooks."
+      ]
+    },
+    "product.search": {
+      "description": "Discover products",
+      "operation": "screen",
+      "examples": [
+        "Find approved funds for an income objective.",
+        "Which investment strategies are offered on this platform?",
+        "What products provide small company exposure?",
+        "Find alternatives for a manager put on hold."
+      ]
+    },
+    "product.compare": {
+      "description": "Compare investment solutions",
+      "operation": "compare",
+      "examples": [
+        "Compare a separately managed account with an exchange traded fund.",
+        "Contrast a municipal ladder against active bond management.",
+        "Explain fees and tradeoffs of mutual funds versus structured notes.",
+        "Does direct indexing make more sense than an ETF?"
+      ]
+    },
+    "product.terms": {
+      "description": "Product terms and mechanics",
+      "operation": "retrieve",
+      "examples": [
+        "Explain this fund's subscription windows and incentive fee.",
+        "Find the maturity terms for this market linked investment.",
+        "How do STARS notes work and what are the share classes?",
+        "What are the strategy fee and minimum?"
+      ]
+    },
+    "portfolio.exposure": {
+      "description": "Exposure and concentration",
+      "operation": "calculate",
+      "examples": [
+        "Measure interest rate sensitivity across my households.",
+        "Which clients hold technology stocks affected by today's selloff?",
+        "Show concentration and sector weights in the account.",
+        "How much of this private fund is invested in a specific company?"
+      ]
+    },
+    "portfolio.drift": {
+      "description": "Allocation drift",
+      "operation": "calculate",
+      "examples": [
+        "Check accounts outside their tactical allocation bands.",
+        "Which portfolios have drifted away from CIO weights?",
+        "Measure deviations from model target ranges."
+      ]
+    },
+    "portfolio.overlap": {
+      "description": "Holdings overlap",
+      "operation": "calculate",
+      "examples": [
+        "Measure shared holdings between the account and candidate models.",
+        "Find overlap across two equity sleeves.",
+        "Which SMA has the best overlap with the existing stocks?"
+      ]
+    },
+    "portfolio.correlation": {
+      "description": "Correlation analysis",
+      "operation": "calculate",
+      "examples": [
+        "Calculate correlation of this strategy against broad market indexes.",
+        "Find diversification using return correlations.",
+        "Compare three year correlation for alternative funds."
+      ]
+    },
+    "performance.attribution": {
+      "description": "Performance and attribution",
+      "operation": "calculate",
+      "examples": [
+        "Explain which sectors contributed to year to date returns.",
+        "Analyze the portfolio's underperformance relative to its benchmark.",
+        "Show manager performance since inception.",
+        "Retrieve historical and back tested performance."
+      ]
+    },
+    "performance.reconcile": {
+      "description": "Reconcile reported returns",
+      "operation": "reconcile",
+      "examples": [
+        "The manager reports a gain while the account reports a loss.",
+        "Why does the account return disagree with the manager return?",
+        "Reconcile reporting differences including distributions and dates."
+      ]
+    },
+    "tax.transition": {
+      "description": "Tax-aware transition scenario",
+      "operation": "simulate",
+      "examples": [
+        "Transition appreciated shares into a managed portfolio within a gain budget.",
+        "Estimate capital gains from moving this portfolio to a new SMA.",
+        "Diversify a large stock position while minimizing realized taxes.",
+        "Move taxable bonds into municipal bonds without selling stocks."
+      ]
+    },
+    "tax.wash_sale": {
+      "description": "Wash-sale exposure review",
+      "operation": "assess",
+      "examples": [
+        "Could dividend reinvestment in another account create a wash sale?",
+        "Check household trading for loss harvesting conflicts.",
+        "Evaluate substantially identical security purchases around a loss sale."
+      ]
+    },
+    "tax.planning": {
+      "description": "Tax planning specialist review",
+      "operation": "assess",
+      "examples": [
+        "What solutions might address passive real estate losses?",
+        "A property sale needs a tax planning discussion about DST structures.",
+        "Find a specialist for tax deferral after a commercial real estate sale."
+      ]
+    },
+    "solution.match": {
+      "description": "Match solutions to objectives",
+      "operation": "recommend_options",
+      "examples": [
+        "Build an investment proposal for this client's goals and restrictions.",
+        "Suggest a portfolio balancing liquidity and yield.",
+        "Find CIO aligned hedging approaches for concentrated stock.",
+        "Recommend lower risk index choices for a tax-sensitive investor."
+      ]
+    },
+    "book.screen": {
+      "description": "Screen and prioritize households",
+      "operation": "screen",
+      "examples": [
+        "Identify households eligible for alternatives but not invested.",
+        "Rank clients with high cash balances for outreach.",
+        "Find next best actions across the advisor book."
+      ]
+    },
+    "practice.analytics": {
+      "description": "Practice sales and rankings",
+      "operation": "calculate",
+      "examples": [
+        "Rank our team by structured product volume against the firm.",
+        "Report our allocations and the national total over twelve months.",
+        "What was the practice sales volume by instrument?"
+      ]
+    },
+    "monitor.manage": {
+      "description": "Prepare monitoring rule",
+      "operation": "configure_monitor",
+      "examples": [
+        "Notify me whenever allocation drift exceeds the threshold.",
+        "Create a daily exposure alert for the client book.",
+        "Stop these alerts or change the monitoring threshold."
+      ]
+    },
+    "content.draft": {
+      "description": "Draft or rewrite communication",
+      "operation": "draft",
+      "examples": [
+        "Write a client email about market volatility.",
+        "Rewrite this paragraph in plain language.",
+        "Prepare talking points and a voicemail script.",
+        "Draft a client-friendly follow-up note."
+      ]
+    },
+    "meeting.prepare": {
+      "description": "Assemble client review",
+      "operation": "assemble",
+      "examples": [
+        "Assemble a meeting book with a portfolio review and agenda.",
+        "What do I need to know before the client meeting?",
+        "Prepare an annual review and describe changes since the last review."
+      ]
+    },
+    "decision.readiness": {
+      "description": "Decision and disclosure checklist",
+      "operation": "assess",
+      "examples": [
+        "List the disclosures, assumptions and approvals needed for this proposal.",
+        "Prepare a decision checklist with benefits and risks.",
+        "What questions and tradeoffs should be discussed before presenting?"
+      ]
+    },
+    "operations.enrollment": {
+      "description": "Enrollment guidance",
+      "operation": "retrieve",
+      "examples": [
+        "How do I enroll in a managed account program?",
+        "Can enrollment happen before cash arrives?",
+        "What should I enter in the manager fee field during enrollment?"
+      ]
+    },
+    "operations.transfer": {
+      "description": "Transfer and custody eligibility",
+      "operation": "assess",
+      "examples": [
+        "Can these private funds transfer in kind from another firm?",
+        "Check whether the receiving account can custody these assets.",
+        "Determine which prospect assets can be received and held."
+      ]
+    },
+    "operations.order": {
+      "description": "Order and approval diagnosis",
+      "operation": "diagnose",
+      "examples": [
+        "Diagnose a submitted order with an expired investor profile.",
+        "Why is the submit button disabled and the deadline moved?",
+        "Will an unavailable approver delay an order?",
+        "Review entity eligibility for an offshore fund subscription."
+      ]
+    },
+    "operations.distribution": {
+      "description": "Distribution and withholding reconciliation",
+      "operation": "reconcile",
+      "examples": [
+        "Reconcile a distribution payment with its stated distributable amount.",
+        "Why was tax withheld from this private fund payout?",
+        "Check whether expired tax documentation affected a distribution."
+      ]
+    },
+    "instrument.payout": {
+      "description": "Structured-note payout",
+      "operation": "calculate",
+      "examples": [
+        "Calculate the maturity proceeds and cash available to reinvest.",
+        "What is the realized return for the market linked note maturing tomorrow?",
+        "Confirm the payoff after the instrument calculation date."
+      ]
+    },
+    "operations.data_issue": {
+      "description": "Product data issue",
+      "operation": "diagnose",
+      "examples": [
+        "Duplicate instrument symbols are corrupting archive return data.",
+        "The market linked product website shows missing information.",
+        "Report a product identifier collision in the archive."
+      ]
+    },
+    "directory.specialist": {
+      "description": "Find a specialist or contact",
+      "operation": "retrieve",
+      "examples": [
+        "Find the product representative for a strategy.",
+        "Connect me to a wholesaler who can answer fund questions.",
+        "Who covers family office and philanthropic services?"
+      ]
+    }
+  },
+  "scope": {
+    "general": "no specific subject",
+    "account_or_client": "one client/account",
+    "household": "related household accounts",
+    "subject_set": "selected/named/filtered multi-subject set",
+    "advisor_book": "entire advisor book",
+    "portfolio": "portfolio as analytical subject",
+    "security_or_instrument": "issuer/security/issue/note",
+    "product_or_strategy": "product/program/strategy",
+    "practice": "advisor-team business analytics"
+  },
+  "subject_selection": {
+    "unspecified": "not determinable",
+    "single_subject": "one subject",
+    "explicit_subject_references": "named/enumerated/selected set",
+    "prioritized_clients": "prioritized-client set",
+    "criteria_filtered_book": "query-defined criteria",
+    "entire_book": "complete advisor book"
+  },
+  "requested_effect": {
+    "read_only": "research/analysis/guidance",
+    "draft_only": "create but do not send",
+    "ambiguous_monitor": "one-time versus recurring unresolved",
+    "monitor_specification": "define recurring monitoring",
+    "operational_action": "perform external action"
+  },
+  "audience": [
+    "advisor",
+    "client"
+  ],
+  "metrics": [
+    "credit_spread",
+    "estimate_revisions",
+    "credit_rating",
+    "short_interest",
+    "earnings",
+    "duration",
+    "sector_exposure"
+  ],
+  "outputs": [
+    "cited_answer",
+    "cited_explanation",
+    "email_draft",
+    "talking_points",
+    "voicemail_script",
+    "voicemail_bullets",
+    "analysis_table",
+    "ranked_table",
+    "comparison_table",
+    "solution_shortlist",
+    "guidance_or_diagnostic_checklist",
+    "decision_summary",
+    "meeting_book",
+    "review_comparison",
+    "tax_aware_transition_proposal",
+    "holdings_signal_analysis"
+  ],
+  "goals": [
+    "interpret_market_signal",
+    "explain_credit_spread_change",
+    "screen_market_signals_for_client_holdings",
+    "design_tax_aware_concentrated_stock_transition",
+    "draft_client_market_update",
+    "transform_supplied_content",
+    "compare_rebalance_scenario",
+    "review_changes",
+    "fulfill_registered_tasks"
+  ],
+  "null_policy": "Use null only when the request cannot support a registered single value."
+}

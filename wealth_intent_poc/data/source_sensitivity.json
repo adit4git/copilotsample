@@ -1,0 +1,608 @@
+{
+  "purpose": "descriptive_sensitivity_not_tuning",
+  "grid": [
+    {
+      "threshold": 0.18,
+      "margin": 0.02,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 45,
+        "review_count": 13,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.18,
+          "margin": 0.02,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 13
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 25
+        }
+      ]
+    },
+    {
+      "threshold": 0.18,
+      "margin": 0.035,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 45,
+        "review_count": 13,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.18,
+          "margin": 0.035,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 13
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 25
+        }
+      ]
+    },
+    {
+      "threshold": 0.18,
+      "margin": 0.07,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 46,
+        "review_count": 13,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.18,
+          "margin": 0.07,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 13
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 26
+        }
+      ]
+    },
+    {
+      "threshold": 0.23,
+      "margin": 0.02,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 46,
+        "review_count": 12,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.23,
+          "margin": 0.02,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 25
+        }
+      ]
+    },
+    {
+      "threshold": 0.23,
+      "margin": 0.035,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 46,
+        "review_count": 12,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.23,
+          "margin": 0.035,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 25
+        }
+      ]
+    },
+    {
+      "threshold": 0.23,
+      "margin": 0.07,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 47,
+        "review_count": 12,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.23,
+          "margin": 0.07,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 26
+        }
+      ]
+    },
+    {
+      "threshold": 0.3,
+      "margin": 0.02,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 48,
+        "review_count": 11,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.3,
+          "margin": 0.02,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 27
+        }
+      ]
+    },
+    {
+      "threshold": 0.3,
+      "margin": 0.035,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 48,
+        "review_count": 11,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.3,
+          "margin": 0.035,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 27
+        }
+      ]
+    },
+    {
+      "threshold": 0.3,
+      "margin": 0.07,
+      "summary": {
+        "cases": 151,
+        "evaluated_cases": 145,
+        "quarantined_cases": 6,
+        "reviewed_cases": 0,
+        "clarify_count": 48,
+        "review_count": 11,
+        "outbound_llm_requests": 0,
+        "registry_digest": "c17af287155124b7",
+        "settings": {
+          "threshold": 0.3,
+          "margin": 0.07,
+          "status": "unvalidated_placeholders"
+        },
+        "label_caveat": "No aggregate accuracy claim. Rewritten fixtures are regression diagnostics only. Metrics require operator-asserted independent, adjudicated labels; provenance unknown stays unknown. The screenshot corpus has no known production-frequency relationship."
+      },
+      "strata": [
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "120_to_400",
+          "composition": "unknown",
+          "cases": 28,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 14
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "over_400",
+          "composition": "unknown",
+          "cases": 13,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 7
+        },
+        {
+          "mode": "hybrid",
+          "provenance": "unknown",
+          "length_band": "under_120",
+          "composition": "unknown",
+          "cases": 104,
+          "reviewed_cases": 0,
+          "expected_label_assignments": 0,
+          "required_label_recall": null,
+          "exact_set_rate": null,
+          "exact_set_wilson_95": null,
+          "scope_accuracy": null,
+          "decision_accuracy": null,
+          "clarifications": 27
+        }
+      ]
+    }
+  ]
+}
