@@ -8,7 +8,7 @@ Every file referenced here was verified by actually reconstructing it and diffin
 
 ## Step 0 — Confirm your source PDFs match
 
-`parse_catalog.py` (Step 4) depends on the *exact* section-header wording in `ml-investment-advisory-program-strategy-catalog.pdf`. An earlier pass of this same parser silently mis-filed rows under the wrong sleeve because the PDF's body text didn't match its own table of contents in five places (e.g. body says "Multi-Style Equity", TOC says "Multi-Style"). The parser already has those five aliases built in — but if your copy of the catalog is a different edition, re-verify by running the parser and checking that every one of its ~52 sections has at least one product (a section with zero rows usually means a header-text mismatch, not an empty section).
+`parse_catalog.py` (Step 4) depends on the *exact* section-header wording in `advisory-program-strategy-catalog.pdf`. An earlier pass of this same parser silently mis-filed rows under the wrong sleeve because the PDF's body text didn't match its own table of contents in five places (e.g. body says "Multi-Style Equity", TOC says "Multi-Style"). The parser already has those five aliases built in — but if your copy of the catalog is a different edition, re-verify by running the parser and checking that every one of its ~52 sections has at least one product (a section with zero rows usually means a header-text mismatch, not an empty section).
 
 ---
 
