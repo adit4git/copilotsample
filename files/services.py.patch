@@ -1,0 +1,574 @@
+--- /tmp/baseline_services.py	2026-09-27 22:03:32.399135660 +0000
++++ app/services.py	2026-09-27 11:33:42.570841123 +0000
+@@ -176,7 +176,7 @@
+ # Some offerings model a real portfolio transition (trades to execute); others
+ # are procedural onboardings (paperwork, meetings, funding). Both kinds share
+ # the same top-level shape so the frontend can render them consistently.
+-TRADE_MODELABLE = {'directIndexing','taxManagedSMA','qlhOverlay','dtlhOverlay','temSms','transition','mgiTer','mgiQlh','mgiDtlh'}
++TRADE_MODELABLE = {'directIndexing','taxManagedSMA','qlhOverlay','dtlhOverlay','temSms','transition','mgiTer','mgiQlh','mgiDtlh','dca'}
+ PROCEDURAL_OFFERINGS = {'alternatives','privateBanking','trustEstate','lending','insurance','charitable','iapEnrollment'}
+ # Illustrative ETF tickers used in this demo book. A real deployment would
+ # resolve this from a security master, not a hard-coded list.
+@@ -217,10 +217,22 @@
+ 
+ def _gap_analysis(hh, e, offering, verdict):
+     gaps = []
+-    if verdict and verdict.get('verdict') == 'NEEDS_REVIEW':
++    prereq = (verdict or {}).get('prerequisite')
++    if prereq and prereq.get('verdict') not in ('ELIGIBLE', None):
++        # This offering's own rules may look clean (or merely unresolved),
++        # but nothing here can actually happen until the household is
++        # enrolled in the base program -- surface that first and plainly,
++        # since it's the real, immediate blocker for a brokerage-only
++        # prospect and must not get buried beneath the offering's own
++        # unresolved-field noise.
++        for r in prereq.get('reasons', []) + prereq.get('internal_only_reasons', []):
++            if not r.get('missing_fields'):
++                gaps.append({'severity':'required','message': f"IAP enrollment required first: {r.get('message','')}"})
++    if verdict and verdict.get('verdict') in ('NEEDS_REVIEW', 'INELIGIBLE'):
++        sev = 'review' if verdict['verdict'] == 'NEEDS_REVIEW' else 'required'
+         for r in verdict.get('reasons', []) + verdict.get('internal_only_reasons', []):
+             if not r.get('missing_fields'):
+-                gaps.append({'severity':'review','message': r.get('message','')})
++                gaps.append({'severity':sev,'message': r.get('message','')})
+         for f in verdict.get('missing_fields', []):
+             gaps.append({'severity':'review','message':f'Resolve unknown field: {f.replace("_"," ")}'})
+     if offering == 'dtlhOverlay':
+@@ -245,6 +257,20 @@
+         if indiv_fi:
+             gaps.append({'severity':'scope_carveout',
+                 'message':f'{len(indiv_fi)} individual fixed-income position(s) excluded from TET scope: '+', '.join(h['sym'] for h in indiv_fi)+'.'})
++        if not ACCOUNT_FACTS.get(hh['id'], {}).get('annual_transition_budget'):
++            gaps.append({'severity':'recommended',
++                'message':'No Annual Transition Budget has been elected yet. Merrill will produce a Service Analysis showing the impact of different budget levels \u2014 set one with the client before enrolling.'})
++    if offering == 'dca':
++        amt = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_cash_amount')
++        months = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_schedule_months')
++        if not amt or not months:
++            gaps.append({'severity':'required',
++                'message':'No DCA Cash amount and/or schedule length has been set yet \u2014 both are needed before a schedule can be modeled.'})
++        else:
++            gaps.append({'severity':'review',
++                'message':'DCA Cash must be funded (in full or in part) within 60 days of the effective date, or the DCA Service is removed from the Account.'})
++            gaps.append({'severity':'review',
++                'message':'The first scheduled investment must occur within two weeks of the effective date.'})
+     if not gaps:
+         gaps.append({'severity':'clear','message':'No structural blockers. Ready to initiate.'})
+     return gaps
+@@ -274,16 +300,37 @@
+             label = 'Direct-indexed broad-market SMA sleeve' if offering=='directIndexing' else 'Style-manager SMA sleeve'
+             trades.append({'action':'buy','sym':'SMA*','name':f'{label} (~200 lines, illustrative universe)',
+                 'value':proceeds,'gl':None,'reason':'Basis reset at trade date. Overlay begins next business day.'})
+-    elif offering in ('taxManagedSMA','qlhOverlay','mgiTer','mgiQlh'):
+-        # Overlay on existing holdings: minimal transition, one-time harvest scan
++    elif offering in ('taxManagedSMA','mgiTer'):
++        # TER is PASSIVE (TER Term Sheet): no onboarding trades and no
++        # proactive harvesting. It governs future trading -- best tax lot
++        # selection, account-level wash sale protection, short-term gain
++        # deferral and tax-prioritized withdrawals. Show the withdrawal order
++        # TER would use today so the advisor sees what it actually changes.
++        trades.append({'action':'note','sym':'','name':'No trades at enrollment','value':0,'gl':None,
++            'reason':'TER is passive: it applies best tax lot selection, wash sale protection and short-term gain deferral whenever trading occurs.'})
++        eligible = [h for h in holdings if h.get('cost') and h['ac'] not in ('Fixed Income','Municipal','Cash') and h.get('type') != 'BOND']
++        ranked = sorted(eligible, key=lambda h: (h['mv']-h['cost'])/h['cost'])
++        for i, h in enumerate(ranked[:4], start=1):
++            pct = (h['mv']-h['cost'])/h['cost']*100
++            trades.append({'action':'note','sym':h['sym'],'name':h['name'],'value':0,'gl':None,
++                'reason':f'Tax-prioritized withdrawal order #{i}: {pct:+.1f}% unrealized (largest % losses are sold first).'})
++    elif offering in ('qlhOverlay','mgiQlh'):
++        # QLH Term Sheet: harvest lots with losses of 5% or more, every 91
++        # days, subject to a turnover limit; not applied to fixed income.
++        # Conservative reading: bond funds/ETFs are treated as fixed income too.
+         for h in holdings:
+-            if h.get('cost') is not None and (h['mv']-h['cost']) < -1000:
+-                trades.append({'action':'harvest','sym':h['sym'],'name':h['name'],'value':h['mv'],
+-                    'gl':h['mv']-h['cost'],
+-                    'reason':f'Onboarding harvest: realize ${abs(h["mv"]-h["cost"]):,.0f}, carry loss forward.'})
+-        if not trades:
+-            trades.append({'action':'note','sym':'','name':'No trades required at onboarding',
+-                'value':0,'gl':None,'reason':'Existing sleeve stays in place; overlay begins with next dividend/rebalance event.'})
++            if not h.get('cost') or h['ac'] in ('Fixed Income','Municipal','Cash') or h.get('type') == 'BOND':
++                continue
++            pct = (h['mv']-h['cost'])/h['cost']*100
++            if pct <= -5:
++                trades.append({'action':'harvest','sym':h['sym'],'name':h['name'],'value':h['mv'],'gl':h['mv']-h['cost'],
++                    'reason':f'{pct:.1f}% lot loss meets the 5% threshold: harvested in the next 91-day cycle; proceeds go to a replacement ETF for the 30-day wash sale period.'})
++            elif pct < 0:
++                trades.append({'action':'note','sym':h['sym'],'name':h['name'],'value':0,'gl':None,
++                    'reason':f'{pct:.1f}% loss is below the 5% threshold: not harvested this cycle.'})
++        if not any(t['action'] == 'harvest' for t in trades):
++            trades.append({'action':'note','sym':'','name':'Nothing to harvest this cycle','value':0,'gl':None,
++                'reason':'No eligible lot is down 5% or more; QLH re-checks every 91 days from enrollment.'})
+     elif offering == 'dtlhOverlay':
+         # Swap non-ETFs to ETF equivalents, then harvest
+         for h in holdings:
+@@ -302,23 +349,78 @@
+                 trades.append({'action':'harvest','sym':h['sym'],'name':h['name'],'value':h['mv'],
+                     'gl':h['mv']-h['cost'],'reason':'Initial daily-cadence DTLH harvest at onboarding.'})
+     elif offering == 'transition':
+-        # TET: staged tax-aware transition of gain positions
+-        for h in holdings:
+-            if h.get('cost') is None or h.get('type') == 'BOND': continue
+-            gl = h['mv']-h['cost']
+-            if gl > 25000:
+-                trades.append({'action':'stage_sell','sym':h['sym'],'name':h['name'],'value':h['mv'],'gl':gl,
+-                    'reason':f'Stage LT-gain sell across TET budget window (~${gl:,.0f} embedded gain).'})
++        # TET: the Annual Transition Budget is the client-elected annual net
++        # LT-capital-gains ceiling (see the TET Term Sheet's own worked
++        # example: $100K embedded gain, $40K budget -> $40K/$40K/$20K across
++        # three years). Program-ineligible/no-cost-basis lots are excluded
++        # elsewhere by the SCOPE_CARVEOUT gaps; here we stage the remaining
++        # gain positions, largest first, against the real budget number
++        # rather than a flat per-position threshold.
++        budget = ACCOUNT_FACTS.get(hh['id'], {}).get('annual_transition_budget')
++        gain_lots = sorted(
++            [h for h in holdings if h.get('cost') is not None and h.get('type') != 'BOND' and (h['mv']-h['cost']) > 0],
++            key=lambda h: -(h['mv']-h['cost']))
++        if budget and budget > 0:
++            year, remaining_this_year = 1, budget
++            for h in gain_lots:
++                gl = h['mv']-h['cost']
++                staged_gain, portion_left = 0, gl
++                pieces = []
++                while portion_left > 0:
++                    take = min(portion_left, remaining_this_year) if remaining_this_year > 0 else 0
++                    if take <= 0:
++                        year += 1; remaining_this_year = budget; continue
++                    pieces.append((year, take))
++                    portion_left -= take; remaining_this_year -= take
++                    if portion_left > 0 and remaining_this_year <= 0:
++                        year += 1; remaining_this_year = budget
++                for yr, amt in pieces:
++                    frac = amt/gl
++                    trades.append({'action':'stage_sell','sym':h['sym'],'name':h['name'],'value':round(h['mv']*frac,2),'gl':round(amt,2),
++                        'reason':f'Year {yr} of the Annual Transition Budget (${budget:,.0f}/yr): stage ${amt:,.0f} of this position\u2019s ${gl:,.0f} embedded gain.'})
++        else:
++            # No budget elected yet -- this is itself a gap (see
++            # _gap_analysis), so fall back to a single illustrative pass over
++            # the largest gain positions rather than silently proposing
++            # nothing, since a scenario still needs to be shown.
++            for h in gain_lots:
++                gl = h['mv']-h['cost']
++                if gl > 25000:
++                    trades.append({'action':'stage_sell','sym':h['sym'],'name':h['name'],'value':h['mv'],'gl':gl,
++                        'reason':f'No Annual Transition Budget elected yet \u2014 illustrative single-year sale of ~${gl:,.0f} embedded gain pending that election.'})
+         for h in holdings:
+             if h.get('cost') is not None and (h['mv']-h['cost']) < -1000:
+                 trades.append({'action':'harvest','sym':h['sym'],'name':h['name'],'value':h['mv'],
+                     'gl':h['mv']-h['cost'],
+                     'reason':f'Realize ${abs(h["mv"]-h["cost"]):,.0f} of losses to offset staged gains.'})
++    elif offering == 'dca':
++        # DCA deploys CASH into the strategy over time -- the mirror image of
++        # TET's staged sells. No existing holdings are touched; this models
++        # periodic buys of the DCA Cash into a placeholder strategy sleeve.
++        f = ACCOUNT_FACTS.get(hh['id'], {})
++        amt, months = f.get('dca_cash_amount'), f.get('dca_schedule_months')
++        freq = (f.get('dca_frequency') or 'MONTHLY').upper()
++        if amt and months:
++            n = dca_installments(months, freq)
++            per_period = round(amt / n, 2)
++            label = DCA_FREQ_LABEL.get(freq, freq.lower())
++            for m in range(1, n + 1):
++                value = round(amt - per_period * (n - 1), 2) if m == n else per_period  # last absorbs rounding
++                trades.append({'action':'stage_buy','sym':'DCA*','name':'Selected Investment Strategy (illustrative sleeve)',
++                    'value':value,'gl':None,
++                    'reason':f'Contribution {m} of {n} ({label}): invest ${value:,.0f} of DCA Cash into the selected Investment Strategy.'})
+     return trades
+ 
++DCA_FREQ_LABEL = {'WEEKLY':'weekly','BI_WEEKLY':'bi-weekly','MONTHLY':'monthly','BI_MONTHLY':'bi-monthly'}
++def dca_installments(months: int, freq: str) -> int:
++    """Equal installments for a Defined Duration schedule (DCA Term Sheet)."""
++    import math
++    return max(1, {'WEEKLY': round(months*52/12), 'BI_WEEKLY': round(months*26/12),
++                   'BI_MONTHLY': math.ceil(months/2)}.get(freq, months))
++
+ def _target_state(hh, e, offering, trades):
+     sells = sum(t['value'] for t in trades if t['action'] in ('sell','stage_sell'))
+-    buys = sum(t['value'] for t in trades if t['action'] == 'buy')
++    buys = sum(t['value'] for t in trades if t['action'] in ('buy','stage_buy'))
+     realized_gain = sum(t.get('gl') or 0 for t in trades if t['action'] in ('sell','stage_sell') and (t.get('gl') or 0) > 0)
+     harvest_offset = sum(-(t.get('gl') or 0) for t in trades if t['action'] == 'harvest' and (t.get('gl') or 0) < 0)
+     net_taxable = max(0, realized_gain - harvest_offset)
+@@ -332,6 +434,7 @@
+         'mgiTer': e['taxAlpha']*0.5,
+         'mgiQlh': e['taxAlpha']*0.55,
+         'mgiDtlh': e['taxAlpha']*0.75,
++        'dca': 0,  # DCA manages market-timing risk, not tax alpha -- no ongoing tax-alpha figure applies
+     }.get(offering, 0)
+     # Simulated post-allocation: unchanged for overlays; equity sleeve reshaped for SMA/DI
+     post_alloc = dict(hh['current'])
+@@ -345,7 +448,29 @@
+     if offering in ('qlhOverlay','taxManagedSMA','dtlhOverlay'):
+         notes.append('Overlay is applied to the existing sleeve; harvested losses carry forward.')
+     if offering == 'transition':
+-        notes.append('Realized gain paced against the elected TET budget over the horizon; unsold lots stay in current strategy.')
++        budget = ACCOUNT_FACTS.get(hh['id'], {}).get('annual_transition_budget')
++        by_year = {}
++        for t in trades:
++            if t['action'] == 'stage_sell':
++                yr = int(t['reason'].split('Year ')[1].split(' ')[0]) if 'Year ' in t['reason'] else 1
++                by_year[yr] = by_year.get(yr, 0) + (t.get('gl') or 0)
++        years_breakdown = [{'year': y, 'gains_realized': round(g, 2)} for y, g in sorted(by_year.items())]
++        if budget and budget > 0:
++            notes.append(f'Paced against the client-elected Annual Transition Budget of ${budget:,.0f}/yr over {len(years_breakdown)} year(s); unsold lots stay in the current strategy as Transition Assets, charged the standard Merrill Lynch Fee (not the Program Fee) until transitioned.')
++        else:
++            notes.append('No Annual Transition Budget has been elected yet \u2014 set one with the client before enrolling; the figures shown assume a single-year illustrative sale.')
++    if offering == 'dca':
++        amt = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_cash_amount')
++        months = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_schedule_months')
++        schedule = [{'month': i, 'amount': t['value']} for i, t in enumerate(
++            [x for x in trades if x['action'] == 'stage_buy'], start=1)]
++        if amt and months:
++            notes.append(f'${amt:,.0f} of DCA Cash deployed over {months} month(s) in {len(schedule)} {DCA_FREQ_LABEL.get((ACCOUNT_FACTS.get(hh["id"],{}).get("dca_frequency") or "MONTHLY").upper(),"monthly")} contributions (~${amt/max(1,len(schedule)):,.0f} each). '
++                        f'Uninvested DCA Cash is charged the Merrill Lynch Fee Rate; once invested, that portion moves to the Program Fee Rate.')
++            notes.append('Must be funded within 60 days of the effective date and begin investing within 2 weeks of it, or the DCA Service is removed.')
++            notes.append('TER applies automatically to the invested portion unless declined; QLH/DTLH may be elected too but can be less effective and produce tax-inefficient trades or wash sales during the DCA period.')
++        else:
++            notes.append('No DCA Cash amount or schedule length has been set yet \\u2014 the figures above are placeholders pending that election.')
+     if net_taxable > 0:
+         notes.append(f'Estimated net taxable event: ~${net_taxable:,.0f} of long-term gain (post-offset). Illustrative at {int(0.238*100)}% blended rate: ~${net_taxable*0.238:,.0f}.')
+     return {
+@@ -357,6 +482,12 @@
+         'estimated_ongoing_annual_tax_alpha': int(ongoing_alpha),
+         'sells_total': sells, 'buys_total': buys,
+         'notes': notes,
++        **({'annual_transition_budget': ACCOUNT_FACTS.get(hh['id'], {}).get('annual_transition_budget'),
++            'gains_realized_by_year': years_breakdown} if offering == 'transition' else {}),
++        **({'dca_cash_amount': ACCOUNT_FACTS.get(hh['id'], {}).get('dca_cash_amount'),
++            'dca_schedule_months': ACCOUNT_FACTS.get(hh['id'], {}).get('dca_schedule_months'),
++            'dca_schedule': schedule,
++            'dca_frequency': DCA_FREQ_LABEL.get((ACCOUNT_FACTS.get(hh['id'], {}).get('dca_frequency') or 'MONTHLY').upper(), 'monthly')} if offering == 'dca' else {}),
+     }
+ 
+ def _procedural_steps(hh, offering):
+@@ -399,9 +530,12 @@
+             'Schedule initial funding and set annual grant cadence.',
+         ],
+         'iapEnrollment': [
+-            'Review and countersign the current IAP wrap-fee agreement.',
+-            'Confirm the target strategy and its minimums, program-scope constraints, and fee schedule.',
+-            'Complete the strategy-specific selection form; confirm advisor qualification for the chosen strategy.',
++            'Confirm the household has an established Merrill brokerage account (e.g. CMA) \u2014 required before any IA Program enrollment.',
++            'Execute the IAP Client Agreement, having reviewed the accompanying Brochure and any applicable Manager Disclosure Documents.',
++            'Select an Investment Strategy (Managed Strategy or Custom Managed Strategy) that meets the household\'s goals and minimums.',
++            'Choose the Authority for the account: full Merrill/Manager discretion, retained-strategy-selection with granted trading authority, or full client discretion.',
++            'Complete the Account Election/Signature Page: proxy voting approach and trade confirmation frequency (defaults apply if not elected).',
++            'Confirm the negotiated Merrill Lynch Fee Rate with the household (max 1.75%) and any applicable Style Manager Rate; this will be reflected in the Program Report.',
+         ],
+     }
+     return steps_by_offering.get(offering, [
+@@ -438,3 +572,314 @@
+         result['proposed_trades'] = trades
+         result['target_state'] = _target_state(hh, e, offering, trades)
+     return result
++
++# ---- Vehicle comparison workbench (ETF vs SMA vs Direct Indexing) ----
++# This subsystem answers a different question than the transition workbench:
++# not "how do we move existing assets into an offering" but "which vehicle
++# should *new* incoming capital use, and what firm content can we hand the
++# client to explain that choice." It reuses the same fail-closed, cite-your-
++# source discipline as the eligibility engine, but content approval is a
++# different domain than household-offering eligibility, so it is implemented
++# here as plain, explicit checks rather than forced into the RULE_STORE's
++# offering-eligibility schema.
++BLENDED_TAX_RATE = 0.238
++# Illustrative, not a published research figure: a typical range for how much
++# of a newly-funded taxable SMA's assets get harvested as losses in the first
++# year. Used only to give a breakeven number qualitative context.
++ILLUSTRATIVE_FIRST_YEAR_HARVEST_RANGE = (0.015, 0.03)
++
++def _fee_bps(product: dict) -> int | None:
++    """Manager fee or expense ratio in bps; None when the source doesn't state
++    one (catalog SMAs: the Style Manager Rate lives in each Strategy Profile)."""
++    f = product['fees']
++    return f['manager_bps'] if f.get('manager_bps') is not None else f.get('expense_ratio_bps')
++
++def _content_flags(doc: dict) -> list[dict]:
++    """Fail-closed checks on one content-catalog record. Mirrors the
++    eligibility engine's discipline: an unset/unknown field elevates to a
++    review flag, it is never silently treated as 'safe to use'."""
++    flags = []
++    audience = doc.get('audience')
++    if audience is None:
++        flags.append({'severity':'review','message':'Content audience is not set; cannot confirm this is client-safe.'})
++    elif audience != 'CLIENT_APPROVED':
++        flags.append({'severity':'advisor_only','message':f'Audience is {audience} \u2014 for advisor use only, not client-presentable.'})
++    expires = doc.get('expires')
++    if expires:
++        from datetime import date
++        try:
++            if date.fromisoformat(expires) < date.today():
++                flags.append({'severity':'expired','message':f'Approval expired {expires} \u2014 do not use until re-approved.'})
++        except ValueError:
++            flags.append({'severity':'review','message':'Expiry date could not be parsed.'})
++    if not doc.get('compliance_ref'):
++        flags.append({'severity':'review','message':'No compliance approval reference on file.'})
++    return flags
++
++def content_search(query: str, model_id: str | None = None, topics: list[str] | None = None, limit: int = 8) -> list[dict]:
++    """Deterministic metadata-filter + keyword-overlap retrieval over the
++    content catalog. This stands in for a real multimodal RAG pipeline
++    (Voyage text embeddings for prose, ColPali page-level retrieval for
++    chart/table-heavy pages) which this environment has no network access
++    to call; the metadata-filter-first, audience-and-expiry-aware shape of
++    this function is exactly what should wrap the real embedding call in
++    a production deployment \u2014 only the scoring step (keyword overlap
++    instead of vector similarity) is a placeholder."""
++    q_terms = set(w.lower() for w in query.split() if len(w) > 2)
++    hits = []
++    for doc in CONTENT_CATALOG:
++        if model_id and model_id not in doc.get('related_models', []):
++            continue
++        if topics and not (set(topics) & set(doc.get('topics', []))):
++            continue
++        haystacks = {**{'title': doc['title']}, **doc.get('page_snippets', {})}
++        best_page, best_score, best_snippet = None, 0, None
++        for page, text in haystacks.items():
++            text_terms = set(w.lower().strip('.,()') for w in text.split())
++            score = len(q_terms & text_terms)
++            if score > best_score:
++                best_page, best_score, best_snippet = page, score, text
++        if best_score == 0 and not (model_id or topics):
++            continue  # no signal at all and nothing else narrowed the set
++        hits.append({
++            'doc_id': doc['doc_id'], 'title': doc['title'], 'audience': doc.get('audience'),
++            'page': best_page if best_page != 'title' else None,
++            'snippet': best_snippet or doc['title'],
++            'score': best_score,
++            'flags': _content_flags(doc),
++            'pdf_url': f"/static/content-pdfs/{doc['pdf_id']}.pdf" if doc.get('pdf_id') else None,
++            'pages': doc.get('pages'),
++            'client_safe': doc.get('audience') == 'CLIENT_APPROVED' and not any(f['severity'] in ('expired','review') for f in _content_flags(doc)),
++        })
++    hits.sort(key=lambda h: (-h['score'], h['doc_id']))
++    return hits[:limit]
++
++def breakeven_tax_alpha(amount: float, sma_bps: int, etf_bps: int) -> dict:
++    premium_bps = max(0, sma_bps - etf_bps)
++    premium_dollars = amount * premium_bps / 10000
++    breakeven_harvest_dollars = premium_dollars / BLENDED_TAX_RATE if premium_dollars else 0
++    breakeven_pct = breakeven_harvest_dollars / amount if amount else 0
++    lo, hi = ILLUSTRATIVE_FIRST_YEAR_HARVEST_RANGE
++    if breakeven_pct <= lo:
++        assessment = 'Below the typical first-year harvesting range \u2014 the fee premium is likely easy to offset.'
++    elif breakeven_pct <= hi:
++        assessment = 'Within the typical first-year harvesting range \u2014 plausible but not guaranteed to fully offset the fee premium.'
++    else:
++        assessment = 'Above the typical first-year harvesting range \u2014 the fee premium may not be fully offset by harvesting alone in year one.'
++    return {
++        'fee_premium_bps': premium_bps,
++        'fee_premium_annual_dollars': round(premium_dollars, 2),
++        'breakeven_harvest_needed_annual_dollars': round(breakeven_harvest_dollars, 2),
++        'breakeven_harvest_needed_pct_of_assets': round(breakeven_pct, 4),
++        'illustrative_typical_first_year_harvest_range_pct': list(ILLUSTRATIVE_FIRST_YEAR_HARVEST_RANGE),
++        'assessment': assessment,
++    }
++
++def _product_label(p: dict) -> str:
++    return p.get('name') or p.get('ticker') or p['product_id']
++
++def search_products(query: str = '', vehicle: str | None = None, limit: int = 10, sleeve: str | None = None,
++                    min_minimum: float | None = None, max_minimum: float | None = None, max_fee_bps: float | None = None,
++                    tlh_capable: bool | None = None, client_safe_only: bool = False) -> list[dict]:
++    """Roster-wide product lookup shared by the autocomplete picker, the Product
++    Shelf workspace, and the agent's search_products tool. Filters are applied
++    first; an empty query then lists every matching product. Scoring: exact
++    ticker > ticker prefix > name / manager / fund family > sleeve / benchmark /
++    model label. Deterministic, so the same query always ranks the same way."""
++    q = (query or '').strip().lower()
++    veh = vehicle.upper() if vehicle else None
++    words = [w for w in q.replace(',', ' ').split() if w]
++    vehicle_words = {'sma': 'SMA', 'smas': 'SMA', 'etf': 'ETF', 'etfs': 'ETF', 'direct': 'DIRECT_INDEXING', 'indexing': 'DIRECT_INDEXING'}
++    content_words = [w for w in words if w not in vehicle_words]
++    if not veh and words and not content_words:
++        # A bare vehicle word ("smas", "etfs") filters by vehicle. Inside a longer
++        # query it is part of a name ("CIO Equity ETF Core", "... Direct Index SMA")
++        # and is scored like any other word, never used to filter results out.
++        veh = vehicle_words[words[0]]
++    if content_words:
++        content_words = words
++    results = []
++    for p in PRODUCT_SHELF:
++        if veh and p['vehicle'] != veh: continue
++        if sleeve and sleeve.lower() not in p['sleeve'].lower(): continue
++        if min_minimum is not None and p['minimum'] < min_minimum: continue
++        if max_minimum is not None and p['minimum'] > max_minimum: continue
++        if max_fee_bps is not None and (_fee_bps(p) is None or _fee_bps(p) > max_fee_bps): continue
++        if tlh_capable is not None and p['tlh_capable'] != tlh_capable: continue
++        if client_safe_only and not p['client_presentable']: continue
++        ticker = (p.get('ticker') or '').lower()
++        name = _product_label(p).lower()
++        manager = (p.get('manager') or '').lower()
++        family = (p.get('fund_family') or '').lower()
++        sleeve_l = p['sleeve'].lower(); bench = p['benchmark'].lower()
++        model_label = MODELS_BY_ID[p['model_id']]['label'].lower() if p.get('model_id') in MODELS_BY_ID else ''
++        score = 0 if content_words else 1
++        for w in content_words:
++            if ticker and w == ticker: score += 100
++            elif ticker and ticker.startswith(w): score += 60
++            elif w in name or w in manager or w in family: score += 30
++            elif w in sleeve_l or w in bench or w in model_label: score += 15
++        if score == 0:
++            continue
++        if len(content_words) > 1 and q in name:
++            score += 50  # the advisor typed (part of) the exact product name
++        results.append({
++            'product_id': p['product_id'], 'name': _product_label(p), 'ticker': p.get('ticker'),
++            'vehicle': p['vehicle'], 'sleeve': p['sleeve'], 'model_id': p.get('model_id'),
++            'model_label': MODELS_BY_ID[p['model_id']]['label'] if p.get('model_id') in MODELS_BY_ID else None,
++            'fee_bps': _fee_bps(p), 'minimum': p['minimum'], 'tlh_capable': p['tlh_capable'],
++            'client_presentable': p['client_presentable'], 'score': score,
++            'tem_overlays': p.get('tem_overlays'), 'asset_class': p.get('asset_class'),
++            'premium_access': p.get('premium_access', False), 'source': p.get('source', 'Atlas illustrative shelf'),
++        })
++    results.sort(key=lambda r: (-r['score'], r['fee_bps'] if r['fee_bps'] is not None else 10**9, r['name']))
++    return results[:limit]
++
++def shelf_sleeves() -> list[str]:
++    return sorted({p['sleeve'] for p in PRODUCT_SHELF if '(' not in p['sleeve']})
++
++def _comparison_rows(products: list[dict], amount: float) -> dict:
++    # The first SMA *with reported performance* sets the reference basis;
++    # anything on a different basis/period is flagged. Catalog strategies carry
++    # no performance (the catalog doesn't publish it), so they are flagged as
++    # such rather than given a number.
++    with_perf = [p for p in products if p.get('performance')]
++    reference = next((p for p in with_perf if p['vehicle'] == 'SMA'), with_perf[0] if with_perf else None)
++    ref_basis = reference['performance']['basis'] if reference else None
++    ref_as_of = reference['performance']['as_of'] if reference else None
++    sleeves = sorted({p['sleeve'] for p in products})
++    rows = []
++    for p in products:
++        perf = p.get('performance')
++        fee = _fee_bps(p)
++        basis_mismatch = bool(perf and reference and (perf['basis'] != ref_basis or perf['as_of'] != ref_as_of))
++        row = {
++            'product_id': p['product_id'], 'name': _product_label(p), 'vehicle': p['vehicle'], 'sleeve': p['sleeve'],
++            'ticker': p.get('ticker'), 'model_id': p.get('model_id'), 'fee_bps': fee,
++            'annual_fee_dollars': round(amount * fee / 10000, 2) if fee is not None else None,
++            'minimum': p['minimum'], 'meets_minimum': amount >= p['minimum'],
++            'tlh_capable': p['tlh_capable'], 'customizable': p['customizable'],
++            'tem_overlays': p.get('tem_overlays'), 'premium_access': p.get('premium_access', False),
++            'performance': perf, 'performance_basis_matches_reference': not basis_mismatch,
++            'client_presentable': p['client_presentable'], 'source': p.get('source', 'Atlas illustrative shelf'), 'flags': [],
++        }
++        if perf and perf.get('type') in ('BACKTEST', 'HYPOTHETICAL'):
++            row['flags'].append({'code':'hypothetical','severity':'required','message':'Hypothetical/backtested performance \u2014 must not be shown to the client under any framing.'})
++        if basis_mismatch:
++            row['flags'].append({'code':'basis','severity':'review','message':f"Performance basis ({perf['basis']}, as of {perf['as_of']}) differs from the reference ({ref_basis}, as of {ref_as_of}); not a like-for-like comparison as shown."})
++        if not perf:
++            row['flags'].append({'code':'noperf','severity':'review','message':'No performance is published in the Strategy Catalog; see the Strategy Profile. Compare fees, minimums and overlay eligibility only.'})
++        if fee is None:
++            row['flags'].append({'code':'nofee','severity':'review','message':'The Style Manager Rate is set in the Strategy Profile and is not listed in the catalog.'})
++        if p.get('premium_access'):
++            row['flags'].append({'code':'pas','severity':'review','message':'Premium Access Strategy: dual contract with the PAS Manager; TEM Overlay Services and TET are not available.'})
++        if not row['meets_minimum']:
++            row['flags'].append({'code':'minimum','severity':'required','message':f"Amount (${amount:,.0f}) is below this implementation's ${p['minimum']:,.0f} minimum."})
++        if len(sleeves) > 1:
++            row['flags'].append({'code':'sleeves','severity':'review','message':f"Selection spans {len(sleeves)} different sleeves \u2014 fees are comparable, performance is not."})
++        rows.append(row)
++    # Breakeven: each client-presentable, tax-managed product with a known fee
++    # against the lowest-fee ETF or ETF model in the selection.
++    cheapest_etf = min((p for p in products if p['vehicle'] in ('ETF','ETF_MODEL') and p['client_presentable'] and _fee_bps(p) is not None),
++                       key=_fee_bps, default=None)
++    breakevens = []
++    if cheapest_etf:
++        for p in products:
++            if (p is not cheapest_etf and p['tlh_capable'] and p['client_presentable'] and _fee_bps(p) is not None
++                    and _fee_bps(p) > _fee_bps(cheapest_etf)):
++                be = breakeven_tax_alpha(amount, _fee_bps(p), _fee_bps(cheapest_etf))
++                breakevens.append({**be, 'product_id': p['product_id'], 'product_name': _product_label(p),
++                                   'vs_product_id': cheapest_etf['product_id'], 'vs_product_name': _product_label(cheapest_etf)})
++    primary = next((b for b in breakevens if PRODUCTS_BY_ID[b['product_id']]['vehicle'] == 'SMA'), breakevens[0] if breakevens else None)
++    return {'rows': rows, 'reference_basis': ref_basis, 'reference_as_of': ref_as_of,
++            'sleeves': sleeves, 'breakevens': breakevens, 'primary_breakeven': primary}
++
++def shelf_compare(household_id: str, model_id: str | None = None, amount: float | None = None,
++                  product_ids: list[str] | None = None) -> dict:
++    """Compare either (a) every implementation of one research model, or (b)
++    any advisor- or agent-selected set of shelf products from the full roster."""
++    hh = household_or_404(household_id)
++    if amount is None:
++        ic = hh.get('incoming_capital')
++        amount = ic['amount'] if ic else hh['aum']
++    if product_ids:
++        missing = [pid for pid in product_ids if pid not in PRODUCTS_BY_ID]
++        if missing:
++            raise KeyError(f"Unknown product(s): {', '.join(missing)}")
++        products = [PRODUCTS_BY_ID[pid] for pid in dict.fromkeys(product_ids)]
++        model_ids = {p.get('model_id') for p in products}
++        if len(model_ids) == 1 and next(iter(model_ids)) in MODELS_BY_ID:
++            model_id = next(iter(model_ids))
++            full_set = set(MODELS_BY_ID[model_id]['implementations']) == {p['product_id'] for p in products}
++            label = MODELS_BY_ID[model_id]['label'] + ('' if full_set else ' (custom selection)')
++        else:
++            model_id = None; label = 'Custom comparison'
++    else:
++        if not model_id:
++            # Households with no research model on file start from the broad
++            # core-equity model; the advisor can then reshape the selection.
++            model_id = hh.get('current_model_id') or 'research_core'
++        if model_id not in MODELS_BY_ID:
++            raise KeyError(f'Unknown research model: {model_id}')
++        products = [PRODUCTS_BY_ID[pid] for pid in MODELS_BY_ID[model_id]['implementations'] if pid in PRODUCTS_BY_ID]
++        label = MODELS_BY_ID[model_id]['label']
++    if not products:
++        raise KeyError('No products to compare')
++    body = _comparison_rows(products, amount)
++    return {
++        'household_id': household_id, 'model_id': model_id, 'model_label': label, 'amount': amount,
++        'reference_basis': body['reference_basis'], 'reference_as_of': body['reference_as_of'],
++        'sleeves': body['sleeves'], 'implementations': body['rows'],
++        'breakevens': body['breakevens'], 'breakeven_tax_alpha': body['primary_breakeven'],
++    }
++
++def _switching_target(vehicles: set[str]) -> tuple[str, str]:
++    """Which existing transition-workbench scenario best approximates moving
++    already-invested SMA assets into the vehicles under consideration. This is
++    an approximation, labeled as such in the response."""
++    if 'DIRECT_INDEXING' in vehicles:
++        return 'directIndexing', 'Modeled as a transition into Direct Indexing (a direct-indexing product is in the selection).'
++    if vehicles == {'ETF'}:
++        return 'dtlhOverlay', 'Modeled as an ETF-only conversion (single stocks sold into a broad-market ETF), the closest existing scenario to moving SMA assets into ETFs.'
++    return 'directIndexing', 'Modeled as a transition into Direct Indexing, the closest existing full-sleeve replacement scenario.'
++
++def build_vehicle_brief(household_id: str, model_id: str | None = None, amount: float | None = None,
++                        product_ids: list[str] | None = None) -> dict:
++    hh = household_or_404(household_id)
++    comparison = shelf_compare(household_id, model_id, amount, product_ids)
++    related = sorted({r['model_id'] for r in comparison['implementations'] if r.get('model_id')})
++    label = comparison['model_label']
++    query = f"{label} ETF SMA fees performance tax management"
++    all_hits = []
++    seen = set()
++    for mid in (related or [None]):
++        for h in content_search(query, model_id=mid, topics=['vehicle_comparison','performance','research_models','tax_management'], limit=12):
++            if h['doc_id'] not in seen:
++                seen.add(h['doc_id']); all_hits.append(h)
++    all_hits.sort(key=lambda h: (-h['score'], h['doc_id']))
++    client_content = [h for h in all_hits if h['client_safe']]
++    advisor_content = [h for h in all_hits if not h['client_safe']]
++    content_gap = len(client_content) == 0
++    switching_cost = None; switching_basis = None
++    if hh.get('current_implementation') == 'SMA':
++        # Existing SMA assets moving elsewhere is a real transition, not a
++        # new-money decision -- reuse the transition workbench directly.
++        target, switching_basis = _switching_target({r['vehicle'] for r in comparison['implementations'] if r['vehicle'] != 'SMA'} or {'DIRECT_INDEXING'})
++        try:
++            switching_cost = transition_scenario(household_id, target)
++        except Exception:
++            switching_cost = None; switching_basis = None
++    return {
++        'household_id': household_id, 'model_id': comparison['model_id'],
++        'incoming_capital': hh.get('incoming_capital'),
++        'comparison': comparison,
++        'client_content': client_content,
++        'advisor_content': advisor_content,
++        'content_gap': content_gap,
++        'content_gap_message': (f"No client-approved content found for the {label} comparison. "
++            f"Logging a content-gap ticket to content/marketing.") if content_gap else None,
++        'switching_cost_note': ('Existing SMA assets are a separate decision from the incoming capital \u2014 '
++            'see the linked transition scenario for the cost of moving assets already invested, if that is also being considered.') if switching_cost else None,
++        'switching_cost_basis': switching_basis,
++        'switching_cost': switching_cost,
++    }

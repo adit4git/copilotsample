@@ -1,0 +1,10 @@
+--- /tmp/baseline_index.html	2026-09-27 22:03:32.400669368 +0000
++++ app/static/index.html	2026-09-26 18:06:19.851407542 +0000
+@@ -30,6 +30,7 @@
+       <div class="lbl">PROGRAMS</div>
+       <button data-nav="tax"></button>
+       <button data-nav="crosssell"></button>
++      <button data-nav="shelf"></button>
+     </nav>
+     <div class="foot">
+       <div class="av" id="faAvatar">DW</div>

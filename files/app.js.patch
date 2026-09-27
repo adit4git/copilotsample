@@ -1,0 +1,597 @@
+--- /tmp/baseline_app.js	2026-09-27 22:03:32.401846234 +0000
++++ app/static/app.js	2026-09-27 11:31:37.479853640 +0000
+@@ -107,7 +107,7 @@
+ function overlayList(c){
+   const O=[
+     ['taxManagedSMA', I.tax],['qlhOverlay', I.tax],['dtlhOverlay', I.index],
+-    ['temSms', I.alt],['transition', I.alt],['charitable', I.give]
++    ['temSms', I.alt],['transition', I.alt],['dca', I.tax],['charitable', I.give]
+   ];
+   return O.map(([k,icon])=>({k, label: offeringLabel(k), icon,
+     status:(c.overlays||{})[k]!==undefined?(c.overlays||{})[k]:null}));
+@@ -239,19 +239,20 @@
+   {k:'chat', label:'Ask Atlas', icon:I.chat},
+   {k:'tax', label:'Tax Overlay Desk', icon:I.tax},
+   {k:'crosssell', label:'Cross-Sell Radar', icon:I.cross, badge:()=>crossSell().length},
++  {k:'shelf', label:'Product Shelf', icon:I.index},
+ ];
+ 
+ function paintNav(){
+   const nav = document.getElementById('nav');
+   nav.querySelectorAll('button[data-nav]').forEach(b => {
+     const item = NAVITEMS.find(n => n.k === b.dataset.nav); if(!item) return;
+-    const on = state.view === b.dataset.nav || (b.dataset.nav === 'book' && (state.view === 'client' || state.view === 'draftReview' || state.view === 'transition'));
++    const on = state.view === b.dataset.nav || (b.dataset.nav === 'book' && ['client','draftReview','transition','vehicleCompare'].includes(state.view));
+     b.className = on ? 'on' : '';
+     const badge = item.badge ? `<span class="cnt">${item.badge()}</span>` : '';
+     b.innerHTML = `${item.icon}<span>${item.label}</span>${badge}`;
+   });
+   const mt = document.getElementById('mtabbar');
+-  mt.innerHTML = NAVITEMS.map(n => `<button data-nav="${n.k}" class="${state.view===n.k||(n.k==='book'&&(state.view==='client'||state.view==='draftReview'||state.view==='transition'))?'on':''}">${n.icon}<span>${n.label.split(' ')[0]}</span></button>`).join('');
++  mt.innerHTML = NAVITEMS.map(n => `<button data-nav="${n.k}" class="${state.view===n.k||(n.k==='book'&&['client','draftReview','transition','vehicleCompare'].includes(state.view))?'on':''}">${n.icon}<span>${n.label.split(' ')[0]}</span></button>`).join('');
+ }
+ 
+ function paintFaProfile(){
+@@ -536,6 +537,17 @@
+     <div class="kpi"><div class="l">Ann. revenue</div><div class="v">${fmt$(c.rev)}</div></div>
+   </div>
+ 
++  ${c.incoming_capital ? `<div class="card" style="margin-bottom:16px">
++    <div class="cbp" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
++      <div style="background:color-mix(in srgb, var(--brand) 12%, transparent);color:var(--brand);border-radius:var(--r-m);padding:8px 10px;flex-shrink:0">${I.give}</div>
++      <div style="flex:1 1 260px">
++        <div style="font-weight:600;font-size:13.5px">${fmtM(c.incoming_capital.amount)} incoming \u00b7 ${c.incoming_capital.likelihood} likelihood \u00b7 expected ${c.incoming_capital.expected_date}</div>
++        <div class="sub" style="margin-top:2px">${c.incoming_capital.source}, ${c.incoming_capital.form}${c.current_model_id?` \u00b7 currently on ${c.current_model_id.replace('_',' ')} (${c.current_implementation})`:''}</div>
++      </div>
++      ${c.current_model_id ? `<span class="u" data-compare="${c.id}:${c.current_model_id}">Compare vehicles ${I.arrow}</span>` : ''}
++    </div>
++  </div>` : ''}
++
+   <div class="grid2">
+     <div class="card">
+       <div class="ch"><h3>Holdings & tax lots</h3><span class="r mono" style="font-size:11px;color:var(--muted)">${c.holdings.length} positions</span></div>
+@@ -559,7 +571,7 @@
+ 
+   <div class="stack">
+     <div class="card">
+-      <div class="ch"><h3>Next best actions for this household</h3>${c.nextMeeting ? `<button class="btn sm primary r" data-draft="${c.id}:meeting_prep">${I.chat} Draft meeting prep</button>` : `<button class="btn sm r" data-nav="chat">${I.chat} Ask Atlas</button>`}</div>
++      <div class="ch"><h3>Next best actions for this household</h3><span class="r" style="display:flex;gap:8px;flex-wrap:wrap">${c.nextMeeting ? `<button class="btn sm primary" data-draft="${c.id}:meeting_prep">${I.chat} Draft meeting prep</button>` : ''}<button class="btn sm" data-compare="${c.id}:${c.current_model_id||''}">Compare vehicles</button><button class="btn sm" data-nav="chat">${I.chat} Ask Atlas about ${esc(c.name.split(' ')[0])}</button></span></div>
+       <div class="cbp" style="display:flex;flex-direction:column;gap:9px">
+         ${nbas.map(n=>`<div class="nba-mini"><div class="d" style="background:${n.col}"></div><div class="txt">${n.t}</div></div>`).join('')}
+       </div>
+@@ -567,9 +579,9 @@
+ 
+     <div class="grid2" style="margin-top:0">
+       <div class="card">
+-        <div class="ch"><h3>Program eligibility \u00b7 cross-sell</h3></div>
++        <div class="ch"><h3 id="eligibility">Program eligibility \u00b7 cross-sell</h3></div>
+         <div class="cbp"><div class="elig-grid">
+-          ${programList(c).map(p => { const v = vFor(c.id, p.k); const dim = v && v.verdict==='INELIGIBLE'; const rs = verdictReason(v); const canModel = v && v.verdict==='ELIGIBLE' && p.status!=='enrolled';
++          ${programList(c).map(p => { const v = vFor(c.id, p.k); const dim = v && v.verdict==='INELIGIBLE'; const rs = verdictReason(v); const canModel = v && (v.verdict==='ELIGIBLE' || v.verdict==='NEEDS_REVIEW') && p.status!=='enrolled';
+             return `<div class="elig">
+             <div class="eic" style="background:${dim?'var(--inset)':'var(--brand-tint)'};color:${dim?'var(--muted)':'var(--brand)'}">${p.icon}</div>
+             <div style="min-width:0"><div class="en">${p.label}</div>${rs?`<div class="es" title="${rs.replace(/"/g,'&quot;')}">${rs}</div>`:''}${canModel?`<div class="es" style="margin-top:6px"><span class="u" data-transition="${c.id}:${p.k}" style="font-size:12px">Model transition ${I.arrow}</span></div>`:''}</div>
+@@ -580,7 +592,7 @@
+       <div class="card">
+         <div class="ch"><h3>${(c.program||'IAP')==='MGI'?'Guided Investing (MGI) tax services':'Tax & overlay services'}</h3></div>
+         <div class="cbp"><div class="elig-grid">
+-          ${((c.program||'IAP')==='MGI'?mgiOfferingList(c):overlayList(c)).map(p => { const v = vFor(c.id, p.k); const dim = v && v.verdict==='INELIGIBLE'; const rs = verdictReason(v); const canModel = v && v.verdict==='ELIGIBLE' && p.status!=='enrolled';
++          ${((c.program||'IAP')==='MGI'?mgiOfferingList(c):overlayList(c)).map(p => { const v = vFor(c.id, p.k); const dim = v && v.verdict==='INELIGIBLE'; const rs = verdictReason(v); const canModel = v && (v.verdict==='ELIGIBLE' || v.verdict==='NEEDS_REVIEW') && p.status!=='enrolled';
+             return `<div class="elig">
+             <div class="eic" style="background:${dim?'var(--inset)':'var(--brand-tint)'};color:${dim?'var(--muted)':'var(--brand)'}">${p.icon}</div>
+             <div style="min-width:0"><div class="en">${p.label}</div>${rs?`<div class="es" title="${rs.replace(/"/g,'&quot;')}">${rs}</div>`:''}${canModel?`<div class="es" style="margin-top:6px"><span class="u" data-transition="${c.id}:${p.k}" style="font-size:12px">Model transition ${I.arrow}</span></div>`:''}</div>
+@@ -595,33 +607,43 @@
+ 
+ /* ================= VIEW: CHAT (Ask Atlas) ================= */
+ const CHAT_SUGGESTS = [
+-  'Where is my biggest tax-loss harvesting opportunity?',
+-  'Prep me for my meeting with the Hendersons',
+-  'Which clients are eligible for direct indexing but not enrolled?',
+-  'Who is drifting on concentration limits?',
+-  'Which portfolios diverge most from the CIO view?',
+-  'Rank my top cross-sell opportunities by revenue',
++  'Model a direct indexing transition for the Hendersons',
++  "Compare VOO, QQQ and the SMA for Henderson's new money",
++  'Is Kaplan eligible for QLH?',
++  'Where are my biggest tax-loss harvesting opportunities?',
++  'Show me cross-sell opportunities for Okonkwo',
++  'Prep me for my meeting with Kaplan',
+ ];
+ let chatLog = [];
+ let sending = false;
++let agentMode = null;
++const AGENT_ACTIONS = {};
+ 
++function chatContext(){
++  const id = state.focusHousehold;
++  return (id && byId(id)) ? {household_id:id, view:state.lastView||'client'} : null;
++}
+ function viewChat(){
+   if(chatLog.length===0){
+     chatLog.push({role:'bot', html:true, content:
+-      `<p>I'm <strong>Atlas</strong>, your book copilot. I can see all ${myBook().length} households in your book \u2014 holdings, tax lots, program eligibility, CIO alignment and meeting schedule.</p><p>Ask me anything, or try a prompt below.</p>`});
++      `<p>I'm <strong>Atlas</strong>, your advisor copilot across all ${myBook().length} households in your book. I can screen eligibility, model tax-aware transitions, compare ETFs, SMAs and direct indexing from the full product shelf, surface cross-sell and harvesting opportunities, and draft meeting prep \u2014 then open the right workspace for you.</p><p>Ask in your own words, or try a prompt below.</p>`});
+   }
+   const stream = chatLog.map(renderMsg).join('');
+   const ctxTop = [...myBook()].sort((a,b)=>b.aum-a.aum).slice(0,5);
++  const ctx = chatContext();
++  const modeLabel = !agentMode ? 'Grounded on your live book'
++    : agentMode.startsWith('live:') ? `Live agent \u00b7 ${esc(agentMode.slice(5))}` : 'Grounded planner \u00b7 no live model';
+   return `<div class="chatwrap">
+     <div class="chat">
+       <div class="ch-head"><div class="mk">${I.chat}</div>
+-        <div><div class="t">Ask Atlas</div><div class="s"><span class="live"></span> Grounded on your live book</div></div>
++        <div><div class="t">Ask Atlas</div><div class="s"><span class="live"></span> ${modeLabel}</div></div>
+       </div>
++      ${ctx ? `<div class="ctx-bar">${I.people}<span>Working on <b>${esc(byId(ctx.household_id).name)}</b> \u2014 \u201cthis client\u201d refers to them</span><button class="ctx-x" data-clear-context aria-label="Clear client context">\u00d7</button></div>` : ''}
+       <div class="stream" id="stream">${stream}</div>
+       <div class="composer">
+-        ${chatLog.some(m=>m.role==='user') ? '' : `<div class="suggests" id="suggests">${CHAT_SUGGESTS.map(s=>`<button data-ask="${s.replace(/"/g,'&quot;')}">${s}</button>`).join('')}</div>`}
++        ${chatLog.some(m=>m.role==='user') ? '' : `<div class="suggests" id="suggests">${CHAT_SUGGESTS.map(s=>`<button data-ask="${s.replace(/"/g,'&quot;')}">${esc(s)}</button>`).join('')}</div>`}
+         <div class="inputrow">
+-          <textarea id="chatInput" rows="1" placeholder="Ask about clients, holdings, tax, eligibility\u2026"></textarea>
++          <textarea id="chatInput" rows="1" placeholder="Ask about any client, product, eligibility, transition or opportunity\u2026"></textarea>
+           <button class="sendbtn" id="sendBtn" aria-label="Send" ${sending?'disabled':''}>${I.send}</button>
+         </div>
+       </div>
+@@ -630,9 +652,9 @@
+       <div class="ctx-card"><h4>${I.people} Top relationships</h4>
+         <div class="ctx-list">${ctxTop.map(c=>`<button data-client="${c.id}">${avatarEl(c)}<span style="min-width:0"><span style="display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name.split(' ')[0]} ${c.name.includes('Family')?'Family':c.name.split(' ')[1]||''}</span></span><span class="g">${fmtM(c.aum)}</span></button>`).join('')}</div>
+       </div>
+-      <div class="ctx-card"><h4>${I.spark} What Atlas can do</h4>
++      <div class="ctx-card"><h4>${I.spark} Workspaces Atlas can open</h4>
+         <div style="font-size:12.5px;color:var(--fg-2);line-height:1.65">
+-          Screen eligibility for cross-sell \u00b7 surface tax-harvesting opportunities \u00b7 draft meeting-prep briefs \u00b7 flag concentration & CIO drift \u00b7 summarize any household.
++          Client profile \u00b7 eligibility screen \u00b7 transition workbench \u00b7 vehicle comparison \u00b7 Cross-Sell Radar \u00b7 Tax Overlay Desk \u00b7 meeting-prep draft review. Every figure comes from the rule engine and product shelf, never from the model.
+         </div>
+       </div>
+     </aside>
+@@ -643,13 +665,63 @@
+   const body = m.html ? (m.content||'') : mdToHtml(m.content||'');
+   const fa = state.meta && state.meta.advisors && state.meta.advisors[state.fa];
+   const userInitials = fa ? (fa.initials || initials(fa.name)) : 'DW';
+-  return `<div class="msg ${m.role==='user'?'user':'bot'}"><div class="who">${m.role==='user'?userInitials:I.chat}</div><div class="bubble">${body}</div></div>`;
++  let extra = '';
++  if(m.steps && m.steps.length){
++    extra += `<details class="trace"><summary>How Atlas worked this out \u00b7 ${m.steps.length} step${m.steps.length===1?'':'s'}</summary><ol>${m.steps.map(s=>`<li><span class="mono">${esc(s.tool)}</span> \u2014 ${esc(s.summary)}</li>`).join('')}</ol></details>`;
++  }
++  if(m.actions && m.actions.length){
++    extra += `<div class="agent-actions">${m.actions.map((a,i)=>{ const key=(m.mid||'m')+'-'+i; AGENT_ACTIONS[key]=a;
++      return `<button class="btn sm${i===0?' primary':''}" data-agent-action="${key}">${esc(a.label)} ${I.arrow}</button>`; }).join('')}</div>`;
++  }
++  return `<div class="msg ${m.role==='user'?'user':'bot'}"><div class="who">${m.role==='user'?userInitials:I.chat}</div><div class="bubble">${body}${extra}</div></div>`;
++}
++async function runAgentAction(a){
++  if(!a) return;
++  switch(a.workspace){
++    case 'client': return setView('client', a.household_id);
++    case 'eligibility': setView('client', a.household_id); return scrollToAnchor('eligibility');
++    case 'transition': return openTransition(a.household_id, a.offering_id);
++    case 'vehicle_compare': return openVehicleCompare(a.household_id, a.model_id, a.product_ids, a.amount);
++    case 'cross_sell': return setView('crosssell');
++    case 'product_shelf': state.shelfFilters = Object.assign({q:'', vehicle:'', sleeve:'', max_minimum:'', tlh:''}, Object.fromEntries(Object.entries(a.shelf_filters||{}).filter(([k,v])=>v!==null&&v!==undefined))); return setView('shelf');
++    case 'tax_desk': return setView('tax');
++    case 'meeting_prep_draft': return openDraft(a.household_id, 'meeting_prep');
++    case 'book': return setView('book');
++    case 'today': return setView('today');
++  }
+ }
++function scrollToAnchor(id, tries=0){
++  const el = document.getElementById(id);
++  if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); return; }
++  if(tries < 30) setTimeout(()=>scrollToAnchor(id, tries+1), 100);
++}
++function mdTableRow(ln){ return ln.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c=>c.trim()); }
+ function mdToHtml(md){
+   let s = esc(md);
+   s = s.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>');
+-  const lines = s.split(/\n/); let out=''; let inU=false, inO=false;
+-  for(let ln of lines){
++  // Models sometimes separate table rows with blank lines; drop a blank line
++  // that sits between two table rows so the table isn't split apart.
++  const raw = s.split(/\n/), lines = [];
++  raw.forEach((ln, i) => {
++    if(ln.trim()===''){
++      const prev = lines.length ? lines[lines.length-1] : '';
++      const next = raw.slice(i+1).find(x => x.trim() !== '') || '';
++      if(prev.trim().startsWith('|') && next.trim().startsWith('|')) return;
++    }
++    lines.push(ln);
++  });
++  let out=''; let inU=false, inO=false;
++  for(let i=0; i<lines.length; i++){
++    const ln = lines[i];
++    // GitHub-style table: header row, a |---| separator row, then body rows.
++    if(ln.trim().startsWith('|') && i+1 < lines.length && /^\s*\|?\s*:?-{2,}/.test(lines[i+1])){
++      if(inU){out+='</ul>';inU=false;} if(inO){out+='</ol>';inO=false;}
++      const head = mdTableRow(ln); let body = []; i += 2;
++      while(i < lines.length && lines[i].trim().startsWith('|')){ body.push(mdTableRow(lines[i])); i++; }
++      i--;
++      out += `<div class="md-table"><table><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${body.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
++      continue;
++    }
+     if(/^\s*###\s+/.test(ln)){ if(inU){out+='</ul>';inU=false;} if(inO){out+='</ol>';inO=false;} out+='<h3>'+ln.replace(/^\s*###\s+/,'')+'</h3>'; continue; }
+     if(/^\s*##\s+/.test(ln)){ if(inU){out+='</ul>';inU=false;} if(inO){out+='</ol>';inO=false;} out+='<h2>'+ln.replace(/^\s*##\s+/,'')+'</h2>'; continue; }
+     if(/^\s*[-*]\s+/.test(ln)){ if(!inU){out+='<ul>';inU=true;} out+='<li>'+ln.replace(/^\s*[-*]\s+/,'')+'</li>'; continue; }
+@@ -675,19 +747,26 @@
+   const mid = 'm'+Date.now();
+   chatLog.push({role:'bot', typing:true, mid});
+   paintChat(); scrollChat();
++  let autoAction = null;
+   try{
+     const history = chatLog.filter(m=>!m.typing && (m.role==='user'||(m.role==='bot'&&!m.html)))
+-      .slice(-8).map(m=>({role:m.role==='user'?'user':'assistant', content:m.content||''}));
+-    const r = await api('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({fa:state.fa, message:text, history})});
++      .slice(-9, -1).map(m=>({role:m.role==='user'?'user':'assistant', content:m.content||''}));
++    const r = await api('/api/agent', {method:'POST', headers:{'Content-Type':'application/json'},
++      body:JSON.stringify({fa:state.fa, message:text, history, context:chatContext()})});
++    agentMode = r.mode;
+     const i = chatLog.findIndex(m=>m.mid===mid);
+-    if(i>=0) chatLog[i] = {role:'bot', mid, content:r.content};
++    if(i>=0) chatLog[i] = {role:'bot', mid, content:r.content, steps:r.steps, actions:r.actions, mode:r.mode};
++    autoAction = (r.actions||[]).find(a=>a.auto_open) || null;
+   }catch(e){
+     const i = chatLog.findIndex(m=>m.mid===mid);
+-    if(i>=0) chatLog[i] = {role:'bot', mid, content:'Sorry \u2014 I hit an error reaching the model. Please try again.'};
++    if(i>=0) chatLog[i] = {role:'bot', mid, content:'Sorry \u2014 I hit an error answering that. Please try again.'};
+   }finally{
+     sending = false;
+     const b = document.getElementById('sendBtn'); if(b) b.disabled = false;
+     paintChat(); scrollChat();
++    // Only navigate automatically when the advisor explicitly asked to open
++    // something; otherwise the action stays a button they choose to click.
++    if(autoAction) setTimeout(()=>{ if(state.view==='chat') runAgentAction(autoAction); }, 900);
+   }
+ }
+ 
+@@ -824,6 +903,7 @@
+     stage_sell: {label:'STAGE SELL', color:'var(--blue)'},
+     harvest: {label:'HARVEST', color:'var(--amber)'},
+     buy: {label:'BUY', color:'var(--brand)'},
++    stage_buy: {label:'STAGE BUY', color:'var(--brand)'},
+     note: {label:'NOTE', color:'var(--muted)'},
+   };
+   return map[action] || {label:action.toUpperCase(), color:'var(--fg-2)'};
+@@ -879,6 +959,14 @@
+     <div class="card" style="margin-top:14px">
+       <div class="ch"><h3>Target state</h3></div>
+       <div class="cbp">
++        ${s.offering === 'dca' ? `
++        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:14px">
++          <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">DCA Cash to deploy</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${ts.dca_cash_amount?fmtM(ts.dca_cash_amount):'\u2014'}</div></div>
++          <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Schedule</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${ts.dca_schedule_months?ts.dca_schedule_months+' mo \u00b7 '+(ts.dca_frequency||'monthly'):'\u2014'}</div></div>
++          <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Per contribution</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${(ts.dca_cash_amount&&ts.dca_schedule&&ts.dca_schedule.length)?fmtM(ts.dca_cash_amount/ts.dca_schedule.length)+' \u00d7 '+ts.dca_schedule.length:'\u2014'}</div></div>
++        </div>
++        ${ts.dca_schedule && ts.dca_schedule.length ? `<table class="hh-tbl" style="margin-bottom:12px"><thead><tr><th>Contribution</th><th class="r">Amount invested</th><th class="r">Cumulative</th></tr></thead><tbody>${(()=>{let cum=0; return ts.dca_schedule.map(row=>{cum+=row.amount; return `<tr><td>${row.month}</td><td class="r mono">${fmt$(row.amount)}</td><td class="r mono">${fmt$(cum)}</td></tr>`;}).join('');})()}</tbody></table>` : ''}
++        ` : `
+         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:14px">
+           <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Reallocated</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${fmtM(ts.sells_total)}</div></div>
+           <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Realized gain</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif;color:${ts.realized_gain>0?'var(--gain)':'var(--fg)'}">${ts.realized_gain?fmtM(ts.realized_gain):'\u2014'}</div></div>
+@@ -886,6 +974,7 @@
+           <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Net taxable</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${ts.net_taxable_gain?fmtM(ts.net_taxable_gain):'\u2014'}</div></div>
+           <div><div style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600">Est. ongoing tax alpha</div><div class="mono" style="font-size:20px;font-family:'Newsreader',serif;color:var(--gain)">${ts.estimated_ongoing_annual_tax_alpha?'+'+fmtM(ts.estimated_ongoing_annual_tax_alpha)+'/yr':'\u2014'}</div></div>
+         </div>
++        `}
+         ${ts.concentration_after && ts.concentration_after.length ? `<div style="margin-top:6px;padding:10px 12px;background:color-mix(in srgb, var(--amber) 8%, transparent);border-left:3px solid var(--amber);border-radius:6px;font-size:12.5px">Residual concentration: ${ts.concentration_after.map(c=>`${c.label} at ${c.pct}%`).join(', ')}</div>` : ''}
+         ${ts.notes && ts.notes.length ? `<ul style="margin:12px 0 0;padding-left:20px;font-size:12.5px;color:var(--fg-2);line-height:1.6">${ts.notes.map(n=>`<li style="margin:4px 0">${esc(n)}</li>`).join('')}</ul>` : ''}
+       </div>
+@@ -917,6 +1006,270 @@
+   </div>`;
+ }
+ 
++/* ================= VIEW: VEHICLE COMPARISON WORKBENCH ================= */
++async function openVehicleCompare(householdId, model=null, products=null, amount=null){
++  state.view = 'vehicleCompare';
++  state.compareTarget = {householdId, model: model||null, products: (products&&products.length)?products:null, amount: amount||null};
++  await render();
++  const main = document.querySelector('.main'); if(main) main.scrollTo({top:0});
++}
++const FLAG_LABELS = {hypothetical:'Not client-safe', basis:'Basis differs', minimum:'Below minimum', sleeves:'Different sleeve', noperf:'No published returns', nofee:'Fee in profile', pas:'PAS dual contract'};
++function productChip(row){
++  return `<span class="pchip" title="${esc(row.name)}"><b>${esc(row.ticker || row.vehicle.replace('_',' '))}</b><span class="pchip-n">${esc(row.name)}</span><button class="pchip-x" data-cmp-remove="${row.product_id}" aria-label="Remove ${esc(row.name)}">\u00d7</button></span>`;
++}
++function acMenuHtml(results){
++  if(!results.length) return `<div class="ac-empty">No products match. Try a ticker (VOO), fund family (Vanguard), manager or asset class.</div>`;
++  const inSel = new Set(state.compareCurrentIds||[]);
++  return results.map(p=>`<button class="ac-item" data-cmp-add="${p.product_id}" ${inSel.has(p.product_id)?'disabled':''}>
++    <span class="ac-t mono">${esc(p.ticker || (p.vehicle==='SMA'?'SMA':'DI'))}</span>
++    <span class="ac-n">${esc(p.name)}<span class="ac-m">${esc(p.sleeve)} \u00b7 ${p.vehicle.replace('_',' ').toLowerCase()} \u00b7 ${p.fee_bps!=null?p.fee_bps+' bps':'fee in profile'}${p.tem_overlays&&p.tem_overlays.length?' \u00b7 TEM '+p.tem_overlays.join(''):''}${p.client_presentable?'':' \u00b7 not client-safe'}${inSel.has(p.product_id)?' \u00b7 already added':''}</span></span>
++  </button>`).join('');
++}
++let acTimer = null;
++function wireComparePicker(){
++  const input = document.getElementById('cmpSearch'); const menu = document.getElementById('cmpMenu');
++  if(!input || !menu) return;
++  const run = async () => {
++    const q = input.value.trim();
++    if(!q){ menu.hidden = true; return; }
++    try{
++      const r = await api(`/api/products/search?q=${encodeURIComponent(q)}&limit=8`);
++      if(input.value.trim() !== q) return;  // a newer keystroke superseded this request
++      menu.innerHTML = acMenuHtml(r.results); menu.hidden = false;
++    }catch(e){ menu.hidden = true; }
++  };
++  input.addEventListener('input', () => { clearTimeout(acTimer); acTimer = setTimeout(run, 140); });
++  input.addEventListener('focus', () => { if(input.value.trim()) run(); });
++  input.addEventListener('keydown', e => {
++    if(e.key === 'Escape'){ menu.hidden = true; input.blur(); }
++    if(e.key === 'Enter'){ e.preventDefault(); const first = menu.querySelector('.ac-item:not([disabled])'); if(first && !menu.hidden) first.click(); }
++  });
++  const amt = document.getElementById('cmpAmountApply');
++  if(amt) amt.onclick = () => {
++    const v = parseFloat(String(document.getElementById('cmpAmount').value).replace(/[$,\s]/g,''));
++    if(v > 0){ const t = state.compareTarget; openVehicleCompare(t.householdId, t.model, state.compareCurrentIds, v); }
++  };
++}
++function compareWithIds(ids){
++  const t = state.compareTarget;
++  if(!ids.length) return openVehicleCompare(t.householdId, t.model, null, t.amount);
++  openVehicleCompare(t.householdId, null, ids, t.amount);
++}
++function contentFlagPill(flag){
++  const map = { expired:['pill amber','Expired'], review:['pill amber','Needs review'], advisor_only:['pill','Advisor only'], required:['pill amber','Required'] };
++  const [cls,label] = map[flag.severity] || ['pill', flag.severity];
++  return `<span class="${cls}" title="${flag.message.replace(/"/g,'&quot;')}">${label}</span>`;
++}
++function contentRow(hit){
++  const clickable = !!hit.pdf_url;
++  return `<div class="row" ${clickable?`data-pdf-url="${hit.pdf_url}" data-pdf-title="${esc(hit.title)}"`:''} style="${clickable?'cursor:pointer':'cursor:default'};align-items:flex-start;gap:12px">
++    <div style="flex-shrink:0;padding-top:2px">${I.chat}</div>
++    <div style="min-width:0;flex:1">
++      <div style="font-weight:600;font-size:13px">${esc(hit.title)}${hit.page?` <span class="mono" style="font-size:11px;color:var(--muted)">(p.${esc(String(hit.page))})</span>`:''}</div>
++      <div class="sub" style="margin-top:3px;font-size:12px">${esc(hit.snippet).slice(0,180)}${hit.snippet.length>180?'\u2026':''}</div>
++      ${hit.flags.length ? `<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">${hit.flags.map(contentFlagPill).join('')}</div>` : ''}
++      ${clickable ? `<div class="u" style="margin-top:7px;font-size:12px">Preview PDF (${hit.pages||'?'} pages) ${I.arrow}</div>` : ''}
++    </div>
++  </div>`;
++}
++function openPdfPreview(url, title){
++  const existing = document.getElementById('pdfModalOverlay'); if(existing) existing.remove();
++  const overlay = document.createElement('div');
++  overlay.id = 'pdfModalOverlay';
++  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,18,24,.6);display:flex;align-items:center;justify-content:center;z-index:9999;padding:28px';
++  overlay.innerHTML = `<div style="background:var(--paper);border-radius:var(--r-l);width:min(880px,100%);height:min(90vh,1000px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)">
++    <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line-2);flex-shrink:0">
++      <div style="background:color-mix(in srgb, var(--brand) 12%, transparent);color:var(--brand);border-radius:var(--r-s);padding:6px 8px">${I.chat}</div>
++      <div style="font-weight:600;font-size:14px;flex:1;min-width:0">${esc(title)}</div>
++      <button class="btn sm" id="pdfModalClose">Close</button>
++    </div>
++    <iframe src="${url}" style="flex:1;border:none;width:100%;background:#525659"></iframe>
++  </div>`;
++  overlay.addEventListener('click', e => { if(e.target === overlay) overlay.remove(); });
++  document.body.appendChild(overlay);
++  document.getElementById('pdfModalClose').onclick = () => overlay.remove();
++}
++async function viewVehicleCompare(householdId, model, products, amount){
++  const container = document.getElementById('view');
++  container.innerHTML = '<div class="empty" style="padding:32px;text-align:center;color:var(--muted)">Comparing vehicles\u2026</div>';
++  await ensureVerdicts(householdId);
++  const c = byId(householdId);
++  if(!c || c.advisor_id !== state.fa){ setView('book'); return; }
++  const qs = new URLSearchParams();
++  if(products && products.length) qs.set('products', products.join(','));
++  else if(model) qs.set('model', model);
++  if(amount) qs.set('amount', amount);
++  let brief;
++  try{ brief = await api(`/api/compare/${householdId}?${qs.toString()}`); }
++  catch(e){ container.innerHTML = `<div class="empty" style="padding:32px;color:var(--red)">Could not build comparison: ${esc(e.message)}</div>`; return; }
++  const cmp = brief.comparison;
++  state.compareCurrentIds = cmp.implementations.map(r=>r.product_id);
++  const vehicleRows = cmp.implementations.map(row => {
++    const perf = row.performance;
++    return `<tr>
++      <td><b>${esc(row.ticker || row.vehicle.replace('_',' '))}</b><div class="sub" style="font-size:11.5px;max-width:280px">${esc(row.name)}</div></td>
++      <td>${row.vehicle.replace('_',' ').toLowerCase()}<div class="sub" style="font-size:11px">${esc(row.sleeve)}</div></td>
++      <td class="r mono">${row.fee_bps!=null?row.fee_bps+' bps<div class="sub" style="font-size:11px">'+fmt$(row.annual_fee_dollars)+'/yr</div>':'<span class="sub">per Strategy Profile</span>'}</td>
++      <td class="r mono">${perf?(perf.returns['1y']*100).toFixed(1)+'% <span class="sub" style="font-size:11px">1y</span>':'<span class="sub">\u2014</span>'}</td>
++      <td class="r mono">${perf?(perf.returns['3y']*100).toFixed(1)+'% <span class="sub" style="font-size:11px">3y ann.</span>':'<span class="sub">not published</span>'}</td>
++      <td>${row.tlh_capable?'<span class="chip eligible dot">Yes</span>':'<span class="chip na">No</span>'}</td>
++      <td>${row.flags.length ? row.flags.map(f=>`<span class="pill amber" title="${esc(f.message)}">${FLAG_LABELS[f.code]||'Review'}</span>`).join(' ') : '<span class="chip eligible dot">Clear</span>'}</td>
++    </tr>`;
++  }).join('');
++  const bes = cmp.breakevens || [];
++  const beCard = bes.length ? `<div class="card" style="margin-top:14px">
++    <div class="ch"><h3>Fee premium vs. breakeven harvesting</h3><span class="r" style="font-size:12px;color:var(--muted)">vs. ${esc(bes[0].vs_product_name)}, the lowest-cost client-presentable ETF selected</span></div>
++    <div class="cbp" style="padding:0">
++      <table class="hh-tbl"><thead><tr><th>Tax-managed option</th><th class="r">Fee premium</th><th class="r">Breakeven harvest</th><th>Assessment</th></tr></thead><tbody>
++      ${bes.map(b=>`<tr><td><b>${esc(b.product_name)}</b></td><td class="r mono">${b.fee_premium_bps} bps<div class="sub" style="font-size:11px">${fmt$(b.fee_premium_annual_dollars)}/yr</div></td>
++        <td class="r mono">${(b.breakeven_harvest_needed_pct_of_assets*100).toFixed(2)}%<div class="sub" style="font-size:11px">${fmt$(b.breakeven_harvest_needed_annual_dollars)}/yr</div></td>
++        <td style="font-size:12.5px;color:var(--fg-2)">${esc(b.assessment)}</td></tr>`).join('')}
++      </tbody></table>
++      <div class="sub" style="padding:10px 17px 13px;font-size:11.5px">Breakeven = fee premium \u00f7 23.8% blended rate. Typical first-year harvest range ${(bes[0].illustrative_typical_first_year_harvest_range_pct[0]*100).toFixed(1)}\u2013${(bes[0].illustrative_typical_first_year_harvest_range_pct[1]*100).toFixed(1)}% is illustrative, not a published figure.</div>
++    </div>
++  </div>` : `<div class="sub" style="margin-top:14px;padding:12px 14px;border:1px dashed var(--line);border-radius:var(--r-m);font-size:12.5px">Add a tax-managed option (SMA or direct indexing) and a client-presentable ETF to see the fee-premium breakeven.</div>`;
++  const pickerCard = `<div class="card" style="margin-top:16px">
++    <div class="ch"><h3>Vehicles in this comparison</h3><span class="r" style="font-size:12px;color:var(--muted)">${cmp.implementations.length} selected \u00b7 add any product from the shelf</span></div>
++    <div class="cbp">
++      <div class="pchips">${cmp.implementations.map(productChip).join('')}</div>
++      <div class="cmp-controls">
++        <div class="ac-wrap">
++          <input id="cmpSearch" class="ac-input" type="text" autocomplete="off" placeholder="Add a product \u2014 ticker, fund, manager or asset class\u2026" aria-label="Search the product shelf">
++          <div class="ac-menu" id="cmpMenu" hidden></div>
++        </div>
++        <label class="cmp-amt">Amount <input id="cmpAmount" type="text" value="${Math.round(cmp.amount).toLocaleString()}"></label>
++        <button class="btn sm" id="cmpAmountApply">Recalculate</button>
++        ${c.current_model_id && (products&&products.length) ? `<span class="u" data-compare="${c.id}:${c.current_model_id}" style="font-size:12px">Reset to ${esc(c.current_model_id.replace('_',' '))} ${I.arrow}</span>` : ''}
++      </div>
++    </div>
++  </div>`;
++  container.innerHTML = `
++  <button class="backlink" data-client="${c.id}">${I.back} ${c.name}</button>
++  <div class="cli-head reveal" style="margin-bottom:0">
++    ${avatarEl(c)}
++    <div style="min-width:200px">
++      <div class="eyebrow" style="margin-bottom:4px">COMPARE VEHICLES</div>
++      <div class="nm serif">${esc(cmp.model_label)}</div>
++      <div class="sub" style="color:var(--muted)">${c.name}</div>
++    </div>
++    <div style="margin-left:auto;align-self:center;text-align:right">
++      <div class="mono" style="font-size:20px;font-family:'Newsreader',serif">${fmtM(cmp.amount)}</div>
++      <div class="sub">${c.incoming_capital && !amount ? 'incoming capital' : 'amount under consideration'}</div>
++    </div>
++  </div>
++  ${pickerCard}
++  <div class="card" style="margin-top:14px">
++    <div class="ch"><h3>Implementation comparison</h3><span class="r" style="font-size:12px;color:var(--muted)">reference basis: ${esc(cmp.reference_basis||'')}, as of ${esc(cmp.reference_as_of||'')}</span></div>
++    <div class="cbp" style="padding:0;overflow-x:auto">
++      <table class="hh-tbl"><thead><tr><th>Product</th><th>Vehicle</th><th class="r">Fee</th><th class="r">Return</th><th class="r">Return</th><th>TLH</th><th>Flags</th></tr></thead>
++      <tbody>${vehicleRows}</tbody></table>
++    </div>
++  </div>
++
++  ${beCard}
++
++  ${brief.switching_cost_note ? `<div style="margin-top:14px;padding:12px 14px;background:color-mix(in srgb, var(--blue) 8%, transparent);border-left:3px solid var(--blue);border-radius:6px;font-size:12.5px">${esc(brief.switching_cost_note)}${brief.switching_cost_basis?' '+esc(brief.switching_cost_basis):''} <span class="u" data-transition="${c.id}:${brief.switching_cost.offering}">View transition scenario ${I.arrow}</span></div>` : ''}
++
++  <div class="card" style="margin-top:14px">
++    <div class="ch"><h3>Client-approved content</h3><span class="r" style="font-size:12px;color:var(--muted)">${brief.client_content.length} document${brief.client_content.length===1?'':'s'}</span></div>
++    <div class="cbp" style="padding:8px 17px">
++      ${brief.content_gap
++        ? `<div style="padding:12px;background:color-mix(in srgb, var(--amber) 10%, transparent);border-left:3px solid var(--amber);border-radius:6px;font-size:13px">${esc(brief.content_gap_message)}</div>`
++        : brief.client_content.map(contentRow).join('')}
++    </div>
++  </div>
++
++  ${brief.advisor_content.length ? `<div class="card" style="margin-top:14px">
++    <div class="ch"><h3>Advisor-only context</h3><span class="r" style="font-size:12px;color:var(--muted)">not for client distribution</span></div>
++    <div class="cbp" style="padding:8px 17px">${brief.advisor_content.map(contentRow).join('')}</div>
++  </div>` : ''}
++
++  <div style="margin-top:14px;font-size:11.5px;color:var(--muted);text-align:center;padding:14px">
++    Content retrieval shown here uses catalog metadata and keyword matching over a seeded content set \u2014 a production deployment would call a real multimodal retrieval pipeline (e.g. Voyage embeddings for prose, ColPali for chart/table-heavy pages) over the full document corpus. Performance and fee figures are illustrative program data, not live pricing.
++  </div>`;
++  wireComparePicker();
++}
++
++/* ================= VIEW: PRODUCT SHELF ================= */
++function shelfFilters(){ return state.shelfFilters || (state.shelfFilters = {q:'', vehicle:'', sleeve:'', max_minimum:'', tlh:''}); }
++let shelfSleeves = null, shelfTimer = null;
++async function viewShelf(){
++  const v = document.getElementById('view');
++  if(!shelfSleeves){ try{ shelfSleeves = (await api('/api/products/sleeves')).sleeves; }catch(e){ shelfSleeves = []; } }
++  const f = shelfFilters();
++  state.shelfSelected = state.shelfSelected || new Set();
++  const focus = state.focusHousehold && byId(state.focusHousehold) ? state.focusHousehold : '';
++  const opt = (val, label, cur) => `<option value="${val}" ${String(cur)===String(val)?'selected':''}>${label}</option>`;
++  v.innerHTML = `
++  <div class="cli-head reveal" style="margin-bottom:0">
++    <div style="min-width:200px">
++      <div class="eyebrow" style="margin-bottom:4px">PRODUCT SHELF</div>
++      <div class="nm serif">Every ETF, SMA and direct-indexing product</div>
++      <div class="sub" style="color:var(--muted)">Filter the shelf, select products, and compare them for any client.</div>
++    </div>
++  </div>
++  <div class="card" style="margin-top:16px">
++    <div class="cbp shelf-filters">
++      <div class="ac-wrap" style="flex:2 1 260px"><input id="shelfQ" class="ac-input" type="text" autocomplete="off" placeholder="Ticker, fund, manager or asset class\u2026" value="${esc(f.q||'')}"></div>
++      <select id="shelfVehicle" class="shelf-sel">${opt('', 'All vehicles', f.vehicle)}${opt('ETF','ETFs',f.vehicle)}${opt('SMA','SMAs',f.vehicle)}${opt('DIRECT_INDEXING','Direct indexing / TEM SMS',f.vehicle)}${opt('ETF_MODEL','ETF models',f.vehicle)}${opt('FUND_MODEL','Fund models',f.vehicle)}</select>
++      <select id="shelfSleeve" class="shelf-sel">${opt('', 'All sleeves', f.sleeve)}${shelfSleeves.map(s=>opt(s, s, f.sleeve)).join('')}</select>
++      <select id="shelfMin" class="shelf-sel">${opt('', 'Any minimum', f.max_minimum)}${opt('0','No minimum',f.max_minimum)}${opt('100000','Up to $100K',f.max_minimum)}${opt('250000','Up to $250K',f.max_minimum)}</select>
++      <label class="shelf-chk"><input id="shelfTlh" type="checkbox" ${f.tlh?'checked':''}> Tax-loss harvesting only</label>
++    </div>
++  </div>
++  <div class="card" style="margin-top:14px">
++    <div class="ch"><h3 id="shelfCount">Loading\u2026</h3>
++      <span class="r shelf-compare">
++        <select id="shelfHH" class="shelf-sel"><option value="">Compare for client\u2026</option>${myBook().map(c=>`<option value="${c.id}" ${c.id===focus?'selected':''}>${esc(c.name)}</option>`).join('')}</select>
++        <button class="btn sm primary" id="shelfCompareBtn">Compare selected</button>
++      </span>
++    </div>
++    <div class="cbp" style="padding:0;overflow-x:auto" id="shelfTable"></div>
++  </div>`;
++  const reload = () => loadShelfRows();
++  document.getElementById('shelfQ').addEventListener('input', e => { f.q = e.target.value; clearTimeout(shelfTimer); shelfTimer = setTimeout(reload, 160); });
++  document.getElementById('shelfVehicle').onchange = e => { f.vehicle = e.target.value; reload(); };
++  document.getElementById('shelfSleeve').onchange = e => { f.sleeve = e.target.value; reload(); };
++  document.getElementById('shelfMin').onchange = e => { f.max_minimum = e.target.value; reload(); };
++  document.getElementById('shelfTlh').onchange = e => { f.tlh = e.target.checked ? 'true' : ''; reload(); };
++  document.getElementById('shelfCompareBtn').onclick = () => {
++    const hid = document.getElementById('shelfHH').value; const ids = [...state.shelfSelected];
++    if(!hid){ document.getElementById('shelfHH').focus(); return; }
++    if(!ids.length) return;
++    openVehicleCompare(hid, null, ids);
++  };
++  await loadShelfRows();
++}
++async function loadShelfRows(){
++  const f = shelfFilters(); const qs = new URLSearchParams({limit:'300'});
++  if(f.q) qs.set('q', f.q); if(f.vehicle) qs.set('vehicle', f.vehicle); if(f.sleeve) qs.set('sleeve', f.sleeve);
++  if(f.max_minimum !== '' && f.max_minimum !== undefined) qs.set('max_minimum', f.max_minimum); if(f.tlh) qs.set('tlh_capable', 'true');
++  let rows = [], total = 0;
++  try{ const res = await api(`/api/products/search?${qs.toString()}`); rows = res.results; total = res.total ?? rows.length; }catch(e){ rows = []; }
++  const countText = () => `${total>rows.length?`Showing ${rows.length} of ${total} products \u2014 refine the filters to see the rest`:`${rows.length} product${rows.length===1?'':'s'}`}${sel.size?` \u00b7 ${sel.size} selected`:''}`;
++  const sel = state.shelfSelected;
++  const box = document.getElementById('shelfTable'); if(!box) return;
++  document.getElementById('shelfCount').textContent = countText();
++  box.innerHTML = rows.length ? `<table class="hh-tbl"><thead><tr><th></th><th>Product</th><th>Vehicle</th><th>Sleeve</th><th class="r">Fee</th><th class="r">Minimum</th><th>TLH</th><th>TEM overlays</th><th>Source</th><th>Client use</th></tr></thead><tbody>
++    ${rows.map(p=>`<tr>
++      <td><input type="checkbox" class="shelf-pick" data-pid="${p.product_id}" ${sel.has(p.product_id)?'checked':''} aria-label="Select ${esc(p.name)}"></td>
++      <td><b>${esc(p.ticker || (p.vehicle==='SMA'?'SMA':'DI'))}</b><div class="sub" style="font-size:11.5px;max-width:300px">${esc(p.name)}</div></td>
++      <td>${p.vehicle.replace('_',' ').toLowerCase()}</td>
++      <td style="font-size:12.5px">${esc(p.sleeve)}</td>
++      <td class="r mono" style="white-space:nowrap">${p.fee_bps!=null?p.fee_bps+' bps':'<span class="sub">in profile</span>'}</td>
++      <td class="r mono" style="white-space:nowrap">${p.minimum ? fmtM(p.minimum) : '\u2014'}</td>
++      <td>${p.tlh_capable?'<span class="chip eligible dot">Yes</span>':'<span class="chip na">No</span>'}</td>
++      <td class="mono" style="font-size:12px">${p.tem_overlays&&p.tem_overlays.length?p.tem_overlays.join(', '):'<span class="sub">\u2014</span>'}</td>
++      <td style="font-size:12.5px">${p.model_label ? esc(p.model_label) : (p.source&&p.source.startsWith('MLIAP') ? '<span class="sub">MLIAP catalog</span>' : '<span class="sub">off-model</span>')}</td>
++      <td>${p.client_presentable?'<span class="chip eligible dot">Presentable</span>':'<span class="pill amber">Not client-safe</span>'}</td>
++    </tr>`).join('')}</tbody></table>`
++    : `<div class="empty" style="padding:28px;text-align:center;color:var(--muted)">No products match these filters.</div>`;
++  box.querySelectorAll('.shelf-pick').forEach(cb => cb.onchange = () => {
++    cb.checked ? sel.add(cb.dataset.pid) : sel.delete(cb.dataset.pid);
++    document.getElementById('shelfCount').textContent = countText();
++  });
++}
++
+ /* ================= ROUTER ================= */
+ function setView(v, client=null){
+   state.view = v; state.client = client;
+@@ -925,12 +1278,21 @@
+   const main = document.querySelector('.main'); if(main) main.scrollTo({top:0});
+ }
+ async function render(){
++  // Track which household the advisor is working on, so Ask Atlas can resolve
++  // "this client" without the advisor retyping a name.
++  if(state.view==='client' && state.client) state.focusHousehold = state.client;
++  else if(state.view==='draftReview' && state.draftTarget) state.focusHousehold = state.draftTarget.householdId;
++  else if(state.view==='transition' && state.transitionTarget) state.focusHousehold = state.transitionTarget.householdId;
++  else if(state.view==='vehicleCompare' && state.compareTarget) state.focusHousehold = state.compareTarget.householdId;
++  else if(state.view==='today' || state.view==='book') state.focusHousehold = null;
++  if(state.view!=='chat') state.lastView = state.view;
+   paintNav();
+-  const crumbs = {today:'Today', book:'Book of Business', chat:'Ask Atlas', tax:'Tax Overlay Desk', crosssell:'Cross-Sell Radar', client:'Book of Business', draftReview:'Book of Business', transition:'Book of Business'};
++  const crumbs = {today:'Today', book:'Book of Business', chat:'Ask Atlas', tax:'Tax Overlay Desk', crosssell:'Cross-Sell Radar', shelf:'Product Shelf', client:'Book of Business', draftReview:'Book of Business', transition:'Book of Business', vehicleCompare:'Book of Business'};
+   const cr = document.getElementById('crumb');
+   if(state.view==='client') cr.innerHTML = `<span style="color:var(--muted)">Book of Business /</span> <b>${byId(state.client)?byId(state.client).name:''}</b>`;
+   else if(state.view==='draftReview'){ const t=byId(state.draftTarget&&state.draftTarget.householdId); cr.innerHTML = `<span style="color:var(--muted)">Book of Business / ${t?t.name:''} /</span> <b>Draft</b>`; }
+   else if(state.view==='transition'){ const t=byId(state.transitionTarget&&state.transitionTarget.householdId); cr.innerHTML = `<span style="color:var(--muted)">Book of Business / ${t?t.name:''} /</span> <b>Transition</b>`; }
++  else if(state.view==='vehicleCompare'){ const t=byId(state.compareTarget&&state.compareTarget.householdId); cr.innerHTML = `<span style="color:var(--muted)">Book of Business / ${t?t.name:''} /</span> <b>Compare vehicles</b>`; }
+   else cr.innerHTML = `<b>${crumbs[state.view]||'Today'}</b>`;
+   const v = document.getElementById('view');
+   if(state.view === 'today') v.innerHTML = viewToday();
+@@ -938,9 +1300,11 @@
+   else if(state.view === 'chat'){ v.innerHTML = viewChat(); requestAnimationFrame(() => { scrollChat(); const ta = document.getElementById('chatInput'); if(ta) ta.focus(); }); }
+   else if(state.view === 'tax') v.innerHTML = viewTax();
+   else if(state.view === 'crosssell') v.innerHTML = viewCrossSell();
++  else if(state.view === 'shelf') await viewShelf();
+   else if(state.view === 'client') await viewClient(state.client);
+   else if(state.view === 'draftReview') await viewDraftReview(state.draftTarget.householdId, state.draftTarget.kind);
+   else if(state.view === 'transition') await viewTransition(state.transitionTarget.householdId, state.transitionTarget.offering);
++  else if(state.view === 'vehicleCompare') await viewVehicleCompare(state.compareTarget.householdId, state.compareTarget.model, state.compareTarget.products, state.compareTarget.amount);
+ }
+ 
+ async function switchFa(fa){
+@@ -954,6 +1318,13 @@
+   const nav = e.target.closest('[data-nav]'); if(nav){ setView(nav.dataset.nav); return; }
+   const dr = e.target.closest('[data-draft]'); if(dr){ const [hid,kind] = dr.dataset.draft.split(':'); openDraft(hid, kind||'meeting_prep'); return; }
+   const tr = e.target.closest('[data-transition]'); if(tr){ const [hid,off] = tr.dataset.transition.split(':'); openTransition(hid, off); return; }
++  const aa = e.target.closest('[data-agent-action]'); if(aa){ runAgentAction(AGENT_ACTIONS[aa.dataset.agentAction]); return; }
++  const cc = e.target.closest('[data-clear-context]'); if(cc){ state.focusHousehold = null; paintChat(); return; }
++  const ca = e.target.closest('[data-cmp-add]'); if(ca){ compareWithIds([...(state.compareCurrentIds||[]), ca.dataset.cmpAdd]); return; }
++  const cr = e.target.closest('[data-cmp-remove]'); if(cr){ compareWithIds((state.compareCurrentIds||[]).filter(x=>x!==cr.dataset.cmpRemove)); return; }
++  if(!e.target.closest('.ac-wrap')){ const m = document.getElementById('cmpMenu'); if(m) m.hidden = true; }
++  const vc = e.target.closest('[data-compare]'); if(vc){ const [hid,model] = vc.dataset.compare.split(':'); openVehicleCompare(hid, model||null); return; }
++  const pdf = e.target.closest('[data-pdf-url]'); if(pdf){ openPdfPreview(pdf.dataset.pdfUrl, pdf.dataset.pdfTitle); return; }
+   const cl = e.target.closest('[data-client]'); if(cl){ setView('client', cl.dataset.client); return; }
+   const ask = e.target.closest('[data-ask]'); if(ask){ const q = ask.dataset.ask; if(state.view !== 'chat'){ setView('chat'); } setTimeout(() => { const ta = document.getElementById('chatInput'); if(ta){ ta.value = q; ta.style.height = 'auto'; ta.style.height = Math.min(120, ta.scrollHeight)+'px'; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); } }, 40); return; }
+   const send = e.target.closest('#sendBtn'); if(send){ const ta = document.getElementById('chatInput'); if(ta){ const v = ta.value; ta.value = ''; ta.style.height = 'auto'; sendChat(v); } return; }

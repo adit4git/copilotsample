@@ -1,0 +1,45 @@
+--- /tmp/baseline_main.py	2026-09-27 22:03:32.399868437 +0000
++++ app/main.py	2026-09-27 11:31:37.480957017 +0000
+@@ -9,6 +9,7 @@
+ from pydantic import BaseModel,Field
+ from .data import RULE_STORE,FA_PROFILES,BY_ID,my_book
+ from .services import *
++from .agent import run_agent
+ 
+ app=FastAPI(title='Atlas Advisor Console',version='1.0.0')
+ STATIC=Path(__file__).parent/'static'
+@@ -137,3 +138,34 @@
+ def transition(household_id:str,offering:str=Query(...)):
+     try: return transition_scenario(household_id,offering)
+     except KeyError as ke: raise HTTPException(404,str(ke))
++
++@app.get('/api/compare/{household_id}')
++def compare(household_id:str,model:str|None=Query(None),amount:float|None=Query(None),products:str|None=Query(None)):
++    pids=[p for p in (products or '').split(',') if p]
++    try: return build_vehicle_brief(household_id,model,amount,pids or None)
++    except KeyError as ke: raise HTTPException(404,str(ke).strip("'"))
++
++@app.get('/api/products/search')
++def products_search(q:str=Query(''),vehicle:str|None=Query(None),sleeve:str|None=Query(None),
++                    max_minimum:float|None=Query(None),max_fee_bps:float|None=Query(None),
++                    tlh_capable:bool|None=Query(None),limit:int=Query(10,ge=1,le=2000)):
++    allrows=search_products(q,vehicle=vehicle or None,limit=100000,sleeve=sleeve or None,max_minimum=max_minimum,
++                         max_fee_bps=max_fee_bps,tlh_capable=tlh_capable)
++    return {'query':q,'results':allrows[:limit],'total':len(allrows)}
++
++@app.get('/api/products/sleeves')
++def products_sleeves(): return {'sleeves':shelf_sleeves()}
++
++class AgentRequest(BaseModel):
++    fa:str='dana'; message:str=Field(min_length=1,max_length=4000); history:list[dict]=[]; context:dict|None=None
++
++@app.post('/api/agent')
++async def agent_endpoint(req:AgentRequest):
++    valid_fa(req.fa)
++    try: return await run_agent(req.fa,req.message,req.history,req.context)
++    except LookupError as e: raise HTTPException(404,str(e))
++
++@app.get('/api/content/search')
++def content_search_endpoint(q:str=Query(...),model:str|None=Query(None),topics:str|None=Query(None)):
++    topic_list = topics.split(',') if topics else None
++    return {'query':q,'results':content_search(q,model_id=model,topics=topic_list)}
