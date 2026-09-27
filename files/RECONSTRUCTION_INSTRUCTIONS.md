@@ -140,7 +140,7 @@ Same verification as Step 5 — applied and confirmed byte-identical against the
 pip install -r requirements.txt
 python3 -m pytest tests/ -q          # expect: 38 passed
 uvicorn app.main:app --reload
-curl localhost:8000/api/health       # expect: {"status":"ok","pack_id":"atlas.merrill.tax-services.2026-09-20","offerings":17,"rules":112}
+curl localhost:8000/api/health       # expect: {"status":"ok","pack_id":"atlas.tax-services.2026-09-20","offerings":17,"rules":112}
 ```
 If the rule/offering counts don't match, Steps 2–4 didn't complete cleanly — re-run their round-trip checks before touching the Python.
 
