@@ -3,7 +3,7 @@ Usage: python3 expand_rule_store.py  (reads the two CSVs in the same folder, wri
 """
 import json, csv
 
-PACK_ID = 'atlas.merrill.tax-services.2026-09-20'
+PACK_ID = 'atlas..tax-services.2026-09-20'
 STATUS = 'POC_DRAFT_NOT_APPROVED_POLICY'
 
 def build(offerings_csv='rule_store_offerings.csv', composition_csv='rule_store_composition.csv'):
