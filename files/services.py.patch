@@ -1,5 +1,5 @@
 --- /tmp/baseline_services.py	2026-09-27 22:03:32.399135660 +0000
-+++ app/services.py	2026-09-27 11:33:42.570841123 +0000
++++ app/services.py	2026-09-27 22:43:36.552537855 +0000
 @@ -176,7 +176,7 @@
  # Some offerings model a real portfolio transition (trades to execute); others
  # are procedural onboardings (paperwork, meetings, funding). Both kinds share
@@ -40,7 +40,7 @@
                  'message':f'{len(indiv_fi)} individual fixed-income position(s) excluded from TET scope: '+', '.join(h['sym'] for h in indiv_fi)+'.'})
 +        if not ACCOUNT_FACTS.get(hh['id'], {}).get('annual_transition_budget'):
 +            gaps.append({'severity':'recommended',
-+                'message':'No Annual Transition Budget has been elected yet. Merrill will produce a Service Analysis showing the impact of different budget levels \u2014 set one with the client before enrolling.'})
++                'message':'No Annual Transition Budget has been elected yet. The Firm will produce a Service Analysis showing the impact of different budget levels \u2014 set one with the client before enrolling.'})
 +    if offering == 'dca':
 +        amt = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_cash_amount')
 +        months = ACCOUNT_FACTS.get(hh['id'], {}).get('dca_schedule_months')
@@ -210,7 +210,7 @@
 +                by_year[yr] = by_year.get(yr, 0) + (t.get('gl') or 0)
 +        years_breakdown = [{'year': y, 'gains_realized': round(g, 2)} for y, g in sorted(by_year.items())]
 +        if budget and budget > 0:
-+            notes.append(f'Paced against the client-elected Annual Transition Budget of ${budget:,.0f}/yr over {len(years_breakdown)} year(s); unsold lots stay in the current strategy as Transition Assets, charged the standard Merrill Lynch Fee (not the Program Fee) until transitioned.')
++            notes.append(f'Paced against the client-elected Annual Transition Budget of ${budget:,.0f}/yr over {len(years_breakdown)} year(s); unsold lots stay in the current strategy as Transition Assets, charged the standard advisory fee (not the Program Fee) until transitioned.')
 +        else:
 +            notes.append('No Annual Transition Budget has been elected yet \u2014 set one with the client before enrolling; the figures shown assume a single-year illustrative sale.')
 +    if offering == 'dca':
@@ -220,7 +220,7 @@
 +            [x for x in trades if x['action'] == 'stage_buy'], start=1)]
 +        if amt and months:
 +            notes.append(f'${amt:,.0f} of DCA Cash deployed over {months} month(s) in {len(schedule)} {DCA_FREQ_LABEL.get((ACCOUNT_FACTS.get(hh["id"],{}).get("dca_frequency") or "MONTHLY").upper(),"monthly")} contributions (~${amt/max(1,len(schedule)):,.0f} each). '
-+                        f'Uninvested DCA Cash is charged the Merrill Lynch Fee Rate; once invested, that portion moves to the Program Fee Rate.')
++                        f'Uninvested DCA Cash is charged the standard advisory Fee Rate; once invested, that portion moves to the Program Fee Rate.')
 +            notes.append('Must be funded within 60 days of the effective date and begin investing within 2 weeks of it, or the DCA Service is removed.')
 +            notes.append('TER applies automatically to the invested portion unless declined; QLH/DTLH may be elected too but can be less effective and produce tax-inefficient trades or wash sales during the DCA period.')
 +        else:
@@ -248,12 +248,12 @@
 -            'Review and countersign the current IAP wrap-fee agreement.',
 -            'Confirm the target strategy and its minimums, program-scope constraints, and fee schedule.',
 -            'Complete the strategy-specific selection form; confirm advisor qualification for the chosen strategy.',
-+            'Confirm the household has an established Merrill brokerage account (e.g. CMA) \u2014 required before any IA Program enrollment.',
++            'Confirm the household has an established brokerage account (e.g. CMA) \u2014 required before any IA Program enrollment.',
 +            'Execute the IAP Client Agreement, having reviewed the accompanying Brochure and any applicable Manager Disclosure Documents.',
 +            'Select an Investment Strategy (Managed Strategy or Custom Managed Strategy) that meets the household\'s goals and minimums.',
-+            'Choose the Authority for the account: full Merrill/Manager discretion, retained-strategy-selection with granted trading authority, or full client discretion.',
++            'Choose the Authority for the account: full Firm/Manager discretion, retained-strategy-selection with granted trading authority, or full client discretion.',
 +            'Complete the Account Election/Signature Page: proxy voting approach and trade confirmation frequency (defaults apply if not elected).',
-+            'Confirm the negotiated Merrill Lynch Fee Rate with the household (max 1.75%) and any applicable Style Manager Rate; this will be reflected in the Program Report.',
++            'Confirm the negotiated advisory Fee Rate with the household (max 1.75%) and any applicable Style Manager Rate; this will be reflected in the Program Report.',
          ],
      }
      return steps_by_offering.get(offering, [
