@@ -1,0 +1,60 @@
+{
+ "fa_profiles": {
+  "dana": {
+   "id": "dana",
+   "name": "Dana Whitfield",
+   "role": "Sr. Wealth Advisor",
+   "initials": "DW",
+   "qualified_for_offering": [
+    "directIndexing",
+    "tlhOverlay",
+    "qlhOverlay",
+    "dtlhOverlay",
+    "taxManagedSMA",
+    "temSms",
+    "transition",
+    "charitable",
+    "privateBanking",
+    "lending",
+    "trustEstate",
+    "insurance",
+    "alternatives"
+   ]
+  },
+  "marcus": {
+   "id": "marcus",
+   "name": "Marcus Webb",
+   "role": "Associate Advisor",
+   "initials": "MW",
+   "qualified_for_offering": [
+    "directIndexing",
+    "tlhOverlay",
+    "taxManagedSMA",
+    "temSms",
+    "transition",
+    "charitable",
+    "privateBanking",
+    "lending",
+    "trustEstate",
+    "insurance"
+   ]
+  }
+ },
+ "offering_minimums": {
+  "taxManagedSMA": 250000,
+  "qlhOverlay": 250000,
+  "dtlhOverlay": 500000,
+  "transition": 1000000,
+  "directIndexing": 250000,
+  "temSms": 250000,
+  "mgiTer": 20000,
+  "mgiQlh": 20000,
+  "mgiDtlh": 20000,
+  "dca": 3000
+ },
+ "requires_qualified_advisor": [
+  "dtlhOverlay",
+  "qlhOverlay",
+  "alternatives"
+ ]
+}
