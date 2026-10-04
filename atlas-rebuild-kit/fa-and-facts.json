@@ -1,0 +1,302 @@
+{
+  "fa_profiles": {
+    "dana": {
+      "id": "dana",
+      "name": "Dana Whitfield",
+      "role": "Sr. Wealth Advisor",
+      "initials": "DW",
+      "qualified_for_offering": [
+        "directIndexing",
+        "tlhOverlay",
+        "qlhOverlay",
+        "dtlhOverlay",
+        "taxManagedSMA",
+        "temSms",
+        "transition",
+        "charitable",
+        "privateBanking",
+        "lending",
+        "trustEstate",
+        "insurance",
+        "alternatives"
+      ]
+    },
+    "marcus": {
+      "id": "marcus",
+      "name": "Marcus Webb",
+      "role": "Associate Advisor",
+      "initials": "MW",
+      "qualified_for_offering": [
+        "directIndexing",
+        "tlhOverlay",
+        "taxManagedSMA",
+        "temSms",
+        "transition",
+        "charitable",
+        "privateBanking",
+        "lending",
+        "trustEstate",
+        "insurance"
+      ]
+    }
+  },
+  "account_facts": {
+    "henderson": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "customization_beyond_shelf": true,
+      "in_universe_TER": true,
+      "in_universe_TET": true
+    },
+    "okonkwo": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED"
+    },
+    "reyes": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "in_universe_TER": false,
+      "in_universe_QLH": false
+    },
+    "sorensen": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "in_universe_QLH": true,
+      "in_universe_TER": false
+    },
+    "abernathy": {
+      "tax_status": "TAX_EXEMPT",
+      "program_enrollment": "IAP_MANAGED"
+    },
+    "kaplan": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "NONE"
+    },
+    "nakamura": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "in_universe_DTLH": false
+    },
+    "delacroix": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "protection_gap": true
+    },
+    "bianchi": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "has_pas_strategy": true
+    },
+    "callahan": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED"
+    },
+    "duarte": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_CUSTOM_MANAGED"
+    },
+    "eshun": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_CUSTOM_MANAGED",
+      "in_universe_TER": true
+    },
+    "farkas": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "in_universe_DTLH": true,
+      "in_universe_QLH": true
+    },
+    "giordano": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "qualified_purchaser": true
+    },
+    "han": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "residency_country": "CA"
+    },
+    "ibarra": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "customization_beyond_shelf": true,
+      "has_low_basis_position": true
+    },
+    "sato": {
+      "tax_status": "TAXABLE",
+      "goal_type": "GROWTH_FOCUSED",
+      "is_retirement": false,
+      "available_tem_services": [
+        "QLH"
+      ],
+      "is_eligible_cio_etf_strategy": false
+    },
+    "montgomery": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": null,
+      "iap_agreement_executed": false,
+      "annual_transition_budget": 50000,
+      "residency_country": "US"
+    },
+    "thornbury": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "goal_type": "INCOME_FOCUSED",
+      "is_retirement": false,
+      "available_tem_services": [
+        "TER",
+        "QLH"
+      ],
+      "residency_country": "US"
+    },
+    "kestrel": {
+      "tax_status": "RETIREMENT",
+      "program_enrollment": null,
+      "goal_type": "GROWTH_FOCUSED",
+      "is_retirement": true,
+      "available_tem_services": [
+        "TER",
+        "QLH",
+        "DTLH"
+      ],
+      "residency_country": "US"
+    },
+    "harlow": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "dca_cash_amount": 600000,
+      "dca_schedule_months": 6,
+      "residency_country": "US",
+      "dca_frequency": "MONTHLY",
+      "dca_funding_source": "CASH"
+    },
+    "lindqvist": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "residency_country": "SE",
+      "current_strategy_product_id": "CAT-CIO-EQUITY-ETF-CORE"
+    },
+    "castellano": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_CUSTOM_MANAGED",
+      "residency_country": "US",
+      "current_strategy_product_id": "CAT-CIO-EQUITY-ETF-CORE"
+    },
+    "okoye": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "residency_country": "US",
+      "current_strategy_product_id": "CAT-CLEARBRIDGE-APPRECIATION-SMA"
+    },
+    "ferreira": {
+      "tax_status": "TAXABLE",
+      "program_enrollment": "IAP_MANAGED",
+      "residency_country": "US",
+      "dca_cash_amount": 450000,
+      "dca_schedule_months": 12,
+      "dca_frequency": "BI_WEEKLY",
+      "dca_funding_source": "MONEY_MARKET_FUND"
+    }
+  },
+  "account_offering_facts": {
+    "henderson": {
+      "taxManagedSMA": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "scope.has_overlay_ineligible_investments": false
+      },
+      "transition": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "transition.strategy_minimum_met": true,
+        "transition.budget_minimum_met": true,
+        "transition.long_term_budget_selected": true
+      },
+      "directIndexing": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "target_strategy.in_approved_directIndexing_roster": true,
+        "target_strategy.restrictions_awaiting_manager_acceptance": false
+      }
+    },
+    "sorensen": {
+      "qlhOverlay": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "scope.has_overlay_ineligible_investments": false
+      }
+    },
+    "eshun": {
+      "taxManagedSMA": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "scope.has_overlay_ineligible_investments": false
+      }
+    },
+    "farkas": {
+      "dtlhOverlay": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "scope.has_overlay_ineligible_investments": false
+      },
+      "qlhOverlay": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "scope.has_overlay_ineligible_investments": false
+      }
+    },
+    "callahan": {
+      "temSms": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "target_strategy.in_approved_temSms_roster": true,
+        "target_strategy.restrictions_awaiting_manager_acceptance": false
+      }
+    },
+    "duarte": {
+      "temSms": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "target_strategy.in_approved_temSms_roster": false,
+        "target_strategy.restrictions_awaiting_manager_acceptance": false
+      }
+    },
+    "ibarra": {
+      "directIndexing": {
+        "policy.offering_profile_verified": true,
+        "account.offering_profile_requirements_met": true,
+        "target_strategy.in_approved_directIndexing_roster": true,
+        "target_strategy.restrictions_awaiting_manager_acceptance": true
+      }
+    },
+    "sato": {
+      "mgiQlh": {
+        "policy.offering_profile_verified": true
+      }
+    },
+    "montgomery": {
+      "transition": {
+        "transition.strategy_minimum_met": null,
+        "transition.budget_minimum_met": null,
+        "transition.long_term_budget_selected": null
+      }
+    }
+  },
+  "offering_minimums": {
+    "taxManagedSMA": 250000,
+    "qlhOverlay": 250000,
+    "dtlhOverlay": 500000,
+    "transition": 1000000,
+    "directIndexing": 250000,
+    "temSms": 250000,
+    "mgiTer": 20000,
+    "mgiQlh": 20000,
+    "mgiDtlh": 20000,
+    "dca": 3000
+  },
+  "requires_qualified_advisor": [
+    "dtlhOverlay",
+    "qlhOverlay",
+    "alternatives"
+  ]
+}

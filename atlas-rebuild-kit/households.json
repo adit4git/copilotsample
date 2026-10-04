@@ -1,0 +1,2210 @@
+[
+  {
+    "id": "henderson",
+    "name": "Henderson Family Trust",
+    "entity": "Revocable Trust",
+    "segment": "Private Wealth",
+    "aum": 49700000,
+    "rev": 241000,
+    "since": 2009,
+    "risk": "Moderate Growth",
+    "contact": "Margaret & Paul Henderson",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 2,
+      "type": "Annual review",
+      "note": "Wants to revisit single-stock exposure and 2026 gifting."
+    },
+    "ytdReturn": 11.4,
+    "harvestable": 186000,
+    "ytdRealizedGains": 412000,
+    "holdings": [
+      {
+        "sym": "NVDA",
+        "name": "NVIDIA Corp",
+        "ac": "US Equity",
+        "mv": 10600000,
+        "cost": 2100000
+      },
+      {
+        "sym": "MSFT",
+        "name": "Microsoft Corp",
+        "ac": "US Equity",
+        "mv": 4900000,
+        "cost": 2400000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 6200000,
+        "cost": 5100000
+      },
+      {
+        "sym": "MUB",
+        "name": "Muni Bond ETF",
+        "ac": "Municipal",
+        "mv": 9800000,
+        "cost": 10400000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 5100000,
+        "cost": 5600000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 4300000,
+        "cost": 4900000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills",
+        "ac": "Cash",
+        "mv": 7300000,
+        "cost": 7300000
+      },
+      {
+        "sym": "AUSTIN-4.0-32",
+        "name": "City of Austin GO 4.0% 2032 (individual bond)",
+        "ac": "Municipal",
+        "type": "BOND",
+        "mv": 1100000,
+        "cost": 1080000
+      },
+      {
+        "sym": "NVDA",
+        "name": "NVIDIA Corp (legacy gift lot, basis unresolved)",
+        "ac": "US Equity",
+        "mv": 400000,
+        "cost": null,
+        "lot_id": "LOT_HEND_GIFT_2011"
+      }
+    ],
+    "target": {
+      "equity": 55,
+      "fixed": 30,
+      "alt": 10,
+      "cash": 5
+    },
+    "current": {
+      "equity": 56,
+      "fixed": 31,
+      "alt": 0,
+      "cash": 13
+    },
+    "concentration": [
+      {
+        "label": "NVDA single-stock",
+        "pct": 22,
+        "threshold": 10
+      }
+    ],
+    "cio": {
+      "score": "High",
+      "view": "Neutral US large-cap growth; trim mega-cap tech into strength",
+      "pub": "CIO Weekly \u2014 \u201cMega-cap concentration risk\u201d",
+      "diverge": "+12 pts overweight vs house model"
+    },
+    "programs": {
+      "privateBanking": "enrolled",
+      "trustEstate": "enrolled",
+      "alternatives": "eligible",
+      "directIndexing": "eligible",
+      "lending": "eligible",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "enrolled",
+      "tlhOverlay": "eligible",
+      "transition": "na",
+      "charitable": "eligible"
+    },
+    "notes": "Concentrated NVDA lot from 2016. Charitably inclined \u2014 DAF opened 2021.",
+    "current_model_id": "research_growth",
+    "current_implementation": "SMA",
+    "tax_status": "taxable",
+    "marginal_fed_rate": 0.37,
+    "state": "TX",
+    "incoming_capital": {
+      "amount": 5000000,
+      "expected_date": "2026-11-15",
+      "likelihood": "high",
+      "source": "business sale proceeds",
+      "form": "cash"
+    }
+  },
+  {
+    "id": "okonkwo",
+    "name": "Okonkwo Holdings LLC",
+    "entity": "Family LLC",
+    "segment": "Private Wealth",
+    "aum": 31600000,
+    "rev": 174000,
+    "since": 2019,
+    "risk": "Growth",
+    "contact": "Chidi Okonkwo",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 6,
+      "type": "Liquidity deployment",
+      "note": "$14M business-sale proceeds landed; needs a deployment plan."
+    },
+    "ytdReturn": 6.1,
+    "harvestable": 24000,
+    "ytdRealizedGains": 88000,
+    "holdings": [
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills",
+        "ac": "Cash",
+        "mv": 14200000,
+        "cost": 14200000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 6400000,
+        "cost": 5900000
+      },
+      {
+        "sym": "IEFA",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 3100000,
+        "cost": 3000000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 4700000,
+        "cost": 4800000
+      },
+      {
+        "sym": "PRIV",
+        "name": "Private RE Interest",
+        "ac": "Alternatives",
+        "mv": 3200000,
+        "cost": 3000000
+      }
+    ],
+    "target": {
+      "equity": 50,
+      "fixed": 25,
+      "alt": 20,
+      "cash": 5
+    },
+    "current": {
+      "equity": 30,
+      "fixed": 15,
+      "alt": 10,
+      "cash": 45
+    },
+    "concentration": [
+      {
+        "label": "Cash drag",
+        "pct": 45,
+        "threshold": 15
+      }
+    ],
+    "cio": {
+      "score": "Medium",
+      "view": "Stagger deployment; ladder into duration on rate stability",
+      "pub": "CIO Asset Allocation \u2014 Q3 \u201cDeploying the sidelines\u201d",
+      "diverge": "45% cash vs 5% target"
+    },
+    "programs": {
+      "privateBanking": "eligible",
+      "trustEstate": "eligible",
+      "alternatives": "eligible",
+      "directIndexing": "eligible",
+      "lending": "eligible",
+      "insurance": "eligible"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "eligible",
+      "transition": "eligible",
+      "charitable": "na"
+    },
+    "notes": "Post-liquidity event. Prime candidate for alternatives sleeve + private banking relationship."
+  },
+  {
+    "id": "reyes",
+    "name": "Reyes-Mar\u00edn Household",
+    "entity": "Joint / Individual",
+    "segment": "HNW",
+    "aum": 12400000,
+    "rev": 74000,
+    "since": 2015,
+    "risk": "Aggressive Growth",
+    "contact": "Sof\u00eda Reyes & Daniel Mar\u00edn",
+    "advisor_id": "dana",
+    "nextMeeting": null,
+    "ytdReturn": 9.2,
+    "harvestable": 298000,
+    "ytdRealizedGains": 64000,
+    "holdings": [
+      {
+        "sym": "QQQ",
+        "name": "Nasdaq-100 ETF",
+        "ac": "US Equity",
+        "mv": 3600000,
+        "cost": 4300000
+      },
+      {
+        "sym": "ARKK",
+        "name": "Innovation ETF",
+        "ac": "US Equity",
+        "mv": 900000,
+        "cost": 1700000
+      },
+      {
+        "sym": "TSLA",
+        "name": "Tesla Inc",
+        "ac": "US Equity",
+        "mv": 1100000,
+        "cost": 1500000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 3200000,
+        "cost": 2600000
+      },
+      {
+        "sym": "VWO",
+        "name": "Emerging Mkts ETF",
+        "ac": "Intl Equity",
+        "mv": 1400000,
+        "cost": 1600000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 2200000,
+        "cost": 2200000
+      }
+    ],
+    "target": {
+      "equity": 75,
+      "fixed": 10,
+      "alt": 10,
+      "cash": 5
+    },
+    "current": {
+      "equity": 82,
+      "fixed": 0,
+      "alt": 0,
+      "cash": 18
+    },
+    "concentration": [
+      {
+        "label": "Tech / growth tilt",
+        "pct": 38,
+        "threshold": 30
+      }
+    ],
+    "cio": {
+      "score": "Medium",
+      "view": "Reduce single-name growth; broaden factor exposure",
+      "pub": "CIO Equity Strategy \u2014 \u201cBeyond the Magnificent\u201d",
+      "diverge": "+7 pts growth factor vs model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "eligible",
+      "alternatives": "na",
+      "directIndexing": "eligible",
+      "lending": "na",
+      "insurance": "eligible"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "eligible",
+      "transition": "eligible",
+      "charitable": "na"
+    },
+    "notes": "Largest harvestable-loss position in the book after the growth drawdown. Not yet on a tax overlay."
+  },
+  {
+    "id": "sorensen",
+    "name": "S\u00f8rensen Living Trust",
+    "entity": "Irrevocable Trust",
+    "segment": "Private Wealth",
+    "aum": 27300000,
+    "rev": 150000,
+    "since": 2011,
+    "risk": "Conservative Growth",
+    "contact": "Astrid S\u00f8rensen (Trustee)",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 11,
+      "type": "Trust distribution review",
+      "note": "Beneficiary distribution schedule + Roth conversion window."
+    },
+    "ytdReturn": 5.4,
+    "harvestable": 41000,
+    "ytdRealizedGains": 12000,
+    "holdings": [
+      {
+        "sym": "MUB",
+        "name": "Muni Bond ETF",
+        "ac": "Municipal",
+        "mv": 9400000,
+        "cost": 9900000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 6100000,
+        "cost": 4700000
+      },
+      {
+        "sym": "SCHD",
+        "name": "US Dividend ETF",
+        "ac": "US Equity",
+        "mv": 3300000,
+        "cost": 2900000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 2600000,
+        "cost": 2800000
+      },
+      {
+        "sym": "BND",
+        "name": "US Bond Market",
+        "ac": "Fixed Income",
+        "mv": 4100000,
+        "cost": 4400000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 1800000,
+        "cost": 1800000
+      }
+    ],
+    "target": {
+      "equity": 45,
+      "fixed": 45,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 47,
+      "fixed": 49,
+      "alt": 0,
+      "cash": 7
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "Well aligned; monitor muni duration",
+      "pub": "CIO Fixed Income \u2014 \u201cMuni curve steepening\u201d",
+      "diverge": "In line with model (\u00b12 pts)"
+    },
+    "programs": {
+      "privateBanking": "enrolled",
+      "trustEstate": "enrolled",
+      "alternatives": "eligible",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "enrolled",
+      "tlhOverlay": "enrolled",
+      "transition": "na",
+      "charitable": "eligible"
+    },
+    "notes": "Well-diversified. Roth conversion opportunity within the low-income beneficiary bracket.",
+    "current_model_id": "research_income",
+    "current_implementation": "SMA",
+    "tax_status": "taxable",
+    "marginal_fed_rate": 0.32,
+    "state": "CA",
+    "incoming_capital": {
+      "amount": 1200000,
+      "expected_date": "2026-10-01",
+      "likelihood": "medium",
+      "source": "inheritance",
+      "form": "cash"
+    }
+  },
+  {
+    "id": "abernathy",
+    "name": "Abernathy Family Foundation",
+    "entity": "Private Foundation",
+    "segment": "Institutional",
+    "aum": 22900000,
+    "rev": 103000,
+    "since": 2013,
+    "risk": "Balanced",
+    "contact": "Board \u2014 R. Abernathy (Chair)",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 4,
+      "type": "Investment committee",
+      "note": "Spending policy + 5% distribution requirement review."
+    },
+    "ytdReturn": 7,
+    "harvestable": 9000,
+    "ytdRealizedGains": 0,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 8200000,
+        "cost": 6100000
+      },
+      {
+        "sym": "VEA",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 3900000,
+        "cost": 3700000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 6400000,
+        "cost": 6500000
+      },
+      {
+        "sym": "PE",
+        "name": "Private Equity Fund II",
+        "ac": "Alternatives",
+        "mv": 2700000,
+        "cost": 2400000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 1700000,
+        "cost": 1700000
+      }
+    ],
+    "target": {
+      "equity": 55,
+      "fixed": 30,
+      "alt": 12,
+      "cash": 3
+    },
+    "current": {
+      "equity": 53,
+      "fixed": 28,
+      "alt": 12,
+      "cash": 7
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model; consider private credit for yield",
+      "pub": "CIO Alternatives \u2014 \u201cPrivate credit in endowment models\u201d",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "enrolled",
+      "alternatives": "enrolled",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Tax-exempt entity \u2014 overlays N/A. Opportunity: private credit sleeve for spending-policy yield."
+  },
+  {
+    "id": "kaplan",
+    "name": "Kaplan Household",
+    "entity": "Joint",
+    "segment": "HNW",
+    "aum": 8700000,
+    "rev": 54000,
+    "since": 2017,
+    "risk": "Moderate Growth",
+    "contact": "Rebecca & Josh Kaplan",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 1,
+      "type": "Retirement planning",
+      "note": "Retiring in 18 months \u2014 income plan + concentrated RSU wind-down."
+    },
+    "ytdReturn": 8.3,
+    "harvestable": 52000,
+    "ytdRealizedGains": 140000,
+    "holdings": [
+      {
+        "sym": "AAPL",
+        "name": "Apple Inc (RSU)",
+        "ac": "US Equity",
+        "mv": 2400000,
+        "cost": 600000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 2100000,
+        "cost": 1700000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 1100000,
+        "cost": 1200000
+      },
+      {
+        "sym": "BND",
+        "name": "US Bond Market",
+        "ac": "Fixed Income",
+        "mv": 1900000,
+        "cost": 2000000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 1200000,
+        "cost": 1200000
+      }
+    ],
+    "target": {
+      "equity": 60,
+      "fixed": 30,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 64,
+      "fixed": 22,
+      "alt": 0,
+      "cash": 14
+    },
+    "concentration": [
+      {
+        "label": "AAPL single-stock (RSU)",
+        "pct": 27.6,
+        "threshold": 10
+      }
+    ],
+    "cio": {
+      "score": "High",
+      "view": "Diversify concentrated employer stock ahead of retirement",
+      "pub": "CIO Wealth Planning \u2014 \u201cConcentrated stock & the retirement runway\u201d",
+      "diverge": "Concentration breach + glide-path lag"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "eligible",
+      "alternatives": "na",
+      "directIndexing": "eligible",
+      "lending": "eligible",
+      "insurance": "eligible"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "eligible",
+      "transition": "eligible",
+      "charitable": "eligible"
+    },
+    "notes": "Low-basis AAPL RSUs. Exchange-fund or direct-indexing transition candidate ahead of retirement."
+  },
+  {
+    "id": "nakamura",
+    "name": "Nakamura Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 15800000,
+    "rev": 87000,
+    "since": 2014,
+    "risk": "Growth",
+    "contact": "Kenji Nakamura",
+    "advisor_id": "dana",
+    "nextMeeting": null,
+    "ytdReturn": 8.9,
+    "harvestable": 73000,
+    "ytdRealizedGains": 210000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 5800000,
+        "cost": 4000000
+      },
+      {
+        "sym": "VGT",
+        "name": "Info Tech ETF",
+        "ac": "US Equity",
+        "mv": 2300000,
+        "cost": 1600000
+      },
+      {
+        "sym": "VEA",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 2400000,
+        "cost": 2600000
+      },
+      {
+        "sym": "MUB",
+        "name": "Muni Bond ETF",
+        "ac": "Municipal",
+        "mv": 3100000,
+        "cost": 3300000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 2200000,
+        "cost": 2200000
+      }
+    ],
+    "target": {
+      "equity": 65,
+      "fixed": 25,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 67,
+      "fixed": 20,
+      "alt": 0,
+      "cash": 14
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Medium",
+      "view": "Slightly cash-heavy; put dry powder to work",
+      "pub": "CIO Weekly \u2014 \u201cCash on the sidelines\u201d",
+      "diverge": "+9 pts cash vs model"
+    },
+    "programs": {
+      "privateBanking": "eligible",
+      "trustEstate": "eligible",
+      "alternatives": "eligible",
+      "directIndexing": "eligible",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "eligible",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Realized $210K gains YTD \u2014 harvest to offset. Direct-indexing candidate for ongoing TLH."
+  },
+  {
+    "id": "delacroix",
+    "name": "Delacroix Household",
+    "entity": "Joint",
+    "segment": "Emerging HNW",
+    "aum": 4900000,
+    "rev": 34000,
+    "since": 2021,
+    "risk": "Moderate Growth",
+    "contact": "Camille Delacroix",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 9,
+      "type": "Portfolio check-in",
+      "note": "First full-year review; wants ESG tilt."
+    },
+    "ytdReturn": 7.8,
+    "harvestable": 18000,
+    "ytdRealizedGains": 6000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 1900000,
+        "cost": 1700000
+      },
+      {
+        "sym": "ESGV",
+        "name": "ESG US Equity ETF",
+        "ac": "US Equity",
+        "mv": 800000,
+        "cost": 750000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 900000,
+        "cost": 950000
+      },
+      {
+        "sym": "BND",
+        "name": "US Bond Market",
+        "ac": "Fixed Income",
+        "mv": 900000,
+        "cost": 920000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 400000,
+        "cost": 400000
+      }
+    ],
+    "target": {
+      "equity": 65,
+      "fixed": 25,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 73,
+      "fixed": 18,
+      "alt": 0,
+      "cash": 9
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model; ESG direct-index for values alignment",
+      "pub": "CIO Sustainable Investing \u2014 \u201cValues-aligned indexing\u201d",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "eligible",
+      "lending": "na",
+      "insurance": "eligible"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "eligible",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Values-driven investor. ESG direct indexing aligns with stated preferences + enables TLH."
+  },
+  {
+    "id": "bianchi",
+    "name": "Bianchi Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 9400000,
+    "rev": 58000,
+    "since": 2018,
+    "risk": "Growth",
+    "contact": "Elena Bianchi",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 11,
+      "type": "Overlay review",
+      "note": "Existing TEM SMS position; asked about adding an overlay on top."
+    },
+    "ytdReturn": 9.6,
+    "harvestable": 41000,
+    "ytdRealizedGains": 52000,
+    "holdings": [
+      {
+        "sym": "AAPL",
+        "name": "Apple Inc",
+        "ac": "US Equity",
+        "mv": 2100000,
+        "cost": 2600000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 3200000,
+        "cost": 2900000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 1800000,
+        "cost": 1900000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 1600000,
+        "cost": 1600000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 700000,
+        "cost": 700000
+      }
+    ],
+    "target": {
+      "equity": 65,
+      "fixed": 25,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 68,
+      "fixed": 23,
+      "alt": 0,
+      "cash": 9
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "eligible",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Holds an existing TEM Style Manager Strategy sleeve; overlay services cannot be layered on top of it."
+  },
+  {
+    "id": "callahan",
+    "name": "Callahan Household",
+    "entity": "Individual",
+    "segment": "Private Wealth",
+    "aum": 18600000,
+    "rev": 96000,
+    "since": 2016,
+    "risk": "Growth",
+    "contact": "Brendan Callahan",
+    "advisor_id": "dana",
+    "nextMeeting": {
+      "inDays": 14,
+      "type": "Strategy selection",
+      "note": "Weighing a move into a TEM Style Manager Strategy."
+    },
+    "ytdReturn": 10.2,
+    "harvestable": 12000,
+    "ytdRealizedGains": 30000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 9500000,
+        "cost": 8600000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 4200000,
+        "cost": 4500000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 3800000,
+        "cost": 3900000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 1100000,
+        "cost": 1100000
+      }
+    ],
+    "target": {
+      "equity": 70,
+      "fixed": 25,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 71,
+      "fixed": 23,
+      "alt": 0,
+      "cash": 6
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Currently unenrolled in any TEM strategy; enrolled in the Managed Program, so a stand-alone TEM SMS mandate is open to them."
+  },
+  {
+    "id": "duarte",
+    "name": "Duarte Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 6800000,
+    "rev": 42000,
+    "since": 2020,
+    "risk": "Moderate Growth",
+    "contact": "Isabela Duarte",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 5,
+      "type": "Program setup",
+      "note": "Wants a TEM SMS sleeve inside her Custom Managed Strategy."
+    },
+    "ytdReturn": 7.1,
+    "harvestable": 9000,
+    "ytdRealizedGains": 14000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 3400000,
+        "cost": 3100000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 1500000,
+        "cost": 1550000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 1400000,
+        "cost": 1400000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 500000,
+        "cost": 500000
+      }
+    ],
+    "target": {
+      "equity": 65,
+      "fixed": 30,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 66,
+      "fixed": 28,
+      "alt": 0,
+      "cash": 6
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Custom Managed Strategy \u2014 TEM SMS is a stand-alone investment and is not available inside Custom Managed mandates."
+  },
+  {
+    "id": "eshun",
+    "name": "Eshun Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 7500000,
+    "rev": 47000,
+    "since": 2019,
+    "risk": "Growth",
+    "contact": "Ama Eshun",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 8,
+      "type": "Tax overlay review",
+      "note": "Custom Managed Strategy; TER strategy is on the eligible list."
+    },
+    "ytdReturn": 9,
+    "harvestable": 26000,
+    "ytdRealizedGains": 19000,
+    "holdings": [
+      {
+        "sym": "MSFT",
+        "name": "Microsoft Corp",
+        "ac": "US Equity",
+        "mv": 2600000,
+        "cost": 2900000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 2900000,
+        "cost": 2600000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 1300000,
+        "cost": 1350000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 700000,
+        "cost": 700000
+      }
+    ],
+    "target": {
+      "equity": 70,
+      "fixed": 20,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 72,
+      "fixed": 18,
+      "alt": 0,
+      "cash": 10
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "eligible",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Custom Managed Strategy does not block TER \u2014 only TEM SMS is off-limits inside Custom Managed mandates."
+  },
+  {
+    "id": "farkas",
+    "name": "Farkas Household",
+    "entity": "Individual",
+    "segment": "Private Wealth",
+    "aum": 21400000,
+    "rev": 118000,
+    "since": 2015,
+    "risk": "Growth",
+    "contact": "Tom\u00e1s Farkas",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 4,
+      "type": "Overlay enrollment",
+      "note": "All-ETF CIO sleeve; wants both DTLH and QLH discussed."
+    },
+    "ytdReturn": 11.1,
+    "harvestable": 64000,
+    "ytdRealizedGains": 80000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 11200000,
+        "cost": 9800000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 5400000,
+        "cost": 5700000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 3600000,
+        "cost": 3700000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 1200000,
+        "cost": 1200000
+      }
+    ],
+    "target": {
+      "equity": 70,
+      "fixed": 25,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 72,
+      "fixed": 23,
+      "alt": 0,
+      "cash": 5
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Client-eligible for both QLH and DTLH on this all-ETF CIO sleeve \u2014 check the servicing advisor\u2019s offering scope."
+  },
+  {
+    "id": "giordano",
+    "name": "Giordano Household",
+    "entity": "Individual",
+    "segment": "Private Wealth",
+    "aum": 32500000,
+    "rev": 172000,
+    "since": 2012,
+    "risk": "Growth",
+    "contact": "Nico Giordano",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 16,
+      "type": "Alternatives discussion",
+      "note": "Qualified purchaser; sleeve capacity open for alternatives."
+    },
+    "ytdReturn": 8.4,
+    "harvestable": 38000,
+    "ytdRealizedGains": 64000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 14000000,
+        "cost": 12600000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 7500000,
+        "cost": 7800000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 8000000,
+        "cost": 8100000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 3000000,
+        "cost": 3000000
+      }
+    ],
+    "target": {
+      "equity": 55,
+      "fixed": 25,
+      "alt": 15,
+      "cash": 5
+    },
+    "current": {
+      "equity": 43,
+      "fixed": 25,
+      "alt": 0,
+      "cash": 9
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "eligible",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Client-eligible for alternatives with open sleeve capacity \u2014 check the servicing advisor\u2019s offering scope."
+  },
+  {
+    "id": "han",
+    "name": "Han Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 11200000,
+    "rev": 66000,
+    "since": 2017,
+    "risk": "Moderate Growth",
+    "contact": "Ji-ho Han",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 19,
+      "type": "Cross-border review",
+      "note": "Relocated abroad this year; overlays and TER are US-resident only."
+    },
+    "ytdReturn": 6.7,
+    "harvestable": 15000,
+    "ytdRealizedGains": 22000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 5400000,
+        "cost": 5000000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 3100000,
+        "cost": 3200000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 2000000,
+        "cost": 2050000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 700000,
+        "cost": 700000
+      }
+    ],
+    "target": {
+      "equity": 60,
+      "fixed": 30,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 61,
+      "fixed": 28,
+      "alt": 0,
+      "cash": 11
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "eligible",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "No longer a US resident \u2014 TER, QLH, DTLH and TEM SMS are all US-resident-only; Direct Indexing has no residency gate."
+  },
+  {
+    "id": "ibarra",
+    "name": "Ibarra Household",
+    "entity": "Individual",
+    "segment": "HNW",
+    "aum": 13900000,
+    "rev": 81000,
+    "since": 2016,
+    "risk": "Growth",
+    "contact": "Renata Ibarra",
+    "advisor_id": "marcus",
+    "nextMeeting": {
+      "inDays": 7,
+      "type": "Customization request",
+      "note": "Wants heavy sector exclusions beyond the standard DI shelf; also pledging a low-basis stock."
+    },
+    "ytdReturn": 9.9,
+    "harvestable": 29000,
+    "ytdRealizedGains": 41000,
+    "holdings": [
+      {
+        "sym": "GOOG",
+        "name": "Alphabet Inc",
+        "ac": "US Equity",
+        "mv": 3400000,
+        "cost": 1100000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 5000000,
+        "cost": 4500000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 2700000,
+        "cost": 2800000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 2100000,
+        "cost": 2150000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 700000,
+        "cost": 700000
+      }
+    ],
+    "target": {
+      "equity": 65,
+      "fixed": 25,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 68,
+      "fixed": 23,
+      "alt": 0,
+      "cash": 9
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "eligible",
+      "lending": "eligible",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Restriction depth may exceed the shelf\u2019s tracking-error tolerance; low-basis GOOG lot is strong lending collateral, pending credit review."
+  },
+  {
+    "id": "sato",
+    "name": "Sato Household",
+    "entity": "Individual",
+    "segment": "Emerging HNW",
+    "advisor_id": "dana",
+    "program": "MGI",
+    "aum": 3400000,
+    "rev": 19000,
+    "since": 2023,
+    "risk": "Growth",
+    "contact": "Renji Sato",
+    "nextMeeting": {
+      "inDays": 12,
+      "type": "Guided Investing check-in",
+      "note": "Growth-focused goal; asked whether tax-loss harvesting is available on this account."
+    },
+    "ytdReturn": 10.8,
+    "harvestable": 22000,
+    "ytdRealizedGains": 9000,
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 1800000,
+        "cost": 1550000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 900000,
+        "cost": 950000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond",
+        "ac": "Fixed Income",
+        "mv": 500000,
+        "cost": 510000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 200000,
+        "cost": 200000
+      }
+    ],
+    "target": {
+      "equity": 75,
+      "fixed": 20,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 79,
+      "fixed": 16,
+      "alt": 0,
+      "cash": 5
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {
+      "privateBanking": "na",
+      "trustEstate": "na",
+      "alternatives": "na",
+      "directIndexing": "na",
+      "lending": "na",
+      "insurance": "na"
+    },
+    "overlays": {
+      "taxManagedSMA": "na",
+      "tlhOverlay": "na",
+      "transition": "na",
+      "charitable": "na"
+    },
+    "notes": "Guided Investing (MGI) account \u2014 a different program namespace from IAP. Growth-focused goal, not a retirement account, so QLH is available per the Program Website; DTLH is not (this strategy is not an eligible CIO ETF strategy)."
+  },
+  {
+    "id": "montgomery",
+    "name": "Montgomery Family",
+    "entity": "Individual",
+    "segment": "Private Wealth",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "aum": 2800000,
+    "rev": 0,
+    "since": 2023,
+    "risk": "Growth",
+    "contact": "Elaine Montgomery",
+    "nextMeeting": {
+      "inDays": 3,
+      "type": "IAP enrollment consultation",
+      "note": "Discuss transitioning from a self-directed brokerage account into an IAP Managed Strategy; interested in the Tax Efficient Transition Service (TET) to spread out realizing the embedded COST gain rather than selling all at once."
+    },
+    "ytdReturn": 9.5,
+    "harvestable": 0,
+    "ytdRealizedGains": 0,
+    "target": {
+      "equity": 65,
+      "fixed": 25,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 75,
+      "fixed": 14,
+      "alt": 0,
+      "cash": 11
+    },
+    "concentration": [
+      {
+        "label": "COST single-stock (legacy brokerage position)",
+        "pct": 64.3,
+        "threshold": 10
+      }
+    ],
+    "cio": {
+      "score": "High",
+      "view": "Diversify concentrated legacy single-stock positions via a tax-aware transition into a managed growth strategy.",
+      "pub": "CIO Weekly \u2014 concentration & transition planning",
+      "diverge": "Currently 100% self-directed brokerage; no house-view alignment until IAP enrollment and strategy selection."
+    },
+    "programs": {},
+    "overlays": {},
+    "notes": "Longtime self-directed brokerage relationship, not yet enrolled in any Merrill investment advisory program. Holds a large legacy COST position (multi-decade holding, minimal cost basis), a municipal bond, and a small diversified ETF sleeve. Actively discussing IAP enrollment using the Tax Efficient Transition Service to manage the tax impact of diversifying the COST position over multiple years rather than all at once.",
+    "holdings": [
+      {
+        "sym": "COST",
+        "name": "Costco Wholesale Corp",
+        "ac": "US Equity",
+        "mv": 1800000,
+        "cost": 1550000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills",
+        "ac": "Cash",
+        "mv": 300000,
+        "cost": 300000
+      },
+      {
+        "sym": "AUSTIN-6.0-31",
+        "name": "City of Austin GO 6.0% 2031 (individual bond)",
+        "ac": "Municipal",
+        "type": "BOND",
+        "mv": 400000,
+        "cost": 385000
+      },
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 300000,
+        "cost": 250000
+      }
+    ]
+  },
+  {
+    "id": "thornbury",
+    "name": "Thornbury Household",
+    "entity": "Individual",
+    "segment": "Emerging HNW",
+    "advisor_id": "dana",
+    "program": "MGI",
+    "aum": 720000,
+    "rev": 6100,
+    "since": 2024,
+    "risk": "Income",
+    "contact": "Priya Thornbury",
+    "nextMeeting": {
+      "inDays": 18,
+      "type": "Guided Investing check-in",
+      "note": "Income-focused goal approaching retirement; asked whether tax-loss harvesting overlays are available on this account."
+    },
+    "ytdReturn": 5.1,
+    "harvestable": 14000,
+    "ytdRealizedGains": 3000,
+    "target": {
+      "equity": 25,
+      "fixed": 70,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 22,
+      "fixed": 73,
+      "alt": 0,
+      "cash": 5
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {},
+    "notes": "Merrill Guided Investing (MGI) account, Income-Focused goal. Per the Guide to Tax Efficient Management Overlay Services, TEM Overlay Services (TER, QLH, DTLH) are not available for accounts with an Income-Focused Goal, regardless of the underlying investment strategy's own overlay eligibility.",
+    "holdings": [
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 350000,
+        "cost": 362000
+      },
+      {
+        "sym": "VTEB",
+        "name": "Tax-Exempt Bond ETF",
+        "ac": "Municipal",
+        "mv": 175000,
+        "cost": 178000
+      },
+      {
+        "sym": "SCHD",
+        "name": "Schwab US Dividend Equity ETF",
+        "ac": "US Equity",
+        "mv": 158000,
+        "cost": 141000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills",
+        "ac": "Cash",
+        "mv": 37000,
+        "cost": 37000
+      }
+    ]
+  },
+  {
+    "id": "kestrel",
+    "name": "Kestrel IRA",
+    "entity": "Individual Retirement Account (IRA)",
+    "segment": "Emerging HNW",
+    "advisor_id": "dana",
+    "program": "MGI",
+    "aum": 480000,
+    "rev": 2160,
+    "since": 2022,
+    "risk": "Growth",
+    "contact": "Marcus Kestrel",
+    "nextMeeting": {
+      "inDays": 25,
+      "type": "Guided Investing check-in",
+      "note": "Growth-oriented IRA; asked about tax-loss harvesting overlays after seeing them mentioned in a Merrill email."
+    },
+    "ytdReturn": 11.8,
+    "harvestable": 9000,
+    "ytdRealizedGains": 0,
+    "target": {
+      "equity": 88,
+      "fixed": 8,
+      "alt": 0,
+      "cash": 4
+    },
+    "current": {
+      "equity": 90,
+      "fixed": 7,
+      "alt": 0,
+      "cash": 3
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {},
+    "notes": "Merrill Guided Investing (MGI) account held as a Traditional IRA (Retirement Account). Growth-Focused goal \u2014 the household explicitly is NOT income-focused, isolating this from the Thornbury Household's exclusion cause. Per the Guide to Tax Efficient Management Overlay Services, TEM Overlay Services are separately excluded for Retirement Accounts regardless of goal type, since realized gains/losses inside a tax-deferred account have no current-year tax consequence to manage.",
+    "holdings": [
+      {
+        "sym": "VUG",
+        "name": "Vanguard Growth ETF",
+        "ac": "US Equity",
+        "mv": 260000,
+        "cost": 225000
+      },
+      {
+        "sym": "VXUS",
+        "name": "Intl Developed ETF",
+        "ac": "Intl Equity",
+        "mv": 110000,
+        "cost": 119000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 95000,
+        "cost": 92000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills",
+        "ac": "Cash",
+        "mv": 15000,
+        "cost": 15000
+      }
+    ]
+  },
+  {
+    "id": "harlow",
+    "name": "Harlow Household",
+    "entity": "Individual",
+    "segment": "Private Wealth",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "aum": 1850000,
+    "rev": 12500,
+    "since": 2021,
+    "risk": "Moderate Growth",
+    "contact": "Renata Harlow",
+    "nextMeeting": {
+      "inDays": 6,
+      "type": "DCA planning session",
+      "note": "Sold a business unit in Q3; sitting on $600,000 in cash within the IAP account, nervous about deploying it all at once given recent market volatility. Wants to discuss the DCA Service."
+    },
+    "ytdReturn": 7.9,
+    "harvestable": 0,
+    "ytdRealizedGains": 0,
+    "target": {
+      "equity": 60,
+      "fixed": 30,
+      "alt": 5,
+      "cash": 5
+    },
+    "current": {
+      "equity": 42,
+      "fixed": 22,
+      "alt": 3,
+      "cash": 33
+    },
+    "concentration": [],
+    "cio": {
+      "score": "Moderate",
+      "view": "Deploy excess cash into the target Managed Strategy allocation; a phased approach can help manage entry-point risk.",
+      "pub": "CIO Weekly \u2014 cash deployment in volatile markets",
+      "diverge": "33% cash vs a 5% target \u2014 meaningfully underinvested relative to the Portfolio's stated allocation."
+    },
+    "programs": {
+      "taxManagedSMA": "enrolled"
+    },
+    "overlays": {},
+    "notes": "Already IAP-enrolled on a Custom Managed Strategy. Recently realized a large cash balance from a business sale and is reluctant to invest it all in a single transaction given market volatility. A strong candidate for the Dollar Cost Averaging (DCA) Service to phase the $600,000 into the existing Investment Strategy over time rather than all at once.",
+    "holdings": [
+      {
+        "sym": "VOO",
+        "name": "Vanguard S&P 500 ETF",
+        "ac": "US Equity",
+        "mv": 650000,
+        "cost": 590000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 405000,
+        "cost": 398000
+      },
+      {
+        "sym": "VNQ",
+        "name": "Real Estate ETF",
+        "ac": "Alternatives",
+        "mv": 55000,
+        "cost": 51000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep / T-Bills (recent business-sale proceeds)",
+        "ac": "Cash",
+        "mv": 600000,
+        "cost": 600000
+      },
+      {
+        "sym": "MUB",
+        "name": "Muni Bond ETF",
+        "ac": "Municipal",
+        "mv": 140000,
+        "cost": 137000
+      }
+    ]
+  },
+  {
+    "entity": "Individual",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "ytdRealizedGains": 0,
+    "harvestable": 0,
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {},
+    "id": "lindqvist",
+    "name": "Lindqvist Household",
+    "segment": "Private Wealth",
+    "aum": 1450000,
+    "rev": 11000,
+    "since": 2019,
+    "risk": "Growth",
+    "contact": "Astrid Lindqvist",
+    "nextMeeting": {
+      "inDays": 9,
+      "type": "Annual review",
+      "note": "Relocated to Stockholm last year; asked whether tax-loss harvesting still applies to her Merrill account."
+    },
+    "ytdReturn": 10.2,
+    "target": {
+      "equity": 80,
+      "fixed": 15,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 81,
+      "fixed": 14,
+      "alt": 0,
+      "cash": 5
+    },
+    "notes": "Non-U.S. resident (Sweden) holding a taxable IAP account invested in the CIO Equity ETF Core strategy (catalog: D,Q,T). The strategy itself is overlay-eligible, but per the TER/QLH/DTLH term sheets and the IAP TEM Guide, TEM Offerings are only available to U.S. residents \u2014 so every overlay and TEM Style Manager Strategy is ineligible for this client.",
+    "holdings": [
+      {
+        "sym": "VTI",
+        "name": "US Total Market ETF",
+        "ac": "US Equity",
+        "mv": 820000,
+        "cost": 690000
+      },
+      {
+        "sym": "VEA",
+        "name": "Developed Markets ETF",
+        "ac": "Intl Equity",
+        "mv": 350000,
+        "cost": 372000
+      },
+      {
+        "sym": "BND",
+        "name": "Total Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 205000,
+        "cost": 214000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 75000,
+        "cost": 75000
+      }
+    ]
+  },
+  {
+    "entity": "Individual",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "ytdRealizedGains": 0,
+    "harvestable": 0,
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {
+      "qlhOverlay": "enrolled",
+      "dtlhOverlay": "enrolled",
+      "taxManagedSMA": "enrolled"
+    },
+    "id": "castellano",
+    "name": "Castellano Family",
+    "segment": "Private Wealth",
+    "aum": 3200000,
+    "rev": 24000,
+    "since": 2016,
+    "risk": "Moderate Growth",
+    "contact": "Diego Castellano",
+    "nextMeeting": {
+      "inDays": 5,
+      "type": "Tax strategy review",
+      "note": "Wants to add a direct indexing sleeve to the existing Custom Managed Strategy; already has QLH and DTLH on."
+    },
+    "ytdReturn": 8.8,
+    "target": {
+      "equity": 70,
+      "fixed": 25,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 71,
+      "fixed": 24,
+      "alt": 0,
+      "cash": 5
+    },
+    "notes": "Custom Managed Strategy account whose sleeves include the CIO Equity ETF Core model (catalog: D,Q,T), with TER, QLH and DTLH all elected. Two teaching points from the IAP TEM Guide: (1) where QLH and DTLH both apply to a CIO ETF model, DTLH supersedes QLH; (2) TEM Style Manager Strategies such as direct indexing are not available inside a Custom Managed Strategy \u2014 they require a separate Managed Strategy account.",
+    "holdings": [
+      {
+        "sym": "ITOT",
+        "name": "Core S&P Total US Stock ETF",
+        "ac": "US Equity",
+        "mv": 1500000,
+        "cost": 1310000
+      },
+      {
+        "sym": "IEFA",
+        "name": "Core MSCI EAFE ETF",
+        "ac": "Intl Equity",
+        "mv": 520000,
+        "cost": 566000
+      },
+      {
+        "sym": "SCHD",
+        "name": "US Dividend Equity ETF",
+        "ac": "US Equity",
+        "mv": 250000,
+        "cost": 262000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 770000,
+        "cost": 801000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 160000,
+        "cost": 160000
+      }
+    ]
+  },
+  {
+    "entity": "Individual",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "ytdRealizedGains": 0,
+    "harvestable": 0,
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {},
+    "id": "okoye",
+    "name": "Okoye Household",
+    "segment": "HNW",
+    "aum": 980000,
+    "rev": 8300,
+    "since": 2020,
+    "risk": "Growth",
+    "contact": "Chidi Okoye",
+    "nextMeeting": {
+      "inDays": 13,
+      "type": "Portfolio review",
+      "note": "Read about DTLH online and wants it on his ClearBridge SMA account."
+    },
+    "ytdReturn": 9.4,
+    "target": {
+      "equity": 90,
+      "fixed": 5,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 91,
+      "fixed": 4,
+      "alt": 0,
+      "cash": 5
+    },
+    "notes": "Managed Strategy account in the ClearBridge Appreciation SMA. The catalog lists this strategy as eligible for QLH and TER only (Q,T), not DTLH \u2014 consistent with the DTLH term sheet, which limits DTLH to CIO strategies consisting solely of ETFs. Holdings include lots above and below the QLH 5% loss threshold.",
+    "holdings": [
+      {
+        "sym": "MSFT",
+        "name": "Microsoft Corp",
+        "ac": "US Equity",
+        "mv": 240000,
+        "cost": 150000
+      },
+      {
+        "sym": "JNJ",
+        "name": "Johnson & Johnson",
+        "ac": "US Equity",
+        "mv": 150000,
+        "cost": 165000
+      },
+      {
+        "sym": "PG",
+        "name": "Procter & Gamble",
+        "ac": "US Equity",
+        "mv": 130000,
+        "cost": 134000
+      },
+      {
+        "sym": "JPM",
+        "name": "JPMorgan Chase",
+        "ac": "US Equity",
+        "mv": 170000,
+        "cost": 128000
+      },
+      {
+        "sym": "UNH",
+        "name": "UnitedHealth Group",
+        "ac": "US Equity",
+        "mv": 110000,
+        "cost": 126000
+      },
+      {
+        "sym": "HD",
+        "name": "Home Depot",
+        "ac": "US Equity",
+        "mv": 130000,
+        "cost": 118000
+      },
+      {
+        "sym": "CASH",
+        "name": "Sweep",
+        "ac": "Cash",
+        "mv": 50000,
+        "cost": 50000
+      }
+    ]
+  },
+  {
+    "entity": "Individual",
+    "advisor_id": "dana",
+    "program": "IAP",
+    "ytdRealizedGains": 0,
+    "harvestable": 0,
+    "concentration": [],
+    "cio": {
+      "score": "Low",
+      "view": "On model",
+      "pub": "CIO Weekly \u2014 steady state",
+      "diverge": "In line with model"
+    },
+    "programs": {},
+    "overlays": {},
+    "id": "ferreira",
+    "name": "Ferreira Household",
+    "segment": "HNW",
+    "aum": 1100000,
+    "rev": 7900,
+    "since": 2022,
+    "risk": "Moderate Growth",
+    "contact": "Lucia Ferreira",
+    "nextMeeting": {
+      "inDays": 8,
+      "type": "DCA planning session",
+      "note": "Wants to phase $450K from a money market fund into her strategy bi-weekly over a year."
+    },
+    "ytdReturn": 6.1,
+    "target": {
+      "equity": 60,
+      "fixed": 35,
+      "alt": 0,
+      "cash": 5
+    },
+    "current": {
+      "equity": 38,
+      "fixed": 20,
+      "alt": 0,
+      "cash": 42
+    },
+    "notes": "IAP Managed Strategy account asking for a DCA schedule the DCA Service Term Sheet does not allow: a 12-month timeframe (the maximum is six months) funded from a money market fund (only cash may fund DCA; money market funds must be sold first). A realistic pre-meeting catch for the advisor.",
+    "holdings": [
+      {
+        "sym": "VOO",
+        "name": "Vanguard S&P 500 ETF",
+        "ac": "US Equity",
+        "mv": 420000,
+        "cost": 360000
+      },
+      {
+        "sym": "AGG",
+        "name": "US Aggregate Bond ETF",
+        "ac": "Fixed Income",
+        "mv": 220000,
+        "cost": 228000
+      },
+      {
+        "sym": "MMF",
+        "name": "Government money market fund",
+        "ac": "Cash",
+        "mv": 460000,
+        "cost": 460000
+      }
+    ]
+  }
+]

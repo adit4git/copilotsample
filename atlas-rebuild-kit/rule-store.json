@@ -1,0 +1,3115 @@
+{
+  "pack_id": "atlas.merrill.tax-services.2026-09-20",
+  "status": "POC_DRAFT_NOT_APPROVED_POLICY",
+  "offerings": {
+    "iapEnrollment": {
+      "label": "IAP enrollment",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "IAP.agreement",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.iap_agreement_executed",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Enter into the IAP agreement.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "IAP.account_type",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.iap_account_type_eligible",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The account type must be eligible for IAP.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "IAP.separate",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.separate_account_per_program_strategy",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Use a separate account for each selected Program Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "IAP.strategy_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.selected_strategy_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet the selected strategy\u2019s investor and investment minimum requirements.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "IAP.fa_scope",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "OR": [
+              {
+                "field": "strategy.requires_qualified_advisor",
+                "op": "EQ",
+                "value": false
+              },
+              {
+                "field": "fa.qualified_for_selected_strategy",
+                "op": "EQ",
+                "value": true
+              }
+            ]
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "Qualification is required for designated strategy types/products; obtain the qualification policy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "IAP.pas_contract",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "OR": [
+              {
+                "field": "account.has_pas_strategy",
+                "op": "EQ",
+                "value": false
+              },
+              {
+                "field": "account.pas_manager_contract_executed",
+                "op": "EQ",
+                "value": true
+              }
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "PAS requires a separate manager/client contract.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        }
+      ]
+    },
+    "taxManagedSMA": {
+      "label": "Tax Efficient Rebalancing (TER; legacy Atlas ID)",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "taxManagedSMA.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "TEM Overlay Services"
+            },
+            {
+              "document_id": "TERTS",
+              "pdf_page": 1,
+              "section": "Tax Efficient Rebalancing Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "taxManagedSMA.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM overlays are available only to taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "TERTS",
+              "pdf_page": 1,
+              "section": "Tax Efficient Rebalancing Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Overlay Services are only available to taxable, domestic accounts of U.S. residents.",
+          "source_doc": [
+            {
+              "document_id": "TERTS",
+              "pdf_page": 1,
+              "section": "Tax Efficient Rebalancing Term Sheet \u2014 Eligible investments"
+            },
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Offerings available to U.S. residents only"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.not_pas",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.has_pas_strategy",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "MAA TEM overlays are unavailable for accounts invested in a PAS Style Manager Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.universe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.in_universe_TER",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The account\u2019s strategy is not eligible for TER in the MLIAP Strategy Catalog.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "TERTS",
+              "pdf_page": 1,
+              "section": "Tax Efficient Rebalancing Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "taxManagedSMA.eligible_scope",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_overlay_ineligible_investments",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Apply the overlay only to eligible investments; a Custom Managed account may contain investments outside its scope.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "TERTS",
+              "pdf_page": 1,
+              "section": "Tax Efficient Rebalancing Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "scope_key": "scope.overlay_ineligible_investment_ids"
+        },
+        {
+          "rule_id": "taxManagedSMA.wash_sale",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The service considers only this account. Monitor other Merrill, held-away, spouse and relevant controlled-entity accounts for wash sales and straddles; tax benefits are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 40,
+              "section": "Tax Matters: TEM risks"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "Tax Matters: TEM risks"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "qlhOverlay": {
+      "label": "Quarterly Loss Harvesting (QLH)",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "qlhOverlay.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "TEM Overlay Services"
+            },
+            {
+              "document_id": "QLHTS",
+              "pdf_page": 1,
+              "section": "Quarterly Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "qlhOverlay.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM overlays are available only to taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "QLHTS",
+              "pdf_page": 1,
+              "section": "Quarterly Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Overlay Services are only available to taxable, domestic accounts of U.S. residents.",
+          "source_doc": [
+            {
+              "document_id": "QLHTS",
+              "pdf_page": 1,
+              "section": "Quarterly Loss Harvesting Term Sheet \u2014 Eligible investments"
+            },
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Offerings available to U.S. residents only"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.not_pas",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.has_pas_strategy",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "MAA TEM overlays are unavailable for accounts invested in a PAS Style Manager Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.universe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.in_universe_QLH",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The account\u2019s strategy is not eligible for QLH in the MLIAP Strategy Catalog.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "QLHTS",
+              "pdf_page": 1,
+              "section": "Quarterly Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "qlhOverlay.eligible_scope",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_overlay_ineligible_investments",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Apply the overlay only to eligible investments; a Custom Managed account may contain investments outside its scope.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "QLHTS",
+              "pdf_page": 1,
+              "section": "Quarterly Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "scope_key": "scope.overlay_ineligible_investment_ids"
+        },
+        {
+          "rule_id": "qlhOverlay.wash_sale",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The service considers only this account. Monitor other Merrill, held-away, spouse and relevant controlled-entity accounts for wash sales and straddles; tax benefits are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 40,
+              "section": "Tax Matters: TEM risks"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "Tax Matters: TEM risks"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "dtlhOverlay": {
+      "label": "Dynamic Tax Loss Harvesting (DTLH)",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "dtlhOverlay.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "TEM Overlay Services"
+            },
+            {
+              "document_id": "DTLHTS",
+              "pdf_page": 1,
+              "section": "Dynamic Tax Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "dtlhOverlay.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM overlays are available only to taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "DTLHTS",
+              "pdf_page": 1,
+              "section": "Dynamic Tax Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Overlay Services are only available to taxable, domestic accounts of U.S. residents.",
+          "source_doc": [
+            {
+              "document_id": "DTLHTS",
+              "pdf_page": 1,
+              "section": "Dynamic Tax Loss Harvesting Term Sheet \u2014 Eligible investments"
+            },
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Offerings available to U.S. residents only"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.not_pas",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.has_pas_strategy",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "MAA TEM overlays are unavailable for accounts invested in a PAS Style Manager Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.universe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.in_universe_DTLH",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The account\u2019s strategy is not eligible for DTLH: DTLH applies only to eligible CIO strategies consisting solely of ETFs (catalog code D).",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "DTLHTS",
+              "pdf_page": 1,
+              "section": "Dynamic Tax Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "dtlhOverlay.eligible_scope",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_overlay_ineligible_investments",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Apply the overlay only to eligible investments; a Custom Managed account may contain investments outside its scope.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 25,
+              "section": "Tax Efficient Management Overlay Services"
+            },
+            {
+              "document_id": "DTLHTS",
+              "pdf_page": 1,
+              "section": "Dynamic Tax Loss Harvesting Term Sheet \u2014 Eligible investments"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "scope_key": "scope.overlay_ineligible_investment_ids"
+        },
+        {
+          "rule_id": "dtlhOverlay.wash_sale",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The service considers only this account. Monitor other Merrill, held-away, spouse and relevant controlled-entity accounts for wash sales and straddles; tax benefits are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 40,
+              "section": "Tax Matters: TEM risks"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 41,
+              "section": "Tax Matters: TEM risks"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "transition": {
+      "label": "Tax Efficient Transition (TET)",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "transition.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 1,
+              "section": "Service overview"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "transition.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "transition.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "TET.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TET requires a taxable account.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Account Eligibility for the Service"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TET requires a domestic account; use the account master classification, not an inferred citizenship/residency proxy.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Account Eligibility for the Service"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 26,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "TET.not_pas",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.has_pas_strategy",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TET is not available to an account invested in a PAS Style Manager Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 26,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "TET.not_direct_index",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "target_strategy.is_direct_indexing",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Direct Indexing target strategies are not covered by TET.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Account Eligibility for the Service"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.universe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.in_universe_TET",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select a TET-eligible target investment strategy.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Account Eligibility for the Service"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.minimum",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "transition.strategy_minimum_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet the target strategy investment minimum.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Service Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.budget_minimum",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "transition.budget_minimum_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Resolve the firm\u2019s transition budget minimum; no numeric minimum is supplied.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Service Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.budget_selected",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "transition.long_term_budget_selected",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an annual net long-term capital gains transition budget.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 3,
+              "section": "Setting your Annual Net Capital Gains Budget"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "TET.scope.missing_basis",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_tet_missing_basis",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Securities without cost basis at enrollment are outside TET eligibility. Do not make this an automatic whole-account rejection.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 26,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "scope_key": "scope.tet_missing_basis_ids"
+        },
+        {
+          "rule_id": "TET.scope.fixed_income",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_individual_fixed_income",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Individual fixed-income assets, excluding mutual funds/ETFs, are outside transition methodology. In-kind transfer or other disposition requires a separate plan.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 26,
+              "section": "IAP Wrap Fee Program Brochure (IAPB-092026)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          },
+          "scope_key": "scope.individual_fixed_income_ids"
+        },
+        {
+          "rule_id": "TET.scope.income_cash",
+          "effect": "SCOPE_CARVEOUT",
+          "predicate": {
+            "field": "scope.has_tma_income_cash",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "For a Trust Management Account, exclude cash designated as income cash from TET consideration.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 1,
+              "section": "Treatment of Account Assets"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          },
+          "scope_key": "scope.tma_income_cash_ids"
+        },
+        {
+          "rule_id": "TET.inaccurate_basis",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "scope.has_inaccurate_cost_basis",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Resolve inaccurate cost basis before relying on the transition analysis.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Account Activity and Transactions"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD_FROM_SOURCE_RISK",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "TET.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The annual budget is not an account-wide hard tax cap. Certain sales can exceed it and other activity is outside it. Transitioning, termination and DTLH replacement sales can create gains; tax savings are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "TET",
+              "pdf_page": 3,
+              "section": "Activity that can cause budget exceedance"
+            },
+            {
+              "document_id": "TET",
+              "pdf_page": 4,
+              "section": "Excluded activity"
+            },
+            {
+              "document_id": "TET",
+              "pdf_page": 5,
+              "section": "Risk of Loss and TEM services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "directIndexing": {
+      "label": "Direct Indexing Style Manager Strategy",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "directIndexing.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 10,
+              "section": "Types of Style Manager Strategies"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 12,
+              "section": "Custom Managed Strategy"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "directIndexing.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Style Manager Strategies are TEM Offerings, which are only available to IAP clients who are U.S. residents.",
+          "source_doc": [
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Offerings available to U.S. residents only"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "directIndexing.not_custom_managed",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "NEQ",
+            "value": "IAP_CUSTOM_MANAGED"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Style Manager Strategies are stand-alone investments and are not available in Custom Managed Strategies.",
+          "source_doc": [
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 note on TEM Style Manager Strategies"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "directIndexing.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "directIndexing.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "directIndexing.roster",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "target_strategy.in_approved_directIndexing_roster",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The selected strategy must be in the approved manager/strategy catalog.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 9,
+              "section": "Managed Strategy"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 10,
+              "section": "Types of Style Manager Strategies"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "directIndexing.restrictions",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "target_strategy.restrictions_awaiting_manager_acceptance",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "The strategy manager must determine whether requested restrictions are reasonable.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 11,
+              "section": "Direct Indexing/TEM Style Manager Strategy"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "directIndexing.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "A manager-run Direct Indexing/TEM strategy is distinct from MAA TEM overlays and from tax-aware model strategies; tax benefits and replacement security performance are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 11,
+              "section": "Types of Style Manager Strategies"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 40,
+              "section": "TEM risks"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ],
+      "coverage_note": "Managed/Custom Managed lane only. PAS variants require a separate PAS policy pack and are not determined here."
+    },
+    "temSms": {
+      "label": "TEM Style Manager Strategy",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "temSms.iap",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Select an IAP Managed or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 10,
+              "section": "Types of Style Manager Strategies"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 12,
+              "section": "Custom Managed Strategy"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "temSms.domestic",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_domestic",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Style Manager Strategies are TEM Offerings, which are only available to IAP clients who are U.S. residents.",
+          "source_doc": [
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Offerings available to U.S. residents only"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "temSms.not_custom_managed",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "NEQ",
+            "value": "IAP_CUSTOM_MANAGED"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM Style Manager Strategies are stand-alone investments and are not available in Custom Managed Strategies.",
+          "source_doc": [
+            {
+              "document_id": "TEMGUIDE",
+              "pdf_page": 5,
+              "section": "IAP Guide to Tax Efficient Management Offerings \u2014 note on TEM Style Manager Strategies"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "temSms.approved_profile",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the offering-specific term sheet, approved strategy universe, minimums and applicable advisor qualification policy before confirming eligibility.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          },
+          "routing": "product_policy_desk"
+        },
+        {
+          "rule_id": "temSms.profile_requirements",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.offering_profile_requirements_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Meet all externally versioned offering/strategy requirements; do not substitute household AUM.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 42,
+              "section": "Program Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "temSms.roster",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "target_strategy.in_approved_temSms_roster",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The selected strategy must be in the approved manager/strategy catalog.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 9,
+              "section": "Managed Strategy"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 10,
+              "section": "Types of Style Manager Strategies"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "temSms.restrictions",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "target_strategy.restrictions_awaiting_manager_acceptance",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "The strategy manager must determine whether requested restrictions are reasonable.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 11,
+              "section": "Direct Indexing/TEM Style Manager Strategy"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "temSms.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "A manager-run Direct Indexing/TEM strategy is distinct from MAA TEM overlays and from tax-aware model strategies; tax benefits and replacement security performance are not guaranteed.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 11,
+              "section": "Types of Style Manager Strategies"
+            },
+            {
+              "document_id": "IAP",
+              "pdf_page": 40,
+              "section": "TEM risks"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ],
+      "coverage_note": "Managed/Custom Managed lane only. PAS variants require a separate PAS policy pack and are not determined here."
+    },
+    "mgiTer": {
+      "label": "Guided Investing TER",
+      "program_scope": [
+        "MGI",
+        "MGI_WITH_ADVISOR"
+      ],
+      "rules": [
+        {
+          "rule_id": "mgiTer.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is intended for taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiTer.growth",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.goal_type",
+            "op": "EQ",
+            "value": "GROWTH_FOCUSED"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for an Income-Focused goal.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiTer.not_retirement",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_retirement",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for Retirement Accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiTer.strategy",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.available_tem_services",
+            "op": "CONTAINS",
+            "value": "TER"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Use the service eligibility presented by the Program Website for the selected strategy.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiTer.full_terms",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the Guided Investing program brochure and applicable overlay term sheet; the overview alone is incomplete.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "For additional information"
+            },
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "mgiTer.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Monitor all accounts for wash sales and straddles. Lower marginal tax rates may reduce the benefit; consult the tax/legal advisor.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations before electing TEM Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "mgiQlh": {
+      "label": "Guided Investing QLH",
+      "program_scope": [
+        "MGI",
+        "MGI_WITH_ADVISOR"
+      ],
+      "rules": [
+        {
+          "rule_id": "mgiQlh.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is intended for taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiQlh.growth",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.goal_type",
+            "op": "EQ",
+            "value": "GROWTH_FOCUSED"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for an Income-Focused goal.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiQlh.not_retirement",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_retirement",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for Retirement Accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiQlh.strategy",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.available_tem_services",
+            "op": "CONTAINS",
+            "value": "QLH"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Use the service eligibility presented by the Program Website for the selected strategy.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiQlh.full_terms",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the Guided Investing program brochure and applicable overlay term sheet; the overview alone is incomplete.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "For additional information"
+            },
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "mgiQlh.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Monitor all accounts for wash sales and straddles. Lower marginal tax rates may reduce the benefit; consult the tax/legal advisor.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations before electing TEM Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "mgiDtlh": {
+      "label": "Guided Investing DTLH",
+      "program_scope": [
+        "MGI",
+        "MGI_WITH_ADVISOR"
+      ],
+      "rules": [
+        {
+          "rule_id": "mgiDtlh.taxable",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.tax_status",
+            "op": "EQ",
+            "value": "TAXABLE"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is intended for taxable accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiDtlh.growth",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.goal_type",
+            "op": "EQ",
+            "value": "GROWTH_FOCUSED"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for an Income-Focused goal.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiDtlh.not_retirement",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.is_retirement",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TEM is unavailable for Retirement Accounts.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 2,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiDtlh.strategy",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.available_tem_services",
+            "op": "CONTAINS",
+            "value": "DTLH"
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Use the service eligibility presented by the Program Website for the selected strategy.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "TEM eligibility and available services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "mgiDtlh.full_terms",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "policy.offering_profile_verified",
+            "op": "EQ",
+            "value": false
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Obtain the Guided Investing program brochure and applicable overlay term sheet; the overview alone is incomplete.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "For additional information"
+            },
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations"
+            }
+          ],
+          "compile_source": {
+            "kind": "IMPLEMENTATION_GUARD",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "mgiDtlh.disclosure",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Monitor all accounts for wash sales and straddles. Lower marginal tax rates may reduce the benefit; consult the tax/legal advisor.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 4,
+              "section": "Considerations before electing TEM Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        },
+        {
+          "rule_id": "MGI.DTLH.cio",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "target_strategy.is_eligible_cio_etf_strategy",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "DTLH is described for eligible CIO ETF strategies; membership is not proven by an ETF-only holdings test.",
+          "source_doc": [
+            {
+              "document_id": "MGI",
+              "pdf_page": 3,
+              "section": "Dynamic Tax Loss Harvesting"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "DRAFT_EXTRACTED"
+          }
+        }
+      ]
+    },
+    "alternatives": {
+      "label": "Alternatives",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "ALT.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "alternatives"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "ALT.req.qp",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "client.qualified_purchaser",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Alternative Investment Funds are only available to clients who meet applicable eligibility and suitability requirements, in circumstances approved by the firm.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 48,
+              "section": "Item 9. Additional Information \u2014 Alternative Investments Funds and NTFs"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "ALT.req.capacity",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.alt_capacity_pct",
+            "op": "GTE",
+            "value": 0.0001
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Already at/above alternatives target \u2014 no sleeve capacity.",
+          "source_doc": [
+            {
+              "document_id": "IAP",
+              "pdf_page": 48,
+              "section": "Item 9. Additional Information \u2014 Alternative Investments Funds and NTFs"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "ALT.req.min",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.advisory_value",
+            "op": "GTE",
+            "value": 5000000
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Below the $5M alternatives relationship minimum.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "privateBanking": {
+      "label": "Private Banking",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "PB.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "privateBanking"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "PB.req.cash",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.cash_value",
+            "op": "GTE",
+            "value": 1000000
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Below the $1M deposit/liquidity threshold.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "lending": {
+      "label": "Securities-Based Lending",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "LEND.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "lending"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "LEND.req.collateral",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.pledgeable_marketable_value",
+            "op": "GTE",
+            "value": 100000
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Insufficient marketable, pledgeable collateral for a securities-based line of credit (LMA minimum credit facility size is $100,000).",
+          "source_doc": [
+            {
+              "document_id": "ACCTTYPES",
+              "pdf_page": 2,
+              "section": "Potential Securities-Based and other Lending Solutions from Merrill and its Affiliates \u2014 Loan Management Account (LMA account)"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "LEND.review.lowbasis",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "account.has_low_basis_position",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Low-basis collateral \u2014 route to credit for advance-rate review.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "trustEstate": {
+      "label": "Trust & Estate",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "TE.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "trustEstate"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "TE.req.segment",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.segment",
+            "op": "IN",
+            "value": [
+              "Private Wealth",
+              "HNW"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Offered to Private Wealth and HNW households.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "insurance": {
+      "label": "Insurance / Annuity",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "INS.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "insurance"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "INS.review.gap",
+          "effect": "NEEDS_REVIEW",
+          "predicate": {
+            "field": "account.protection_gap",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "MANAGER_ADJUDICATION",
+          "message": "Potential protection/annuity gap \u2014 route to insurance specialist.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "charitable": {
+      "label": "Charitable / Gifting Overlay",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "CHAR.req.fa",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "fa.qualified_for_offering",
+            "op": "CONTAINS",
+            "value": "charitable"
+          },
+          "failure_class": "FA_SCOPE",
+          "message": "This offering is not in your current qualification scope. Contact your branch manager to request access.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        },
+        {
+          "rule_id": "CH.req.gain",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.has_low_basis_position",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "No appreciated low-basis position well-suited to charitable gifting.",
+          "source_doc": [
+            {
+              "document_id": "HOUSE",
+              "pdf_page": null,
+              "section": "Atlas house policy (not PDF-sourced)"
+            }
+          ],
+          "compile_source": {
+            "kind": "HOUSE_POLICY",
+            "review_status": "POC_DESIGN"
+          }
+        }
+      ]
+    },
+    "dca": {
+      "label": "Dollar Cost Averaging Service (DCA)",
+      "program_scope": [
+        "IAP"
+      ],
+      "rules": [
+        {
+          "rule_id": "DCA.strategy_required",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.program_enrollment",
+            "op": "IN",
+            "value": [
+              "IAP_MANAGED",
+              "IAP_CUSTOM_MANAGED"
+            ]
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The DCA Service can only be selected for an Account that has or will invest in a Managed Strategy or Custom Managed Strategy.",
+          "source_doc": [
+            {
+              "document_id": "IAPAGMT",
+              "pdf_page": 5,
+              "section": "Selection of the Dollar Cost Averaging Service"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.minimum",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.dca_minimum_met",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The minimum amount of cash required to enroll in the DCA Service is $3,000 (there is no maximum).",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.funding_window",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "DCA Cash must be funded, in full or in part, within 60 days of the DCA Service's effective date, or the DCA Service will be removed from the Account.",
+          "source_doc": [
+            {
+              "document_id": "IAPAGMT",
+              "pdf_page": 5,
+              "section": "Selection of the Dollar Cost Averaging Service"
+            },
+            {
+              "document_id": "DCATS",
+              "pdf_page": 3,
+              "section": "DCA Service Funding Requirements"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.first_investment_window",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The first scheduled DCA investment must occur within two weeks of the DCA Service's effective date (subject to adjustment for account setup delays).",
+          "source_doc": [
+            {
+              "document_id": "IAPAGMT",
+              "pdf_page": 5,
+              "section": "Selection of the Dollar Cost Averaging Service"
+            },
+            {
+              "document_id": "DCATS",
+              "pdf_page": 3,
+              "section": "DCA Service Funding Requirements"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.fee_treatment",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "DCA Cash is charged the Merrill Lynch Fee Rate (not the Program Fee) until invested; a conflict of interest exists because the firm and Advisor are compensated on DCA Cash swept into affiliated bank deposit accounts.",
+          "source_doc": [
+            {
+              "document_id": "IAPAGMT",
+              "pdf_page": 5,
+              "section": "Selection of the Dollar Cost Averaging Service"
+            },
+            {
+              "document_id": "DCATS",
+              "pdf_page": 2,
+              "section": "Options for Dollar Cost Averaging, Treatment of Cash, and Conflicts of Interest"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.tem_interaction",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "TER applies automatically to the invested Investment Strategy Assets unless declined. QLH and/or DTLH may be elected too, but given the recurring nature of DCA investments may be less effective and can produce tax-inefficient trades or wash sales.",
+          "source_doc": [
+            {
+              "document_id": "IAPAGMT",
+              "pdf_page": 5,
+              "section": "Selection of the Dollar Cost Averaging Service"
+            },
+            {
+              "document_id": "DCATS",
+              "pdf_page": 4,
+              "section": "Enrollment in TEM Overlay Services"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.max_timeframe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.dca_timeframe_within_max",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The maximum DCA Service timeframe is six months.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.min_timeframe",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.dca_timeframe_meets_min",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Minimum DCA timeframe is one month for weekly or bi-weekly frequencies, two months for monthly, and three months for bi-monthly.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.cash_only",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.dca_funding_cash_only",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Only cash may fund the DCA Service. Preferred Deposit and money market funds are not eligible and must be sold first.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.strategy_minimum",
+          "effect": "REQUIREMENT",
+          "predicate": {
+            "field": "account.strategy_minimum_met_before_dca",
+            "op": "EQ",
+            "value": true
+          },
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "The Investment Strategy\u2019s minimum investment requirement must be met before enrolling in the DCA Service.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.schedule_locked",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Neither the DCA Schedule nor the initial DCA Cash amount can be changed once established; the Advisor can use Contribute Now or Defer Next. Other cash or securities added are invested directly into the Investment Strategy.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 1,
+              "section": "Dollar Cost Averaging Service Term Sheet \u2014 Schedule Options and Minimums"
+            },
+            {
+              "document_id": "DCATS",
+              "pdf_page": 3,
+              "section": "\u201cContribute Now\u201d and \u201cDefer Next\u201d Features"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.withdrawals",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "Withdrawals during the DCA Service come first from DCA Cash; if a withdrawal leaves any remaining contribution under $100, the DCA Service is cancelled.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 3,
+              "section": "Operation of the Account with the DCA Service"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        },
+        {
+          "rule_id": "DCA.tma_income_cash",
+          "effect": "DISCLOSURE",
+          "predicate": true,
+          "failure_class": "CLIENT_ELIGIBILITY",
+          "message": "For Trust Management Accounts, cash designated as income cash is not considered for the DCA Service.",
+          "source_doc": [
+            {
+              "document_id": "DCATS",
+              "pdf_page": 4,
+              "section": "Other Information"
+            }
+          ],
+          "compile_source": {
+            "kind": "PDF_CLAUSE_PARAPHRASE",
+            "review_status": "VALIDATED_AGAINST_SOURCE"
+          }
+        }
+      ]
+    }
+  },
+  "composition_rules": [
+    {
+      "rule_id": "COMP.TET.DTLH",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "transition",
+        "dtlhOverlay"
+      ],
+      "message": "DTLH cannot be maintained or elected while TET is active. Route a service-change plan; do not auto-cancel or trade.",
+      "source_doc": [
+        {
+          "document_id": "TET",
+          "pdf_page": 5,
+          "section": "Inclusion of TEM Overlay Services"
+        },
+        {
+          "document_id": "IAP",
+          "pdf_page": 27,
+          "section": "Applying TEM to a TET Service-Enrolled Account"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "DRAFT_EXTRACTED"
+      }
+    },
+    {
+      "rule_id": "COMP.TET.TER",
+      "relation": "SCOPE_CARVEOUT_WITHIN_COMPOSITION",
+      "offerings": [
+        "transition",
+        "taxManagedSMA"
+      ],
+      "message": "TER applies to Investment Strategy Assets only; excludes Transition Assets. TER is default unless declined.",
+      "source_doc": [
+        {
+          "document_id": "TET",
+          "pdf_page": 5,
+          "section": "Inclusion of TEM Overlay Services"
+        },
+        {
+          "document_id": "IAP",
+          "pdf_page": 27,
+          "section": "Applying TEM to a TET Service-Enrolled Account"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "DRAFT_EXTRACTED"
+      },
+      "scope": "INVESTMENT_STRATEGY_ASSETS_ONLY"
+    },
+    {
+      "rule_id": "COMP.TET.QLH",
+      "relation": "SCOPE_CARVEOUT_WITHIN_COMPOSITION",
+      "offerings": [
+        "transition",
+        "qlhOverlay"
+      ],
+      "message": "QLH may be elected on Investment Strategy Assets only; timing can interact with budget exhaustion.",
+      "source_doc": [
+        {
+          "document_id": "TET",
+          "pdf_page": 5,
+          "section": "Inclusion of TEM Overlay Services"
+        },
+        {
+          "document_id": "IAP",
+          "pdf_page": 27,
+          "section": "Applying TEM to a TET Service-Enrolled Account"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "DRAFT_EXTRACTED"
+      },
+      "scope": "INVESTMENT_STRATEGY_ASSETS_ONLY"
+    },
+    {
+      "rule_id": "COMP.MGI.HARVEST",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "mgiQlh",
+        "mgiDtlh"
+      ],
+      "message": "Guided Investing presents either QLH or DTLH depending on strategy; this is not an IAP supersession rule.",
+      "source_doc": [
+        {
+          "document_id": "MGI",
+          "pdf_page": 3,
+          "section": "Important note"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "DRAFT_EXTRACTED"
+      }
+    },
+    {
+      "rule_id": "COMP.TER.QLH",
+      "relation": "COMPATIBLE_WITH",
+      "offerings": [
+        "taxManagedSMA",
+        "qlhOverlay"
+      ],
+      "message": "All TEM Overlay Services can be used in conjunction with each other, depending on the investments held.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 4,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.TER.DTLH",
+      "relation": "COMPATIBLE_WITH",
+      "offerings": [
+        "taxManagedSMA",
+        "dtlhOverlay"
+      ],
+      "message": "All TEM Overlay Services can be used in conjunction with each other, depending on the investments held.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 4,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.QLH.DTLH",
+      "relation": "SCOPE_CARVEOUT_WITHIN_COMPOSITION",
+      "offerings": [
+        "qlhOverlay",
+        "dtlhOverlay"
+      ],
+      "message": "QLH can be applied to eligible CIO ETF models but is superseded by DTLH there if both are applied; QLH continues on other eligible sleeves.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 4,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.DCA.TER",
+      "relation": "COMPATIBLE_WITH",
+      "offerings": [
+        "dca",
+        "taxManagedSMA"
+      ],
+      "message": "TER is applied to assets invested in the Investment Strategy by default while enrolled in DCA.",
+      "source_doc": [
+        {
+          "document_id": "DCATS",
+          "pdf_page": 4,
+          "section": "Enrollment in TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.DCA.QLH",
+      "relation": "COMPATIBLE_WITH",
+      "offerings": [
+        "dca",
+        "qlhOverlay"
+      ],
+      "message": "QLH may be elected with DCA but may be less effective given wash sale rules and recurring investments.",
+      "source_doc": [
+        {
+          "document_id": "DCATS",
+          "pdf_page": 4,
+          "section": "Enrollment in TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.DCA.DTLH",
+      "relation": "COMPATIBLE_WITH",
+      "offerings": [
+        "dca",
+        "dtlhOverlay"
+      ],
+      "message": "DTLH may be elected with DCA but may be less effective given wash sale rules and recurring investments.",
+      "source_doc": [
+        {
+          "document_id": "DCATS",
+          "pdf_page": 4,
+          "section": "Enrollment in TEM Overlay Services"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.taxManagedSMA.directIndexing",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "taxManagedSMA",
+        "directIndexing"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.taxManagedSMA.temSms",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "taxManagedSMA",
+        "temSms"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.qlhOverlay.directIndexing",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "qlhOverlay",
+        "directIndexing"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.qlhOverlay.temSms",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "qlhOverlay",
+        "temSms"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.dtlhOverlay.directIndexing",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "dtlhOverlay",
+        "directIndexing"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    },
+    {
+      "rule_id": "COMP.dtlhOverlay.temSms",
+      "relation": "INCOMPATIBLE_WITH",
+      "offerings": [
+        "dtlhOverlay",
+        "temSms"
+      ],
+      "message": "TEM Overlay Services cannot be applied to TEM Style Manager Strategies.",
+      "source_doc": [
+        {
+          "document_id": "TEMGUIDE",
+          "pdf_page": 5,
+          "section": "IAP Guide to Tax Efficient Management Offerings \u2014 TEM Style Manager Strategies"
+        }
+      ],
+      "compile_source": {
+        "kind": "PDF_CLAUSE_PARAPHRASE",
+        "review_status": "VALIDATED_AGAINST_SOURCE"
+      }
+    }
+  ]
+}

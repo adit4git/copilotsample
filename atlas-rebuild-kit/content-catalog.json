@@ -1,0 +1,208 @@
+[
+  {
+    "doc_id": "CIO-2026-ETF-SMA-GUIDE",
+    "title": "Choosing an implementation: ETFs, SMAs and direct indexing",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-03-12",
+    "expires": "2027-03-12",
+    "topics": [
+      "vehicle_comparison",
+      "fees",
+      "tax_management"
+    ],
+    "related_models": [
+      "research_growth",
+      "research_value",
+      "research_core",
+      "research_dividend",
+      "research_smidcap",
+      "research_intl",
+      "research_em",
+      "research_income",
+      "research_muni",
+      "research_shortdur"
+    ],
+    "pages": 14,
+    "has_charts": true,
+    "pdf_id": "etf-sma-guide",
+    "page_snippets": {
+      "3": "ETFs typically carry a lower headline expense ratio than a separately managed account's manager fee, since an ETF spreads trading and management costs across all shareholders. A separately managed account's fee reflects individualized management of your specific account -- including the ability to harvest losses at the position level and to exclude specific holdings.",
+      "7": "Historical outperformance of passive index exposure over active management has been persistent across many periods, though performance varies by asset class, time horizon and market regime. Past performance is not indicative of future results.",
+      "9": "A separately managed account can realize losses at the individual position level throughout the year, which a pooled ETF structure cannot do for an individual investor. This tax-loss harvesting capability is most valuable in volatile markets and for investors in higher tax brackets."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-GROWTH-MODEL-FACTSHEET",
+    "title": "Research Growth Model -- Client Factsheet",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-04-01",
+    "expires": "2027-04-01",
+    "topics": [
+      "research_models",
+      "performance",
+      "vehicle_comparison"
+    ],
+    "related_models": [
+      "research_growth"
+    ],
+    "pages": 6,
+    "has_charts": true,
+    "pdf_id": "research-growth-factsheet",
+    "page_snippets": {
+      "1": "The Research Growth Model targets US large-cap growth exposure and is available in multiple implementations: a separately managed account, ETF choices, and a direct-indexing account. Composite and NAV performance for each implementation is shown on page 4.",
+      "4": "[Performance exhibit: 1/3/5-year trailing returns for the SMA, ETF and Direct Indexing implementations of the Research Growth Model, net of applicable fees, shown against the Russell 1000 Growth benchmark.]"
+    }
+  },
+  {
+    "doc_id": "CIO-2026-INCOME-MODEL-FACTSHEET",
+    "title": "Research Income Model -- Client Factsheet",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-04-01",
+    "expires": "2027-04-01",
+    "topics": [
+      "research_models",
+      "performance",
+      "vehicle_comparison"
+    ],
+    "related_models": [
+      "research_income"
+    ],
+    "pages": 5,
+    "has_charts": true,
+    "pdf_id": "research-income-factsheet",
+    "page_snippets": {
+      "1": "The Research Income Model targets core fixed income exposure and is available as a separately managed account or an ETF. Both implementations are managed against the Bloomberg US Aggregate benchmark."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-VALUE-MODEL-FACTSHEET",
+    "title": "Research Value Model -- Client Factsheet",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-04-08",
+    "expires": "2027-04-08",
+    "topics": [
+      "research_models",
+      "performance",
+      "vehicle_comparison"
+    ],
+    "related_models": [
+      "research_value"
+    ],
+    "pages": 5,
+    "has_charts": true,
+    "page_snippets": {
+      "1": "The Research Value Model targets US large-cap value exposure, benchmarked against the Russell 1000 Value index."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-DIVIDEND-MODEL-FACTSHEET",
+    "title": "Research Dividend Income Model -- Client Factsheet",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-04-08",
+    "expires": "2027-04-08",
+    "topics": [
+      "research_models",
+      "performance",
+      "vehicle_comparison"
+    ],
+    "related_models": [
+      "research_dividend"
+    ],
+    "pages": 5,
+    "has_charts": true,
+    "page_snippets": {
+      "1": "The Research Dividend Income Model favors established dividend payers with a history of consistent or growing distributions."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-INTL-MODEL-FACTSHEET",
+    "title": "Research International Developed Model -- Client Factsheet",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-04-15",
+    "expires": "2027-04-15",
+    "topics": [
+      "research_models",
+      "performance",
+      "vehicle_comparison"
+    ],
+    "related_models": [
+      "research_intl"
+    ],
+    "pages": 5,
+    "has_charts": true,
+    "page_snippets": {
+      "1": "The Research International Developed Model targets developed-market equities outside the US and Canada, benchmarked against MSCI EAFE."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-GROWTH-MODEL-INTERNAL-ATTR",
+    "title": "Research Growth Model -- Internal Attribution & Dispersion Analysis",
+    "audience": "ADVISOR_ONLY",
+    "compliance_ref": null,
+    "published": "2026-05-18",
+    "expires": null,
+    "topics": [
+      "research_models",
+      "performance",
+      "internal_attribution"
+    ],
+    "related_models": [
+      "research_growth"
+    ],
+    "pages": 22,
+    "has_charts": true,
+    "page_snippets": {
+      "11": "Account-level dispersion within the SMA implementation remains elevated relative to the composite, driven primarily by tax-loss harvesting timing differences and client-directed exclusions. Advisors should not represent individual account performance as representative of the composite without confirming the account's actual realized return.",
+      "18": "The concentrated ETF variant (RPGC) return series shown to Home Office is a hypothetical backtest and has not launched with live assets. Do not share this performance with clients under any circumstances; it does not meet the firm's substantiation standard for client communications."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-TAX-MANAGED-INVESTING-OVERVIEW",
+    "title": "Tax-managed investing: an overview for clients",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2024-11-02",
+    "expires": "2025-11-02",
+    "topics": [
+      "tax_management",
+      "vehicle_comparison"
+    ],
+    "related_models": [],
+    "pages": 8,
+    "has_charts": false,
+    "page_snippets": {
+      "2": "This overview has expired and is retained for reference only; consult the current tax-managed investing materials before sharing with a client."
+    }
+  },
+  {
+    "doc_id": "CIO-2026-DIRECT-INDEXING-OVERVIEW",
+    "title": "Direct indexing: personalized, tax-managed index exposure",
+    "audience": "CLIENT_APPROVED",
+    "compliance_ref": "[APPROVAL_ID]",
+    "published": "2026-01-20",
+    "expires": "2027-01-20",
+    "topics": [
+      "vehicle_comparison",
+      "tax_management"
+    ],
+    "related_models": [
+      "research_growth",
+      "research_value",
+      "research_core",
+      "research_dividend",
+      "research_smidcap",
+      "research_intl"
+    ],
+    "pages": 10,
+    "has_charts": true,
+    "page_snippets": {
+      "2": "Direct indexing combines many of the customization and tax-management benefits of a separately managed account with a fee structure closer to an ETF, by holding index constituents directly rather than through a pooled fund or a fully discretionary manager."
+    }
+  }
+]

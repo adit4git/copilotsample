@@ -1,0 +1,223 @@
+[
+  {
+    "model_id": "research_growth",
+    "label": "Research Growth Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 92,
+      "cash": 8
+    },
+    "sleeves": [
+      "US Large Cap Growth"
+    ],
+    "implementations": [
+      "RESEARCH_GROWTH-SMA-01",
+      "RESEARCH_GROWTH-ETF-VUG",
+      "RESEARCH_GROWTH-ETF-IWF",
+      "RESEARCH_GROWTH-DI-01",
+      "RESEARCH_GROWTH-ETF-BACKTEST-CONCENTRATED"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-GROWTH-MODEL-FACTSHEET",
+      "CIO-2026-GROWTH-MODEL-INTERNAL-ATTR",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_value",
+    "label": "Research Value Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 90,
+      "cash": 10
+    },
+    "sleeves": [
+      "US Large Cap Value"
+    ],
+    "implementations": [
+      "RESEARCH_VALUE-SMA-01",
+      "RESEARCH_VALUE-ETF-VTV",
+      "RESEARCH_VALUE-ETF-IWD",
+      "RESEARCH_VALUE-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-VALUE-MODEL-FACTSHEET",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_core",
+    "label": "Research Core Equity Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 95,
+      "cash": 5
+    },
+    "sleeves": [
+      "US Large Cap Core"
+    ],
+    "implementations": [
+      "RESEARCH_CORE-SMA-01",
+      "RESEARCH_CORE-ETF-VOO",
+      "RESEARCH_CORE-ETF-IVV",
+      "RESEARCH_CORE-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_dividend",
+    "label": "Research Dividend Income Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 88,
+      "cash": 12
+    },
+    "sleeves": [
+      "US Dividend Equity"
+    ],
+    "implementations": [
+      "RESEARCH_DIVIDEND-SMA-01",
+      "RESEARCH_DIVIDEND-ETF-SCHD",
+      "RESEARCH_DIVIDEND-ETF-VIG",
+      "RESEARCH_DIVIDEND-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-DIVIDEND-MODEL-FACTSHEET",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_smidcap",
+    "label": "Research Small/Mid Cap Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 94,
+      "cash": 6
+    },
+    "sleeves": [
+      "US Small/Mid Cap"
+    ],
+    "implementations": [
+      "RESEARCH_SMIDCAP-SMA-01",
+      "RESEARCH_SMIDCAP-ETF-VB",
+      "RESEARCH_SMIDCAP-ETF-IJH",
+      "RESEARCH_SMIDCAP-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_intl",
+    "label": "Research International Developed Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 93,
+      "cash": 7
+    },
+    "sleeves": [
+      "International Developed"
+    ],
+    "implementations": [
+      "RESEARCH_INTL-SMA-01",
+      "RESEARCH_INTL-ETF-VEA",
+      "RESEARCH_INTL-ETF-EFA",
+      "RESEARCH_INTL-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-INTL-MODEL-FACTSHEET",
+      "CIO-2026-DIRECT-INDEXING-OVERVIEW"
+    ]
+  },
+  {
+    "model_id": "research_em",
+    "label": "Research Emerging Markets Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "equity": 90,
+      "cash": 10
+    },
+    "sleeves": [
+      "Emerging Markets"
+    ],
+    "implementations": [
+      "RESEARCH_EM-SMA-01",
+      "RESEARCH_EM-ETF-VWO",
+      "RESEARCH_EM-ETF-IEMG"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE"
+    ]
+  },
+  {
+    "model_id": "research_income",
+    "label": "Research Income Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "fixedIncome": 95,
+      "cash": 5
+    },
+    "sleeves": [
+      "Core Fixed Income"
+    ],
+    "implementations": [
+      "RESEARCH_INCOME-SMA-01",
+      "RESEARCH_INCOME-ETF-BND",
+      "RESEARCH_INCOME-ETF-AGG",
+      "RESEARCH_INCOME-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE",
+      "CIO-2026-INCOME-MODEL-FACTSHEET"
+    ]
+  },
+  {
+    "model_id": "research_muni",
+    "label": "Research Municipal Income Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "fixedIncome": 96,
+      "cash": 4
+    },
+    "sleeves": [
+      "Municipal Fixed Income"
+    ],
+    "implementations": [
+      "RESEARCH_MUNI-SMA-01",
+      "RESEARCH_MUNI-ETF-VTEB",
+      "RESEARCH_MUNI-ETF-MUB",
+      "RESEARCH_MUNI-DI-01"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE"
+    ]
+  },
+  {
+    "model_id": "research_shortdur",
+    "label": "Research Short Duration Model",
+    "cio_owner": "CIO Model Portfolio Group",
+    "target_allocation": {
+      "fixedIncome": 90,
+      "cash": 10
+    },
+    "sleeves": [
+      "Short Duration Income"
+    ],
+    "implementations": [
+      "RESEARCH_SHORTDUR-SMA-01",
+      "RESEARCH_SHORTDUR-ETF-BSV",
+      "RESEARCH_SHORTDUR-ETF-SHY"
+    ],
+    "related_docs": [
+      "CIO-2026-ETF-SMA-GUIDE"
+    ]
+  }
+]

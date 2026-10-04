@@ -1,0 +1,234 @@
+--- a/app/agent.py
++++ b/app/agent.py
+@@ -454,6 +454,7 @@
+ # ------------------------------------------------------- fallback planner
+ OFFERING_ALIASES = {
+     'transition': ['tax efficient transition', 'tax-efficient transition', 'tet'],
++    'dca': ['dollar cost averaging', 'dollar-cost averaging', 'dca'],
+     'directIndexing': ['direct indexing', 'direct-indexing', 'direct index'],
+     'taxManagedSMA': ['tax efficient rebalancing', 'tax-managed sma', 'tax managed sma', 'ter'],
+     'qlhOverlay': ['quarterly loss harvesting', 'qlh'],
+@@ -619,6 +620,8 @@
+     ctx_note = f" (using {hname} from your current view)" if from_ctx else ''
+ 
+     wants_compare = bool(prods) or bool(re.search(r'\b(etfs?|smas?|vehicles?|compare|comparison|versus|vs\.?|implementation|expense ratio)\b', low))
++    if re.search(r'product shelf|\bshelf\b', low):
++        wants_compare = False  # an explicit request for the shelf is never a vehicle comparison
+     wants_transition = bool(re.search(r'\b(transition|move (?:them|him|her|into|to)|switch|convert|model (?:a|the)?\s*\w*)\b', low)) and off is not None
+     wants_elig = bool(re.search(r'\b(eligib|qualif|can (?:they|he|she)|allowed)', low))
+     wants_draft = bool(re.search(r'meeting prep|prep (?:me|for)|draft', low))
+--- a/app/static/app.js
++++ b/app/static/app.js
+@@ -661,6 +661,7 @@
+   </div>`;
+ }
+ function renderMsg(m){
++  if(m.role==='nav') return `<div class="nav-note">${I.arrow}<span>${esc(m.label)}</span></div>`;
+   if(m.typing) return `<div class="msg bot" data-mid="${m.mid||''}"><div class="who">${I.chat}</div><div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div></div>`;
+   const body = m.html ? (m.content||'') : mdToHtml(m.content||'');
+   const fa = state.meta && state.meta.advisors && state.meta.advisors[state.fa];
+@@ -766,7 +767,14 @@
+     paintChat(); scrollChat();
+     // Only navigate automatically when the advisor explicitly asked to open
+     // something; otherwise the action stays a button they choose to click.
+-    if(autoAction) setTimeout(()=>{ if(state.view==='chat') runAgentAction(autoAction); }, 900);
++    if(autoAction){
++      // Announce the jump, then make it. Awaited so the guided tour can follow along.
++      const hh = autoAction.household_id && byId(autoAction.household_id);
++      chatLog.push({role:'nav', label:'Opening ' + autoAction.label.replace(/^Open\s+/i,'').replace(/^the\s+/i,'') + (hh ? ' \u00b7 ' + hh.name : '') + '\u2026'});
++      paintChat(); scrollChat();
++      await new Promise(r => setTimeout(r, 1100));
++      if(state.view==='chat') await runAgentAction(autoAction);
++    }
+   }
+ }
+ 
+@@ -1270,6 +1278,86 @@
+   });
+ }
+ 
++/* ================= GUIDED TOUR ("Show me around") ================= */
++/* Every step sends a real request through Ask Atlas. */
++const sleep = ms => new Promise(r => setTimeout(r, ms));
++const TOUR = [
++  {title:'Welcome to Atlas', go: () => setView('today'),
++   text:'Atlas is an advisor console with an AI chat on top. You ask in plain words; Atlas checks the rule engine and your clients\u2019 data, answers, and opens the workspace that does the work. This tour runs eight real requests through the chat.',
++   look:['Each step types a request into Ask Atlas', 'Watch for the \u201cOpening\u2026\u201d note before each jump']},
++  {title:'A brokerage client moving into the advisory program', prompt:'Model a tax efficient transition for Montgomery', view:'transition',
++   fallback: () => openTransition('montgomery', 'transition'),
++   text:'Montgomery holds a large, low-cost-basis Costco position in a brokerage account. Atlas models a Tax Efficient Transition that spreads the gains over several years.',
++   look:['The first gap: advisory program enrollment is required first', 'Sales staged year by year against a $50K annual gain budget']},
++  {title:'$5M of new money: which vehicle?', prompt:"Compare vehicles for Henderson's $5M incoming capital", view:'vehicleCompare',
++   fallback: () => openVehicleCompare('henderson', 'research_growth', null, 5000000),
++   text:'Henderson expects $5M from a business sale. Atlas compares the SMA, ETFs and direct indexing for the full amount.',
++   look:['The annual fee in dollars for each vehicle', 'Breakeven: how much loss harvesting pays for a higher fee', 'Client-approved factsheets you can preview']},
++  {title:'Phasing cash in with dollar cost averaging', prompt:'Model a DCA schedule for Harlow', view:'transition',
++   fallback: () => openTransition('harlow', 'dca'),
++   text:'Harlow has $600K in cash and is nervous about investing it all at once. Atlas checks DCA eligibility and builds the schedule.',
++   look:['Six monthly contributions of $100K', 'Uninvested DCA cash still pays the advisory fee']},
++  {title:'Catching a DCA request the rules don\u2019t allow', prompt:'Is Ferreira eligible for DCA? Open her eligibility screen', view:'client', anchor:'eligibility',
++   fallback: () => setView('client', 'ferreira'),
++   text:'Ferreira wants a 12-month schedule funded from a money market fund. Both break the DCA term sheet, and Atlas says why before anything is set up.',
++   look:['DCA ineligible, with two reasons: the 6-month maximum and cash-only funding']},
++  {title:'Eligibility that comes from the product catalog', prompt:'Is Okoye eligible for DTLH? Open his eligibility screen', view:'client', anchor:'eligibility',
++   fallback: () => setView('client', 'okoye'),
++   text:'Okoye\u2019s ClearBridge SMA is coded for QLH and TER in the strategy catalog, but not for DTLH.',
++   look:['DTLH ineligible: only CIO ETF strategies qualify', 'TER and QLH eligible on the same account']},
++  {title:'Rules about the client, not only the product', prompt:'Is Lindqvist eligible for QLH? Open her eligibility screen', view:'client', anchor:'eligibility',
++   fallback: () => setView('client', 'lindqvist'),
++   text:'Lindqvist\u2019s strategy qualifies for every tax overlay, but she now lives in Sweden. Tax overlays are available to U.S. residents only.',
++   look:['Every tax overlay ineligible for one reason: residency']},
++  {title:'Services that interact', prompt:'Is Castellano eligible for direct indexing? Open his eligibility screen', view:'client', anchor:'eligibility',
++   fallback: () => setView('client', 'castellano'),
++   text:'Castellano has QLH and DTLH on a Custom Managed account and is asking about direct indexing.',
++   look:['Direct indexing ineligible: not available inside a Custom Managed Strategy', 'Combination note: DTLH supersedes QLH on CIO ETF models']},
++  {title:'The full product shelf', prompt:'Open the product shelf with SMAs with a minimum of 100K', view:'shelf',
++   fallback: () => { state.shelfFilters = {q:'', vehicle:'SMA', sleeve:'', max_minimum:'100000', tlh:''}; setView('shelf'); },
++   text:'1,157 products, including 1,097 from the strategy catalog, filtered by Atlas to SMAs with minimums up to $100K.',
++   look:['Filters already applied from your request', 'Tick products, pick a client, and compare them']},
++  {title:'Where to go from here', go: () => setView('chat'),
++   text:'That\u2019s the tour. Ask Atlas answers in plain words and opens the workspace that does the work. Try any suggested prompt, or ask about any client in your book.',
++   look:['Pick any suggested prompt to try it', 'Restart the tour from \u201cShow me around\u201d in the top bar']},
++];
++let tourState = null;
++function startTour(){ tourGo(0); }
++function endTour(){ tourState = null; paintTour(); document.body.classList.remove('touring'); }
++function tourNext(){ if(tourState && !tourState.busy){ if(tourState.i < TOUR.length - 1) tourGo(tourState.i + 1); else endTour(); } }
++function tourBack(){ if(tourState && !tourState.busy && tourState.i > 0) tourGo(tourState.i - 1); }
++async function tourGo(i){
++  const s = TOUR[i];
++  tourState = {i, busy: true}; document.body.classList.add('touring'); paintTour();
++  try{
++    if(s.prompt){
++      if(state.view !== 'chat') setView('chat');
++      await sleep(400);
++      await sendChat(s.prompt);
++      await sleep(300);
++      if(state.view === 'chat' && s.fallback){ await s.fallback(); }
++    } else if(s.go){ await s.go(); }
++    await sleep(700);
++    if(s.anchor) scrollToAnchor(s.anchor);
++  } finally {
++    if(tourState && tourState.i === i){ tourState.busy = false; paintTour(); }
++  }
++}
++function paintTour(){
++  let p = document.getElementById('tourPanel');
++  if(!tourState){ if(p) p.remove(); return; }
++  if(!p){ p = document.createElement('div'); p.id = 'tourPanel'; p.setAttribute('role', 'dialog'); p.setAttribute('aria-label', 'Guided tour'); document.body.appendChild(p); }
++  const s = TOUR[tourState.i], n = TOUR.length, last = tourState.i === n - 1, busy = tourState.busy;
++  p.innerHTML = `<div class="tour-top"><span>Guided tour \u00b7 ${tourState.i + 1} of ${n}</span><button class="tour-x" data-tour="exit" aria-label="Exit tour">\u00d7</button></div>
++    <div class="tour-bar"><i style="width:${Math.round((tourState.i + 1) / n * 100)}%"></i></div>
++    <h4>${esc(s.title)}</h4><p>${esc(s.text)}</p>
++    ${s.prompt ? `<div class="tour-prompt">${I.chat}<span>\u201c${esc(s.prompt)}\u201d</span></div>` : ''}
++    ${s.look && s.look.length ? `<div class="tour-look"><b>Look for</b><ul>${s.look.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
++    <div class="tour-foot">${busy ? '<span class="tour-busy"><span class="typing"><i></i><i></i><i></i></span> Atlas is working\u2026</span>' : '<span></span>'}
++      <span class="tour-btns"><button class="btn sm" data-tour="back" ${tourState.i === 0 || busy ? 'disabled' : ''}>Back</button>
++      <button class="btn sm primary" data-tour="next" ${busy ? 'disabled' : ''}>${last ? 'Finish' : 'Next'}${last ? '' : ' ' + I.arrow}</button></span></div>`;
++}
++
+ /* ================= ROUTER ================= */
+ function setView(v, client=null){
+   state.view = v; state.client = client;
+@@ -1314,6 +1402,8 @@
+ 
+ /* ================= EVENTS ================= */
+ document.addEventListener('click', e => {
++  if(e.target.closest('#tourBtn,[data-tour-start]')){ startTour(); return; }
++  const tn = e.target.closest('[data-tour]'); if(tn){ const k = tn.dataset.tour; if(k==='next') tourNext(); else if(k==='back') tourBack(); else endTour(); return; }
+   const ex = e.target.closest('[data-explain]'); if(ex){ e.stopPropagation(); showExplain(ex.dataset.client, ex.dataset.offering, ex); return; }
+   const nav = e.target.closest('[data-nav]'); if(nav){ setView(nav.dataset.nav); return; }
+   const dr = e.target.closest('[data-draft]'); if(dr){ const [hid,kind] = dr.dataset.draft.split(':'); openDraft(hid, kind||'meeting_prep'); return; }
+--- a/app/static/index.html
++++ b/app/static/index.html
+@@ -51,6 +51,7 @@
+         <input id="globalSearch" placeholder="Search clients, holdings, programs…" />
+         <span class="kbd">/</span>
+       </div>
++      <button id="tourBtn" class="tour-btn" type="button">Show me around</button>
+       <button id="engineToggle" title="Rule engine is active — verdicts derived from client facts + policy pack" aria-pressed="true" style="display:inline-flex;align-items:center;font:inherit;font-size:12px;font-weight:600;color:var(--fg);background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:8px 13px;margin-left:10px;cursor:pointer;white-space:nowrap;flex:0 0 auto"></button>
+     </div>
+     <div class="content" id="view"></div>
+--- a/app/static/styles.css
++++ b/app/static/styles.css
+@@ -376,6 +376,27 @@
+ .bubble .md-table th, .bubble .md-table td{ padding:7px 10px; border-bottom:1px solid var(--line-2); vertical-align:top;}
+ .bubble .md-table tr:last-child td{ border-bottom:none;}
+ 
++/* ============ GUIDED TOUR ("Show me around") ============ */
++.tour-btn{ display:inline-flex; align-items:center; margin-left:10px; padding:8px 13px; font:inherit; font-size:12px; font-weight:600; color:#fff; background:var(--brand); border:none; border-radius:20px; cursor:pointer; white-space:nowrap; flex:0 0 auto;}
++.nav-note{ display:flex; align-items:center; gap:8px; margin:2px 0 10px 44px; font-size:12.5px; font-weight:600; color:var(--brand);}
++.nav-note svg{ width:13px; height:13px;}
++#tourPanel{ position:fixed; right:24px; bottom:24px; z-index:60; width:390px; max-width:calc(100vw - 32px); max-height:calc(100vh - 48px); overflow:auto; padding:14px 18px 16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-l); box-shadow:0 18px 44px rgba(0,0,0,.24); font-size:13px;}
++#tourPanel h4{ margin:10px 0 6px; font-size:15px;}
++#tourPanel p{ margin:0 0 10px; color:var(--fg-2); line-height:1.5;}
++.tour-top{ display:flex; align-items:center; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
++.tour-x{ font-size:18px; line-height:1; color:var(--muted); background:none; border:none; cursor:pointer;}
++.tour-bar{ height:4px; margin-top:8px; background:var(--line-2); border-radius:999px; overflow:hidden;}
++.tour-bar i{ display:block; height:100%; background:var(--brand);}
++.tour-prompt{ display:flex; gap:8px; align-items:flex-start; margin-bottom:10px; padding:8px 10px; font-size:12.5px; background:var(--paper-2); border-radius:var(--r-s);}
++.tour-prompt svg{ width:14px; height:14px; color:var(--brand); flex-shrink:0; margin-top:2px;}
++.tour-look{ font-size:12.5px;}
++.tour-look ul{ margin:4px 0 0; padding-left:18px; color:var(--fg-2);}
++.tour-foot{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px;}
++.tour-btns{ display:flex; gap:8px;}
++.tour-btns .btn svg{ width:12px; height:12px;}
++.tour-busy{ display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted);}
++@media (max-width:760px){ #tourPanel{ left:12px; right:12px; width:auto; bottom:76px;} .tour-btn{ display:none;} .nav-note{ margin-left:0;} }
++
+ /* ============ MOBILE ============ */
+ .mtabbar{ display:none;}
+ @media (max-width: 940px){
+--- a/tests/test_agent.py
++++ b/tests/test_agent.py
+@@ -248,3 +248,50 @@
+     a = r['actions'][0]
+     assert a['workspace'] == 'vehicle_compare' and a['household_id'] == 'reyes'
+     assert a['amount'] == 1_000_000 and a['auto_open'] is True
++
++
++# ---- onboarding: the guided tour depends on these exact requests routing correctly ----
++
++TOUR_REQUESTS = [
++    ("Model a tax efficient transition for Montgomery", 'transition', 'montgomery', 'transition'),
++    ("Compare vehicles for Henderson's $5M incoming capital", 'vehicle_compare', 'henderson', None),
++    ("Model a DCA schedule for Harlow", 'transition', 'harlow', 'dca'),
++    ("Is Ferreira eligible for DCA? Open her eligibility screen", 'eligibility', 'ferreira', None),
++    ("Is Okoye eligible for DTLH? Open his eligibility screen", 'eligibility', 'okoye', None),
++    ("Is Lindqvist eligible for QLH? Open her eligibility screen", 'eligibility', 'lindqvist', None),
++    ("Is Castellano eligible for direct indexing? Open his eligibility screen", 'eligibility', 'castellano', None),
++    ("Open the product shelf with SMAs with a minimum of 100K", 'product_shelf', None, None),
++]
++
++
++@pytest.mark.parametrize('message,workspace,household,offering', TOUR_REQUESTS)
++def test_every_tour_request_opens_its_workspace(monkeypatch, message, workspace, household, offering):
++    monkeypatch.delenv('ANTHROPIC_API_KEY', raising=False)
++    r = agent.run_local('dana', message, None)
++    auto = [a for a in r['actions'] if a['auto_open']]
++    assert len(auto) == 1, r['actions']
++    a = auto[0]
++    assert a['workspace'] == workspace and a.get('household_id') == household
++    if offering: assert a['offering_id'] == offering
++
++
++def test_tour_compare_step_carries_the_5m_amount(monkeypatch):
++    monkeypatch.delenv('ANTHROPIC_API_KEY', raising=False)
++    a = agent.run_local('dana', "Compare vehicles for Henderson's $5M incoming capital", None)['actions'][0]
++    assert a['amount'] == 5_000_000
++
++
++def test_dca_is_recognised_by_name_and_acronym():
++    assert agent.resolve_offering('Model a DCA schedule for Harlow') == 'dca'
++    assert agent.resolve_offering('set up dollar cost averaging') == 'dca'
++
++
++def test_shelf_request_is_not_hijacked_by_an_earlier_client_in_the_chat(monkeypatch):
++    # Found by running the tour live: the previous step left Castellano in the
++    # history, and "SMAs" read as a comparison word, so the shelf request turned
++    # into a Castellano vehicle comparison.
++    monkeypatch.delenv('ANTHROPIC_API_KEY', raising=False)
++    hist = [{'role': 'user', 'content': 'Is Castellano eligible for direct indexing? Open his eligibility screen'}]
++    r = agent.run_local('dana', 'Open the product shelf with SMAs with a minimum of 100K', {'household_id': 'castellano'}, hist)
++    a = [x for x in r['actions'] if x['auto_open']][0]
++    assert a['workspace'] == 'product_shelf' and a['shelf_filters']['vehicle'] == 'SMA'
