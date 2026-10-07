@@ -1,0 +1,729 @@
+{
+  "_about": "Raw data changes from the brokerage-to-advisory conversion work, as plain JSON. Apply to app/data/*.json in the Python app. The standalone HTML embeds results computed from these (captured server responses), not these raw files.",
+  "rule_store.json": {
+    "_apply": "add these three top-level keys",
+    "strategy_types": [
+      {
+        "id": "MANAGED",
+        "label": "Managed Strategy",
+        "short": "Managed",
+        "authority": "Client discretion over a single Style Manager Strategy",
+        "requires_qualified_advisor": false,
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 9,
+            "section": "Managed Strategy as a Program Strategy Type"
+          }
+        ]
+      },
+      {
+        "id": "CUSTOM_MANAGED",
+        "label": "Custom Managed Strategy",
+        "short": "Custom Managed",
+        "authority": "Style Manager Strategies, mutual funds, ETFs and cash in one account",
+        "requires_qualified_advisor": false,
+        "note": "The Advisor Discretion version can only be offered by qualified Advisors.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 12,
+            "section": "Custom Managed Strategy as a Program Strategy Type"
+          }
+        ]
+      },
+      {
+        "id": "PAS",
+        "label": "Premium Access Strategy",
+        "short": "Premium Access",
+        "authority": "Dual contract with a PAS Manager",
+        "requires_qualified_advisor": false,
+        "note": "Client must meet PAS eligibility and sign a separate contract with the PAS Manager; TEM overlays and TET are not available.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 14,
+            "section": "Premium Access Strategy as a Program Strategy Type"
+          }
+        ]
+      },
+      {
+        "id": "DEFINED",
+        "label": "Defined Strategy",
+        "short": "Defined",
+        "authority": "Advisor-managed portfolio of individual securities (Advisor discretion)",
+        "requires_qualified_advisor": true,
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 15,
+            "section": "Defined Strategy as a Program Strategy Type"
+          }
+        ]
+      },
+      {
+        "id": "PERSONALIZED_ADVISOR",
+        "label": "Personalized Strategy with Advisor Discretion",
+        "short": "Personalized (Advisor)",
+        "authority": "Individual securities chosen by the Advisor",
+        "requires_qualified_advisor": true,
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 16,
+            "section": "Personalized Strategy with Advisor Discretion as a Program Strategy Type"
+          }
+        ]
+      },
+      {
+        "id": "PERSONALIZED_CLIENT",
+        "label": "Personalized Strategy with Client Discretion",
+        "short": "Personalized (Client)",
+        "authority": "Individual securities; client authorizes each trade",
+        "requires_qualified_advisor": false,
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 17,
+            "section": "Personalized Strategy with Client Discretion as a Program Strategy Type"
+          }
+        ]
+      }
+    ],
+    "conversion_rules": [
+      {
+        "rule_id": "CONV.excluded_asset",
+        "holding_kinds": [
+          "PRIVATE"
+        ],
+        "strategy_types": [
+          "MANAGED",
+          "CUSTOM_MANAGED",
+          "PAS",
+          "DEFINED",
+          "PERSONALIZED_ADVISOR",
+          "PERSONALIZED_CLIENT"
+        ],
+        "outcome": "MOVE_OUT",
+        "message": "Treated as an Excluded Asset: no Program Services and no Program Fee. It is sold (a commission may apply) or must be transferred to a brokerage account. Which assets are excluded is the firm\u2019s designation; this one is an illustrative assumption.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 33,
+            "section": "Glossary: Excluded Assets"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding or Contributing Excluded Assets to your Account"
+          }
+        ],
+        "compile_source": {
+          "kind": "HOUSE_POLICY",
+          "review_status": "POC_ASSUMPTION"
+        }
+      },
+      {
+        "rule_id": "CONV.annuity_aif_client_discretion",
+        "holding_kinds": [
+          "ANNUITY",
+          "AIF"
+        ],
+        "strategy_types": [
+          "PERSONALIZED_CLIENT"
+        ],
+        "outcome": "HOLD",
+        "message": "Certain annuities and alternative investment fund units can be contributed to an account using the Personalized Strategy with Client Discretion.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding your Account and Contributions"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.annuity_aif_elsewhere",
+        "holding_kinds": [
+          "ANNUITY",
+          "AIF"
+        ],
+        "strategy_types": [
+          "MANAGED",
+          "CUSTOM_MANAGED",
+          "PAS",
+          "DEFINED",
+          "PERSONALIZED_ADVISOR"
+        ],
+        "outcome": "MOVE_OUT",
+        "message": "Annuities and alternative fund units can only be contributed to a Personalized Strategy with Client Discretion. Here it stays in a brokerage account.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding your Account and Contributions"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.cash",
+        "holding_kinds": [
+          "CASH"
+        ],
+        "strategy_types": [
+          "MANAGED",
+          "CUSTOM_MANAGED",
+          "PAS",
+          "DEFINED",
+          "PERSONALIZED_ADVISOR",
+          "PERSONALIZED_CLIENT"
+        ],
+        "outcome": "HOLD",
+        "message": "Cash is invested per the strategy and, while held, is subject to the Program Fee. Cash can instead be kept in a non-program account to avoid the fee.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 7,
+            "section": "Treatment of Cash Balances in your Account"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.style_manager_liquidation",
+        "holding_kinds": [
+          "EQUITY",
+          "FIXED_INCOME",
+          "ETF",
+          "MF",
+          "MF_INELIGIBLE_CLASS",
+          "MMF",
+          "CD"
+        ],
+        "strategy_types": [
+          "MANAGED",
+          "PAS"
+        ],
+        "outcome": "SELL",
+        "message": "With a Style Manager or PAS Manager strategy, contributed assets are generally sold to invest per the manager\u2019s strategy. The client bears the tax, or can direct in writing that the position be moved to a brokerage account instead.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding your Account and Contributions"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 12,
+            "section": "Managed Strategy: MAA\u2019s Role and Authority"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.mf_share_class",
+        "holding_kinds": [
+          "MF_INELIGIBLE_CLASS"
+        ],
+        "strategy_types": [
+          "CUSTOM_MANAGED",
+          "DEFINED",
+          "PERSONALIZED_ADVISOR",
+          "PERSONALIZED_CLIENT"
+        ],
+        "outcome": "EXCHANGE",
+        "message": "Mutual fund shares in a share class that isn\u2019t eligible for the program are exchanged into the eligible class (or sold). Front-end loads already paid and any deferred sales charge remain the client\u2019s cost.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding Your Account with Mutual Fund Shares"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 37,
+            "section": "Funding Your Account with Mutual Fund Shares"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.custom_managed_funds",
+        "holding_kinds": [
+          "ETF",
+          "MF",
+          "MMF"
+        ],
+        "strategy_types": [
+          "CUSTOM_MANAGED"
+        ],
+        "outcome": "HOLD",
+        "message": "A Custom Managed Strategy can hold program-approved mutual funds and ETFs, with its cash allocation in cash alternatives such as money market funds. Assumes this fund is on the approved list.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 12,
+            "section": "Custom Managed Strategy as a Program Strategy Type"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.custom_managed_cd",
+        "holding_kinds": [
+          "CD"
+        ],
+        "strategy_types": [
+          "CUSTOM_MANAGED"
+        ],
+        "outcome": "REVIEW",
+        "message": "Brokered CDs are cash management investments an account can hold (p.7), but the brochure does not say whether one can sit in a Custom Managed Strategy\u2019s cash allocation. Confirm before converting.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 7,
+            "section": "Treatment of Cash Balances in your Account"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 12,
+            "section": "Custom Managed Strategy as a Program Strategy Type"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.custom_managed_securities",
+        "holding_kinds": [
+          "EQUITY",
+          "FIXED_INCOME"
+        ],
+        "strategy_types": [
+          "CUSTOM_MANAGED"
+        ],
+        "outcome": "SELL",
+        "message": "A Custom Managed Strategy combines Style Manager Strategies, mutual funds, ETFs and cash. Individual securities are sold on entry (the client bears the tax).",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 12,
+            "section": "Custom Managed Strategy as a Program Strategy Type"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding your Account and Contributions"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      },
+      {
+        "rule_id": "CONV.individual_securities_hold",
+        "holding_kinds": [
+          "EQUITY",
+          "FIXED_INCOME",
+          "ETF",
+          "MF",
+          "MMF",
+          "CD"
+        ],
+        "strategy_types": [
+          "DEFINED",
+          "PERSONALIZED_ADVISOR",
+          "PERSONALIZED_CLIENT"
+        ],
+        "outcome": "HOLD",
+        "message": "Defined and Personalized strategies can hold equities, fixed income securities, brokered CDs, mutual funds, ETFs and money market funds, so the position can come over as-is.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 15,
+            "section": "Defined Strategy as a Program Strategy Type"
+          },
+          {
+            "document_id": "IAPB",
+            "pdf_page": 16,
+            "section": "Personalized Strategy with Advisor Discretion"
+          }
+        ],
+        "compile_source": {
+          "kind": "PDF_CLAUSE_PARAPHRASE",
+          "review_status": "VALIDATED_AGAINST_SOURCE"
+        }
+      }
+    ],
+    "conversion_notes": {
+      "separate_account": {
+        "message": "Using more than one strategy type requires a separate account for each.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 8,
+            "section": "Overview and Program Strategy Types"
+          }
+        ]
+      },
+      "concentration": {
+        "message": "The program is not designed for clients who keep concentrated positions with little or no selling planned over time.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 4,
+            "section": "About Us and the Program"
+          }
+        ]
+      },
+      "high_cash": {
+        "message": "The program is not designed for clients who want to hold consistently high cash or cash alternatives for a prolonged period.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 4,
+            "section": "About Us and the Program"
+          }
+        ]
+      },
+      "minimums": {
+        "message": "No general program minimum; certain Style Manager Strategies, PAS strategies and the TEM overlays have their own minimums.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 42,
+            "section": "Program Minimums"
+          }
+        ]
+      }
+    }
+  },
+  "fa-and-facts.json": {
+    "_apply": "set fa_profiles.<id>.qualified_strategy_types and add account_facts entries",
+    "fa_profiles": {
+      "dana": {
+        "qualified_strategy_types": [
+          "MANAGED",
+          "CUSTOM_MANAGED",
+          "PAS",
+          "DEFINED",
+          "PERSONALIZED_ADVISOR",
+          "PERSONALIZED_CLIENT"
+        ]
+      },
+      "marcus": {
+        "qualified_strategy_types": [
+          "MANAGED",
+          "CUSTOM_MANAGED",
+          "PAS",
+          "PERSONALIZED_CLIENT"
+        ]
+      }
+    },
+    "account_facts": {
+      "fairbanks": {
+        "tax_status": "TAXABLE",
+        "iap_agreement_executed": false,
+        "program_enrollment": null,
+        "residency_country": "US"
+      },
+      "brennan": {
+        "tax_status": "TAXABLE",
+        "iap_agreement_executed": false,
+        "program_enrollment": null,
+        "residency_country": "US"
+      }
+    }
+  },
+  "households.json": {
+    "_apply": "append the two new households; for montgomery append holdings and replace the listed fields",
+    "add": [
+      {
+        "entity": "Individual",
+        "advisor_id": "dana",
+        "program": "IAP",
+        "harvestable": 0,
+        "ytdRealizedGains": 0,
+        "programs": {},
+        "overlays": {},
+        "id": "fairbanks",
+        "name": "Fairbanks Family",
+        "segment": "Private Wealth",
+        "aum": 2400000,
+        "rev": 0,
+        "since": 2026,
+        "risk": "Conservative",
+        "contact": "Marguerite Fairbanks",
+        "nextMeeting": {
+          "inDays": 11,
+          "type": "Advisory proposal",
+          "note": "Recently retired; consolidating a brokerage account that holds an annuity, a private credit fund, CDs and municipal bonds. Wants ongoing advice without disturbing the annuity or the fund."
+        },
+        "ytdReturn": 4.1,
+        "target": {
+          "equity": 30,
+          "fixed": 50,
+          "alt": 10,
+          "cash": 10
+        },
+        "current": {
+          "equity": 10,
+          "fixed": 38,
+          "alt": 38,
+          "cash": 14
+        },
+        "concentration": [],
+        "cio": {
+          "score": "Medium",
+          "view": "Income-oriented allocation; review annuity and illiquid fund exposure.",
+          "pub": "CIO Weekly \u2014 income in a lower-rate world",
+          "diverge": "Alternatives and annuity well above a conservative target"
+        },
+        "notes": "Brokerage-only prospect (not yet in the advisory program). Holdings are deliberately varied: a variable annuity and private credit fund units (which only a Personalized Strategy with Client Discretion can hold), brokered CDs, an individual muni bond, a dividend stock, a money market fund and cash.",
+        "holdings": [
+          {
+            "sym": "VA-CONTRACT",
+            "name": "Variable annuity (legacy contract)",
+            "ac": "Alternatives",
+            "type": "ANNUITY",
+            "mv": 600000,
+            "cost": 450000
+          },
+          {
+            "sym": "PRIVCREDIT-LP",
+            "name": "Private credit fund (LP units)",
+            "ac": "Alternatives",
+            "type": "AIF",
+            "mv": 300000,
+            "cost": 300000
+          },
+          {
+            "sym": "CD-2027",
+            "name": "Brokered CD, 4.6%, matures 2027",
+            "ac": "Fixed Income",
+            "type": "CD",
+            "mv": 400000,
+            "cost": 400000
+          },
+          {
+            "sym": "NYC-5.0-34",
+            "name": "New York City GO 5.0% 2034 (individual bond)",
+            "ac": "Municipal",
+            "type": "BOND",
+            "mv": 500000,
+            "cost": 480000
+          },
+          {
+            "sym": "JNJ",
+            "name": "Johnson & Johnson",
+            "ac": "US Equity",
+            "type": "EQUITY",
+            "mv": 250000,
+            "cost": 120000
+          },
+          {
+            "sym": "MMF",
+            "name": "Government money market fund",
+            "ac": "Cash",
+            "type": "MMF",
+            "mv": 200000,
+            "cost": 200000
+          },
+          {
+            "sym": "CASH",
+            "name": "Sweep",
+            "ac": "Cash",
+            "mv": 150000,
+            "cost": 150000
+          }
+        ]
+      },
+      {
+        "entity": "Individual",
+        "advisor_id": "dana",
+        "program": "IAP",
+        "harvestable": 0,
+        "ytdRealizedGains": 0,
+        "programs": {},
+        "overlays": {},
+        "id": "brennan",
+        "name": "Brennan Household",
+        "segment": "HNW",
+        "aum": 900000,
+        "rev": 0,
+        "since": 2026,
+        "risk": "Aggressive",
+        "contact": "Liam Brennan",
+        "nextMeeting": {
+          "inDays": 6,
+          "type": "Advisory proposal",
+          "note": "Tech employee with load-carrying mutual funds, a large NVDA position from vesting, and a startup private placement. Asked whether moving to an advisory account means selling everything."
+        },
+        "ytdReturn": 14.6,
+        "target": {
+          "equity": 85,
+          "fixed": 10,
+          "alt": 0,
+          "cash": 5
+        },
+        "current": {
+          "equity": 87,
+          "fixed": 6,
+          "alt": 7,
+          "cash": 6
+        },
+        "concentration": [
+          {
+            "label": "NVDA single-stock (vested equity)",
+            "pct": 28.9,
+            "threshold": 10
+          }
+        ],
+        "cio": {
+          "score": "High",
+          "view": "Reduce single-stock concentration; move fund share classes to lower-cost classes.",
+          "pub": "CIO Weekly \u2014 managing concentrated equity",
+          "diverge": "Single-stock concentration well above guidelines"
+        },
+        "notes": "Brokerage-only prospect. Shows mutual fund share-class exchanges (Class A and Class C funds), an eligible index fund that a Custom Managed Strategy can keep, a concentrated stock that only Personalized or Defined strategies hold as-is, and a private placement that is treated as an Excluded Asset (illustrative).",
+        "holdings": [
+          {
+            "sym": "LCG-A",
+            "name": "Large-Cap Growth Fund, Class A (front-end load)",
+            "ac": "US Equity",
+            "type": "MF",
+            "share_class_eligible": false,
+            "mv": 180000,
+            "cost": 140000
+          },
+          {
+            "sym": "BAL-C",
+            "name": "Balanced Income Fund, Class C (12b-1 fee)",
+            "ac": "Fixed Income",
+            "type": "MF",
+            "share_class_eligible": false,
+            "mv": 90000,
+            "cost": 85000
+          },
+          {
+            "sym": "IDX-I",
+            "name": "S&P 500 Index Fund, institutional class",
+            "ac": "US Equity",
+            "type": "MF",
+            "share_class_eligible": true,
+            "mv": 150000,
+            "cost": 110000
+          },
+          {
+            "sym": "NVDA",
+            "name": "NVIDIA Corp",
+            "ac": "US Equity",
+            "type": "EQUITY",
+            "mv": 260000,
+            "cost": 45000
+          },
+          {
+            "sym": "AAPL",
+            "name": "Apple Inc",
+            "ac": "US Equity",
+            "type": "EQUITY",
+            "mv": 110000,
+            "cost": 70000
+          },
+          {
+            "sym": "PRIV-SERIESB",
+            "name": "Private placement, Series B preferred (startup)",
+            "ac": "Alternatives",
+            "type": "PRIVATE",
+            "mv": 60000,
+            "cost": 25000
+          },
+          {
+            "sym": "MMF",
+            "name": "Government money market fund",
+            "ac": "Cash",
+            "type": "MMF",
+            "mv": 30000,
+            "cost": 30000
+          },
+          {
+            "sym": "CASH",
+            "name": "Sweep",
+            "ac": "Cash",
+            "mv": 20000,
+            "cost": 20000
+          }
+        ]
+      }
+    ],
+    "montgomery": {
+      "holdings_append": [
+        {
+          "sym": "PG",
+          "name": "Procter & Gamble",
+          "ac": "US Equity",
+          "type": "EQUITY",
+          "mv": 150000,
+          "cost": 90000
+        },
+        {
+          "sym": "KO",
+          "name": "Coca-Cola Co",
+          "ac": "US Equity",
+          "type": "EQUITY",
+          "mv": 100000,
+          "cost": 62000
+        },
+        {
+          "sym": "LCG-A",
+          "name": "Large-Cap Growth Fund, Class A (front-end load)",
+          "ac": "US Equity",
+          "type": "MF",
+          "share_class_eligible": false,
+          "mv": 120000,
+          "cost": 98000
+        },
+        {
+          "sym": "MMF",
+          "name": "Government money market fund",
+          "ac": "Cash",
+          "type": "MMF",
+          "mv": 80000,
+          "cost": 80000
+        }
+      ],
+      "aum": 3250000,
+      "concentration_pct": 55.4,
+      "current": {
+        "equity": 76,
+        "fixed": 12,
+        "alt": 0,
+        "cash": 12
+      },
+      "notes": "Longtime self-directed brokerage relationship, not yet enrolled in any investment advisory program. Holds a large legacy COST position (multi-decade holding, minimal cost basis), a municipal bond, and a small diversified ETF sleeve. Actively discussing IAP enrollment using the Tax Efficient Transition Service to manage the tax impact of diversifying the COST position over multiple years rather than all at once. The brokerage account also holds two blue-chip stocks, a Class A mutual fund carrying a sales load, and a money market fund, so the conversion map shows how each kind of holding is treated under each program strategy type."
+    }
+  }
+}
