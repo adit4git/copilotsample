@@ -1,0 +1,470 @@
+<!-- ============ Atlas add-on: tax personalization (TEM overlays, tax lots, TEM Style Manager options) ============ -->
+<style>
+/* ============ TAX PERSONALIZATION (tem.js) ============ */
+.tem{ --t-app:var(--brand); --t-sup:var(--blue); --t-mgr:#6b4a9e; --t-rev:var(--amber); --t-blk:var(--red);}
+:root[data-theme="dark"] .tem{ --t-mgr:#a98fe0;}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tem{ --t-mgr:#a98fe0;} }
+#tem, #conversion, #eligibility{ scroll-margin-top:84px;}
+.tem-headline{ margin:0 0 10px; font-size:14px; line-height:1.55;}
+.tem-gates{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+.tem-gate{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; font-size:12px; border:1px solid var(--line); border-radius:999px; background:var(--paper-2); color:var(--fg-2); cursor:help;}
+.tem-gate.ok{ color:var(--brand); border-color:color-mix(in srgb,var(--brand) 35%,var(--line));}
+.tem-gate.fail{ color:var(--red); border-color:var(--red); font-weight:600;}
+.tem-gate.unk{ color:var(--amber); border-style:dashed;}
+.tem-tabs{ display:flex; gap:2px; border-bottom:1px solid var(--line); margin:4px 0 14px; overflow-x:auto;}
+.tem-tab{ font:inherit; font-size:12.5px; font-weight:600; color:var(--muted); background:none; border:0; padding:8px 12px; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px;}
+.tem-tab:hover{ color:var(--fg);}
+.tem-tab.on{ color:var(--brand); border-bottom-color:var(--brand);}
+.tem-h4{ font-size:12.5px; font-weight:700; margin:16px 0 8px; color:var(--fg);}
+.tem-lede{ margin:0 0 10px; font-size:13px; line-height:1.55; color:var(--fg-2);}
+.tem-note{ margin:8px 0 0; font-size:12px; line-height:1.5; color:var(--fg-2);}
+.tem-warn{ margin:0 0 12px; padding:8px 12px; font-size:12.5px; border:1px dashed var(--amber); border-radius:var(--r-m); background:var(--amber-tint); color:var(--fg);}
+.tem-src{ font-size:11.5px; color:var(--muted); margin-top:6px;}
+/* outcome colours */
+.t-app{ --c:var(--t-app);} .t-sup{ --c:var(--t-sup);} .t-mgr{ --c:var(--t-mgr);} .t-rev{ --c:var(--t-rev);} .t-blk{ --c:var(--t-blk);} .t-no{ --c:var(--muted);} .t-na{ --c:var(--line);}
+.tem-cell{ display:inline-flex; align-items:center; padding:3px 8px; font:inherit; font-size:11.5px; font-weight:600; white-space:nowrap; cursor:pointer; border-radius:var(--r-s);
+  color:var(--c); background:color-mix(in srgb,var(--c) 13%,var(--paper)); border:1px solid color-mix(in srgb,var(--c) 32%,transparent);}
+.tem-cell.t-rev{ border-style:dashed;} .tem-cell.t-na{ color:var(--muted); background:var(--paper-2); border-color:var(--line);} .tem-cell.t-no{ background:var(--inset); border-color:var(--line);}
+.tem-cell.static{ cursor:default;} .tem-cell.on{ outline:2px solid var(--fg); outline-offset:1px;}
+/* coverage bars */
+.tem-cov{ display:flex; flex-direction:column; gap:10px; margin-bottom:8px;}
+.tem-cov-row{ display:grid; grid-template-columns:minmax(170px,240px) 1fr 54px; gap:12px; align-items:center;}
+.tem-cov-l{ font-size:12.5px; line-height:1.35;} .tem-cov-meta{ margin-top:3px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; font-size:11px;}
+.tem-cov-r{ text-align:right; font-weight:700; font-size:14px;} .tem-cov-r .sub{ font-size:10.5px; font-weight:400;}
+.tem-v{ font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:1px 6px; border-radius:4px; background:var(--paper-2); color:var(--fg-2);}
+.tem-v.v-ELIGIBLE{ color:var(--brand); background:var(--brand-tint);} .tem-v.v-INELIGIBLE{ color:var(--red); background:var(--red-tint);} .tem-v.v-NEEDS_REVIEW{ color:var(--amber); background:var(--amber-tint);}
+.tem-stack{ display:flex; height:26px; border-radius:var(--r-s); overflow:hidden; background:var(--inset); border:1px solid var(--line-2);}
+.tem-seg{ display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; background:var(--c); border-right:1px solid var(--paper); white-space:nowrap; overflow:hidden;}
+.tem-seg.t-no{ background:color-mix(in srgb,var(--muted) 45%,var(--paper)); } .tem-seg.t-na{ background:var(--line); color:var(--fg-2);}
+.tem-seg.t-rev{ background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--amber) 70%,var(--paper)) 0 6px,color-mix(in srgb,var(--amber) 50%,var(--paper)) 6px 12px);}
+.tem-legend{ display:flex; flex-wrap:wrap; gap:6px 14px; margin:6px 0 12px; font-size:11.5px; color:var(--fg-2); align-items:center;}
+.tem-key{ display:inline-flex; align-items:center; gap:6px;} .tem-key i{ width:11px; height:11px; border-radius:3px; background:var(--c); display:inline-block;}
+.tem-key i.t-no{ background:color-mix(in srgb,var(--muted) 45%,var(--paper));} .tem-key i.t-na{ background:var(--line);}
+.tem-key i.t-harvest, .tem-bar.harvest, .tem-desk-t b.t-harvest{ background:var(--brand);}
+.tem-key i.t-below, .tem-bar.below, .tem-desk-t b.t-below{ background:color-mix(in srgb,var(--amber) 55%,var(--paper));}
+.tem-key i.t-gain, .tem-bar.gain{ background:color-mix(in srgb,var(--muted) 40%,var(--paper));}
+.tem-key i.t-wash{ background:var(--red);} .tem-key i.t-ab{ background:var(--brand);} .tem-key i.t-cd{ background:var(--blue);}
+/* table */
+.tem-scroll{ overflow-x:auto;}
+.tem-tbl{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:620px;}
+.tem-tbl.small{ min-width:0;}
+.tem-tbl th, .tem-tbl td{ padding:6px 8px; border-bottom:1px solid var(--line-2); text-align:left; vertical-align:middle;}
+.tem-tbl th{ font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.03em;}
+.tem-tbl .r{ text-align:right;}
+.tem-sleeve td{ background:var(--paper-2); font-size:12.5px; padding-top:8px;}
+.tem-detail{ margin-top:10px; padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-m); background:var(--paper-2); font-size:12.5px;}
+.tem-detail p{ margin:6px 0 0; line-height:1.5;} .tem-dh{ display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+/* stats */
+.tem-stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; margin-bottom:6px;}
+.tem-stat{ border:1px solid var(--line); border-radius:var(--r-m); padding:9px 11px; background:var(--paper);}
+.tem-stat .l{ font-size:11px; color:var(--muted); font-weight:600;} .tem-stat .v{ font-size:17px; font-weight:700; margin-top:2px;} .tem-stat .s{ font-size:11px; color:var(--muted); margin-top:2px;}
+/* lot chart */
+.tem-lots{ display:flex; flex-direction:column; gap:4px;}
+.tem-lot{ display:grid; grid-template-columns:92px 1fr 128px; gap:10px; align-items:center; font-size:12px;}
+.tem-lot-t, .tem-bl-t, .tem-desk-t{ position:relative; height:16px; background:var(--paper-2); border-radius:3px;}
+.tem-bar{ position:absolute; top:2px; bottom:2px; border-radius:2px; display:block;}
+.tem-zero{ position:absolute; top:-2px; bottom:-2px; width:1px; background:var(--fg-2); opacity:.55;}
+.tem-thr{ position:absolute; top:-3px; bottom:-3px; width:0; border-left:2px dashed var(--red); z-index:1;}
+.tem-lot-v{ text-align:right; white-space:nowrap;}
+.tem-axis{ font-size:10.5px; color:var(--muted);} .tem-axis .tem-lot-t, .tem-axis .tem-bl-t{ background:none; height:14px;}
+.tem-axis em{ position:absolute; transform:translateX(-50%); font-style:normal; white-space:nowrap;} .tem-axis em.thr{ color:var(--red); font-weight:700; top:15px;}
+.tem-lots .tem-axis{ margin-bottom:18px;}
+.tem-ws{ font-size:9.5px; font-weight:700; color:#fff; background:var(--red); padding:0 4px; border-radius:999px; font-family:inherit;}
+/* timeline */
+.tem-tl-track{ position:relative; height:46px; background:var(--paper-2); border-radius:var(--r-s); border:1px solid var(--line-2);}
+.tem-tl-track em{ position:absolute; bottom:3px; transform:translateX(-50%); font-size:10.5px; color:var(--muted); font-style:normal;}
+.tem-tl-today{ position:absolute; top:0; bottom:0; width:2px; background:var(--fg);}
+.tem-tl-run{ position:absolute; top:8px; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:var(--brand); border:2px solid var(--paper); display:block;}
+.tem-tl-run.static{ position:static; display:inline-block; margin:0; vertical-align:-2px;}
+.tem-tl-wash{ position:absolute; top:11px; height:6px; background:color-mix(in srgb,var(--red) 45%,var(--paper)); border-radius:3px; display:block;}
+.tem-tl-wash.static{ position:static; display:inline-block; width:22px; vertical-align:1px;}
+.tem-tl-leg{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:11.5px; color:var(--fg-2); margin-top:6px;}
+/* TER best lot */
+.tem-bl{ display:flex; flex-direction:column; gap:5px;}
+.tem-bl-row{ display:grid; grid-template-columns:minmax(150px,220px) 1fr 82px 62px 82px; gap:10px; align-items:center; font-size:12px;}
+.tem-bar.save{ background:var(--brand);} .tem-bar.cost{ background:color-mix(in srgb,var(--amber) 70%,var(--paper));}
+.tem-bl-v{ text-align:right;}
+.tem-rank{ font-size:11px; color:var(--muted); white-space:nowrap;} .tem-rank b{ color:var(--fg);} .tem-rank.best b{ color:var(--brand);}
+.tem-check{ margin:10px 0 0; padding:7px 11px; font-size:12px; border-radius:var(--r-m); border:1px solid var(--line);}
+.tem-check.ok{ color:var(--brand); background:var(--brand-tint); border-color:transparent;} .tem-check.bad{ color:var(--red); background:var(--red-tint);}
+.tem-wd{ margin:0; padding-left:20px; font-size:12.5px; line-height:1.7;}
+/* DTLH chart */
+.tem-svg{ width:100%; max-width:560px; height:auto; display:block;}
+.tem-svg polyline{ fill:none; stroke-width:2.5;} .tem-svg polyline.ab{ stroke:var(--brand);} .tem-svg polyline.cd{ stroke:var(--blue);}
+.tem-svg circle.ab{ fill:var(--brand);} .tem-svg circle.cd{ fill:var(--blue);}
+.tem-svg-grid{ stroke:var(--line-2);} .tem-svg-ax{ fill:var(--muted); font-size:11px;} .tem-svg-v{ fill:var(--fg); font-size:11px; font-weight:700;}
+.tem-svg-ev{ stroke:var(--red); stroke-dasharray:4 3;} .tem-svg-evt{ fill:var(--red); font-size:10.5px; font-weight:600;}
+/* options */
+.tem-paths{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px;}
+.tem-path{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; text-align:left; font:inherit; font-size:12.5px; line-height:1.35; color:var(--fg);
+  padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-m); background:var(--paper); cursor:pointer;}
+.tem-path:hover{ border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
+.tem-path.on{ border-color:var(--brand); box-shadow:inset 0 0 0 1px var(--brand); background:color-mix(in srgb,var(--brand) 5%,var(--paper));}
+.tem-path-n{ font-size:10.5px; font-weight:700; color:var(--muted);}
+.tem-path-d{ margin-top:10px; padding:12px 14px; border:1px solid var(--line-2); border-radius:var(--r-m); background:var(--paper-2); font-size:12.5px;}
+.tem-path-d p{ margin:6px 0 0; line-height:1.5; color:var(--fg-2);} .tem-path-d .tem-why{ color:var(--fg); font-weight:500;}
+.tem-path-h{ display:flex; justify-content:space-between; gap:8px; align-items:flex-start;}
+.tem-im{ display:flex; flex-wrap:wrap; gap:6px;}
+.tem-im-i{ font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper-2);}
+.tem-im-i.on{ border-color:var(--t-mgr); color:var(--t-mgr); background:color-mix(in srgb,var(--t-mgr) 10%,var(--paper));}
+.tem-cons{ margin-top:14px; padding:10px 13px; border-left:3px solid var(--amber); background:var(--paper-2); border-radius:0 var(--r-m) var(--r-m) 0; font-size:12.5px;}
+.tem-cons ul{ margin:6px 0 0; padding-left:18px; line-height:1.55;}
+/* tax desk chart */
+.tem-desk-row{ display:grid; grid-template-columns:minmax(140px,210px) 1fr 70px; gap:10px; align-items:center; font-size:12.5px; padding:3px 0; cursor:pointer;}
+.tem-desk-row:hover .tem-desk-n{ color:var(--brand);}
+.tem-desk-t{ display:flex; overflow:hidden;} .tem-desk-t b{ height:100%; display:block;}
+.tem-desk-v{ text-align:right;}
+@media (max-width:760px){
+  .tem-cov-row{ grid-template-columns:1fr 46px;} .tem-cov-row .tem-stack{ grid-column:1 / -1; grid-row:2;}
+  .tem-lot{ grid-template-columns:70px 1fr 92px; gap:6px;} .tem-lot-v .sub{ display:none;}
+  .tem-bl-row{ grid-template-columns:1fr 70px; } .tem-bl-row .tem-bl-t{ grid-column:1 / -1;} .tem-rank{ display:none;}
+  .tem-desk-row{ grid-template-columns:110px 1fr 56px;}
+  .tem-paths{ grid-template-columns:1fr 1fr;}
+}
+.tem-vline{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12.5px; margin:0 0 10px;}
+.tem-cov-style{ font-size:11px; margin-top:3px;}
+.tem-model{ font-size:11.5px; white-space:nowrap;}
+.tem .xinfo{ margin-left:2px;}
+.tem-tet{ margin-top:14px; padding:10px 13px; border:1px solid var(--line); border-radius:var(--r-m); background:var(--paper); font-size:12.5px;}
+.tem-tet ul{ margin:8px 0 0; padding-left:18px; line-height:1.7;}
+</style>
+<script>
+/* Standalone file: answers /api/tem/* from the embedded data (same responses the Python app returns). */
+(function(){
+  if(typeof AtlasMock === 'undefined') return;
+  const prev = window.fetch;
+  const reply = (obj, status) => new Response(JSON.stringify(obj), {status: status || 200, headers: {'Content-Type': 'application/json'}});
+  window.fetch = async function(input, opt){
+    const raw = typeof input === 'string' ? input : input.url;
+    if(raw.startsWith('/api/tem')){
+      await AtlasMock.ready(); const D = AtlasMock.data() || {};
+      const url = new URL(raw, 'http://atlas.local'), seg = url.pathname.split('/').filter(Boolean);
+      if(seg[1] === 'tem-book') return reply((D.tem_book || {})[url.searchParams.get('fa') || 'dana'] || {rows: [], threshold: 0.05});
+      const t = (D.tem || {})[seg[2]];
+      return t ? reply(t) : reply({detail: 'Not included in this file'}, 404);
+    }
+    return prev.apply(this, arguments);
+  };
+  if(typeof ATLAS_SCOPE !== 'undefined') ATLAS_SCOPE.add('ashford');
+})();
+
+/* ================= TAX PERSONALIZATION (TEM overlays, lots, TEM Style Manager options) =================
+ * Self-contained add-on, loaded after app.js. It adds a "Tax personalization" card to the client page,
+ * a lot-level chart to the Tax Overlay Desk, a "tem" workspace for Ask Atlas, three tour steps and a
+ * guide entry. Every number comes from /api/tem/{id} (rules from the TEM Guide and the TER, QLH and
+ * DTLH term sheets); nothing here is AI-generated.
+ */
+(function(){
+  if(typeof viewClient !== 'function') return;
+  const TEMS = {data:null, id:null, tab:'coverage', cell:null, pendingTab:null};
+  const OUT = {
+    APPLIES:{l:'Applies', c:'t-app'}, SUPERSEDED:{l:'Superseded by DTLH', s:'Superseded', c:'t-sup'},
+    MANAGER_RUN:{l:'Manager-run', c:'t-mgr'}, NOT_APPLIED:{l:'Not applied', c:'t-no'}, REVIEW:{l:'Confirm', c:'t-rev'},
+    NA:{l:'n/a', c:'t-na'}, BLOCKED:{l:'Account not eligible', s:'Blocked', c:'t-blk'}};
+  const TABS = [['coverage','Coverage'],['qlh','QLH lots'],['ter','TER lots'],['dtlh','DTLH'],['options','Personalization options']];
+  const TAB_FOR = {qlhOverlay:'qlh', taxManagedSMA:'ter', dtlhOverlay:'dtlh', temSms:'options'};
+  const pct = (x, d=1) => (x == null ? '—' : (x*100).toFixed(d) + '%');
+  const money = n => (typeof fmtM === 'function' ? fmtM(n) : '$' + Math.round(n).toLocaleString('en-US'));
+  const dollars = n => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+  const src = arr => (arr || []).join(' · ');
+  const dshort = iso => { if(!iso) return '—'; const d = new Date(iso + 'T00:00:00'); return d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}); };
+
+  /* ---------- load + paint ---------- */
+  async function loadTem(id){
+    if(state.view !== 'client' || state.client !== id) return;
+    const anchor = document.getElementById('convSlot') || document.querySelector('#view .grid2:last-of-type');
+    if(!anchor) return;
+    let slot = document.getElementById('temSlot');
+    if(!slot){ slot = document.createElement('div'); slot.id = 'temSlot'; anchor.insertAdjacentElement('afterend', slot); }
+    let t; try{ t = await api(`/api/tem/${id}`); }catch(e){ slot.innerHTML = ''; return; }
+    if(!t.applicable){ slot.innerHTML = ''; return; }
+    if(TEMS.id !== id){ TEMS.tab = 'coverage'; TEMS.cell = null; TEMS.path = null; }
+    if(TEMS.pendingTab){ TEMS.tab = TEMS.pendingTab; TEMS.pendingTab = null; } if(TEMS.pendingPath){ TEMS.path = TEMS.pendingPath; TEMS.pendingPath = null; }
+    TEMS.data = t; TEMS.id = id;
+    paintTem();
+  }
+
+  function paintTem(){
+    const slot = document.getElementById('temSlot'); const t = TEMS.data; if(!slot || !t) return;
+    const gates = t.gates.map(g => `<span class="tem-gate ${g.passed === false ? 'fail' : g.passed === null ? 'unk' : 'ok'}" title="${esc(g.message + ' (' + src(g.source) + ')')}">${g.passed === false ? '✕' : g.passed === null ? '?' : '✓'} ${esc(g.label)}</span>`).join('');
+    const tabs = TABS.map(([k, l]) => `<button class="tem-tab${TEMS.tab === k ? ' on' : ''}" data-tem-tab="${k}">${l}</button>`).join('');
+    if(t.blocked){   // account-level gate fails: no point showing coverage, lots or options
+      slot.innerHTML = `<div class="card tem" style="margin-bottom:14px"><div class="ch"><h3 id="tem">Tax personalization \u00b7 TEM overlays and options</h3><span class="r" style="font-size:12px;color:var(--muted)">rule-based, no AI</span></div>
+        <div class="cbp"><p class="tem-headline">${esc(t.headline)}</p><div class="tem-gates">${gates}</div>
+        <div class="tem-vline">Rule-engine verdicts: ${t.coverage.map(c => `<b>${c.overlay}</b> ${verdictBits(c)}`).join(' \u00b7 ')}</div>
+        <div class="tem-src">${esc(src((t.gates.find(g => g.passed === false) || {}).source))}</div></div></div>`;
+      return;
+    }
+    const body = {coverage: coverageTab, qlh: qlhTab, ter: terTab, dtlh: dtlhTab, options: optionsTab}[TEMS.tab](t);
+    const cons = t.considerations.length ? `<div class="tem-cons"><b>Worth raising with the client</b><ul>${t.considerations.map(c => `<li>${esc(c.message)} <span class="sub">(${esc(src(c.source))})</span></li>`).join('')}</ul></div>` : '';
+    slot.innerHTML = `<div class="card tem" style="margin-bottom:14px">
+      <div class="ch"><h3 id="tem">Tax personalization · TEM overlays and options</h3><span class="r" style="font-size:12px;color:var(--muted)">as of ${dshort(t.as_of)} · rule-based, no AI</span></div>
+      <div class="cbp">
+        <p class="tem-headline">${esc(t.headline)}</p>
+        <div class="tem-gates">${gates}</div>
+        <div class="tem-tabs" role="tablist">${tabs}</div>
+        <div class="tem-body">${body}</div>
+        ${cons}
+      </div></div>`;
+  }
+
+  /* ---------- rule-engine verdict for one overlay: pill, "why" (full rule trace), model transition ---------- */
+  const xbtn = off => (typeof xinfoBtn === 'function' ? xinfoBtn(TEMS.id, off)
+    : `<button class="xinfo" data-explain data-client="${TEMS.id}" data-offering="${off}" title="Why this verdict?" aria-label="Explain verdict">i</button>`);
+  function verdictBits(c){
+    return `<span class="tem-v v-${c.verdict}" title="Rule-engine verdict for the account">${c.verdict.replace('_',' ').toLowerCase()}</span>${xbtn(c.offering_id)}`
+      + (c.can_model ? ` <span class="u tem-model" data-transition="${TEMS.id}:${c.offering_id}">Model transition</span>` : '');
+  }
+  function verdictLine(t, overlay){
+    const c = t.coverage.find(x => x.overlay === overlay);
+    return `<div class="tem-vline"><b>${overlay}</b> for this account: ${verdictBits(c)}${c.elected ? ' <span class="chip enrolled">Elected</span>' : ''}</div>`;
+  }
+  function tetNote(t){
+    if(!t.tet) return '';
+    const R = {INCOMPATIBLE_WITH: ['Can\u2019t run together', 't-blk'], SCOPE_CARVEOUT_WITHIN_COMPOSITION: ['Investment strategy assets only', 't-sup'], COMPATIBLE_WITH: ['Compatible', 't-app']};
+    return `<div class="tem-tet"><b>With the Tax Efficient Transition Service (TET)</b> <span class="sub">TET ${t.tet.elected ? 'elected' : t.tet.verdict.replace('_',' ').toLowerCase()}${xbtn('transition')}</span>
+      <ul>${t.tet.notes.map(n => `<li><b>${n.overlay}</b> <span class="tem-cell static ${(R[n.relation] || ['', 't-no'])[1]}">${(R[n.relation] || [n.relation])[0]}</span> ${esc(n.message)} <span class="sub">(${esc(src(n.source))})</span></li>`).join('')}</ul></div>`;
+  }
+
+  /* ---------- tab: coverage ---------- */
+  function stackBar(by, total, order){
+    return `<div class="tem-stack">${order.filter(o => by[o]).map(o => { const w = by[o] / total * 100;
+      return `<span class="tem-seg ${OUT[o].c}" style="width:${w}%" title="${OUT[o].l}: ${dollars(by[o])} (${w.toFixed(0)}%)">${w >= 11 ? money(by[o]) : ''}</span>`; }).join('')}</div>`;
+  }
+  function coverageTab(t){
+    const order = ['APPLIES','SUPERSEDED','MANAGER_RUN','REVIEW','NOT_APPLIED','BLOCKED','NA'];
+    const used = new Set(); t.coverage.forEach(c => Object.keys(c.by_outcome).forEach(k => used.add(k)));
+    const bars = t.coverage.map(c => `<div class="tem-cov-row">
+        <div class="tem-cov-l"><b>${c.overlay}</b> <span class="sub">${esc(c.label)}</span>
+          <div class="tem-cov-meta">${c.elected ? '<span class="chip enrolled">Elected</span>' : ''} ${verdictBits(c)}</div><div class="sub tem-cov-style">${esc(c.style)} · ${esc(c.fee.toLowerCase())}</div></div>
+        ${stackBar(c.by_outcome, t.total_mv, order)}
+        <div class="tem-cov-r mono">${pct(c.applies_mv / t.total_mv, 0)}<div class="sub">covered</div></div></div>`).join('');
+    const legend = order.filter(o => used.has(o)).map(o => `<span class="tem-key"><i class="${OUT[o].c}"></i>${OUT[o].l}</span>`).join('');
+    const bySleeve = {}; t.holdings.forEach(h => (bySleeve[h.sleeve_id] = bySleeve[h.sleeve_id] || []).push(h));
+    const rows = t.sleeves.map(s => {
+      const hs = bySleeve[s.sleeve_id] || []; if(!hs.length) return '';
+      const head = `<tr class="tem-sleeve"><td colspan="2"><b>${esc(s.label)}</b> <span class="sub">${esc(s.role || '')}${s.product_id && s.codes && s.codes.length ? ' · catalog codes ' + s.codes.join(',') : ''}</span></td><td class="r mono">${money(s.mv)}</td><td colspan="3"></td></tr>`;
+      return head + hs.map(h => `<tr><td class="mono"><b>${esc(h.sym)}</b></td><td class="sub" style="font-size:12px">${esc(h.name)}${h.lots > 1 ? ` · ${h.lots} lots` : ''}</td><td class="r mono">${money(h.mv)}</td>
+        ${['TER','QLH','DTLH'].map(o => { const c = t.cells[`${h.key}|${o}`], O = OUT[c.outcome]; const on = TEMS.cell === `${h.key}|${o}`;
+          return `<td><button class="tem-cell ${O.c}${on ? ' on' : ''}" data-tem-cell="${esc(h.key)}|${o}" title="${esc(O.l)}">${O.s || O.l}${c.assumption ? '*' : ''}</button></td>`; }).join('')}</tr>`).join('');
+    }).join('');
+    let detail = '<span class="sub">Click any cell for the rule and the page it comes from. * = rests on an assumption to confirm.</span>';
+    if(TEMS.cell && t.cells[TEMS.cell]){
+      const [key, o] = TEMS.cell.split('|'), c = t.cells[TEMS.cell], h = t.holdings.find(x => x.key === key);
+      detail = `<div class="tem-dh"><b>${esc(h.name)}</b> · ${o} <span class="tem-cell static ${OUT[c.outcome].c}">${OUT[c.outcome].l}</span></div>
+        <p>${esc(c.message)}</p><div class="tem-src"><span class="mono">${esc(c.rule_id || 'no rule')}</span>${c.assumption ? ' · <b>assumption to confirm</b>' : ''} · ${esc(src(c.source))}</div>`;
+    }
+    return `<div class="tem-cov">${bars}</div><div class="tem-legend">${legend}</div>
+      <div class="tem-scroll"><table class="tem-tbl"><thead><tr><th colspan="2">Sleeve / position</th><th class="r">Value</th><th>TER</th><th>QLH</th><th>DTLH</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="tem-detail">${detail}</div>${tetNote(t)}`;
+  }
+
+  /* ---------- tab: QLH ---------- */
+  function lotChart(lots, thr){
+    if(!lots.length) return '<div class="sub" style="padding:8px 0">No position here is covered by QLH.</div>';
+    const lo = Math.min(-0.25, ...lots.map(l => l.pct ?? 0)), hi = Math.max(0.25, ...lots.map(l => l.pct ?? 0));
+    const L = Math.max(lo, -0.6), Hh = Math.min(hi, 0.8), x = v => (Math.max(L, Math.min(Hh, v)) - L) / (Hh - L) * 100;
+    const z = x(0), th = x(-thr);
+    const ticks = [-0.5,-0.25,-0.1,0,0.25,0.5].filter(v => v >= L && v <= Hh);
+    return `<div class="tem-lots">
+      ${lots.map(l => { const v = l.pct ?? 0, a = Math.min(x(v), z), w = Math.abs(x(v) - z);
+        const cls = l.status === 'HARVEST' ? 'harvest' : l.status === 'BELOW_THRESHOLD' ? 'below' : 'gain';
+        return `<div class="tem-lot" title="${esc(l.lot_id)}: ${pct(l.pct)} · ${l.gain >= 0 ? 'gain' : 'loss'} ${dollars(l.gain)} · ${l.term === 'ST' ? 'short-term' : l.term === 'LT' ? 'long-term' : 'holding period unknown'}">
+          <span class="tem-lot-l mono">${esc(l.lot_id)}${l.wash_sale_risk ? ' <span class="tem-ws" title="Also held in ' + esc(l.wash_sale_risk) + '">wash</span>' : ''}</span>
+          <span class="tem-lot-t"><i class="tem-zero" style="left:${z}%"></i><i class="tem-thr" style="left:${th}%"></i><b class="tem-bar ${cls}" style="left:${a}%;width:${Math.max(w, .6)}%"></b></span>
+          <span class="tem-lot-v mono">${pct(l.pct)} <span class="sub">${l.gain >= 0 ? '+' : '−'}${money(Math.abs(l.gain))}</span></span></div>`; }).join('')}
+      <div class="tem-lot tem-axis"><span class="tem-lot-l"></span><span class="tem-lot-t">${ticks.map(v => `<em style="left:${x(v)}%">${v > 0 ? '+' : ''}${Math.round(v*100)}%</em>`).join('')}<em class="thr" style="left:${th}%">−${Math.round(thr*100)}% QLH</em></span><span class="tem-lot-v"></span></div>
+    </div>`;
+  }
+  function timeline(q){
+    const start = new Date(TEMS.data.as_of + 'T00:00:00'), span = 365, day = 864e5;
+    const pos = iso => (new Date(iso + 'T00:00:00') - start) / day / span * 100;
+    const months = []; for(let m = 0; m <= 12; m++){ const d = new Date(start); d.setMonth(d.getMonth() + m, 1); const p = (d - start) / day / span * 100; if(p > 0 && p < 100) months.push([p, d.toLocaleDateString('en-US', {month:'short'})]); }
+    const runs = q.next_runs.filter(r => pos(r) <= 100);
+    return `<div class="tem-tl"><div class="tem-tl-track">
+        ${months.map(([p, l]) => `<em style="left:${p}%">${l}</em>`).join('')}
+        <i class="tem-tl-today" style="left:0"></i>
+        ${runs.map(r => `<span class="tem-tl-wash" style="left:${pos(r)}%;width:${Math.min(q.wash_sale_days / span * 100, 100 - pos(r))}%" title="30-day wash sale restriction after the ${dshort(r)} run"></span><b class="tem-tl-run" style="left:${pos(r)}%" title="QLH run ${dshort(r)}"></b>`).join('')}
+      </div><div class="tem-tl-leg"><span><b class="tem-tl-run static"></b> QLH run (every ${q.cycle_days} days${q.schedule_basis === 'enrollment' ? ` from enrollment on ${dshort(q.enrolled_on)}` : ', if enrolled today'})</span><span><i class="tem-tl-wash static"></i> ${q.wash_sale_days}-day wash sale period: proceeds sit in a replacement ETF</span></div></div>`;
+  }
+  function qlhTab(t){
+    const q = t.qlh, cov = t.coverage.find(c => c.overlay === 'QLH');
+    const stats = [['Harvest at next run', dollars(q.harvest_loss), `${q.harvest_count} lot${q.harvest_count === 1 ? '' : 's'} at a loss of ${Math.round(q.threshold*100)}% or more`],
+      ['Illustrative tax value', dollars(q.harvest_tax_value), 'at 40.8% short-term / 23.8% long-term'],
+      ['Below the threshold', dollars(q.below_threshold_loss), 'losses QLH leaves alone'],
+      ['Outside QLH', dollars(q.outside_loss), 'losses in positions QLH doesn’t cover'],
+      ['Next run', dshort(q.next_runs[0]), q.schedule_basis === 'enrollment' ? `last run ${dshort(q.last_run)}` : 'if enrolled today']];
+    const outside = q.outside.length ? `<h4 class="tem-h4">Losses QLH won’t harvest, and why</h4><table class="tem-tbl small"><tbody>${q.outside.map(l => `<tr><td class="mono"><b>${esc(l.lot_id)}</b></td><td class="r mono">${pct(l.pct)}</td><td class="r mono">−${money(Math.abs(l.gain))}</td><td><span class="tem-cell static ${OUT[l.outcome].c}">${OUT[l.outcome].s || OUT[l.outcome].l}</span> ${esc(l.why)}</td></tr>`).join('')}</tbody></table>` : '';
+    return `${verdictLine(t, 'QLH')}${cov.verdict !== 'ELIGIBLE' ? `<div class="tem-warn">QLH is <b>${cov.verdict.replace('_',' ').toLowerCase()}</b> for this account in the rule engine; the lots below show what it would do once that is resolved.</div>` : ''}
+      <div class="tem-stats">${stats.map(([k, v, s]) => `<div class="tem-stat"><div class="l">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('')}</div>
+      <h4 class="tem-h4">Every tax lot QLH covers, against its ${Math.round(q.threshold*100)}% loss threshold</h4>
+      ${lotChart(q.lots, q.threshold)}
+      <div class="tem-legend"><span class="tem-key"><i class="t-harvest"></i>Harvested at the next run</span><span class="tem-key"><i class="t-below"></i>Loss below ${Math.round(q.threshold*100)}%</span><span class="tem-key"><i class="t-gain"></i>Gain</span><span class="tem-key"><i class="t-wash"></i>Also held in another account</span></div>
+      <h4 class="tem-h4">The next 12 months</h4>${timeline(q)}
+      ${outside}
+      <p class="tem-note">${esc(q.replacement_note)} Not every eligible loss is harvested: wash sales, restrictions and a portfolio turnover limit can hold some back. <span class="sub">(${esc(src(q.source))})</span></p>`;
+  }
+
+  /* ---------- tab: TER ---------- */
+  function terTab(t){
+    const r = t.ter;
+    let best = '<div class="sub" style="padding:6px 0">No covered position has more than one tax lot, so lot selection has nothing to choose between here.</div>';
+    if(r.best_lot){
+      const lots = r.best_lot.lots, m = Math.max(...lots.map(l => Math.abs(l.tax_cost_per_share))) || 1;
+      best = `<h4 class="tem-h4">Which ${esc(r.best_lot.sym)} lot is sold first: oldest-first vs lowest tax cost</h4>
+        <div class="tem-bl">${lots.map(l => { const w = Math.abs(l.tax_cost_per_share) / m * 50;
+          return `<div class="tem-bl-row"><span class="mono"><b>${esc(l.lot_id)}</b> <span class="sub">${l.qty} sh · ${l.holding_days} days · ${l.term === 'ST' ? 'short-term' : 'long-term'}</span></span>
+            <span class="tem-bl-t"><i class="tem-zero" style="left:50%"></i><b class="tem-bar ${l.tax_cost_per_share < 0 ? 'save' : 'cost'}" style="left:${l.tax_cost_per_share < 0 ? 50 - w : 50}%;width:${Math.max(w, .6)}%"></b></span>
+            <span class="mono tem-bl-v">${l.tax_cost_per_share < 0 ? '−' : ''}$${Math.abs(l.tax_cost_per_share).toFixed(2)}/sh</span>
+            <span class="tem-rank">FIFO <b>${l.fifo_priority}</b></span><span class="tem-rank best">Best lot <b>${l.best_priority}</b></span></div>`; }).join('')}
+          <div class="tem-bl-row tem-axis"><span></span><span class="tem-bl-t"><em style="left:25%">saves tax</em><em style="left:75%">costs tax</em></span><span></span><span></span><span></span></div></div>
+        <p class="tem-note">Tax cost per share = the lot’s gain or loss × ${pct(r.rates.short_term)} if held a year or less, ${pct(r.rates.long_term)} if longer, ÷ shares. Best tax lot selection sells the lowest first.</p>`;
+    }
+    const ck = r.term_sheet_check;
+    const check = `<div class="tem-check ${ck.matches ? 'ok' : 'bad'}">${ck.matches ? '✓' : '✕'} Checked against the term sheet’s own example (${esc(src(ck.source))}): Atlas sells lots ${ck.atlas_order.join(', ')}; the term sheet says ${ck.term_sheet_order.join(', ')}.</div>`;
+    const defer = r.st_deferral.length ? `<h4 class="tem-h4">Short-term gain deferral</h4><table class="tem-tbl small"><thead><tr><th>Lot</th><th class="r">Gain</th><th>Turns long-term</th><th class="r">Tax if sold now</th><th class="r">Tax after</th><th class="r">Saved by waiting</th></tr></thead><tbody>${r.st_deferral.map(d => `<tr><td class="mono"><b>${esc(d.lot_id)}</b></td><td class="r mono">${money(d.gain)}</td><td>${dshort(d.lt_date)} <span class="sub">(${d.days_to_lt} days)</span></td><td class="r mono">${dollars(d.tax_if_sold_now)}</td><td class="r mono">${dollars(d.tax_after_lt)}</td><td class="r mono" style="color:var(--brand);font-weight:700">${dollars(d.saving)}</td></tr>`).join('')}</tbody></table><p class="tem-note">${esc(r.deferral_note)}</p>`
+      : `<p class="tem-note">No short-term lot with a gain turns long-term within ${r.deferral_window_days} days, so short-term gain deferral has nothing to hold back today.</p>`;
+    const wd = r.withdrawal_order.length ? `<h4 class="tem-h4">If cash is withdrawn: the loss-first sale order</h4><ol class="tem-wd">${r.withdrawal_order.map(l => `<li><span class="mono"><b>${esc(l.lot_id)}</b></span> ${pct(l.pct)} <span class="sub">${l.gain < 0 ? 'loss ' + money(Math.abs(l.gain)) : 'gain ' + money(l.gain)}</span></li>`).join('')}</ol><p class="tem-note">${esc(r.withdrawal_note)}</p>` : '';
+    return `${verdictLine(t, 'TER')}<p class="tem-lede">TER is passive: it changes <i>how</i> the account trades, not <i>whether</i> it trades. It picks the cheapest lots to sell, delays short-term gains that are about to turn long-term, blocks wash sales inside the account, and sells losses first for withdrawals.</p>${best}${check}${defer}${wd}
+      <p class="tem-note sub">${esc(src(r.source))}</p>`;
+  }
+
+  /* ---------- tab: DTLH ---------- */
+  function dtlhChart(ex){
+    const W = 520, H = 190, P = {l:44, r:16, t:14, b:26}, months = ex.months, lo = 880, hi = 1020;
+    const x = m => P.l + months.indexOf(m) * (W - P.l - P.r) / (months.length - 1), y = v => P.t + (hi - v) / (hi - lo) * (H - P.t - P.b);
+    const series = sym => ex.points.filter(p => p.sym === sym);
+    const line = (pts, cls) => `<polyline class="${cls}" points="${pts.map(p => x(p.month) + ',' + y(p.value)).join(' ')}"/>` + pts.map(p => `<circle class="${cls}" cx="${x(p.month)}" cy="${y(p.value)}" r="3.5"/><text class="tem-svg-v" x="${x(p.month) + 6}" y="${y(p.value) - 6}">$${p.value}</text>`).join('');
+    const ev = ex.points.filter(p => p.event).map(p => `<line class="tem-svg-ev" x1="${x(p.month)}" x2="${x(p.month)}" y1="${P.t}" y2="${H - P.b}"/><text class="tem-svg-evt" x="${x(p.month) + 4}" y="${H - P.b - 6}">${esc(p.event)}</text>`).join('');
+    return `<svg class="tem-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="DTLH term sheet illustration">
+      ${[900, 950, 1000].map(v => `<line class="tem-svg-grid" x1="${P.l}" x2="${W - P.r}" y1="${y(v)}" y2="${y(v)}"/><text class="tem-svg-ax" x="${P.l - 6}" y="${y(v) + 4}" text-anchor="end">$${v}</text>`).join('')}
+      ${months.map(m => `<text class="tem-svg-ax" x="${x(m)}" y="${H - 8}" text-anchor="middle">${m}</text>`).join('')}
+      ${ev}${line(series('AB'), 'ab')}${line(series('CD'), 'cd')}
+    </svg>`;
+  }
+  function dtlhTab(t){
+    const d = t.dtlh, cov = t.coverage.find(c => c.overlay === 'DTLH');
+    const top = d.applies_mv ? `<div class="tem-stats"><div class="tem-stat"><div class="l">Covered by DTLH</div><div class="v">${money(d.applies_mv)}</div><div class="s">${d.elected ? 'elected' : 'not elected yet'}</div></div><div class="tem-stat"><div class="l">Losses DTLH is watching</div><div class="v">${dollars(d.watch_loss)}</div><div class="s">in ${d.watch.length} lot${d.watch.length === 1 ? '' : 's'}</div></div></div>
+        ${d.watch.length ? `<table class="tem-tbl small"><tbody>${d.watch.map(l => `<tr><td class="mono"><b>${esc(l.lot_id)}</b></td><td class="r mono">${pct(l.pct)}</td><td class="r mono">−${money(Math.abs(l.gain))}</td><td class="sub">${l.term === 'ST' ? 'short-term' : 'long-term'}</td></tr>`).join('')}</tbody></table>` : ''}`
+      : `<div class="tem-warn">DTLH doesn’t reach any position in this account (${cov.verdict.replace('_',' ').toLowerCase()} in the rule engine). It only covers eligible CIO strategies that consist solely of ETFs.</div>`;
+    return `${verdictLine(t, 'DTLH')}<p class="tem-lede">DTLH watches eligible CIO ETF strategies continuously and harvests when a loss crosses a market-derived threshold that accounts for volatility. Replacement ETFs keep the allocation and risk profile; they stay until another loss can be harvested.</p>${top}
+      <p class="tem-note">${esc(d.note)}</p>
+      <h4 class="tem-h4">How DTLH works: the term sheet’s example</h4>${dtlhChart(d.example)}
+      <div class="tem-legend"><span class="tem-key"><i class="t-ab"></i>ETF AB</span><span class="tem-key"><i class="t-cd"></i>Replacement ETF CD</span></div>
+      <p class="tem-note">${esc(d.example.note)} Two harvests ($60 and $40 of losses) while staying invested. ${esc(d.removal_note)} <span class="sub">(${esc(src(d.source))})</span></p>`;
+  }
+
+  /* ---------- tab: personalization options ---------- */
+  const PST = {CURRENT:['This account','t-app'], AVAILABLE:['Available','t-sup'], SEPARATE_ACCOUNT:['Separate account','t-mgr'], NOT_THIS_ACCOUNT:['Not this account','t-no'], BLOCKED:['Not available','t-blk']};
+  // One decision at a time: a compact row of the four options; only the selected option's detail is shown.
+  const PATH_RANK = {CURRENT:0, AVAILABLE:1, SEPARATE_ACCOUNT:2, NOT_THIS_ACCOUNT:3, BLOCKED:4};
+  function optionsTab(t){
+    if(!TEMS.path || !t.paths.some(p => p.id === TEMS.path))
+      TEMS.path = [...t.paths].sort((a, b) => PATH_RANK[a.status] - PATH_RANK[b.status])[0].id;
+    const sel = t.paths.find(p => p.id === TEMS.path);
+    const cards = t.paths.map((p, n) => `<button class="tem-path${p.id === sel.id ? ' on' : ''}" data-tem-path="${p.id}" aria-pressed="${p.id === sel.id}">
+      <span class="tem-path-n">${n + 1}</span><b>${esc(p.label)}</b><span class="tem-cell static ${PST[p.status][1]}">${PST[p.status][0]}</span></button>`).join('');
+    let extra = '';
+    if(sel.id === 'OVERLAY'){
+      const cov = t.coverage.filter(c => c.applies_mv > 0);
+      extra = cov.length ? `${cov.map(c => `<div class="tem-vline"><b>${c.overlay}</b> covers ${money(c.applies_mv)} ${verdictBits(c)}</div>`).join('')}<p class="tem-note">The Coverage tab shows which positions each one reaches.</p>` : '';
+    } else if(sel.id === 'CUSTOM'){
+      extra = `<p class="tem-note">The Coverage tab shows the sleeves of a Custom Managed account and the overlays each one gets.</p>`;
+    } else if(sel.id === 'TEM_SMS'){
+      extra = `<h4 class="tem-h4">Strategies that fit ${money(t.equity_mv)} of this client\u2019s equity <span class="sub">(${t.tem_sms_options.length} of ${t.tem_sms_roster_count} on the TEM Guide list, ${dshort(t.tem_sms_roster_as_of)})</span></h4>
+        <table class="tem-tbl small"><thead><tr><th>Strategy</th><th>Sleeve</th><th class="r">Minimum</th><th></th></tr></thead><tbody>${t.tem_sms_options.map(x => `<tr><td>${esc(x.name)}</td><td class="sub">${esc(x.sleeve || '')}</td><td class="r mono">${x.minimum ? money(x.minimum) : '\u2014'}</td><td>${x.meets_minimum ? '<span class="chip eligible dot">Meets minimum</span>' : '<span class="pill amber">Below minimum</span>'}</td></tr>`).join('')}</tbody></table>`;
+    } else if(sel.id === 'IM_MODEL'){
+      extra = `<h4 class="tem-h4">The six models <span class="sub">(TEM Guide p.5)</span></h4>
+        <div class="tem-im">${t.im_models.map(m => `<span class="tem-im-i${t.im_model && t.im_model.id === m.id ? ' on' : ''}">${esc(m.name)}${t.im_model && t.im_model.id === m.id ? ' <b>\u00b7 this account</b>' : ''}</span>`).join('')}</div>
+        <p class="tem-note">They may, but don\u2019t have to, hold TEM Style Manager Strategies.</p>`;
+    }
+    return `<div class="tem-paths" role="tablist" aria-label="Personalization options">${cards}</div>
+      <div class="tem-path-d"><div class="tem-path-h"><b>${esc(sel.label)}</b><span class="tem-cell static ${PST[sel.status][1]}">${PST[sel.status][0]}</span></div>
+        <p class="tem-why">${esc(sel.why)}</p><p>${esc(sel.what)}</p>${extra}<div class="tem-src">${esc(src(sel.source))}</div></div>`;
+  }
+
+  /* ---------- Tax Overlay Desk: lot-level chart ---------- */
+  async function paintDesk(){
+    const slot = document.getElementById('temDesk'); if(!slot) return;
+    let r; try{ r = await api(`/api/tem-book?fa=${state.fa}`); }catch(e){ return; }
+    const rows = r.rows.slice(0, 10); if(!rows.length){ slot.innerHTML = ''; return; }
+    const m = Math.max(...rows.map(x => x.at_threshold + x.below_threshold));
+    slot.innerHTML = `<div class="card" style="margin:0 0 14px"><div class="ch"><h3>Harvestable losses, lot by lot</h3><span class="r" style="font-size:12px;color:var(--muted)">split at the QLH 5% threshold</span></div><div class="cbp">
+      ${rows.map(x => `<div class="tem-desk-row" data-client="${x.household_id}"><span class="tem-desk-n">${esc(x.name)}</span>
+        <span class="tem-desk-t"><b class="t-harvest" style="width:${x.at_threshold / m * 100}%" title="At 5% or more: ${dollars(x.at_threshold)}"></b><b class="t-below" style="width:${x.below_threshold / m * 100}%" title="Below 5%: ${dollars(x.below_threshold)}"></b></span>
+        <span class="tem-desk-v mono">${money(x.at_threshold + x.below_threshold)}</span></div>`).join('')}
+      <div class="tem-legend"><span class="tem-key"><i class="t-harvest"></i>Lots at a loss of 5% or more (QLH would consider them)</span><span class="tem-key"><i class="t-below"></i>Smaller losses</span><span class="sub">Open a client for which overlay covers each lot.</span></div></div></div>`;
+  }
+
+  /* ---------- hooks into the app ---------- */
+  // The tax personalization card now carries TER, QLH, DTLH and TEM Style Manager Strategies (verdicts, rule trace,
+  // model-transition links and the TET interactions), so the older overlay rows and the TET composition card are retired.
+  const IN_TEM_CARD = new Set(['taxManagedSMA', 'qlhOverlay', 'dtlhOverlay', 'temSms']);
+  if(typeof overlayList === 'function'){ const _ol = overlayList; overlayList = function(c){ return _ol.apply(this, arguments).filter(p => !IN_TEM_CARD.has(p.k)); }; }
+  if(typeof compositionPanelHtml === 'function') compositionPanelHtml = async function(){ return ''; };
+  if(typeof offeringLabel === 'function'){ const _lab = offeringLabel; offeringLabel = function(){ return String(_lab.apply(this, arguments)).replace('; legacy Atlas ID', ''); }; }
+  const _viewClient = viewClient;
+  viewClient = async function(id){
+    const out = await _viewClient.apply(this, arguments);
+    document.querySelectorAll('#view .card .ch h3').forEach(h => { if(h.textContent.trim() === 'Tax & overlay services') h.textContent = 'Other tax services'; });
+    try{ await loadTem(id); }catch(e){ console.warn('tem', e); }
+    return out;
+  };
+  if(typeof viewTax === 'function'){
+    const _viewTax = viewTax;
+    viewTax = function(){ const html = _viewTax.apply(this, arguments); setTimeout(paintDesk, 0);
+      const i = html.indexOf('<div class="tbl-wrap">'); return i < 0 ? html + '<div id="temDesk"></div>' : html.slice(0, i) + '<div id="temDesk"></div>' + html.slice(i); };
+  }
+  const _runAgentAction = runAgentAction;
+  runAgentAction = async function(a, q){
+    if(a && a.workspace === 'tem'){
+      state.fromChat = {q: q || a.__q || '', view: 'client'};
+      TEMS.pendingTab = TAB_FOR[a.offering_id] || 'coverage';
+      if(a.offering_id === 'temSms') TEMS.pendingPath = 'TEM_SMS';
+      await setView('client', a.household_id); return scrollToAnchor('tem');
+    }
+    return _runAgentAction.apply(this, arguments);
+  };
+  document.addEventListener('click', e => {
+    const tb = e.target.closest('[data-tem-tab]'); if(tb){ TEMS.tab = tb.dataset.temTab; TEMS.cell = null; paintTem(); return; }
+    const pa = e.target.closest('[data-tem-path]'); if(pa){ TEMS.path = pa.dataset.temPath; paintTem(); return; }
+    const c = e.target.closest('[data-tem-cell]'); if(c){ TEMS.cell = TEMS.cell === c.dataset.temCell ? null : c.dataset.temCell; paintTem(); }
+  });
+
+  if(typeof HOWTO !== 'undefined' && HOWTO.client && HOWTO.client[0] && !/tax overlay/.test(HOWTO.client[0][1]))
+    HOWTO.client[0][1] = HOWTO.client[0][1].replace(/\.$/, ', and how each tax overlay applies to each position and lot.');
+  if(typeof TOOL_LABELS !== 'undefined') TOOL_LABELS.tax_personalization = 'Mapped the tax overlays to sleeves and lots';
+  if(typeof CHAT_GROUPS !== 'undefined' && !CHAT_GROUPS.some(g => g[0] === 'Tax personalization'))
+    CHAT_GROUPS.splice(1, 0, ['Tax personalization', [["Open Castellano's tax personalization", 'Tax personalization'], ["Which of Okoye's lots would QLH harvest?", 'Tax personalization · QLH']]]);
+  if(typeof CAPS !== 'undefined' && !CAPS.some(c => c.t === 'Tax personalization'))
+    CAPS.splice(1, 0, {t:'Tax personalization', what:'Which tax overlay reaches each sleeve and position, which lots QLH would harvest, how TER picks lots, and the TEM Style Manager options for the client.',
+      ex:["Open Castellano's tax personalization", "Which of Okoye's lots would QLH harvest?", "Open Ashford's tax personalization"], opens:'Client page › Tax personalization',
+      uses:'TEM Guide and the TER, QLH and DTLH term sheets, applied to sleeves, strategy catalog codes and tax lots',
+      limits:'Tax values are illustrative at the term sheets’ 40.8% / 23.8% rates. DTLH thresholds and the QLH turnover limit are not published, so Atlas doesn’t predict those trades.'});
+  if(typeof TOUR !== 'undefined' && !TOUR.some(s => s.view === 'client' && s.anchor === 'tem')){
+    const go = (id, tab) => () => { TEMS.pendingTab = tab; return setView('client', id); };
+    const steps = [
+      {title:'Tax overlays, sleeve by sleeve', prompt:"Open Castellano's tax personalization", view:'client', anchor:'tem', fallback: go('castellano', 'coverage'),
+       text:'Castellano’s Custom Managed account has five sleeves. The term sheets decide each one separately: DTLH covers the CIO ETF sleeve and supersedes QLH there, TER and QLH cover the SMA and fund sleeves, and nothing touches the individual bonds. A direct indexing (TEM Style Manager) strategy can’t be added as a sleeve.',
+       look:['One bar per overlay: green applies, blue superseded by DTLH, grey not applied', 'Every position against TER, QLH and DTLH; click any cell for the rule and the term sheet page', 'Personalization options tab: a TEM Style Manager Strategy needs a separate account']},
+      {title:'Lot by lot: what QLH would harvest', prompt:"Which of Okoye's lots would QLH harvest? Open his tax personalization", view:'client', anchor:'tem', fallback: go('okoye', 'qlh'),
+       text:'QLH looks at each tax lot every 91 days and harvests lots down 5% or more. Okoye has lots on both sides of that line. He is also in the 24% bracket, which the TEM Guide flags as less likely to benefit.',
+       look:['Two lots past the −5% line are harvested; two smaller losses are left alone', 'The 12-month view: each run is followed by a 30-day wash sale period', 'TER lots tab: best-lot order, checked against the term sheet’s own example']},
+      {title:'A tax-aware model holding a TEM Style Manager Strategy', prompt:"Open Ashford's tax personalization", view:'client', anchor:'tem', fallback: go('ashford', 'coverage'),
+       text:'Ashford is in one of the six Investment Manager Models that can hold TEM Style Manager Strategies. Overlays can be elected for the model’s ETFs, but the Parametric sleeve is manager-run, so its losses are the manager’s to harvest.',
+       look:['Purple “manager-run”: $1.8M the overlays never touch', 'Worth raising: VWO is also held in a rollover IRA at another firm (wash sale risk)', 'QLH lots tab: losses QLH won’t harvest, and why; Personalization options: the six models']},
+    ];
+    const i = TOUR.findIndex(s => s.prompt && /castellano eligible for direct indexing/i.test(s.prompt));
+    if(i >= 0) TOUR.splice(i, 1, ...steps); else TOUR.splice(Math.max(1, TOUR.length - 2), 0, ...steps);
+    TOUR.forEach(s => {
+      if(s.prompt && /okoye eligible for dtlh/i.test(s.prompt)){ s.anchor = 'tem'; s.fallback = go('okoye', 'dtlh');
+        s.look = ['DTLH: ineligible, with the rule trace behind the \u201ci\u201d', 'Coverage: TER and QLH reach 95% of the account, DTLH none of it']; }
+      if(s.prompt && /lindqvist eligible for qlh/i.test(s.prompt)){ s.anchor = 'tem'; s.fallback = go('lindqvist', 'coverage');
+        s.look = ['One failed check, U.S. resident, blocks every tax overlay', 'The \u201ci\u201d next to each verdict shows the full rule trace']; }
+    });
+    const n = TOUR.filter(s => s.prompt).length, words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen'];
+    if(TOUR[0] && TOUR[0].text) TOUR[0].text = TOUR[0].text.replace(/runs \w+ real requests/, `runs ${words[n] || n} real requests`);
+  }
+  window.AtlasTem = {load: loadTem, state: TEMS};
+})();
+</script>

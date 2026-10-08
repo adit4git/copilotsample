@@ -1,0 +1,95 @@
+--- a/atlas-tour-standalone-scoped.html
++++ b/atlas-tour-standalone-scoped.html
+@@ -2711,9 +2711,14 @@
+ .tem-svg-grid{ stroke:var(--line-2);} .tem-svg-ax{ fill:var(--muted); font-size:11px;} .tem-svg-v{ fill:var(--fg); font-size:11px; font-weight:700;}
+ .tem-svg-ev{ stroke:var(--red); stroke-dasharray:4 3;} .tem-svg-evt{ fill:var(--red); font-size:10.5px; font-weight:600;}
+ /* options */
+-.tem-paths{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px;}
+-.tem-path{ border:1px solid var(--line); border-radius:var(--r-m); padding:11px 13px; background:var(--paper); font-size:12.5px;}
+-.tem-path p{ margin:6px 0 0; line-height:1.5; color:var(--fg-2);} .tem-path .tem-why{ color:var(--fg);}
++.tem-paths{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px;}
++.tem-path{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; text-align:left; font:inherit; font-size:12.5px; line-height:1.35; color:var(--fg);
++  padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-m); background:var(--paper); cursor:pointer;}
++.tem-path:hover{ border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
++.tem-path.on{ border-color:var(--brand); box-shadow:inset 0 0 0 1px var(--brand); background:color-mix(in srgb,var(--brand) 5%,var(--paper));}
++.tem-path-n{ font-size:10.5px; font-weight:700; color:var(--muted);}
++.tem-path-d{ margin-top:10px; padding:12px 14px; border:1px solid var(--line-2); border-radius:var(--r-m); background:var(--paper-2); font-size:12.5px;}
++.tem-path-d p{ margin:6px 0 0; line-height:1.5; color:var(--fg-2);} .tem-path-d .tem-why{ color:var(--fg); font-weight:500;}
+ .tem-path-h{ display:flex; justify-content:space-between; gap:8px; align-items:flex-start;}
+ .tem-im{ display:flex; flex-wrap:wrap; gap:6px;}
+ .tem-im-i{ font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper-2);}
+@@ -2730,6 +2735,7 @@
+   .tem-lot{ grid-template-columns:70px 1fr 92px; gap:6px;} .tem-lot-v .sub{ display:none;}
+   .tem-bl-row{ grid-template-columns:1fr 70px; } .tem-bl-row .tem-bl-t{ grid-column:1 / -1;} .tem-rank{ display:none;}
+   .tem-desk-row{ grid-template-columns:110px 1fr 56px;}
++  .tem-paths{ grid-template-columns:1fr 1fr;}
+ }
+ .tem-vline{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12.5px; margin:0 0 10px;}
+ .tem-cov-style{ font-size:11px; margin-top:3px;}
+@@ -2788,8 +2794,8 @@
+     if(!slot){ slot = document.createElement('div'); slot.id = 'temSlot'; anchor.insertAdjacentElement('afterend', slot); }
+     let t; try{ t = await api(`/api/tem/${id}`); }catch(e){ slot.innerHTML = ''; return; }
+     if(!t.applicable){ slot.innerHTML = ''; return; }
+-    if(TEMS.id !== id){ TEMS.tab = 'coverage'; TEMS.cell = null; }
+-    if(TEMS.pendingTab){ TEMS.tab = TEMS.pendingTab; TEMS.pendingTab = null; }
++    if(TEMS.id !== id){ TEMS.tab = 'coverage'; TEMS.cell = null; TEMS.path = null; }
++    if(TEMS.pendingTab){ TEMS.tab = TEMS.pendingTab; TEMS.pendingTab = null; } if(TEMS.pendingPath){ TEMS.path = TEMS.pendingPath; TEMS.pendingPath = null; }
+     TEMS.data = t; TEMS.id = id;
+     paintTem();
+   }
+@@ -2966,16 +2972,31 @@
+ 
+   /* ---------- tab: personalization options ---------- */
+   const PST = {CURRENT:['This account','t-app'], AVAILABLE:['Available','t-sup'], SEPARATE_ACCOUNT:['Separate account','t-mgr'], NOT_THIS_ACCOUNT:['Not this account','t-no'], BLOCKED:['Not available','t-blk']};
++  // One decision at a time: a compact row of the four options; only the selected option's detail is shown.
++  const PATH_RANK = {CURRENT:0, AVAILABLE:1, SEPARATE_ACCOUNT:2, NOT_THIS_ACCOUNT:3, BLOCKED:4};
+   function optionsTab(t){
+-    const cards = t.paths.map(p => `<div class="tem-path"><div class="tem-path-h"><b>${esc(p.label)}</b><span class="tem-cell static ${PST[p.status][1]}">${PST[p.status][0]}</span></div>
+-      <p>${esc(p.what)}</p><p class="tem-why">${esc(p.why)}</p><div class="tem-src">${esc(src(p.source))}</div></div>`).join('');
+-    const sms = `<h4 class="tem-h4">TEM Style Manager Strategies that fit this client’s equity (${t.tem_sms_roster_count} on the list as of ${dshort(t.tem_sms_roster_as_of)})</h4>
+-      <table class="tem-tbl small"><thead><tr><th>Strategy</th><th>Sleeve</th><th class="r">Minimum</th><th>Fits ${money(t.equity_mv)} of equity</th></tr></thead><tbody>${t.tem_sms_options.map(x => `<tr><td>${esc(x.name)}</td><td class="sub">${esc(x.sleeve || '')}</td><td class="r mono">${x.minimum ? money(x.minimum) : '—'}</td><td>${x.meets_minimum ? '<span class="chip eligible dot">Meets minimum</span>' : '<span class="pill amber">Below minimum</span>'}</td></tr>`).join('')}</tbody></table>
+-      <p class="tem-note">Each TEM Style Manager Strategy is a stand-alone investment that runs its own tax management. Overlays are not applied to it, and it can’t be a sleeve of a Custom Managed Strategy.</p>`;
+-    const im = `<h4 class="tem-h4">Investment Manager Models that can hold TEM Style Manager Strategies</h4>
+-      <div class="tem-im">${t.im_models.map(m => `<span class="tem-im-i${t.im_model && t.im_model.id === m.id ? ' on' : ''}">${esc(m.name)}${t.im_model && t.im_model.id === m.id ? ' <b>· this account</b>' : ''}</span>`).join('')}</div>
+-      <p class="tem-note">These models may, but don’t have to, hold TEM Style Manager Strategies. Overlays can be elected for the models’ other eligible holdings; they are never applied to the TEM Style Manager Strategies inside.</p>`;
+-    return `<div class="tem-paths">${cards}</div>${sms}${im}`;
++    if(!TEMS.path || !t.paths.some(p => p.id === TEMS.path))
++      TEMS.path = [...t.paths].sort((a, b) => PATH_RANK[a.status] - PATH_RANK[b.status])[0].id;
++    const sel = t.paths.find(p => p.id === TEMS.path);
++    const cards = t.paths.map((p, n) => `<button class="tem-path${p.id === sel.id ? ' on' : ''}" data-tem-path="${p.id}" aria-pressed="${p.id === sel.id}">
++      <span class="tem-path-n">${n + 1}</span><b>${esc(p.label)}</b><span class="tem-cell static ${PST[p.status][1]}">${PST[p.status][0]}</span></button>`).join('');
++    let extra = '';
++    if(sel.id === 'OVERLAY'){
++      const cov = t.coverage.filter(c => c.applies_mv > 0);
++      extra = cov.length ? `${cov.map(c => `<div class="tem-vline"><b>${c.overlay}</b> covers ${money(c.applies_mv)} ${verdictBits(c)}</div>`).join('')}<p class="tem-note">The Coverage tab shows which positions each one reaches.</p>` : '';
++    } else if(sel.id === 'CUSTOM'){
++      extra = `<p class="tem-note">The Coverage tab shows the sleeves of a Custom Managed account and the overlays each one gets.</p>`;
++    } else if(sel.id === 'TEM_SMS'){
++      extra = `<h4 class="tem-h4">Strategies that fit ${money(t.equity_mv)} of this client\u2019s equity <span class="sub">(${t.tem_sms_options.length} of ${t.tem_sms_roster_count} on the TEM Guide list, ${dshort(t.tem_sms_roster_as_of)})</span></h4>
++        <table class="tem-tbl small"><thead><tr><th>Strategy</th><th>Sleeve</th><th class="r">Minimum</th><th></th></tr></thead><tbody>${t.tem_sms_options.map(x => `<tr><td>${esc(x.name)}</td><td class="sub">${esc(x.sleeve || '')}</td><td class="r mono">${x.minimum ? money(x.minimum) : '\u2014'}</td><td>${x.meets_minimum ? '<span class="chip eligible dot">Meets minimum</span>' : '<span class="pill amber">Below minimum</span>'}</td></tr>`).join('')}</tbody></table>`;
++    } else if(sel.id === 'IM_MODEL'){
++      extra = `<h4 class="tem-h4">The six models <span class="sub">(TEM Guide p.5)</span></h4>
++        <div class="tem-im">${t.im_models.map(m => `<span class="tem-im-i${t.im_model && t.im_model.id === m.id ? ' on' : ''}">${esc(m.name)}${t.im_model && t.im_model.id === m.id ? ' <b>\u00b7 this account</b>' : ''}</span>`).join('')}</div>
++        <p class="tem-note">They may, but don\u2019t have to, hold TEM Style Manager Strategies.</p>`;
++    }
++    return `<div class="tem-paths" role="tablist" aria-label="Personalization options">${cards}</div>
++      <div class="tem-path-d"><div class="tem-path-h"><b>${esc(sel.label)}</b><span class="tem-cell static ${PST[sel.status][1]}">${PST[sel.status][0]}</span></div>
++        <p class="tem-why">${esc(sel.why)}</p><p>${esc(sel.what)}</p>${extra}<div class="tem-src">${esc(src(sel.source))}</div></div>`;
+   }
+ 
+   /* ---------- Tax Overlay Desk: lot-level chart ---------- */
+@@ -3015,12 +3036,14 @@
+     if(a && a.workspace === 'tem'){
+       state.fromChat = {q: q || a.__q || '', view: 'client'};
+       TEMS.pendingTab = TAB_FOR[a.offering_id] || 'coverage';
++      if(a.offering_id === 'temSms') TEMS.pendingPath = 'TEM_SMS';
+       await setView('client', a.household_id); return scrollToAnchor('tem');
+     }
+     return _runAgentAction.apply(this, arguments);
+   };
+   document.addEventListener('click', e => {
+     const tb = e.target.closest('[data-tem-tab]'); if(tb){ TEMS.tab = tb.dataset.temTab; TEMS.cell = null; paintTem(); return; }
++    const pa = e.target.closest('[data-tem-path]'); if(pa){ TEMS.path = pa.dataset.temPath; paintTem(); return; }
+     const c = e.target.closest('[data-tem-cell]'); if(c){ TEMS.cell = TEMS.cell === c.dataset.temCell ? null : c.dataset.temCell; paintTem(); }
+   });
+ 
