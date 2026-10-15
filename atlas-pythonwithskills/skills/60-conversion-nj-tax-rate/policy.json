@@ -1,0 +1,26 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "merge",
+      "path": "conversion_policy",
+      "why": "Federal + NJ rate",
+      "value": {
+        "tax_rate": 0.3455,
+        "tax_rate_label": "34.55%: 23.8% federal (incl. 3.8% NIIT) + 10.75% New Jersey top rate"
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Montgomery: conversion map",
+      "workspace": "conversion",
+      "household_id": "montgomery"
+    },
+    {
+      "label": "Brennan: conversion map",
+      "workspace": "conversion",
+      "household_id": "brennan"
+    }
+  ]
+}

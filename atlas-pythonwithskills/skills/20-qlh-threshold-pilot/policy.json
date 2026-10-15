@@ -1,0 +1,23 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "set",
+      "path": "tem_personalization.mechanics.qlh.loss_threshold",
+      "value": 0.025,
+      "why": "Harvest at 2.5% instead of 5%"
+    }
+  ],
+  "try": [
+    {
+      "label": "Okoye: QLH lots against the 2.5% line",
+      "workspace": "tem",
+      "household_id": "okoye",
+      "offering_id": "qlhOverlay"
+    },
+    {
+      "label": "Tax Overlay Desk chart",
+      "workspace": "tax_desk"
+    }
+  ]
+}

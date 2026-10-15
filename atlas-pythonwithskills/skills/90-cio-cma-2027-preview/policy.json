@@ -1,0 +1,85 @@
+{
+  "patches": [
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=LCG].expected_return",
+      "value": 0.06,
+      "why": "LCG expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=LCV].expected_return",
+      "value": 0.068,
+      "why": "LCV expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=SMID].expected_return",
+      "value": 0.072,
+      "why": "SMID expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=INTL].expected_return",
+      "value": 0.078,
+      "why": "INTL expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=EM].expected_return",
+      "value": 0.085,
+      "why": "EM expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=UST].expected_return",
+      "value": 0.043,
+      "why": "UST expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=IGC].expected_return",
+      "value": 0.052,
+      "why": "IGC expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=HY].expected_return",
+      "value": 0.06,
+      "why": "HY expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "cma.classes[id=CASH].expected_return",
+      "value": 0.03,
+      "why": "CASH expected return"
+    },
+    {
+      "target": "cio",
+      "op": "set",
+      "path": "as_of.cma",
+      "value": "2027 preview",
+      "why": "Label"
+    }
+  ],
+  "try": [
+    {
+      "label": "CIO Model Fit: all accounts",
+      "workspace": "cio_fit"
+    },
+    {
+      "label": "Montgomery against its model",
+      "workspace": "cio_fit",
+      "household_id": "montgomery"
+    }
+  ]
+}

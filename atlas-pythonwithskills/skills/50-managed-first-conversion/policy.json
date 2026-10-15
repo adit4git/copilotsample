@@ -1,0 +1,36 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "set",
+      "path": "conversion_policy.recommend",
+      "why": "Prefer managed types within a 3.5% tax budget",
+      "value": {
+        "method": "PREFER_WITHIN_TAX_BUDGET",
+        "prefer": [
+          "CUSTOM_MANAGED",
+          "MANAGED"
+        ],
+        "max_tax_share": 0.035,
+        "reason": "The advisory program prefers a professionally managed strategy type when the cost of getting there is small."
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Montgomery: conversion map",
+      "workspace": "conversion",
+      "household_id": "montgomery"
+    },
+    {
+      "label": "Fairbanks: conversion map",
+      "workspace": "conversion",
+      "household_id": "fairbanks"
+    },
+    {
+      "label": "Brennan: falls back (tax too high)",
+      "workspace": "conversion",
+      "household_id": "brennan"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "append",
+      "path": "offerings.qlhOverlay.rules",
+      "why": "New $1M account minimum",
+      "value": {
+        "rule_id": "qlhOverlay.minimum_2027",
+        "effect": "REQUIREMENT",
+        "predicate": {
+          "field": "account.advisory_value",
+          "op": "GTE",
+          "value": 1000000
+        },
+        "failure_class": "CLIENT_ELIGIBILITY",
+        "message": "QLH needs at least $1,000,000 in the account (2027 term sheet preview).",
+        "source_doc": [
+          {
+            "document_id": "QLHTS",
+            "pdf_page": 1,
+            "section": "Minimum account size (2027 preview, illustrative)"
+          }
+        ],
+        "compile_source": {
+          "kind": "TEAM_SKILL",
+          "review_status": "ILLUSTRATIVE"
+        }
+      }
+    },
+    {
+      "target": "rules",
+      "op": "append",
+      "path": "offerings.qlhOverlay.rules",
+      "why": "New disclosure",
+      "value": {
+        "rule_id": "qlhOverlay.held_away_disclosure",
+        "effect": "DISCLOSURE",
+        "predicate": true,
+        "failure_class": "CLIENT_ELIGIBILITY",
+        "message": "QLH cannot see held-away accounts. Buying the same security elsewhere within 30 days of a harvest can disallow the loss as a wash sale.",
+        "source_doc": [
+          {
+            "document_id": "QLHTS",
+            "pdf_page": 2,
+            "section": "Wash sales (2027 preview, illustrative)"
+          }
+        ],
+        "compile_source": {
+          "kind": "TEAM_SKILL",
+          "review_status": "ILLUSTRATIVE"
+        }
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Okoye: QLH verdict and tax personalization",
+      "workspace": "tem",
+      "household_id": "okoye",
+      "offering_id": "qlhOverlay"
+    },
+    {
+      "label": "Castellano: QLH stays eligible, with the new disclosure",
+      "workspace": "eligibility",
+      "household_id": "castellano"
+    }
+  ]
+}

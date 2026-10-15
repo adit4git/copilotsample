@@ -1,0 +1,21 @@
+{
+  "patches": [
+    {
+      "target": "cio",
+      "op": "merge",
+      "path": "thresholds",
+      "value": {
+        "concentration": 0.12,
+        "low_coverage": 0.95,
+        "muni_proxy_flag": 0.05
+      },
+      "why": "Tighter flags"
+    }
+  ],
+  "try": [
+    {
+      "label": "CIO Model Fit: all accounts",
+      "workspace": "cio_fit"
+    }
+  ]
+}

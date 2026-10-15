@@ -1,0 +1,64 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "append",
+      "path": "tem_personalization.considerations",
+      "why": "Ask about gains elsewhere",
+      "value": {
+        "rule_id": "YE.GAINS_ELSEWHERE",
+        "when": "qlh_harvest",
+        "message": "Year-end: QLH would harvest {count} lot(s) ({loss} of losses). Ask the client about gains realized elsewhere this year so their tax adviser can use these losses; losses beyond gains offset up to $3,000 of ordinary income and carry forward.",
+        "source_doc": [
+          {
+            "document_id": "TEMGUIDE",
+            "pdf_page": 6,
+            "section": "Considerations before electing a TEM Offering"
+          }
+        ]
+      }
+    },
+    {
+      "target": "rules",
+      "op": "append",
+      "path": "tem_personalization.considerations",
+      "why": "Losses QLH leaves alone",
+      "value": {
+        "rule_id": "YE.BELOW_THRESHOLD",
+        "when": "below_threshold_losses",
+        "message": "Year-end: {loss} of losses sit below the {threshold} QLH threshold, so QLH will not harvest them. Realizing them before December 31 would be a separate, advisor-directed sale; mind the 30-day wash sale window.",
+        "source_doc": [
+          {
+            "document_id": "QLHTS",
+            "pdf_page": 1,
+            "section": "Approach to harvesting losses"
+          }
+        ]
+      }
+    }
+  ],
+  "draft": {
+    "kind": "meeting_prep",
+    "sections": [
+      {
+        "title": "Year-end tax check",
+        "after": "Portfolio snapshot",
+        "body": "- {harvest} of harvestable losses in the account (~{tax_alpha} illustrative tax value).\n- Ask the client about gains realized elsewhere this year (other accounts, property, a business sale) so their tax adviser can use these losses.\n- No sale within 30 days of buying the same security (wash sale)."
+      }
+    ]
+  },
+  "try": [
+    {
+      "label": "Okoye: \"Worth raising\" on tax personalization",
+      "workspace": "tem",
+      "household_id": "okoye",
+      "offering_id": "qlhOverlay"
+    },
+    {
+      "label": "Castellano: tax personalization",
+      "workspace": "tem",
+      "household_id": "castellano",
+      "offering_id": "qlhOverlay"
+    }
+  ]
+}

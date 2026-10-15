@@ -1,0 +1,51 @@
+{
+  "routes": [
+    {
+      "workspace": "conversion",
+      "patterns": [
+        "fee[- ]based",
+        "\\bwrap (?:account|program)\\b"
+      ],
+      "examples": [
+        "Should the Montgomerys go fee-based?"
+      ]
+    },
+    {
+      "workspace": "cio_fit",
+      "patterns": [
+        "\\b(?:on|off)[- ]model\\b",
+        "how far (?:off|from) (?:the |its |their )?model"
+      ],
+      "examples": [
+        "Is Montgomery's account off-model?"
+      ]
+    },
+    {
+      "workspace": "tem",
+      "patterns": [
+        "wash[- ]sales?",
+        "which (?:tax )?lots"
+      ],
+      "examples": [
+        "Any wash sale issues for Okoye?"
+      ]
+    }
+  ],
+  "try": [
+    {
+      "label": "Ask: \"Should the Montgomerys go fee-based?\"",
+      "workspace": "ask",
+      "q": "Should the Montgomerys go fee-based?"
+    },
+    {
+      "label": "Ask: \"Is Montgomery's account off-model?\"",
+      "workspace": "ask",
+      "q": "Is Montgomery's account off-model?"
+    },
+    {
+      "label": "Ask: \"Any wash sale issues for Okoye?\"",
+      "workspace": "ask",
+      "q": "Any wash sale issues for Okoye?"
+    }
+  ]
+}

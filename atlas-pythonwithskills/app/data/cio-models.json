@@ -1,0 +1,888 @@
+{
+  "_note": "Illustrative POC data. Expected returns, volatilities, correlations, model weights, account setup and performance figures are assumptions, not CIO publications.",
+  "as_of": {
+    "positions": "2026-08-31",
+    "classifications": "2026-08-28",
+    "cio_targets": "2026-01-07",
+    "cma": "2026"
+  },
+  "scope": {
+    "market": "Bridgewater, NJ",
+    "account_type": "Brokerage",
+    "min_market_value": 50000,
+    "description": "Brokerage accounts in the Bridgewater, NJ market over $50,000 as of 8/31/2026"
+  },
+  "cio_guidance": {
+    "orientation": "U.S.-oriented",
+    "tax_sensitivity": "Low",
+    "targets_dated": "2026-01-07",
+    "note": "Tier 2 and Tier 3 strategic targets are currently identical (confirmed)."
+  },
+  "cma": {
+    "risk_free_class": "CASH",
+    "classes": [
+      {
+        "id": "LCG",
+        "label": "U.S. Large Cap Growth",
+        "group": "Equity",
+        "expected_return": 0.066,
+        "volatility": 0.175
+      },
+      {
+        "id": "LCV",
+        "label": "U.S. Large Cap Value",
+        "group": "Equity",
+        "expected_return": 0.07,
+        "volatility": 0.155
+      },
+      {
+        "id": "SMID",
+        "label": "U.S. Small/Mid Cap",
+        "group": "Equity",
+        "expected_return": 0.076,
+        "volatility": 0.205
+      },
+      {
+        "id": "INTL",
+        "label": "International Developed Equity",
+        "group": "Equity",
+        "expected_return": 0.074,
+        "volatility": 0.17
+      },
+      {
+        "id": "EM",
+        "label": "Emerging Markets Equity",
+        "group": "Equity",
+        "expected_return": 0.082,
+        "volatility": 0.22
+      },
+      {
+        "id": "UST",
+        "label": "U.S. Treasuries",
+        "group": "Fixed income",
+        "expected_return": 0.041,
+        "volatility": 0.055
+      },
+      {
+        "id": "IGC",
+        "label": "U.S. Corporates (IG)",
+        "group": "Fixed income",
+        "expected_return": 0.049,
+        "volatility": 0.07
+      },
+      {
+        "id": "HY",
+        "label": "U.S. High Yield",
+        "group": "Fixed income",
+        "expected_return": 0.061,
+        "volatility": 0.095
+      },
+      {
+        "id": "CASH",
+        "label": "Cash",
+        "group": "Cash",
+        "expected_return": 0.033,
+        "volatility": 0.006
+      },
+      {
+        "id": "HF",
+        "label": "Hedge Funds",
+        "group": "Alternatives",
+        "expected_return": 0.058,
+        "volatility": 0.075
+      },
+      {
+        "id": "PE",
+        "label": "Private Equity",
+        "group": "Alternatives",
+        "expected_return": 0.096,
+        "volatility": 0.23
+      }
+    ],
+    "correlation": {
+      "order": [
+        "LCG",
+        "LCV",
+        "SMID",
+        "INTL",
+        "EM",
+        "UST",
+        "IGC",
+        "HY",
+        "CASH",
+        "HF",
+        "PE"
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.833,
+          0.8196,
+          0.741,
+          0.6749,
+          -0.188,
+          0.1615,
+          0.526,
+          -0.005,
+          0.5645,
+          0.6565
+        ],
+        [
+          0.833,
+          1.0,
+          0.807,
+          0.73,
+          0.668,
+          -0.14,
+          0.215,
+          0.555,
+          0.0,
+          0.57,
+          0.65
+        ],
+        [
+          0.8196,
+          0.807,
+          1.0,
+          0.719,
+          0.6661,
+          -0.187,
+          0.1885,
+          0.564,
+          -0.005,
+          0.5705,
+          0.6485
+        ],
+        [
+          0.741,
+          0.73,
+          0.719,
+          1.0,
+          0.596,
+          -0.125,
+          0.195,
+          0.5,
+          0.0,
+          0.51,
+          0.58
+        ],
+        [
+          0.6749,
+          0.668,
+          0.6661,
+          0.596,
+          1.0,
+          -0.1655,
+          0.174,
+          0.506,
+          -0.005,
+          0.4895,
+          0.5465
+        ],
+        [
+          -0.188,
+          -0.14,
+          -0.187,
+          -0.125,
+          -0.1655,
+          1.0,
+          0.7125,
+          0.0775,
+          0.095,
+          -0.0575,
+          -0.1625
+        ],
+        [
+          0.1615,
+          0.215,
+          0.1885,
+          0.195,
+          0.174,
+          0.7125,
+          1.0,
+          0.48,
+          0.08,
+          0.265,
+          0.17
+        ],
+        [
+          0.526,
+          0.555,
+          0.564,
+          0.5,
+          0.506,
+          0.0775,
+          0.48,
+          1.0,
+          0.02,
+          0.52,
+          0.495
+        ],
+        [
+          -0.005,
+          0.0,
+          -0.005,
+          0.0,
+          -0.005,
+          0.095,
+          0.08,
+          0.02,
+          1.0,
+          0.005,
+          -0.005
+        ],
+        [
+          0.5645,
+          0.57,
+          0.5705,
+          0.51,
+          0.4895,
+          -0.0575,
+          0.265,
+          0.52,
+          0.005,
+          1.0,
+          0.4775
+        ],
+        [
+          0.6565,
+          0.65,
+          0.6485,
+          0.58,
+          0.5465,
+          -0.1625,
+          0.17,
+          0.495,
+          -0.005,
+          0.4775,
+          1.0
+        ]
+      ]
+    },
+    "note": "Correlations come from a three-factor structure (equity, rates, credit) so the matrix is a valid correlation matrix."
+  },
+  "profile_grid": {
+    "risk_tolerances": [
+      "Conservative",
+      "Moderate",
+      "Aggressive"
+    ],
+    "time_horizons": [
+      "Short (under 3 years)",
+      "Intermediate (3-10 years)",
+      "Long (over 10 years)"
+    ],
+    "grid": {
+      "Conservative": [
+        "Conservative",
+        "Conservative",
+        "Moderately Conservative"
+      ],
+      "Moderate": [
+        "Moderately Conservative",
+        "Moderate",
+        "Moderately Aggressive"
+      ],
+      "Aggressive": [
+        "Moderate",
+        "Moderately Aggressive",
+        "Aggressive"
+      ]
+    }
+  },
+  "allocation_profile_desc_map": {
+    "Income & Preservation": "Conservative",
+    "Conservative Growth": "Moderately Conservative",
+    "Balanced": "Moderate",
+    "Moderate Growth": "Moderately Aggressive",
+    "Growth": "Moderately Aggressive",
+    "Aggressive Growth": "Aggressive"
+  },
+  "liquidity_tiers": {
+    "map": {
+      "High": 0,
+      "Moderate": 1,
+      "Low": 2,
+      "None": 3
+    },
+    "blank_default": 0,
+    "labels": {
+      "0": "Tier 0 (most liquid)",
+      "1": "Tier 1",
+      "2": "Tier 2",
+      "3": "Tier 3"
+    }
+  },
+  "models": [
+    {
+      "model_id": "CIO-C-T0",
+      "profile": "Conservative",
+      "tier": 0,
+      "label": "CIO Conservative, Tier 0",
+      "weights": {
+        "LCG": 0.07,
+        "LCV": 0.09,
+        "SMID": 0.02,
+        "INTL": 0.04,
+        "EM": 0.01,
+        "UST": 0.3,
+        "IGC": 0.3,
+        "HY": 0.05,
+        "CASH": 0.12
+      }
+    },
+    {
+      "model_id": "CIO-C-T1",
+      "profile": "Conservative",
+      "tier": 1,
+      "label": "CIO Conservative, Tier 1",
+      "weights": {
+        "LCG": 0.07,
+        "LCV": 0.09,
+        "SMID": 0.02,
+        "INTL": 0.04,
+        "EM": 0.01,
+        "UST": 0.275,
+        "IGC": 0.275,
+        "HY": 0.05,
+        "CASH": 0.12,
+        "HF": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-C-T2",
+      "profile": "Conservative",
+      "tier": 2,
+      "label": "CIO Conservative, Tier 2",
+      "weights": {
+        "LCG": 0.045,
+        "LCV": 0.065,
+        "SMID": 0.02,
+        "INTL": 0.04,
+        "EM": 0.01,
+        "UST": 0.275,
+        "IGC": 0.275,
+        "HY": 0.05,
+        "CASH": 0.12,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-C-T3",
+      "profile": "Conservative",
+      "tier": 3,
+      "label": "CIO Conservative, Tier 3",
+      "weights": {
+        "LCG": 0.045,
+        "LCV": 0.065,
+        "SMID": 0.02,
+        "INTL": 0.04,
+        "EM": 0.01,
+        "UST": 0.275,
+        "IGC": 0.275,
+        "HY": 0.05,
+        "CASH": 0.12,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MC-T0",
+      "profile": "Moderately Conservative",
+      "tier": 0,
+      "label": "CIO Moderately Conservative, Tier 0",
+      "weights": {
+        "LCG": 0.12,
+        "LCV": 0.13,
+        "SMID": 0.04,
+        "INTL": 0.07,
+        "EM": 0.02,
+        "UST": 0.22,
+        "IGC": 0.24,
+        "HY": 0.06,
+        "CASH": 0.1
+      }
+    },
+    {
+      "model_id": "CIO-MC-T1",
+      "profile": "Moderately Conservative",
+      "tier": 1,
+      "label": "CIO Moderately Conservative, Tier 1",
+      "weights": {
+        "LCG": 0.12,
+        "LCV": 0.13,
+        "SMID": 0.04,
+        "INTL": 0.07,
+        "EM": 0.02,
+        "UST": 0.195,
+        "IGC": 0.215,
+        "HY": 0.06,
+        "CASH": 0.1,
+        "HF": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MC-T2",
+      "profile": "Moderately Conservative",
+      "tier": 2,
+      "label": "CIO Moderately Conservative, Tier 2",
+      "weights": {
+        "LCG": 0.095,
+        "LCV": 0.105,
+        "SMID": 0.04,
+        "INTL": 0.07,
+        "EM": 0.02,
+        "UST": 0.195,
+        "IGC": 0.215,
+        "HY": 0.06,
+        "CASH": 0.1,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MC-T3",
+      "profile": "Moderately Conservative",
+      "tier": 3,
+      "label": "CIO Moderately Conservative, Tier 3",
+      "weights": {
+        "LCG": 0.095,
+        "LCV": 0.105,
+        "SMID": 0.04,
+        "INTL": 0.07,
+        "EM": 0.02,
+        "UST": 0.195,
+        "IGC": 0.215,
+        "HY": 0.06,
+        "CASH": 0.1,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-M-T0",
+      "profile": "Moderate",
+      "tier": 0,
+      "label": "CIO Moderate, Tier 0",
+      "weights": {
+        "LCG": 0.17,
+        "LCV": 0.17,
+        "SMID": 0.06,
+        "INTL": 0.1,
+        "EM": 0.03,
+        "UST": 0.16,
+        "IGC": 0.18,
+        "HY": 0.06,
+        "CASH": 0.07
+      }
+    },
+    {
+      "model_id": "CIO-M-T1",
+      "profile": "Moderate",
+      "tier": 1,
+      "label": "CIO Moderate, Tier 1",
+      "weights": {
+        "LCG": 0.17,
+        "LCV": 0.17,
+        "SMID": 0.06,
+        "INTL": 0.1,
+        "EM": 0.03,
+        "UST": 0.135,
+        "IGC": 0.155,
+        "HY": 0.06,
+        "CASH": 0.07,
+        "HF": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-M-T2",
+      "profile": "Moderate",
+      "tier": 2,
+      "label": "CIO Moderate, Tier 2",
+      "weights": {
+        "LCG": 0.145,
+        "LCV": 0.145,
+        "SMID": 0.06,
+        "INTL": 0.1,
+        "EM": 0.03,
+        "UST": 0.135,
+        "IGC": 0.155,
+        "HY": 0.06,
+        "CASH": 0.07,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-M-T3",
+      "profile": "Moderate",
+      "tier": 3,
+      "label": "CIO Moderate, Tier 3",
+      "weights": {
+        "LCG": 0.145,
+        "LCV": 0.145,
+        "SMID": 0.06,
+        "INTL": 0.1,
+        "EM": 0.03,
+        "UST": 0.135,
+        "IGC": 0.155,
+        "HY": 0.06,
+        "CASH": 0.07,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MA-T0",
+      "profile": "Moderately Aggressive",
+      "tier": 0,
+      "label": "CIO Moderately Aggressive, Tier 0",
+      "weights": {
+        "LCG": 0.22,
+        "LCV": 0.21,
+        "SMID": 0.08,
+        "INTL": 0.13,
+        "EM": 0.04,
+        "UST": 0.1,
+        "IGC": 0.12,
+        "HY": 0.05,
+        "CASH": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MA-T1",
+      "profile": "Moderately Aggressive",
+      "tier": 1,
+      "label": "CIO Moderately Aggressive, Tier 1",
+      "weights": {
+        "LCG": 0.22,
+        "LCV": 0.21,
+        "SMID": 0.08,
+        "INTL": 0.13,
+        "EM": 0.04,
+        "UST": 0.075,
+        "IGC": 0.095,
+        "HY": 0.05,
+        "CASH": 0.05,
+        "HF": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MA-T2",
+      "profile": "Moderately Aggressive",
+      "tier": 2,
+      "label": "CIO Moderately Aggressive, Tier 2",
+      "weights": {
+        "LCG": 0.195,
+        "LCV": 0.185,
+        "SMID": 0.08,
+        "INTL": 0.13,
+        "EM": 0.04,
+        "UST": 0.075,
+        "IGC": 0.095,
+        "HY": 0.05,
+        "CASH": 0.05,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-MA-T3",
+      "profile": "Moderately Aggressive",
+      "tier": 3,
+      "label": "CIO Moderately Aggressive, Tier 3",
+      "weights": {
+        "LCG": 0.195,
+        "LCV": 0.185,
+        "SMID": 0.08,
+        "INTL": 0.13,
+        "EM": 0.04,
+        "UST": 0.075,
+        "IGC": 0.095,
+        "HY": 0.05,
+        "CASH": 0.05,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-A-T0",
+      "profile": "Aggressive",
+      "tier": 0,
+      "label": "CIO Aggressive, Tier 0",
+      "weights": {
+        "LCG": 0.27,
+        "LCV": 0.25,
+        "SMID": 0.1,
+        "INTL": 0.16,
+        "EM": 0.05,
+        "UST": 0.04,
+        "IGC": 0.06,
+        "HY": 0.04,
+        "CASH": 0.03
+      }
+    },
+    {
+      "model_id": "CIO-A-T1",
+      "profile": "Aggressive",
+      "tier": 1,
+      "label": "CIO Aggressive, Tier 1",
+      "weights": {
+        "LCG": 0.27,
+        "LCV": 0.25,
+        "SMID": 0.1,
+        "INTL": 0.16,
+        "EM": 0.05,
+        "UST": 0.015,
+        "IGC": 0.035,
+        "HY": 0.04,
+        "CASH": 0.03,
+        "HF": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-A-T2",
+      "profile": "Aggressive",
+      "tier": 2,
+      "label": "CIO Aggressive, Tier 2",
+      "weights": {
+        "LCG": 0.245,
+        "LCV": 0.225,
+        "SMID": 0.1,
+        "INTL": 0.16,
+        "EM": 0.05,
+        "UST": 0.015,
+        "IGC": 0.035,
+        "HY": 0.04,
+        "CASH": 0.03,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    },
+    {
+      "model_id": "CIO-A-T3",
+      "profile": "Aggressive",
+      "tier": 3,
+      "label": "CIO Aggressive, Tier 3",
+      "weights": {
+        "LCG": 0.245,
+        "LCV": 0.225,
+        "SMID": 0.1,
+        "INTL": 0.16,
+        "EM": 0.05,
+        "UST": 0.015,
+        "IGC": 0.035,
+        "HY": 0.04,
+        "CASH": 0.03,
+        "HF": 0.05,
+        "PE": 0.05
+      }
+    }
+  ],
+  "classification": {
+    "COST": {
+      "class": "LCG"
+    },
+    "NVDA": {
+      "class": "LCG"
+    },
+    "AAPL": {
+      "class": "LCG"
+    },
+    "LCG-A": {
+      "class": "LCG"
+    },
+    "PG": {
+      "class": "LCV"
+    },
+    "KO": {
+      "class": "LCV"
+    },
+    "JNJ": {
+      "class": "LCV"
+    },
+    "VTI": {
+      "method": "CORE_SPLIT"
+    },
+    "IDX-I": {
+      "method": "CORE_SPLIT"
+    },
+    "VXUS": {
+      "class": "INTL"
+    },
+    "BND": {
+      "method": "AGG_SPLIT"
+    },
+    "AUSTIN-6.0-31": {
+      "class": "IGC",
+      "method": "PROXY_MUNI"
+    },
+    "NYC-5.0-34": {
+      "class": "IGC",
+      "method": "PROXY_MUNI"
+    },
+    "EMB": {
+      "class": "HY",
+      "method": "PROXY_EMD"
+    },
+    "CD-2027": {
+      "class": "CASH",
+      "method": "CD_AS_CASH"
+    },
+    "CASH": {
+      "class": "CASH"
+    },
+    "MMF": {
+      "class": "CASH"
+    },
+    "VA-CONTRACT": {
+      "method": "UNCLASSIFIED",
+      "why": "Variable annuity: no CMA asset class in the snapshot"
+    },
+    "PRIVCREDIT-LP": {
+      "method": "UNCLASSIFIED",
+      "why": "Private credit LP units: not classified in the snapshot"
+    },
+    "PRIV-SERIESB": {
+      "method": "UNCLASSIFIED",
+      "why": "Private placement: not classified in the snapshot"
+    },
+    "BAL-C": {
+      "method": "UNCLASSIFIED",
+      "why": "Balanced fund: no look-through to underlying asset classes in the snapshot"
+    }
+  },
+  "methods": {
+    "DIRECT": "Mapped directly to a CMA asset class",
+    "CORE_SPLIT": "Core style fund: split 50/50 between U.S. Large Cap Growth and Value",
+    "AGG_SPLIT": "Aggregate bond fund: split 60/40 between U.S. Treasuries and U.S. Corporates (IG) (assumption)",
+    "PROXY_MUNI": "Municipal bond: no CMA muni class, proxied as U.S. Corporates (IG)",
+    "PROXY_EMD": "Emerging markets debt: no CMA class, proxied as U.S. High Yield",
+    "CD_AS_CASH": "Brokered CD: treated as cash (assumption)",
+    "UNCLASSIFIED": "Unclassified: left out of the expected return and risk math",
+    "MARGIN_CREDIT": "Positive margin balance: counted as cash",
+    "MARGIN_DEBIT": "Negative margin balance: left out of the allocation math, reported separately"
+  },
+  "accounts": {
+    "montgomery": {
+      "account_no": "BRK-41827",
+      "account_type": "Brokerage, Individual",
+      "market": "Bridgewater, NJ",
+      "risk_tolerance": "Aggressive",
+      "time_horizon": "Long (over 10 years)",
+      "liquidity_needs": "Low",
+      "allocation_profile_desc": "Growth",
+      "margin_balance": 0,
+      "performance": {
+        "source": "Performance system, as of 8/31/2026",
+        "return_1y": 0.168,
+        "return_3y": 0.139,
+        "std_dev": 0.189,
+        "sharpe": 0.56,
+        "std_basis": "3-year"
+      }
+    },
+    "fairbanks": {
+      "account_no": "BRK-52290",
+      "account_type": "Brokerage, Joint (JTWROS)",
+      "market": "Bridgewater, NJ",
+      "risk_tolerance": "Conservative",
+      "time_horizon": "Intermediate (3-10 years)",
+      "liquidity_needs": null,
+      "allocation_profile_desc": "Income & Preservation",
+      "margin_balance": 0,
+      "performance": {
+        "source": "Performance system, as of 8/31/2026",
+        "return_1y": 0.059,
+        "return_3y": 0.048,
+        "std_dev": 0.041,
+        "sharpe": 0.29,
+        "std_basis": "3-year"
+      }
+    },
+    "brennan": {
+      "account_no": "BRK-60733",
+      "account_type": "Brokerage, Individual",
+      "market": "Bridgewater, NJ",
+      "risk_tolerance": "Aggressive",
+      "time_horizon": "Long (over 10 years)",
+      "liquidity_needs": "Moderate",
+      "allocation_profile_desc": null,
+      "margin_balance": 15000,
+      "performance": {
+        "source": "Performance system, as of 8/31/2026",
+        "return_1y": 0.315,
+        "return_3y": null,
+        "std_dev": 0.274,
+        "sharpe": 1.03,
+        "std_basis": "1-year (account opened March 2024)"
+      }
+    },
+    "kaplan": {
+      "account_no": "BRK-38116",
+      "account_type": "Brokerage, Individual",
+      "market": "Bridgewater, NJ",
+      "risk_tolerance": "Moderate",
+      "time_horizon": "Intermediate (3-10 years)",
+      "liquidity_needs": "Low",
+      "allocation_profile_desc": "Moderate Growth",
+      "margin_balance": -250000,
+      "performance": {
+        "source": "Performance system, as of 8/31/2026",
+        "return_1y": 0.121,
+        "return_3y": 0.096,
+        "std_dev": 0.132,
+        "sharpe": 0.47,
+        "std_basis": "3-year"
+      }
+    }
+  },
+  "judgment_calls": [
+    {
+      "id": "margin",
+      "title": "Margin",
+      "text": "Negative margin balances are left out of the allocation math and reported separately. Positive margin is counted as cash."
+    },
+    {
+      "id": "proxies",
+      "title": "Proxies",
+      "text": "Some holdings have no matching CMA asset class, so they are proxied: munis as U.S. corporates, EM debt as high yield. A column shows how much of each account relies on the muni proxy."
+    },
+    {
+      "id": "core",
+      "title": "Core style funds",
+      "text": "Split 50/50 between growth and value."
+    },
+    {
+      "id": "unclassified",
+      "title": "Unclassified holdings",
+      "text": "Left out of the expected return and risk math. A coverage percentage is reported, so accounts with large unmapped holdings can be flagged rather than taken at face value."
+    },
+    {
+      "id": "timing",
+      "title": "Snapshot timing",
+      "text": "Security classifications come from the 8/28 week-end snapshot. Accounts and positions are as of 8/31."
+    },
+    {
+      "id": "profile",
+      "title": "Investor profile",
+      "text": "Derived from risk tolerance and time horizon using the 2-factor grid. The existing allocation_profile_desc sits next to it for comparison, because where that field comes from is not confirmed."
+    },
+    {
+      "id": "liquidity",
+      "title": "Liquidity tier",
+      "text": "A direct lookup from the account's liquidity needs. Blank values default to Tier 0, the most liquid."
+    },
+    {
+      "id": "atlas",
+      "title": "Added for this POC",
+      "text": "Aggregate bond funds split 60/40 Treasuries/IG corporates; brokered CDs treated as cash; Sharpe uses the CMA cash return as the risk-free rate."
+    }
+  ],
+  "thresholds": {
+    "low_coverage": 0.9,
+    "muni_proxy_flag": 0.1,
+    "concentration": 0.2
+  }
+}

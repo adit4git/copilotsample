@@ -1,0 +1,26 @@
+{
+  "draft": {
+    "kind": "meeting_prep",
+    "sections": [
+      {
+        "title": "Fees & conflicts",
+        "after": "Concentration & risk",
+        "body": "- Annual revenue {rev} on {aum}: about {fee_bps} bps all-in today.\n- {eligible_note}\n- If any idea in this brief raises what the client pays, say so when you raise it."
+      }
+    ],
+    "checklist_title": "Before you send this",
+    "rules": [
+      "Every figure matches the client page as of today",
+      "Tax figures are labeled illustrative",
+      "Any new fee or minimum is disclosed next to the idea that causes it",
+      "No performance promises or projections"
+    ]
+  },
+  "try": [
+    {
+      "label": "Draft meeting prep for the next meeting",
+      "workspace": "meeting_prep_draft",
+      "household_id": "okoye"
+    }
+  ]
+}

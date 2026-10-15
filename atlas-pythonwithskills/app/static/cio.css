@@ -1,0 +1,65 @@
+/* ============ CIO MODEL FIT (cio.js) ============ */
+/* Series colours: reference palette slots 1-2 (validated light and dark, adjacent and all-pairs). Text never wears them. */
+.cio{ --cio-cur:#eb6834; --cio-mod:#2a78d6;}
+@media (prefers-color-scheme: dark){ :root:where(:not([data-theme="light"])) .cio{ --cio-cur:#d95926; --cio-mod:#3987e5;} }
+:root[data-theme="dark"] .cio{ --cio-cur:#d95926; --cio-mod:#3987e5;}
+.cio-card{ margin-bottom:14px;}
+.cio-meta{ margin-left:auto; align-self:center; display:flex; flex-direction:column; gap:3px; font-size:12px; color:var(--fg-2); text-align:right;}
+.cio-h4{ font-size:12.5px; font-weight:700; margin:18px 0 8px;}
+.cio-headline{ margin:0 0 4px; font-size:14px; line-height:1.55;}
+.cio-note{ font-size:12px; color:var(--fg-2); line-height:1.5; margin:8px 0 0;}
+.cio-warn{ display:inline-block; font-size:11px; font-weight:600; color:var(--amber); background:var(--amber-tint); padding:1px 6px; border-radius:4px;}
+.cio-ok{ display:inline-block; font-size:11px; font-weight:600; color:var(--brand); background:var(--brand-tint); padding:1px 6px; border-radius:4px;}
+/* scatter */
+.cio-svg{ width:100%; max-width:760px; height:auto; display:block;}
+.cio-grid{ stroke:var(--line-2);} .cio-axis{ stroke:var(--line);}
+.cio-ax{ fill:var(--muted); font-size:11px;} .cio-ax.t{ font-size:11.5px; fill:var(--fg-2);}
+.cio-link{ stroke:var(--muted); stroke-width:2; stroke-dasharray:3 3;}
+.cio-cur-mk{ fill:var(--cio-cur); stroke:var(--paper); stroke-width:2;}
+.cio-mod-mk{ fill:var(--cio-mod); stroke:var(--paper); stroke-width:2;}
+.cio-hit{ fill:transparent; cursor:pointer;}
+.cio-lbl{ fill:var(--fg); font-size:12px; font-weight:600; pointer-events:none;}
+.cio-pt{ cursor:pointer; outline:none;} .cio-pt.on .cio-link{ stroke:var(--fg); stroke-dasharray:none;}
+.cio-pt.on .cio-cur-mk, .cio-pt.on .cio-mod-mk, .cio-pt:focus-visible .cio-cur-mk{ stroke:var(--fg);}
+.cio-legend{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:11.5px; color:var(--fg-2); margin-top:8px; align-items:center;}
+.cio-legend span{ display:inline-flex; align-items:center; gap:6px;}
+.cio-k{ display:inline-block; width:11px; height:11px;} .cio-k.cur{ background:var(--cio-cur); border-radius:50%;} .cio-k.mod{ background:var(--cio-mod); border-radius:2px;}
+/* tables */
+.cio-scroll{ overflow-x:auto;}
+.cio-tbl{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:1080px;}
+.cio-tbl.small{ min-width:0;}
+.cio-tbl th, .cio-tbl td{ padding:7px 8px; border-bottom:1px solid var(--line-2); text-align:left; vertical-align:middle;}
+.cio-tbl th{ font-size:11px; color:var(--muted); font-weight:700; letter-spacing:.02em;}
+.cio-tbl th.grp{ text-align:center; border-bottom:1px solid var(--line); text-transform:uppercase; font-size:10.5px;}
+.cio-tbl th .sub{ font-weight:400; text-transform:none; font-size:10.5px;}
+.cio-tbl .r{ text-align:right; white-space:nowrap;}
+.cio-tbl td:first-child{ min-width:220px;} .cio-tbl .b{ font-weight:700;}
+.cio-tbl tbody tr[data-cio-acct]{ cursor:pointer;} .cio-tbl tbody tr[data-cio-acct]:hover{ background:var(--paper-2);}
+.cio-tbl tbody tr.on{ background:color-mix(in srgb,var(--brand) 7%,transparent); box-shadow:inset 3px 0 0 var(--brand);}
+.cio-tbl tr.dim td{ color:var(--muted);}
+.cio-flag{ display:inline-block; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:999px; white-space:nowrap;}
+.cio-flag.review{ color:var(--amber); background:var(--amber-tint);} .cio-flag.info{ color:var(--fg-2); background:var(--paper-2); border:1px solid var(--line);}
+/* detail */
+.cio-chain{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:8px;}
+.cio-side{ font-size:12px; color:var(--fg-2); padding-left:6px;}
+.cio-step{ border:1px solid var(--line); border-radius:var(--r-m); padding:8px 11px; background:var(--paper); min-width:120px;}
+.cio-step .l{ font-size:10.5px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.03em;}
+.cio-step .v{ font-size:13px; margin-top:3px;} .cio-step .s{ font-size:11.5px; margin-top:4px; color:var(--fg-2);}
+.cio-arrow{ align-self:center; color:var(--muted); font-size:16px;}
+.cio-flags{ margin:0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:6px; font-size:12.5px; line-height:1.5;}
+.cio-alloc{ display:flex; flex-direction:column; gap:3px;}
+.cio-ag{ font-size:10.5px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-top:8px;}
+.cio-ar{ display:grid; grid-template-columns:minmax(150px,220px) 1fr 108px 52px; gap:10px; align-items:center; font-size:12.5px;}
+.cio-bars{ display:flex; flex-direction:column; gap:2px;}
+.cio-bars b{ display:block; height:7px; border-radius:0 4px 4px 0; min-width:1px;}
+.cio-bars b.cur{ background:var(--cio-cur);} .cio-bars b.mod{ background:var(--cio-mod);}
+.cio-av, .cio-ad{ text-align:right; white-space:nowrap;}
+.cio-actions{ display:flex; gap:14px; align-items:center; margin-top:14px; flex-wrap:wrap;}
+.cio-jc summary{ padding:13px 17px; cursor:pointer; font-size:13.5px;}
+.cio-jc ul{ margin:0; padding-left:18px; font-size:12.5px; line-height:1.6;}
+@media (max-width:760px){
+  .cio-meta{ text-align:left; margin-left:0;}
+  .cio-ar{ grid-template-columns:1fr 92px; } .cio-ar .cio-bars{ grid-column:1 / -1; grid-row:2;} .cio-ad{ display:none;}
+}
+.cio-tag{ display:inline-block; font-size:10.5px; font-weight:700; color:var(--fg-2); border:1px solid var(--line); background:var(--paper-2); padding:1px 6px; border-radius:999px; margin-right:6px; white-space:nowrap;}
+#cioDetail{ scroll-margin-top:84px;}

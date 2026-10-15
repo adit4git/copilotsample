@@ -1,0 +1,45 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "set",
+      "path": "conversion_policy.high_cash_share",
+      "value": 0.15,
+      "why": "High-cash line at 15%"
+    },
+    {
+      "target": "rules",
+      "op": "set",
+      "path": "conversion_cell_notes",
+      "why": "Risk note on concentrated sales",
+      "value": []
+    },
+    {
+      "target": "rules",
+      "op": "append",
+      "path": "conversion_cell_notes",
+      "why": "Risk note on concentrated sales",
+      "value": {
+        "rule_id": "RISK.concentrated_sale",
+        "outcomes": [
+          "SELL"
+        ],
+        "concentrated_only": true,
+        "gain_only": true,
+        "message": "Risk: this sells a concentrated, appreciated position. Get the client’s written acknowledgment of the tax cost, or stage the sale with TET where it is available."
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Montgomery: a concentrated position under Managed",
+      "workspace": "conversion",
+      "household_id": "montgomery"
+    },
+    {
+      "label": "Brennan: conversion map",
+      "workspace": "conversion",
+      "household_id": "brennan"
+    }
+  ]
+}

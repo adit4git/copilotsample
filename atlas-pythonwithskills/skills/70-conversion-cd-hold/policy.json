@@ -1,0 +1,40 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "append",
+      "at": "start",
+      "path": "conversion_rules",
+      "why": "First match wins, so this goes first",
+      "value": {
+        "rule_id": "CONV.cd_hold_to_maturity",
+        "holding_kinds": [
+          "CD"
+        ],
+        "strategy_types": [
+          "CUSTOM_MANAGED"
+        ],
+        "outcome": "HOLD",
+        "message": "House policy: brokered CDs come into a Custom Managed Strategy as-is and are held to maturity as part of the cash and short-term sleeve.",
+        "source_doc": [
+          {
+            "document_id": "IAPB",
+            "pdf_page": 36,
+            "section": "Funding your Account and Contributions"
+          }
+        ],
+        "compile_source": {
+          "kind": "HOUSE_POLICY",
+          "review_status": "POC_ASSUMPTION"
+        }
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Fairbanks: the CD under Custom Managed",
+      "workspace": "conversion",
+      "household_id": "fairbanks"
+    }
+  ]
+}

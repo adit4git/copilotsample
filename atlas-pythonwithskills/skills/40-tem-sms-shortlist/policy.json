@@ -1,0 +1,32 @@
+{
+  "patches": [
+    {
+      "target": "rules",
+      "op": "merge",
+      "path": "tem_personalization.tem_sms_selection",
+      "why": "Shortlist rules",
+      "value": {
+        "intl_family_min_share": 0.05,
+        "per_family": 1,
+        "extra_families": [
+          "GLOBAL",
+          "US_DIVIDEND"
+        ]
+      }
+    }
+  ],
+  "try": [
+    {
+      "label": "Okoye: personalization options",
+      "workspace": "tem",
+      "household_id": "okoye",
+      "offering_id": "temSms"
+    },
+    {
+      "label": "Ashford: personalization options",
+      "workspace": "tem",
+      "household_id": "ashford",
+      "offering_id": "temSms"
+    }
+  ]
+}
