@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIO Gap Views</title>
+<style>
+:root{
+  color-scheme: light;
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10); --mid:#f0efec;
+  --over:#eb6834; --under:#2a78d6; --step:#6f6e69; --chip:#efeee9; --accent:#0b0b0b;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --mid:#383835;
+    --over:#d95926; --under:#3987e5; --step:#9a998f; --chip:#262624; --accent:#f0efec;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --mid:#383835;
+  --over:#d95926; --under:#3987e5; --step:#9a998f; --chip:#262624; --accent:#f0efec;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:24px;line-height:1.2;margin:0 0 6px;font-weight:650;letter-spacing:-.01em}
+.sub{color:var(--ink2);margin:0 0 20px;max-width:760px}
+h2{font-size:16px;margin:0 0 2px;font-weight:650}
+.lede{color:var(--ink2);margin:0 0 14px;font-size:13px}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:18px 18px 16px;margin-bottom:16px}
+.num{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.picker{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.picker button{font:inherit;border:1px solid var(--ring);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.picker button[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.picker button:focus-visible,.hm-row:focus-visible{outline:2px solid var(--under);outline-offset:2px}
+.acct-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin-bottom:14px}
+.acct-head b{font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:12px 14px}
+.tile .k{font-size:12px;color:var(--ink2)}
+.tile .v{font-size:26px;font-weight:600;margin:2px 0;letter-spacing:-.01em}
+.tile .s{font-size:12px;color:var(--muted)}
+.cov{font-size:12px;color:var(--ink2);background:var(--chip);border-radius:8px;padding:8px 10px;margin:-6px 0 16px}
+.two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink2);margin-top:10px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:6px}
+.sw.dot{border-radius:50%}
+svg text{fill:var(--ink2);font:12px system-ui,-apple-system,"Segoe UI",sans-serif}
+svg .lab{fill:var(--ink)}
+svg .val{fill:var(--ink2);font-variant-numeric:tabular-nums}
+svg .grp{fill:var(--muted);font-size:11px;letter-spacing:.06em}
+svg .grid{stroke:var(--grid);stroke-width:1}
+svg .zero{stroke:var(--axis);stroke-width:1}
+svg .hit{fill:transparent}
+svg .hit:hover + .mk, svg g.r:hover .mk{opacity:.85}
+.heat{overflow-x:auto}
+.heat table{border-collapse:separate;border-spacing:2px;width:100%;min-width:760px}
+.heat th{font-weight:500;font-size:11px;color:var(--ink2);text-align:center;padding:4px 2px;vertical-align:bottom}
+.heat th.grp{color:var(--muted);letter-spacing:.06em;font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--grid)}
+.heat td{height:40px;text-align:center;border-radius:4px;font-variant-numeric:tabular-nums;font-size:12px}
+.heat td.nm{text-align:left;padding-right:10px;white-space:nowrap;font-size:13px}
+.heat td.mv{font-weight:600;padding:0 6px}
+.hm-row{cursor:pointer}
+.hm-row.on td.nm{font-weight:650}
+.hm-row.on td.nm::before{content:"";display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px;margin-right:6px;vertical-align:-2px}
+.scale{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink2);margin-top:10px;flex-wrap:wrap}
+.scale .bar{width:180px;height:10px;border-radius:3px;background:linear-gradient(90deg,var(--under),var(--mid),var(--over))}
+.dumb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+#tip{position:fixed;pointer-events:none;z-index:9;background:var(--ink);color:var(--surface);font-size:12px;line-height:1.4;padding:7px 9px;border-radius:6px;max-width:280px;opacity:0;transition:opacity .08s}
+#tip b{font-weight:650}
+footer{font-size:12px;color:var(--muted);margin-top:8px}
+@media (max-width:860px){ .two,.dumb{grid-template-columns:1fr} .tiles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (forced-colors: active){ .sw,.scale .bar{forced-color-adjust:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Today’s holdings vs the CIO model: four other ways to see the gap</h1>
+  <p class="sub" id="sub"></p>
+
+  <div class="picker" role="group" aria-label="Account" id="picker"></div>
+
+  <section class="card" aria-labelledby="h-acct">
+    <div class="acct-head"><div><b id="h-acct"></b> <span class="muted" id="acctNo"></span></div><div class="muted" id="acctModel"></div></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="cov" id="cov" hidden></div>
+    <div class="two">
+      <div>
+        <h2>1 · Where the account leans</h2>
+        <p class="lede">Each bar starts at the model weight. Right means the account holds more of that class than the model, left means less. The dollar amount is roughly what would have to move.</p>
+        <div id="tilt"></div>
+        <div class="legend"><span><span class="sw" style="background:var(--over)"></span>More than the model</span><span><span class="sw" style="background:var(--under)"></span>Less than the model</span></div>
+      </div>
+      <div>
+        <h2>2 · Where the return gap comes from</h2>
+        <p class="lede">Start from the model’s expected return; each tilt adds or takes away return; the steps land exactly on today’s holdings. The scale is zoomed to the gap.</p>
+        <div id="bridge"></div>
+        <p class="note">Step = (holding weight − model weight) × (class expected return − model expected return). Because the weights differ by zero in total, the steps sum exactly to the gap. Risk does not add up this way, so it is shown in view 4.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-heat">
+    <h2 id="h-heat">3 · The whole book on one grid</h2>
+    <p class="lede">Rows are accounts, columns are CMA asset classes. Each cell is today’s weight minus the model weight, in percentage points. Click a row to open it above.</p>
+    <div class="heat"><table id="heat"></table></div>
+    <div class="scale"><span>Less than model</span><span class="bar"></span><span>More than model</span><span class="muted">· blank = 0 in both · “Move” = share of the classified value that would change hands</span></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-dumb">
+    <h2 id="h-dumb">4 · What the gap costs: holdings vs model on each measure</h2>
+    <p class="lede">One panel per measure, each on its own scale. The line is the gap; every account here sits short of its model’s Sharpe.</p>
+    <div class="dumb" id="dumb"></div>
+    <div class="legend"><span><span class="sw dot" style="background:var(--over)"></span>Today’s holdings</span><span><span class="sw" style="background:var(--under)"></span>Matched CIO model</span></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+const D = {"as_of":{"positions":"2026-08-31","classifications":"2026-08-28","cio_targets":"2026-01-07","cma":"2026"},"scope":{"market":"Bridgewater, NJ","account_type":"Brokerage","min_market_value":50000,"description":"Brokerage accounts in the Bridgewater, NJ market over $50,000 as of 8/31/2026"},"cma":[{"id":"LCG","label":"U.S. Large Cap Growth","group":"Equity","expected_return":0.066,"volatility":0.175},{"id":"LCV","label":"U.S. Large Cap Value","group":"Equity","expected_return":0.07,"volatility":0.155},{"id":"SMID","label":"U.S. Small/Mid Cap","group":"Equity","expected_return":0.076,"volatility":0.205},{"id":"INTL","label":"International Developed Equity","group":"Equity","expected_return":0.074,"volatility":0.17},{"id":"EM","label":"Emerging Markets Equity","group":"Equity","expected_return":0.082,"volatility":0.22},{"id":"UST","label":"U.S. Treasuries","group":"Fixed income","expected_return":0.041,"volatility":0.055},{"id":"IGC","label":"U.S. Corporates (IG)","group":"Fixed income","expected_return":0.049,"volatility":0.07},{"id":"HY","label":"U.S. High Yield","group":"Fixed income","expected_return":0.061,"volatility":0.095},{"id":"CASH","label":"Cash","group":"Cash","expected_return":0.033,"volatility":0.006},{"id":"HF","label":"Hedge Funds","group":"Alternatives","expected_return":0.058,"volatility":0.075},{"id":"PE","label":"Private Equity","group":"Alternatives","expected_return":0.096,"volatility":0.23}],"rf":0.033,"accounts":[{"id":"kaplan","name":"Kaplan Household","acct":"BRK-38116","model":"CIO Moderate, Tier 2","cur":{"expected_return":0.05818,"volatility":0.10352,"sharpe":0.243},"mod":{"expected_return":0.06094,"volatility":0.09278,"sharpe":0.301},"gap":{"expected_return":-0.00276,"volatility":0.01074,"sharpe":-0.058,"tracking_error":0.0259},"cov":{"total_mv":8700000,"covered_mv":8700000.0,"unclassified_mv":0.0,"pct":1.0,"margin_debit":250000,"margin_credit":0},"alloc":[{"class":"LCG","current":0.3966,"model":0.145,"diff":0.2516},{"class":"LCV","current":0.1207,"model":0.145,"diff":-0.0243},{"class":"SMID","current":0,"model":0.06,"diff":-0.06},{"class":"INTL","current":0.1264,"model":0.1,"diff":0.0264},{"class":"EM","current":0,"model":0.03,"diff":-0.03},{"class":"UST","current":0.131,"model":0.135,"diff":-0.004},{"class":"IGC","current":0.0874,"model":0.155,"diff":-0.0676},{"class":"HY","current":0,"model":0.06,"diff":-0.06},{"class":"CASH","current":0.1379,"model":0.07,"diff":0.0679},{"class":"HF","current":0,"model":0.05,"diff":-0.05},{"class":"PE","current":0,"model":0.05,"diff":-0.05}],"conc":{"sym":"AAPL","name":"Apple Inc (RSU)","share":0.2759},"flags":4},{"id":"brennan","name":"Brennan Household","acct":"BRK-60733","model":"CIO Aggressive, Tier 1","cur":{"expected_return":0.06359,"volatility":0.15586,"sharpe":0.196},"mod":{"expected_return":0.06752,"volatility":0.13584,"sharpe":0.254},"gap":{"expected_return":-0.00393,"volatility":0.02002,"sharpe":-0.058,"tracking_error":0.04715},"cov":{"total_mv":915000,"covered_mv":765000.0,"unclassified_mv":150000.0,"pct":0.8361,"margin_debit":0,"margin_credit":15000},"alloc":[{"class":"LCG","current":0.817,"model":0.27,"diff":0.547},{"class":"LCV","current":0.098,"model":0.25,"diff":-0.152},{"class":"SMID","current":0,"model":0.1,"diff":-0.1},{"class":"INTL","current":0,"model":0.16,"diff":-0.16},{"class":"EM","current":0,"model":0.05,"diff":-0.05},{"class":"UST","current":0,"model":0.015,"diff":-0.015},{"class":"IGC","current":0,"model":0.035,"diff":-0.035},{"class":"HY","current":0,"model":0.04,"diff":-0.04},{"class":"CASH","current":0.085,"model":0.03,"diff":0.055},{"class":"HF","current":0,"model":0.05,"diff":-0.05}],"conc":{"sym":"NVDA","name":"NVIDIA Corp","share":0.3399},"flags":5},{"id":"montgomery","name":"Montgomery Family","acct":"BRK-41827","model":"CIO Aggressive, Tier 2","cur":{"expected_return":0.06054,"volatility":0.12956,"sharpe":0.213},"mod":{"expected_return":0.06892,"volatility":0.13643,"sharpe":0.263},"gap":{"expected_return":-0.00838,"volatility":-0.00687,"sharpe":-0.05,"tracking_error":0.03764},"cov":{"total_mv":3250000,"covered_mv":3250000.0,"unclassified_mv":0.0,"pct":1.0,"margin_debit":0,"margin_credit":0},"alloc":[{"class":"LCG","current":0.6369,"model":0.245,"diff":0.3919},{"class":"LCV","current":0.1231,"model":0.225,"diff":-0.1019},{"class":"SMID","current":0,"model":0.1,"diff":-0.1},{"class":"INTL","current":0,"model":0.16,"diff":-0.16},{"class":"EM","current":0,"model":0.05,"diff":-0.05},{"class":"UST","current":0,"model":0.015,"diff":-0.015},{"class":"IGC","current":0.1231,"model":0.035,"diff":0.0881},{"class":"HY","current":0,"model":0.04,"diff":-0.04},{"class":"CASH","current":0.1169,"model":0.03,"diff":0.0869},{"class":"HF","current":0,"model":0.05,"diff":-0.05},{"class":"PE","current":0,"model":0.05,"diff":-0.05}],"conc":{"sym":"COST","name":"Costco Wholesale Corp","share":0.5538},"flags":4},{"id":"fairbanks","name":"Fairbanks Family","acct":"BRK-52290","model":"CIO Conservative, Tier 0","cur":{"expected_return":0.0445,"volatility":0.03862,"sharpe":0.298},"mod":{"expected_return":0.05023,"volatility":0.05414,"sharpe":0.318},"gap":{"expected_return":-0.00573,"volatility":-0.01552,"sharpe":-0.02,"tracking_error":0.02027},"cov":{"total_mv":2400000,"covered_mv":1500000,"unclassified_mv":900000,"pct":0.625,"margin_debit":0,"margin_credit":0},"alloc":[{"class":"LCG","current":0,"model":0.07,"diff":-0.07},{"class":"LCV","current":0.1667,"model":0.09,"diff":0.0767},{"class":"SMID","current":0,"model":0.02,"diff":-0.02},{"class":"INTL","current":0,"model":0.04,"diff":-0.04},{"class":"EM","current":0,"model":0.01,"diff":-0.01},{"class":"UST","current":0,"model":0.3,"diff":-0.3},{"class":"IGC","current":0.3333,"model":0.3,"diff":0.0333},{"class":"HY","current":0,"model":0.05,"diff":-0.05},{"class":"CASH","current":0.5,"model":0.12,"diff":0.38}],"conc":{"sym":"JNJ","name":"Johnson & Johnson","share":0.1667},"flags":3}]};
+const CMA = Object.fromEntries(D.cma.map(c => [c.id, c]));
+const SHORT = {LCG:'US LC Growth',LCV:'US LC Value',SMID:'US Small/Mid',INTL:'Intl Dev',EM:'Emerging',UST:'Treasuries',IGC:'IG Corp',HY:'High Yield',CASH:'Cash',HF:'Hedge Funds',PE:'Private Eq'};
+const GROUPS = ['Equity','Fixed income','Cash','Alternatives'];
+const pct = (x, d=1) => (x*100).toFixed(d) + '%';
+const pts = (x, d=1) => { const v = x*100; return (v > 0.0001 ? '+' : v < -0.0001 ? '−' : '') + Math.abs(v).toFixed(d); };
+const usd = x => { const a = Math.abs(x); return '$' + (a >= 1e6 ? (a/1e6).toFixed(a >= 1e7 ? 0 : 2).replace(/\.?0+$/,'') + 'M' : Math.round(a/1e3) + 'K'); };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const short = n => n.replace(/ (Household|Family|Trust)$/, '');
+const moveShare = a => a.alloc.reduce((s, x) => s + Math.max(0, x.diff), 0);
+let sel = (() => { try { return localStorage.getItem('cioGap.sel') } catch(e) { return null } })();
+if (!D.accounts.some(a => a.id === sel)) sel = D.accounts[0].id;
+
+document.getElementById('sub').textContent = `${D.scope.description}. Expected figures use the ${D.as_of.cma} capital market assumptions for both sides; CIO targets as of ${D.as_of.cio_targets.replace(/^(\d+)-0?(\d+)-0?(\d+)$/, '$2/$3/$1')}. Same data as the CIO Model Fit workspace, drawn differently.`;
+document.getElementById('foot').textContent = 'Illustrative demo data. Weights are shares of each account’s classified value; unclassified holdings and margin balances are left out, as in the workspace.';
+
+/* ---------- picker ---------- */
+function paintPicker(){
+  document.getElementById('picker').innerHTML = D.accounts.map(a =>
+    `<button aria-pressed="${a.id === sel}" data-acct="${a.id}">${esc(short(a.name))}</button>`).join('');
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-acct]'); if (!b) return;
+  sel = b.dataset.acct; try { localStorage.setItem('cioGap.sel', sel) } catch(e) {}
+  paintAll();
+});
+document.addEventListener('keydown', e => {
+  const r = e.target.closest && e.target.closest('.hm-row');
+  if (r && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); r.click(); }
+});
+
+/* ---------- tiles ---------- */
+function paintTiles(a){
+  const cov = a.cov.covered_mv, move = moveShare(a);
+  const t = [
+    ['To match the model, move', pct(move,0), `≈ ${usd(move*cov)} of ${usd(cov)} classified`],
+    ['Expected return', pts(a.gap.expected_return) + ' pts', `${pct(a.cur.expected_return)} today vs ${pct(a.mod.expected_return)} model`],
+    ['Expected risk', pts(a.gap.volatility) + ' pts', `${pct(a.cur.volatility)} today vs ${pct(a.mod.volatility)} model`],
+    ['Sharpe ratio', (a.gap.sharpe < 0 ? '−' : '+') + Math.abs(a.gap.sharpe).toFixed(2), `${a.cur.sharpe.toFixed(2)} today vs ${a.mod.sharpe.toFixed(2)} model`],
+  ];
+  document.getElementById('tiles').innerHTML = t.map(([k,v,s]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="s num">${s}</div></div>`).join('');
+  const notes = [];
+  if (a.cov.pct < 0.999) notes.push(`Only ${pct(a.cov.pct,0)} of the account is classified: ${usd(a.cov.unclassified_mv)} has no CMA asset class and is left out.`);
+  if (a.cov.margin_debit) notes.push(`A ${usd(a.cov.margin_debit)} margin debit is reported separately.`);
+  if (a.cov.margin_credit) notes.push(`A ${usd(a.cov.margin_credit)} margin credit counts as cash.`);
+  if (a.conc && a.conc.share >= 0.15) notes.push(`${a.conc.sym} is ${pct(a.conc.share,0)} of the classified value, priced here as its asset class.`);
+  const c = document.getElementById('cov'); c.hidden = !notes.length; c.textContent = notes.join(' ');
+}
+
+/* ---------- 1. tilt (diverging bars) ---------- */
+function paintTilt(a){
+  const W = Math.max(300, Math.min(600, document.getElementById('tilt').clientWidth || 520)), nar = W < 440, L = nar ? 92 : 150, R = nar ? 96 : 116, rowH = 26, gH = 22;
+  const max = Math.max(0.1, Math.ceil(Math.max(...D.accounts.flatMap(x => x.alloc.map(y => Math.abs(y.diff)))) * 10) / 10);
+  const cx = L + (W - L - R) / 2, half = (W - L - R) / 2, sx = v => cx + v / max * half;
+  let y = 6, body = '';
+  const ticks = [-max, -max/2, 0, max/2, max];
+  for (const g of GROUPS){
+    const rows = a.alloc.filter(x => CMA[x.class].group === g && (x.current > 0 || x.model > 0));
+    if (!rows.length) continue;
+    body += `<text class="grp" x="0" y="${y + 14}">${g.toUpperCase()}</text>`; y += gH;
+    for (const x of rows){
+      const dv = a.cov.covered_mv * x.diff, over = x.diff > 0;
+      const x0 = Math.min(sx(0), sx(x.diff)), w = Math.abs(sx(x.diff) - sx(0));
+      const tip = `<b>${esc(CMA[x.class].label)}</b><br>Today ${pct(x.current)} · model ${pct(x.model)}<br>${pts(x.diff)} pts${Math.abs(x.diff) >= 0.0005 ? ` · about ${usd(dv)} ${over ? 'over' : 'short'}` : ''}`;
+      body += `<g class="r" data-tip="${esc(tip)}">
+        <rect class="hit" x="0" y="${y}" width="${W}" height="${rowH}"/>
+        <text class="lab" x="0" y="${y + 17}">${esc(nar ? SHORT[x.class] : CMA[x.class].label.replace('International Developed Equity','Intl Developed Equity').replace('Emerging Markets Equity','Emerging Markets'))}</text>
+        ${w > 0.5 ? `<rect class="mk" x="${x0}" y="${y + 7}" width="${w}" height="12" rx="3" fill="var(${over ? '--over' : '--under'})"/>` : `<circle cx="${sx(0)}" cy="${y + 13}" r="3" fill="var(--muted)"/>`}
+        <text class="val" text-anchor="end" x="${W}" y="${y + 17}">${Math.abs(x.diff) < 0.0005 ? 'on model' : pts(x.diff) + ' · ' + usd(dv)}</text>
+      </g>`;
+      y += rowH;
+    }
+  }
+  const grid = ticks.map(t => `<line class="${t === 0 ? 'zero' : 'grid'}" x1="${sx(t)}" x2="${sx(t)}" y1="0" y2="${y}"/><text text-anchor="middle" x="${sx(t)}" y="${y + 16}">${t === 0 ? 'model' : (nar && Math.abs(t) < max ? '' : pts(t,0))}</text>`).join('');
+  document.getElementById('tilt').innerHTML = `<svg viewBox="0 0 ${W} ${y + 22}" width="100%" role="img" aria-label="Over and underweights by asset class for ${esc(a.name)}">${grid}${body}</svg>`;
+}
+
+/* ---------- 2. return bridge (waterfall) ---------- */
+function paintBridge(a){
+  const Em = a.mod.expected_return, Ec = a.cur.expected_return;
+  let steps = a.alloc.map(x => ({id:x.class, c: x.diff * (CMA[x.class].expected_return - Em), d:x.diff}))
+    .filter(s => Math.abs(s.d) >= 0.0005).sort((p, q) => p.c - q.c);
+  const small = steps.filter(s => Math.abs(s.c) < 0.0002);
+  steps = steps.filter(s => Math.abs(s.c) >= 0.0002);
+  if (small.length) steps.push({id:'OTHER', c: small.reduce((s, x) => s + x.c, 0), n: small.length});
+  const W = Math.max(300, Math.min(560, document.getElementById('bridge').clientWidth || 460)), L = W < 440 ? 100 : 124, R = 56, rowH = 26;
+  let run = Em; const pos = [];
+  for (const s of steps){ pos.push([run, run + s.c]); run += s.c; }
+  const vals = [Em, Ec, ...pos.flat()];
+  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.12 || 0.002;
+  lo = Math.floor((lo - pad) * 1000) / 1000; hi = Math.ceil((hi + pad) * 1000) / 1000;
+  const sx = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  const rows = [{kind:'total', label:'CIO model', v:Em, color:'--under'},
+    ...steps.map((s, i) => ({kind:'step', s, from:pos[i][0], to:pos[i][1]})),
+    {kind:'total', label:'Today’s holdings', v:Ec, color:'--over'}];
+  let y = 4, body = '';
+  rows.forEach((r, i) => {
+    if (r.kind === 'total'){
+      const tip = `<b>${r.label}</b><br>Expected return ${pct(r.v,2)}`;
+      body += `<g class="r" data-tip="${esc(tip)}"><rect class="hit" x="0" y="${y}" width="${W}" height="${rowH}"/>
+        <text class="lab" x="0" y="${y + 17}" font-weight="600">${r.label}</text>
+        <line x1="${sx(lo)}" x2="${sx(r.v)}" y1="${y + 13}" y2="${y + 13}" stroke="var(--grid)" stroke-width="2"/><rect class="mk" x="${sx(r.v) - 3}" y="${y + 3}" width="6" height="20" rx="2" fill="var(${r.color})"/>
+        <text class="val" x="${W}" text-anchor="end" y="${y + 17}" font-weight="600" style="fill:var(--ink)">${pct(r.v,2)}</text></g>`;
+    } else {
+      const s = r.s, x0 = sx(Math.min(r.from, r.to)), w = Math.max(1.5, Math.abs(sx(r.to) - sx(r.from)));
+      const label = s.id === 'OTHER' ? `${s.n} small tilt${s.n > 1 ? 's' : ''}` : (CMA[s.id].label.replace('International Developed Equity','Intl Developed').replace('Emerging Markets Equity','Emerging Markets').replace('U.S. ',''));
+      const tip = s.id === 'OTHER' ? `<b>${s.n} smaller tilts</b><br>${pts(s.c,2)} pts together` :
+        `<b>${esc(CMA[s.id].label)}</b><br>${s.d > 0 ? 'Holds' : 'Short'} ${Math.abs(s.d*100).toFixed(1)} pts ${s.d > 0 ? 'more' : 'less'} than the model<br>Class expected return ${pct(CMA[s.id].expected_return)} vs model ${pct(Em,2)}<br><b>${pts(s.c,2)} pts</b> of expected return`;
+      body += `<g class="r" data-tip="${esc(tip)}"><rect class="hit" x="0" y="${y}" width="${W}" height="${rowH}"/>
+        <text class="lab" x="0" y="${y + 17}">${esc(label)}</text>
+        <line x1="${sx(r.from)}" x2="${sx(r.from)}" y1="${y - 6}" y2="${y + 6}" stroke="var(--axis)"/>
+        <rect class="mk" x="${x0}" y="${y + 6}" width="${w}" height="14" rx="2" fill="var(--step)"/>
+        <text class="val" x="${W}" text-anchor="end" y="${y + 17}">${pts(s.c,2)}</text></g>`;
+    }
+    y += rowH;
+  });
+  const ticks = []; const stepT = (hi - lo) > 0.012 ? 0.005 : (hi - lo) > 0.006 ? 0.0025 : 0.001;
+  for (let t = Math.ceil(lo / stepT) * stepT; t <= hi + 1e-9; t += stepT) ticks.push(t);
+  const grid = ticks.map(t => `<line class="grid" x1="${sx(t)}" x2="${sx(t)}" y1="0" y2="${y}"/><text text-anchor="middle" x="${sx(t)}" y="${y + 16}">${(t*100).toFixed(stepT < 0.005 ? 2 : 1)}%</text>`).join('');
+  document.getElementById('bridge').innerHTML = `<svg viewBox="0 0 ${W} ${y + 22}" width="100%" role="img" aria-label="Expected return bridge from model to holdings for ${esc(a.name)}">${grid}${body}</svg>`;
+}
+
+/* ---------- 3. heatmap ---------- */
+function paintHeat(){
+  const cls = D.cma.filter(c => D.accounts.some(a => a.alloc.some(x => x.class === c.id && (x.current > 0 || x.model > 0))));
+  const max = Math.max(...D.accounts.flatMap(a => a.alloc.map(x => Math.abs(x.diff))));
+  const head1 = `<tr><th></th>${GROUPS.map(g => { const n = cls.filter(c => c.group === g).length; return n ? `<th class="grp" colspan="${n}">${g}</th>` : ''; }).join('')}<th></th></tr>`;
+  const head2 = `<tr><th></th>${cls.map(c => `<th title="${esc(c.label)}">${SHORT[c.id] || c.id}</th>`).join('')}<th>Move</th></tr>`;
+  const rows = D.accounts.map(a => {
+    const cells = cls.map(c => {
+      const x = a.alloc.find(y => y.class === c.id) || {current:0, model:0, diff:0};
+      if (x.current === 0 && x.model === 0) return `<td></td>`;
+      const k = Math.min(1, Math.abs(x.diff) / max), mixp = Math.round(Math.sqrt(k) * 100);
+      const bg = Math.abs(x.diff) < 0.0005 ? 'var(--mid)' : `color-mix(in oklab, var(${x.diff > 0 ? '--over' : '--under'}) ${mixp}%, var(--mid))`;
+      const ink = mixp > 62 ? '#fff' : 'var(--ink)';
+      const tip = `<b>${esc(a.name)} · ${esc(c.label)}</b><br>Today ${pct(x.current)} · model ${pct(x.model)}<br>${pts(x.diff)} pts · about ${usd(x.diff * a.cov.covered_mv)}`;
+      return `<td style="background:${bg};color:${ink}" data-tip="${esc(tip)}">${Math.abs(x.diff) < 0.0005 ? '0' : pts(x.diff, Math.abs(x.diff) < 0.005 ? 1 : 0)}</td>`;
+    }).join('');
+    return `<tr class="hm-row${a.id === sel ? ' on' : ''}" data-acct="${a.id}" tabindex="0" aria-label="Open ${esc(a.name)}"><td class="nm">${esc(short(a.name))}</td>${cells}<td class="mv">${pct(moveShare(a),0)}</td></tr>`;
+  }).join('');
+  document.getElementById('heat').innerHTML = `<thead>${head1}${head2}</thead><tbody>${rows}</tbody>`;
+}
+
+/* ---------- 4. dumbbells (small multiples, one scale each) ---------- */
+function paintDumb(){
+  const M = [
+    ['Expected return', a => a.cur.expected_return, a => a.mod.expected_return, v => pct(v,1), 0.005],
+    ['Expected risk (volatility)', a => a.cur.volatility, a => a.mod.volatility, v => pct(v,1), 0.02],
+    ['Sharpe ratio', a => a.cur.sharpe, a => a.mod.sharpe, v => v.toFixed(2), 0.05],
+  ];
+  document.getElementById('dumb').innerHTML = M.map(([title, fc, fm, fmt, st]) => {
+    const vals = D.accounts.flatMap(a => [fc(a), fm(a)]);
+    const lo = Math.floor(Math.min(...vals) / st) * st, hi = Math.ceil(Math.max(...vals) / st) * st;
+    const W = 320, L = 92, R = 12, rowH = 34, sx = v => L + (v - lo) / (hi - lo) * (W - L - R);
+    let y = 6, body = '';
+    for (const a of D.accounts){
+      const c = fc(a), m = fm(a), on = a.id === sel;
+      const tip = `<b>${esc(a.name)}</b> · ${title}<br>Today ${fmt(c)} · model ${fmt(m)}`;
+      body += `<g class="r" data-tip="${esc(tip)}"><rect class="hit" x="0" y="${y}" width="${W}" height="${rowH}"/>
+        <text class="lab" x="0" y="${y + 21}" ${on ? 'font-weight="650"' : ''}>${esc(short(a.name))}</text>
+        <line x1="${sx(c)}" x2="${sx(m)}" y1="${y + 17}" y2="${y + 17}" stroke="var(--axis)" stroke-width="2"/>
+        <rect x="${sx(m) - 5}" y="${y + 12}" width="10" height="10" rx="2" fill="var(--under)" stroke="var(--surface)" stroke-width="2"/>
+        <circle cx="${sx(c)}" cy="${y + 17}" r="5.5" fill="var(--over)" stroke="var(--surface)" stroke-width="2"/></g>`;
+      y += rowH;
+    }
+    const ticks = []; for (let t = lo; t <= hi + 1e-9; t += st) ticks.push(t);
+    const every = Math.ceil(ticks.length / 4);
+    const grid = ticks.map((t, i) => `<line class="grid" x1="${sx(t)}" x2="${sx(t)}" y1="0" y2="${y}"/>${i % every === 0 ? `<text text-anchor="middle" x="${sx(t)}" y="${y + 16}">${fmt(t)}</text>` : ''}`).join('');
+    return `<div><div style="font-weight:600;font-size:13px;margin-bottom:6px">${title}</div><svg viewBox="0 0 ${W} ${y + 22}" width="100%" role="img" aria-label="${title}: holdings vs model by account">${grid}${body}</svg></div>`;
+  }).join('');
+}
+
+function paintAll(){
+  const a = D.accounts.find(x => x.id === sel);
+  paintPicker();
+  document.getElementById('h-acct').textContent = a.name;
+  document.getElementById('acctNo').textContent = '· ' + a.acct;
+  document.getElementById('acctModel').textContent = 'Matched to ' + a.model;
+  paintTiles(a); paintTilt(a); paintBridge(a); paintHeat(); paintDumb();
+}
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById('tip');
+document.addEventListener('mousemove', e => {
+  const t = e.target.closest && e.target.closest('[data-tip]');
+  if (!t){ tip.style.opacity = 0; return; }
+  tip.innerHTML = t.dataset.tip; tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect();
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = e.clientY - r.height - 14;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+});
+paintAll();
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(paintAll, 120); });
+</script>
+</body>
+</html>
