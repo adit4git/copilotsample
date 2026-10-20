@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pydantic>=2.6
+# Optional — only needed for live inference / richer file parsing:
+anthropic>=0.39          # live LLM (default provider)
+# openai>=1.40           # uncomment if PROVIDER=openai
+# pdfplumber>=0.11       # uncomment for real PDF text extraction
