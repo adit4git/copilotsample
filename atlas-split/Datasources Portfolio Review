@@ -1,0 +1,300 @@
+# Portfolio Review: entities, data points and sources needed in production
+
+This document lists what Portfolio Review needs to run on real data instead of the POC's illustrative files. It covers seven use cases:
+- risk profile alignment;
+- allocation gaps;
+- goal-based recommendations;
+- holdings and concentration review;
+- portfolio deep dive;
+- historical stress scenarios;
+- downgraded stock alternatives.
+
+For each piece of data it gives:
+- **what** it is;
+- the **grain** (one row per what);
+- how **fresh** it must be;
+- the **likely source system**;
+- what stands in for it in the POC today.
+
+Source systems are described by type (for example "books and records", "tax lot system"), because names differ by firm. Vendor names are examples only.
+
+---
+
+## 1. Summary: the 20 entities
+
+| # | Entity | Why it is needed | Typical source | Refresh | POC stand-in |
+|---|---|---|---|---|---|
+| 1 | Advisor and entitlements | Book scoping, permissions (previews, pilots), jurisdiction | Advisor / HR directory, entitlement service | Daily | `fa-and-facts.json` â `fa_profiles` |
+| 2 | Client / household | Grouping accounts, relationship view | CRM / client master | Daily | `households.json` |
+| 3 | Account | Program, registration, tax status, who manages it | Account master, books and records | Daily | `households.json`, `account_facts` |
+| 4 | Investment profile | Risk tolerance, time horizon, liquidity needs, objective | Suitability / KYC profile system | On change | `cio-models.json` â `accounts`, `households.risk` |
+| 5 | Target allocation | What the account should hold | Proposal / planning system, account profile | On change | `households.target` |
+| 6 | Client goals | Income target, return objective, loss limit | Financial planning system | On change | `portfolio-research.json` â `client_goals` |
+| 7 | Positions | What the account holds today | Books and records (end-of-day) | Daily | `households.holdings` |
+| 8 | Tax lots | Cost basis, acquisition date, term | Cost basis / tax lot system | Daily | `holdings[].lots` |
+| 9 | Transactions | Wash-sale window, realized gains this year | Books and records | Daily | Not modeled |
+| 10 | Tax profile | Federal bracket, state, realized gains and loss carryforwards | Planning system, client-provided tax data | Yearly + on change | `federal_bracket`; the state rate comes from a policy pack |
+| 11 | Cash flows | Incoming capital, planned withdrawals | CRM opportunities, money movement, planning | On change | `households.incoming_capital` |
+| 12 | Strategy / sleeve / manager | Who trades each position; restrictions | Managed account platform (SMA, model, sleeve records) | Daily | `account_facts.tem_sleeves`, product catalog |
+| 13 | Security master | Classification of every security | Security master + reference data vendors | Daily | `portfolio-research.json` â `securities` |
+| 14 | Fund look-through | What each fund holds and its characteristics | Fund data vendor (e.g. Morningstar), issuer holdings files | Monthly (holdings), daily (prices) | `securities[].sectors`, `top_holdings`, `style_box`, `credit` |
+| 15 | Product shelf / approved list | What may be bought, minimums, eligibility | Product governance / shelf system | Weekly | `product-shelf.json` + `building_blocks` |
+| 16 | CIO models and capital market assumptions | Targets by profile, expected return, risk and correlations | CIO / investment strategy group | Quarterly | `cio-models.json` |
+| 17 | Historical market data | Stress events and performance history | Index data vendor, performance system | Monthly / on change | `portfolio-policy.json` â `stress` (rounded approximations) |
+| 18 | Research | Equity ratings and changes, fund research reports, manager briefings | Equity research platform, fund research vendor, manager research team | Daily (ratings), monthly (reports) | `rating_changes`, `fund_reports`, `manager_briefings` (invented) |
+| 19 | Benchmarks | Sector weights to measure concentration against | Index provider | Monthly | `equity_benchmark` |
+| 20 | Policy and disclosures | Thresholds, limits, tax method, events, approved wording | Business teams via policy packs; Compliance | On release | `portfolio-policy.json`, `policy/` |
+
+Two more are produced by the feature itself:
+- **Recommendations / proposed trades**, which can be saved for approval;
+- the **run trace / audit record**.
+
+---
+
+## 2. Entity detail: data points
+
+### 2.1 Advisor and entitlements
+| Data point | Used for | Notes |
+|---|---|---|
+| Advisor ID, name, role, team | Book scoping, labels | |
+| Book assignment (advisor â household / account, including shared books) | Who may see and act | Must handle teams, splits and assistants |
+| Jurisdiction / market | Which state tax assumptions and policy packs apply | |
+| Entitlements: preview, pilot, alternatives, qualified-advisor flags | Scenario access, which products can be proposed | |
+
+### 2.2 Client / household
+| Data point | Used for |
+|---|---|
+| Household ID, name, members, relationship type (individual, trust, foundation) | Grouping, naming, tax treatment |
+| Segment, assets, revenue | Book overview, prioritisation |
+| Next meeting (date, type) | Meeting brief |
+| Accounts held elsewhere (held-away, if aggregated) | Wash-sale and concentration across accounts |
+
+### 2.3 Account
+| Data point | Used for | Notes |
+|---|---|---|
+| Account number, registration type (individual, joint, trust, IRA, foundation) | Labels, tax status | |
+| **Tax status** (taxable, tax-deferred, tax-exempt) | Whether trades are taxed; munis vs taxable bonds | Critical |
+| **Program enrollment** (advisory program type, brokerage) | Downgrades scope ("advisory portfolios"), who can trade | |
+| Managed / discretionary flag; strategy or model ID | Advisor-directed vs manager-run | |
+| Margin balance (debit / credit) | Excluded from or counted as cash | |
+| Market / branch | Scope filters | |
+
+### 2.4 Investment profile (suitability)
+| Data point | Used for | Notes |
+|---|---|---|
+| Risk tolerance | Investor profile â CIO model | From the suitability record, not free text |
+| Time horizon | Investor profile | |
+| Liquidity needs | Liquidity tier â CIO model | Blank defaults must be flagged (as in the POC) |
+| Investment objective (growth, income, preservation) | Alignment, goals | |
+| Profile last reviewed date | Flag stale profiles | Not in the POC |
+| Restrictions (no tobacco, no single stocks, ESG) | Exclude alternatives that break them | Not in the POC |
+
+### 2.5 Target allocation
+| Data point | Used for | Notes |
+|---|---|---|
+| Target weights by asset group or asset class | Drift, gaps, rebalance targets | The POC has 4 groups; production should hold asset classes where they exist |
+| Source and date of the target (proposal, IPS, model) | "Target differs from profile model" finding | |
+| Drift tolerance bands, if set per account | Overrides the house drift threshold | |
+
+### 2.6 Client goals
+| Data point | Used for |
+|---|---|
+| Goal type: income, return, downside / loss limit, withdrawal plan, target date | Goals tab |
+| Amount or percentage, frequency (monthly / yearly), start date | Goal value |
+| Loss-limit definition: percentage and reference event or measure (e.g. 2008-type decline, 1-year 95% loss) | Downside goal |
+| Priority, status, last confirmed with the client | Which goal to plan for; stale-goal flag |
+
+### 2.7 Positions
+| Data point | Used for | Notes |
+|---|---|---|
+| Account, security ID, quantity, price, market value, as-of date | Everything | End-of-day; intraday not needed |
+| Pending trades and unsettled cash | Avoid double-counting | Not in the POC |
+| Accrued income | Bond values | Optional |
+
+### 2.8 Tax lots
+| Data point | Used for | Notes |
+|---|---|---|
+| Lot ID, acquisition date, quantity, cost basis (adjusted) | Gain / loss, term, sell order | **Critical**: missing basis means the lot isn't sold |
+| Holding-period start (adjusted for wash sales, gifts, inheritance) | Short / long-term term | |
+| Covered vs non-covered flag | Confidence in the basis | |
+| Disallowed loss / wash-sale adjustment | Correct gains | |
+| Lot relief method on file (FIFO, specific ID, tax-optimized) | Whether best-lot selection is allowed | |
+
+### 2.9 Transactions
+| Data point | Used for |
+|---|---|
+| Buys and sells in the last 30 days (all household accounts, ideally held-away too) | Wash-sale check before harvesting or buying a similar fund |
+| Realized gains and losses year to date (short / long) | The real gain budget left this year |
+| Dividends and interest last 12 months | Actual income vs projected yield |
+
+### 2.10 Tax profile
+| Data point | Used for | Notes |
+|---|---|---|
+| Federal marginal bracket, filing status | Short / long-term rates, net investment income tax | The POC assumes 37% when missing |
+| State of residence and state rate | Total rate | The POC applies a state rate only through a policy pack |
+| Capital loss carryforward | More room in the gain budget | |
+| Client's annual gain budget preference | Replaces the house 2% default | |
+| Tax advisor contact / consent | Disclosures, workflow | |
+
+### 2.11 Cash flows
+| Data point | Used for |
+|---|---|
+| Expected incoming capital (amount, date, likelihood, source, form: cash or securities) | "New cash first" |
+| Planned withdrawals / distributions / required minimum distributions | Cash target, income goal |
+| Standing instructions (sweep, minimum cash) | Cash floor |
+
+### 2.12 Strategy, sleeve and manager
+| Data point | Used for | Notes |
+|---|---|---|
+| Sleeve ID, strategy/product ID, manager, vehicle (SMA, model, fund sleeve) | Who decides each position | |
+| Positions in each sleeve | Manager-run positions are not traded by the advisor | |
+| Restrictions on file and pending restrictions | Downgrade alternatives, concentration fixes | |
+| Strategy minimums and fees | Alternatives and manager-briefing ideas | |
+
+### 2.13 Security master
+| Data point | Used for | Notes |
+|---|---|---|
+| Identifiers (CUSIP, ISIN, ticker, internal ID), name, security type | Joins | |
+| Asset class mapped to the CIO CMA classes (weights for multi-asset products) | Allocation, expected return / risk | One mapping table owned by the CIO group |
+| Sector / industry (GICS or equivalent) | Sector concentration, downgrade similarity | |
+| Market cap band, style (value / blend / growth) | Deep dive | |
+| Country / region (developed / emerging) | Geography | |
+| Dividend or distribution yield | Income goal | |
+| Beta | Similarity of alternatives | |
+| Fixed income: issuer, rating (by agency), maturity, coupon, duration, tax-exempt flag, state of issue | Credit, duration, munis vs bracket | |
+| Liquidity: exchange-traded, redemption terms, gates, lock-ups, surrender schedules | What can be sold | |
+| Share class, expense ratio, loads, 12b-1 fees | Fund cost issues (e.g. C shares) | |
+| Status: active, delisted, corporate actions | Data hygiene | |
+
+### 2.14 Fund look-through
+| Data point | Used for | Notes |
+|---|---|---|
+| Underlying holdings with weights (at least top holdings; full when possible) | Single-name exposure through funds | Monthly or quarterly from the vendor or issuer |
+| Holdings count, top-10 share | Single-fund diversification test | |
+| Sector weights, style box, cap breakdown, region breakdown | Sector, deep dive | |
+| Credit quality breakdown, duration, yield | Below investment grade, fixed income | |
+| Asset-class breakdown (for balanced or multi-asset funds) | Allocation | |
+| As-of date of the look-through | Shown on screen | |
+
+### 2.15 Product shelf / approved list
+| Data point | Used for |
+|---|---|
+| Product ID, name, vehicle, sleeve / asset class, manager | Building blocks, alternatives |
+| Approval status, programs it is available in, account-type eligibility | Only approved products are proposed |
+| Minimum investment, fees (expense, manager, program) | SMA vs ETF choice, cost comparison |
+| Performance on a stated basis (NAV, composite, net of fees) with as-of date | Historical context; backtests must be flagged |
+| **Building block per asset class** (designated by the CIO model portfolio group) | What the planner buys |
+| Approved client-facing literature | What can be shared |
+
+### 2.16 CIO models and capital market assumptions
+| Data point | Used for |
+|---|---|
+| Model ID, profile, tier, weights by asset class, effective date | Profile model, risk band, targets |
+| Profile grid (risk tolerance Ã horizon â profile), liquidity tiers | Mapping the client to a model |
+| CMA by asset class: expected return, volatility | Expected outcomes |
+| Correlation matrix | Portfolio risk |
+| Risk-free rate | Sharpe |
+| CMA version and effective date | Shown on screen, policy previews (e.g. 2027 CMA) |
+
+### 2.17 Historical market data
+| Data point | Used for | Notes |
+|---|---|---|
+| Event definitions: name, start and end dates, measure (peak-to-trough or calendar year) | Stress scenarios | Owned by the CIO office |
+| Index total returns over each event, for every asset class proxy and every sector | Stress results | **Replace the POC's rounded approximations with exact vendor data** |
+| Proxy mapping (which index stands for each asset class and sector) | Method transparency | |
+| Monthly return history for indices and funds | Optional: richer stress (factor betas, drawdowns), 1/3/5-year context | |
+| Single-stock return history | Optional: price stocks as themselves, not as their sector | Removes the POC's main stress limitation |
+
+### 2.18 Research
+| Data point | Used for | Notes |
+|---|---|---|
+| Equity ratings: security, current rating, previous rating, change date, analyst team, rationale, price target | Downgrades tab | From the research platform; entitlement-controlled |
+| Coverage universe with ratings, sector, industry, style | Similar alternatives | |
+| Fund research reports: rating or view, summary, strengths, risks, date | Gaps, deep dive, fund alternatives | e.g. Morningstar under licence; check redistribution rights |
+| Manager briefings: strategy, positioning, risks, date, product link | Deep dive ideas | From manager research / due diligence |
+| CIO publications and house views | Context, existing CIO alignment | |
+
+### 2.19 Benchmarks
+| Data point | Used for |
+|---|---|
+| Sector weights of the reference index (global or domestic, by mandate) | Sector concentration |
+| Region and cap weights | Deep dive targets |
+| Benchmark as-of date | Labels |
+
+### 2.20 Policy and disclosures
+| Data point | Owner (suggested) |
+|---|---|
+| Drift, gap, single-stock, single-fund, sector thresholds | Investment Solutions |
+| Below-investment-grade limits by profile | Risk Management |
+| Tax method: sell order, short-term deferral days, gain budget default, muni bracket cut-off | Tax Services |
+| Building blocks and stand-ins for classes with no shelf product | CIO Model Portfolio Group |
+| Stress event set | CIO Office |
+| Downgrade look-back window, minimum rating for alternatives | Equity Research |
+| Approved disclosure wording (historical, tax, research, goals) | Compliance |
+| Releases and effective dates, approvals | Policy committee |
+
+---
+
+## 3. What each use case needs
+
+â = required, â = improves the result, â = not used
+
+| Data | Alignment | Gaps | Goals | Concentration | Deep dive | Stress | Downgrades |
+|---|---|---|---|---|---|---|---|
+| Investment profile | â | â | â | â (limits by profile) | â | â (risk band) | â |
+| Target allocation | â | â | â | â | â | â | â |
+| Client goals | â | â | â | â | â | â | â |
+| Positions | â | â | â | â | â | â | â |
+| Tax lots | â | â | â | â | â | â | â (tax to switch) |
+| Transactions (30 days, YTD) | â | â | â | â | â | â | â |
+| Tax profile | â | â | â | â | â | â | â |
+| Cash flows | â | â | â | â | â | â | â |
+| Strategy / sleeve / manager | â | â | â | â | â | â | â (who decides) |
+| Security master | â | â | â | â | â | â | â |
+| Fund look-through | â | â | â | â | â | â | â (indirect exposure) |
+| Product shelf / building blocks | â | â | â | â | â | â | â |
+| CIO models and CMA | â | â | â | â | â | â | â |
+| Historical market data | â | â | â | â | â | â | â |
+| Equity ratings | â | â | â | â | â | â | â |
+| Fund reports, manager briefings | â | â | â | â | â | â | â |
+| Benchmarks | â | â | â | â | â | â | â |
+| Policy and disclosures | â | â | â | â | â | â | â |
+
+---
+
+## 4. Data quality rules the feature relies on
+
+| Rule | Why | What the POC does today |
+|---|---|---|
+| Every held security maps to a CMA asset class | Unclassified value is left out of the math | Shows coverage and lists unclassified holdings |
+| Every lot has an adjusted cost basis and an acquisition date | Tax and term | Lots without basis are not sold; missing dates are treated as long-term and flagged |
+| Look-through is no older than one quarter | Concentration through funds | Shows the look-through date |
+| Investment profile and target are reviewed within 12â36 months (house rule) | Alignment is only as good as the profile | Not checked |
+| Tax bracket and state on file for taxable accounts | Tax figures | Assumes 37% and no state rate, and lists that as unresolved |
+| Manager-run positions identified at sleeve level | The advisor must not be told to trade them | Uses sleeve records |
+| Research ratings are entitled to the user | Compliance | Not modeled |
+| One as-of date per run, shown on screen | Reproducible answers | Positions, look-through and research dates shown |
+
+---
+
+## 5. Integration notes
+
+- **Pattern.** Load the reference data (security master, look-through, CMA, models, shelf, benchmarks, history, research) into one portfolio analytics store, refreshed daily or on change. Read the client data (positions, lots, profile, target, goals, tax, cash flows, sleeves) per request through services, or from a nightly snapshot.
+- **Joins.** Household â account â sleeve â position â lot â security. Fund â underlying security. Security â asset class / sector / rating.
+- **Snapshot and audit.** Each run stores the as-of dates, the policy snapshot ID and the inputs used. The run trace already records the policy, evidence and checks.
+- **Write-back (later).** Save the recommendation and its proposed trades for advisor approval. Hand approved trades to the order or rebalancing system. Do not trade from Portfolio Review directly.
+- **Licensing.** Fund research (e.g. Morningstar) and index data have redistribution terms. Check what may be shown to advisors and what may go into client material.
+- **Entitlements.** Research ratings and some product data are restricted. Apply the advisor's entitlements before display.
+
+---
+
+## 6. Open questions for the business
+
+1. Which target is authoritative when the target on file, the proposal and the CIO model disagree?
+2. Should the gain budget be a house default (POC: 2% of the account) or a per-client setting?
+3. Which events make up the official stress set, and who signs off the index proxies and figures?
+4. Are held-away accounts available for wash-sale checks and household concentration?
+5. Which fund research source is licensed for advisor display, and can its rating be shown next to a recommendation?
+6. What is the approved wording for historical and tax disclosures?
+7. For manager-run sleeves, what action can the advisor take on a downgraded stock: a restriction request, a manager query or a strategy change?
+8. Which building block applies to classes with no shelf product today (high yield, hedge funds, private equity)?
