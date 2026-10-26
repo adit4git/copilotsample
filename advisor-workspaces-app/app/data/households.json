@@ -1,0 +1,2747 @@
+{
+ "households": {
+  "henderson": {
+   "id": "henderson",
+   "name": "Henderson Family Trust",
+   "risk": "Moderate Growth",
+   "profile": "Moderate",
+   "model": "CIO Moderate, Tier 2",
+   "band": {
+    "low": 0.0826,
+    "high": 0.1035,
+    "model": 0.0928,
+    "profiles": {
+     "Conservative": 0.0552,
+     "Moderately Conservative": 0.0724,
+     "Moderate": 0.0928,
+     "Moderately Aggressive": 0.1142,
+     "Aggressive": 0.1364
+    }
+   },
+   "value": 49700000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": true,
+    "label": "long-term 23.8%, short-term 40.8%; federal bracket 37%; no state rate"
+   },
+   "gain_budget": 994000.0,
+   "hy_limit": 0.08,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": {
+    "amount": 5000000,
+    "expected_date": "2026-11-15",
+    "likelihood": "high",
+    "source": "business sale proceeds",
+    "form": "cash"
+   },
+   "meeting": {
+    "inDays": 2,
+    "type": "Annual review",
+    "note": "Wants to revisit single-stock exposure and 2026 gifting."
+   },
+   "manager_run": {},
+   "target": {
+    "LCG": 0.166146,
+    "LCV": 0.166146,
+    "SMID": 0.06875,
+    "INTL": 0.114583,
+    "EM": 0.034375,
+    "UST": 0.115714,
+    "IGC": 0.132857,
+    "HY": 0.0514286,
+    "HF": 0.05,
+    "PE": 0.05,
+    "CASH": 0.05
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "engine": {
+    "stats": {
+     "expected_return": 0.0564,
+     "volatility": 0.09243,
+     "sharpe": 0.253
+    },
+    "stats_target": {
+     "expected_return": 0.06286,
+     "volatility": 0.10241,
+     "sharpe": 0.292
+    },
+    "stats_model": {
+     "expected_return": 0.06094,
+     "volatility": 0.09278,
+     "sharpe": 0.301
+    },
+    "te_target": 0.02391,
+    "te_model": 0.02091
+   },
+   "holdings": [
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 10600000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.0003,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "NVDA",
+       "cost": 2100000,
+       "mv": 10600000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "MSFT",
+     "name": "Microsoft Corp",
+     "kind": "stock",
+     "mv": 4900000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.007,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "MSFT",
+       "cost": 2400000,
+       "mv": 4900000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 6200000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.0638,
+      "MSFT": 0.057,
+      "AAPL": 0.0561,
+      "AMZN": 0.034,
+      "GOOG": 0.0331,
+      "META": 0.0247,
+      "AVGO": 0.0213,
+      "TSLA": 0.0179,
+      "JPM": 0.0127,
+      "COST": 0.0085,
+      "UNH": 0.0068,
+      "JNJ": 0.0068,
+      "PG": 0.0068,
+      "HD": 0.0068
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "VTI",
+       "cost": 5100000,
+       "mv": 6200000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "MUB",
+     "name": "National Muni Bond ETF",
+     "kind": "etf",
+     "mv": 9800000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 5,
+     "holdings_count": 6000,
+     "top10_share": null,
+     "sleeve": "Municipal Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "IGC": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.031,
+     "muni": true,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "lots": [
+      {
+       "id": "MUB",
+       "cost": 10400000,
+       "mv": 9800000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 5100000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "sleeve": "Core Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.041,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.1382
+     },
+     "lots": [
+      {
+       "id": "AGG",
+       "cost": 5600000,
+       "mv": 5100000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VXUS",
+     "name": "Total International Stock ETF",
+     "kind": "etf",
+     "mv": 4300000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 5,
+     "holdings_count": 8500,
+     "top10_share": 0.1,
+     "sleeve": "International Developed",
+     "basis_missing": false,
+     "classes": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "sector": null,
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "yield": 0.029,
+     "muni": false,
+     "top_holdings": {},
+     "style_box": {
+      "LV": 0.33,
+      "LB": 0.34,
+      "LG": 0.23,
+      "MB": 0.1
+     },
+     "region": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "scret": {
+      "dotcom": -0.4725,
+      "gfc": -0.61,
+      "covid": -0.325,
+      "y2022": -0.155
+     },
+     "lots": [
+      {
+       "id": "VXUS",
+       "cost": 4900000,
+       "mv": 4300000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 7300000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 7300000,
+       "mv": 7300000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "AUSTIN-4.0-32",
+     "name": "City of Austin GO 4.0% 2032",
+     "kind": "bond",
+     "mv": 1100000,
+     "tradable": false,
+     "why_not": "Individual bond or CD: held to maturity",
+     "manager": null,
+     "cash": false,
+     "expense_bps": 0,
+     "holdings_count": 1,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "IGC": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": true,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "lots": [
+      {
+       "id": "AUSTIN-4.0-32",
+       "cost": 1080000,
+       "mv": 1100000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage",
+     "maturity": "2032-07-01",
+     "call_date": null
+    },
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 400000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": true,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.0003,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "NVDA (position 2)",
+       "cost": null,
+       "mv": 400000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    }
+   ],
+   "age": 72,
+   "liquidity_reserve": 1000000
+  },
+  "kaplan": {
+   "id": "kaplan",
+   "name": "Kaplan Household",
+   "risk": "Moderate Growth",
+   "profile": "Moderate",
+   "model": "CIO Moderate, Tier 2",
+   "band": {
+    "low": 0.0826,
+    "high": 0.1035,
+    "model": 0.0928,
+    "profiles": {
+     "Conservative": 0.0552,
+     "Moderately Conservative": 0.0724,
+     "Moderate": 0.0928,
+     "Moderately Aggressive": 0.1142,
+     "Aggressive": 0.1364
+    }
+   },
+   "value": 8700000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": false,
+    "label": "long-term 23.8%, short-term 40.8%; top federal bracket assumed; no state rate"
+   },
+   "gain_budget": 174000.0,
+   "hy_limit": 0.08,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": null,
+   "meeting": {
+    "inDays": 1,
+    "type": "Retirement planning",
+    "note": "Retiring in 18 months: income plan and a concentrated stock wind-down."
+   },
+   "manager_run": {},
+   "target": {
+    "LCG": 0.18125,
+    "LCV": 0.18125,
+    "SMID": 0.075,
+    "INTL": 0.125,
+    "EM": 0.0375,
+    "UST": 0.115714,
+    "IGC": 0.132857,
+    "HY": 0.0514286,
+    "HF": 0.025,
+    "PE": 0.025,
+    "CASH": 0.05
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "engine": {
+    "stats": {
+     "expected_return": 0.05863,
+     "volatility": 0.10449,
+     "sharpe": 0.245
+    },
+    "stats_target": {
+     "expected_return": 0.06257,
+     "volatility": 0.10472,
+     "sharpe": 0.282
+    },
+    "stats_model": {
+     "expected_return": 0.06094,
+     "volatility": 0.09278,
+     "sharpe": 0.301
+    },
+    "te_target": 0.01841,
+    "te_model": 0.02486
+   },
+   "holdings": [
+    {
+     "sym": "AAPL",
+     "name": "Apple Inc",
+     "kind": "stock",
+     "mv": 2400000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.004,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "AAPL",
+       "cost": 600000,
+       "mv": 2400000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 2100000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.0638,
+      "MSFT": 0.057,
+      "AAPL": 0.0561,
+      "AMZN": 0.034,
+      "GOOG": 0.0331,
+      "META": 0.0247,
+      "AVGO": 0.0213,
+      "TSLA": 0.0179,
+      "JPM": 0.0127,
+      "COST": 0.0085,
+      "UNH": 0.0068,
+      "JNJ": 0.0068,
+      "PG": 0.0068,
+      "HD": 0.0068
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "VTI",
+       "cost": 1700000,
+       "mv": 2100000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VXUS",
+     "name": "Total International Stock ETF",
+     "kind": "etf",
+     "mv": 1100000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 5,
+     "holdings_count": 8500,
+     "top10_share": 0.1,
+     "sleeve": "International Developed",
+     "basis_missing": false,
+     "classes": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "sector": null,
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "yield": 0.029,
+     "muni": false,
+     "top_holdings": {},
+     "style_box": {
+      "LV": 0.33,
+      "LB": 0.34,
+      "LG": 0.23,
+      "MB": 0.1
+     },
+     "region": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "scret": {
+      "dotcom": -0.4725,
+      "gfc": -0.61,
+      "covid": -0.325,
+      "y2022": -0.155
+     },
+     "lots": [
+      {
+       "id": "VXUS",
+       "cost": 1200000,
+       "mv": 1100000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "BND",
+     "name": "US Bond Market ETF",
+     "kind": "etf",
+     "mv": 1900000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 11000,
+     "top10_share": null,
+     "sleeve": "Core Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.041,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.1382
+     },
+     "lots": [
+      {
+       "id": "BND",
+       "cost": 2000000,
+       "mv": 1900000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 1200000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 1200000,
+       "mv": 1200000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    }
+   ],
+   "age": 63,
+   "liquidity_reserve": 400000
+  },
+  "castellano": {
+   "id": "castellano",
+   "name": "Castellano Family",
+   "risk": "Moderate Growth",
+   "profile": "Moderate",
+   "model": "CIO Moderate, Tier 2",
+   "band": {
+    "low": 0.0826,
+    "high": 0.1035,
+    "model": 0.0928,
+    "profiles": {
+     "Conservative": 0.0552,
+     "Moderately Conservative": 0.0724,
+     "Moderate": 0.0928,
+     "Moderately Aggressive": 0.1142,
+     "Aggressive": 0.1364
+    }
+   },
+   "value": 3200000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": true,
+    "label": "long-term 23.8%, short-term 40.8%; federal bracket 37%; no state rate"
+   },
+   "gain_budget": 64000.0,
+   "hy_limit": 0.08,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": null,
+   "meeting": {
+    "inDays": 5,
+    "type": "Tax strategy review",
+    "note": "Tax strategy review: wants to understand how each sleeve is managed for taxes."
+   },
+   "manager_run": {
+    "JPM": "Crestline Large Cap Value SMA",
+    "PFE": "Crestline Large Cap Value SMA",
+    "CVX": "Crestline Large Cap Value SMA",
+    "CVS": "Crestline Large Cap Value SMA"
+   },
+   "target": {
+    "LCG": 0.211458,
+    "LCV": 0.211458,
+    "SMID": 0.0875,
+    "INTL": 0.145833,
+    "EM": 0.04375,
+    "UST": 0.0964286,
+    "IGC": 0.110714,
+    "HY": 0.0428571,
+    "CASH": 0.05
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "engine": {
+    "stats": {
+     "expected_return": 0.06293,
+     "volatility": 0.11086,
+     "sharpe": 0.27
+    },
+    "stats_target": {
+     "expected_return": 0.06343,
+     "volatility": 0.11405,
+     "sharpe": 0.267
+    },
+    "stats_model": {
+     "expected_return": 0.06094,
+     "volatility": 0.09278,
+     "sharpe": 0.301
+    },
+    "te_target": 0.01713,
+    "te_model": 0.0269
+   },
+   "holdings": [
+    {
+     "sym": "ITOT",
+     "name": "Core S&P Total US Stock ETF",
+     "kind": "etf",
+     "mv": 900000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 2500,
+     "top10_share": 0.33,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.0638,
+      "MSFT": 0.057,
+      "AAPL": 0.0561,
+      "AMZN": 0.034,
+      "GOOG": 0.0331,
+      "META": 0.0247,
+      "AVGO": 0.0213,
+      "TSLA": 0.0179,
+      "JPM": 0.0127,
+      "COST": 0.0085,
+      "UNH": 0.0068,
+      "JNJ": 0.0068,
+      "PG": 0.0068,
+      "HD": 0.0068
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "ITOT-1",
+       "cost": 500000,
+       "mv": 600000,
+       "term": "LT",
+       "acquired": "2022-03-14"
+      },
+      {
+       "id": "ITOT-2",
+       "cost": 290000,
+       "mv": 300000,
+       "term": "ST",
+       "acquired": "2025-10-20"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "IEFA",
+     "name": "Core MSCI EAFE ETF",
+     "kind": "etf",
+     "mv": 520000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 7,
+     "holdings_count": 2700,
+     "top10_share": 0.12,
+     "sleeve": "International Developed",
+     "basis_missing": false,
+     "classes": {
+      "INTL": 1.0
+     },
+     "sector": null,
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "yield": 0.03,
+     "muni": false,
+     "top_holdings": {},
+     "style_box": {
+      "LV": 0.33,
+      "LB": 0.32,
+      "LG": 0.2,
+      "MB": 0.1,
+      "SB": 0.05
+     },
+     "region": {
+      "INTL": 1
+     },
+     "scret": {
+      "dotcom": -0.48,
+      "gfc": -0.61,
+      "covid": -0.33,
+      "y2022": -0.14
+     },
+     "lots": [
+      {
+       "id": "IEFA-1",
+       "cost": 360000,
+       "mv": 320000,
+       "term": "LT",
+       "acquired": "2024-05-02"
+      },
+      {
+       "id": "IEFA-2",
+       "cost": 206000,
+       "mv": 200000,
+       "term": "LT",
+       "acquired": "2025-06-11"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "JPM",
+     "name": "JPMorgan Chase",
+     "kind": "stock",
+     "mv": 260000,
+     "tradable": false,
+     "why_not": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "manager": "Crestline Large Cap Value SMA",
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCV": 1.0
+     },
+     "sector": "FIN",
+     "sectors": null,
+     "yield": 0.021,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LV": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.2,
+      "gfc": -0.8,
+      "covid": -0.43,
+      "y2022": -0.105
+     },
+     "lots": [
+      {
+       "id": "JPM-A",
+       "cost": 64000,
+       "mv": 104000,
+       "term": "LT",
+       "acquired": "2022-12-15"
+      },
+      {
+       "id": "JPM-B",
+       "cost": 70000,
+       "mv": 65000,
+       "term": "LT",
+       "acquired": "2024-08-01"
+      },
+      {
+       "id": "JPM-C",
+       "cost": 48000,
+       "mv": 52000,
+       "term": "LT",
+       "acquired": "2025-07-01"
+      },
+      {
+       "id": "JPM-D",
+       "cost": 37500,
+       "mv": 39000,
+       "term": "ST",
+       "acquired": "2026-02-10"
+      }
+     ],
+     "acct": "advisory"
+    },
+    {
+     "sym": "PFE",
+     "name": "Pfizer Inc",
+     "kind": "stock",
+     "mv": 120000,
+     "tradable": false,
+     "why_not": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "manager": "Crestline Large Cap Value SMA",
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCV": 1.0
+     },
+     "sector": "HLTH",
+     "sectors": null,
+     "yield": 0.065,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LV": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.38,
+      "covid": -0.28,
+      "y2022": -0.02
+     },
+     "lots": [
+      {
+       "id": "PFE-1",
+       "cost": 93000,
+       "mv": 75000,
+       "term": "LT",
+       "acquired": "2023-09-05"
+      },
+      {
+       "id": "PFE-2",
+       "cost": 46440,
+       "mv": 45000,
+       "term": "ST",
+       "acquired": "2025-12-01"
+      }
+     ],
+     "acct": "advisory"
+    },
+    {
+     "sym": "CVX",
+     "name": "Chevron Corp",
+     "kind": "stock",
+     "mv": 140000,
+     "tradable": false,
+     "why_not": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "manager": "Crestline Large Cap Value SMA",
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCV": 1.0
+     },
+     "sector": "ENER",
+     "sectors": null,
+     "yield": 0.045,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LV": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.53,
+      "covid": -0.57,
+      "y2022": 0.66
+     },
+     "lots": [
+      {
+       "id": "CVX-1",
+       "cost": 128000,
+       "mv": 140000,
+       "term": "LT",
+       "acquired": "2024-02-20"
+      }
+     ],
+     "acct": "advisory"
+    },
+    {
+     "sym": "CVS",
+     "name": "CVS Health",
+     "kind": "stock",
+     "mv": 80000,
+     "tradable": false,
+     "why_not": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "manager": "Crestline Large Cap Value SMA",
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCV": 1.0
+     },
+     "sector": "HLTH",
+     "sectors": null,
+     "yield": 0.042,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LV": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.38,
+      "covid": -0.28,
+      "y2022": -0.02
+     },
+     "lots": [
+      {
+       "id": "CVS-1",
+       "cost": 98750,
+       "mv": 80000,
+       "term": "LT",
+       "acquired": "2025-03-18"
+      }
+     ],
+     "acct": "advisory"
+    },
+    {
+     "sym": "LCV-I",
+     "name": "US Large Cap Value Fund (Institutional shares)",
+     "kind": "mf",
+     "mv": 250000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 55,
+     "holdings_count": 90,
+     "top10_share": 0.3,
+     "sleeve": "US Large Cap Value",
+     "basis_missing": false,
+     "classes": {
+      "LCV": 1.0
+     },
+     "sector": null,
+     "sectors": {
+      "FIN": 0.23,
+      "HLTH": 0.16,
+      "INDU": 0.14,
+      "TECH": 0.1,
+      "STAP": 0.09,
+      "ENER": 0.08,
+      "UTIL": 0.05,
+      "COMM": 0.04,
+      "DISC": 0.05,
+      "MATL": 0.04,
+      "REAL": 0.02
+     },
+     "yield": 0.02,
+     "muni": false,
+     "top_holdings": {
+      "JPM": 0.035,
+      "JNJ": 0.022,
+      "PG": 0.02,
+      "HD": 0.02,
+      "CVX": 0.016,
+      "UNH": 0.015,
+      "KO": 0.013,
+      "PFE": 0.01,
+      "CVS": 0.006,
+      "INTC": 0.006
+     },
+     "style_box": {
+      "LV": 0.8,
+      "LB": 0.15,
+      "MV": 0.05
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.2995,
+      "gfc": -0.5612,
+      "covid": -0.3697,
+      "y2022": -0.05449
+     },
+     "lots": [
+      {
+       "id": "LCV-1",
+       "cost": 236000,
+       "mv": 250000,
+       "term": "LT",
+       "acquired": "2023-01-10"
+      }
+     ],
+     "acct": "brokerage",
+     "share_class": "I"
+    },
+    {
+     "sym": "NYSDA-5.0-34",
+     "name": "NY State Dormitory Authority 5.0% 2034",
+     "kind": "bond",
+     "mv": 450000,
+     "tradable": false,
+     "why_not": "Individual bond or CD: held to maturity",
+     "manager": null,
+     "cash": false,
+     "expense_bps": 0,
+     "holdings_count": 1,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "IGC": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.035,
+     "muni": true,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "lots": [
+      {
+       "id": "NYSDA-5.0-34",
+       "cost": 462000,
+       "mv": 450000,
+       "term": "LT",
+       "acquired": "2023-04-03"
+      }
+     ],
+     "acct": "brokerage",
+     "maturity": "2034-03-15",
+     "call_date": "2026-12-15"
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 320000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "sleeve": "Core Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.041,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.1382
+     },
+     "lots": [
+      {
+       "id": "AGG-1",
+       "cost": 333000,
+       "mv": 320000,
+       "term": "LT",
+       "acquired": "2024-01-16"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 160000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 160000,
+       "mv": 160000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    }
+   ],
+   "age": 58,
+   "liquidity_reserve": 60000
+  },
+  "okonkwo": {
+   "id": "okonkwo",
+   "name": "Okonkwo Holdings LLC",
+   "risk": "Growth",
+   "profile": "Moderately Aggressive",
+   "model": "CIO Moderately Aggressive, Tier 2",
+   "band": {
+    "low": 0.1035,
+    "high": 0.1253,
+    "model": 0.1142,
+    "profiles": {
+     "Conservative": 0.0552,
+     "Moderately Conservative": 0.0724,
+     "Moderate": 0.0928,
+     "Moderately Aggressive": 0.1142,
+     "Aggressive": 0.1364
+    }
+   },
+   "value": 31600000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": false,
+    "label": "long-term 23.8%, short-term 40.8%; top federal bracket assumed; no state rate"
+   },
+   "gain_budget": 632000.0,
+   "hy_limit": 0.1,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": null,
+   "meeting": {
+    "inDays": 6,
+    "type": "Liquidity deployment",
+    "note": "$14M of business-sale proceeds landed; needs a deployment plan."
+   },
+   "manager_run": {},
+   "target": {
+    "LCG": 0.154762,
+    "LCV": 0.146825,
+    "SMID": 0.0634921,
+    "INTL": 0.103175,
+    "EM": 0.031746,
+    "UST": 0.0852273,
+    "IGC": 0.107955,
+    "HY": 0.0568182,
+    "HF": 0.1,
+    "PE": 0.1,
+    "CASH": 0.05
+   },
+   "model_w": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "engine": {
+    "stats": {
+     "expected_return": 0.05232,
+     "volatility": 0.06542,
+     "sharpe": 0.295
+    },
+    "stats_target": {
+     "expected_return": 0.06486,
+     "volatility": 0.10605,
+     "sharpe": 0.3
+    },
+    "stats_model": {
+     "expected_return": 0.06493,
+     "volatility": 0.11415,
+     "sharpe": 0.28
+    },
+    "te_target": 0.04244,
+    "te_model": 0.05178
+   },
+   "holdings": [
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 14200000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 14200000,
+       "mv": 14200000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 6400000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.0638,
+      "MSFT": 0.057,
+      "AAPL": 0.0561,
+      "AMZN": 0.034,
+      "GOOG": 0.0331,
+      "META": 0.0247,
+      "AVGO": 0.0213,
+      "TSLA": 0.0179,
+      "JPM": 0.0127,
+      "COST": 0.0085,
+      "UNH": 0.0068,
+      "JNJ": 0.0068,
+      "PG": 0.0068,
+      "HD": 0.0068
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "VTI",
+       "cost": 5900000,
+       "mv": 6400000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "IEFA",
+     "name": "Core MSCI EAFE ETF",
+     "kind": "etf",
+     "mv": 3100000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 7,
+     "holdings_count": 2700,
+     "top10_share": 0.12,
+     "sleeve": "International Developed",
+     "basis_missing": false,
+     "classes": {
+      "INTL": 1.0
+     },
+     "sector": null,
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "yield": 0.03,
+     "muni": false,
+     "top_holdings": {},
+     "style_box": {
+      "LV": 0.33,
+      "LB": 0.32,
+      "LG": 0.2,
+      "MB": 0.1,
+      "SB": 0.05
+     },
+     "region": {
+      "INTL": 1
+     },
+     "scret": {
+      "dotcom": -0.48,
+      "gfc": -0.61,
+      "covid": -0.33,
+      "y2022": -0.14
+     },
+     "lots": [
+      {
+       "id": "IEFA",
+       "cost": 3000000,
+       "mv": 3100000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 4700000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "sleeve": "Core Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.041,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.1382
+     },
+     "lots": [
+      {
+       "id": "AGG",
+       "cost": 4800000,
+       "mv": 4700000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "PRIV",
+     "name": "Private RE Interest",
+     "kind": "alt",
+     "mv": 3200000,
+     "tradable": false,
+     "why_not": "Private real estate interest; no redemption right",
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "PE": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.03,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.35,
+      "gfc": -0.4,
+      "covid": -0.15,
+      "y2022": -0.1
+     },
+     "lots": [
+      {
+       "id": "PRIV",
+       "cost": 3000000,
+       "mv": 3200000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "other"
+    }
+   ],
+   "age": 51,
+   "liquidity_reserve": 1500000
+  },
+  "brennan": {
+   "id": "brennan",
+   "name": "Brennan Household",
+   "risk": "Aggressive",
+   "profile": "Aggressive",
+   "model": "CIO Aggressive, Tier 1",
+   "band": {
+    "low": 0.1247,
+    "high": 0.147,
+    "model": 0.1358,
+    "profiles": {
+     "Conservative": 0.0543,
+     "Moderately Conservative": 0.0716,
+     "Moderate": 0.092,
+     "Moderately Aggressive": 0.1135,
+     "Aggressive": 0.1358
+    }
+   },
+   "value": 900000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": false,
+    "label": "long-term 23.8%, short-term 40.8%; top federal bracket assumed; no state rate"
+   },
+   "gain_budget": 18000.0,
+   "hy_limit": 0.12,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": null,
+   "meeting": {
+    "inDays": 6,
+    "type": "Advisory proposal",
+    "note": "Tech employee with high-cost mutual funds, a large NVDA position from vesting and a private placement. Asked whether moving to an advisory account means selling everything."
+   },
+   "manager_run": {},
+   "target": {
+    "LCG": 0.276506,
+    "LCV": 0.256024,
+    "SMID": 0.10241,
+    "INTL": 0.163855,
+    "EM": 0.0512048,
+    "UST": 0.0166667,
+    "IGC": 0.0388889,
+    "HY": 0.0444444,
+    "CASH": 0.05
+   },
+   "model_w": {
+    "LCG": 0.27,
+    "LCV": 0.25,
+    "SMID": 0.1,
+    "INTL": 0.16,
+    "EM": 0.05,
+    "UST": 0.015,
+    "IGC": 0.035,
+    "HY": 0.04,
+    "CASH": 0.03,
+    "HF": 0.05
+   },
+   "engine": {
+    "stats": {
+     "expected_return": 0.06599,
+     "volatility": 0.15313,
+     "sharpe": 0.215
+    },
+    "stats_target": {
+     "expected_return": 0.06723,
+     "volatility": 0.13696,
+     "sharpe": 0.25
+    },
+    "stats_model": {
+     "expected_return": 0.06752,
+     "volatility": 0.13584,
+     "sharpe": 0.254
+    },
+    "te_target": 0.04168,
+    "te_model": 0.04213
+   },
+   "holdings": [
+    {
+     "sym": "LCG-A",
+     "name": "Large-Cap Growth Fund, Class A (front-end load)",
+     "kind": "mf",
+     "mv": 180000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 95,
+     "holdings_count": 70,
+     "top10_share": 0.55,
+     "sleeve": "US Large Cap Growth",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.5,
+      "COMM": 0.13,
+      "DISC": 0.17,
+      "HLTH": 0.06,
+      "INDU": 0.05,
+      "FIN": 0.05,
+      "STAP": 0.02,
+      "MATL": 0.01,
+      "REAL": 0.01
+     },
+     "yield": 0.001,
+     "muni": false,
+     "top_holdings": {
+      "MSFT": 0.09,
+      "NVDA": 0.08,
+      "AAPL": 0.07,
+      "AMZN": 0.06,
+      "GOOG": 0.05,
+      "META": 0.04
+     },
+     "style_box": {
+      "LG": 0.85,
+      "LB": 0.1,
+      "MG": 0.05
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.599,
+      "gfc": -0.5395,
+      "covid": -0.3187,
+      "y2022": -0.26802
+     },
+     "lots": [
+      {
+       "id": "LCG-A",
+       "cost": 140000,
+       "mv": 180000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage",
+     "share_class": "A"
+    },
+    {
+     "sym": "BAL-C",
+     "name": "Balanced Income Fund, Class C (12b-1 fee)",
+     "kind": "mf",
+     "mv": 90000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 170,
+     "holdings_count": 400,
+     "top10_share": 0.25,
+     "sleeve": "Balanced",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.3,
+      "LCV": 0.3,
+      "UST": 0.12,
+      "IGC": 0.16,
+      "HY": 0.12
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.025,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.045,
+      "MSFT": 0.0402,
+      "AAPL": 0.0396,
+      "AMZN": 0.024,
+      "GOOG": 0.0234,
+      "META": 0.0174,
+      "AVGO": 0.015,
+      "TSLA": 0.0126,
+      "JPM": 0.009,
+      "COST": 0.006,
+      "UNH": 0.0048,
+      "JNJ": 0.0048,
+      "PG": 0.0048,
+      "HD": 0.0048
+     },
+     "style_box": {
+      "LV": 0.32,
+      "LB": 0.33,
+      "LG": 0.35
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.21921,
+      "gfc": -0.354701,
+      "covid": -0.236583,
+      "y2022": -0.162801
+     },
+     "lots": [
+      {
+       "id": "BAL-C",
+       "cost": 85000,
+       "mv": 90000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage",
+     "share_class": "C"
+    },
+    {
+     "sym": "IDX-I",
+     "name": "S&P 500 Index Fund, institutional class",
+     "kind": "mf",
+     "mv": 150000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 4,
+     "holdings_count": 503,
+     "top10_share": 0.37,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.5,
+      "LCV": 0.5
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.075,
+      "MSFT": 0.067,
+      "AAPL": 0.066,
+      "AMZN": 0.04,
+      "GOOG": 0.039,
+      "META": 0.029,
+      "AVGO": 0.025,
+      "TSLA": 0.021,
+      "JPM": 0.015,
+      "COST": 0.01,
+      "UNH": 0.008,
+      "JNJ": 0.008,
+      "PG": 0.008,
+      "HD": 0.008
+     },
+     "style_box": {
+      "LV": 0.32,
+      "LB": 0.33,
+      "LG": 0.35
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "IDX-I",
+       "cost": 110000,
+       "mv": 150000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 260000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.0003,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "NVDA",
+       "cost": 45000,
+       "mv": 260000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "AAPL",
+     "name": "Apple Inc",
+     "kind": "stock",
+     "mv": 110000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "TECH",
+     "sectors": null,
+     "yield": 0.004,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "lots": [
+      {
+       "id": "AAPL",
+       "cost": 70000,
+       "mv": 110000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "PRIV-SERIESB",
+     "name": "Private placement, Series B preferred (startup)",
+     "kind": "alt",
+     "mv": 60000,
+     "tradable": false,
+     "why_not": "Restricted private placement",
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "PE": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.35,
+      "gfc": -0.4,
+      "covid": -0.15,
+      "y2022": -0.1
+     },
+     "lots": [
+      {
+       "id": "PRIV-SERIESB",
+       "cost": 25000,
+       "mv": 60000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "other"
+    },
+    {
+     "sym": "MMF",
+     "name": "Government money market fund",
+     "kind": "cash",
+     "mv": 30000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": 15,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.036,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "MMF",
+       "cost": 30000,
+       "mv": 30000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 20000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 20000,
+       "mv": 20000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    }
+   ],
+   "age": 34,
+   "liquidity_reserve": 40000
+  },
+  "delgado": {
+   "id": "delgado",
+   "name": "Delgado Household",
+   "risk": "Moderately Aggressive",
+   "profile": "Moderately Aggressive",
+   "model": "CIO Moderately Aggressive, Tier 2",
+   "band": {
+    "low": 0.1035,
+    "high": 0.1253,
+    "model": 0.1142,
+    "profiles": {
+     "Conservative": 0.0552,
+     "Moderately Conservative": 0.0724,
+     "Moderate": 0.0928,
+     "Moderately Aggressive": 0.1142,
+     "Aggressive": 0.1364
+    }
+   },
+   "value": 1650000,
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "bracket": 0.37,
+    "bracket_known": true,
+    "label": "long-term 23.8%, short-term 40.8%; federal bracket 37%; no state rate"
+   },
+   "gain_budget": 33000.0,
+   "hy_limit": 0.1,
+   "thresholds": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "max_turnover": 0.4,
+    "drift_pts": 0.05
+   },
+   "incoming": null,
+   "meeting": {
+    "inDays": 9,
+    "type": "Retirement planning",
+    "note": "Long-time company employee; most of the account is company stock."
+   },
+   "manager_run": {},
+   "target": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "model_w": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "holdings": [
+    {
+     "sym": "COST",
+     "name": "Costco Wholesale Corp",
+     "kind": "stock",
+     "mv": 960000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "classes": {
+      "LCG": 1.0
+     },
+     "sector": "STAP",
+     "sectors": null,
+     "yield": 0.005,
+     "top_holdings": null,
+     "style_box": {
+      "LG": 1.0
+     },
+     "scret": {
+      "dotcom": 0.05,
+      "gfc": -0.3,
+      "covid": -0.24,
+      "y2022": -0.006
+     },
+     "lots": [
+      {
+       "id": "COST-1",
+       "cost": 90000,
+       "mv": 760000,
+       "term": "LT",
+       "acquired": "2009-03-16"
+      },
+      {
+       "id": "COST-2",
+       "cost": 60000,
+       "mv": 200000,
+       "term": "LT",
+       "acquired": "2014-06-02"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 320000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "sleeve": "US Large Cap Core",
+     "basis_missing": false,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "sector": null,
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "yield": 0.012,
+     "muni": false,
+     "top_holdings": {
+      "NVDA": 0.0638,
+      "MSFT": 0.057,
+      "AAPL": 0.0561,
+      "AMZN": 0.034,
+      "GOOG": 0.0331,
+      "META": 0.0247,
+      "AVGO": 0.0213,
+      "TSLA": 0.0179,
+      "JPM": 0.0127,
+      "COST": 0.0085,
+      "UNH": 0.0068,
+      "JNJ": 0.0068,
+      "PG": 0.0068,
+      "HD": 0.0068
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": -0.47335,
+      "gfc": -0.551168,
+      "covid": -0.340305,
+      "y2022": -0.181802
+     },
+     "lots": [
+      {
+       "id": "VTI-1",
+       "cost": 250000,
+       "mv": 320000,
+       "term": "LT",
+       "acquired": "2018-01-10"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 230000,
+     "tradable": true,
+     "why_not": null,
+     "manager": null,
+     "cash": false,
+     "expense_bps": 3,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "sleeve": "Core Fixed Income",
+     "basis_missing": false,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.041,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1.0
+     },
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.1382
+     },
+     "lots": [
+      {
+       "id": "AGG-1",
+       "cost": 240000,
+       "mv": 230000,
+       "term": "LT",
+       "acquired": "2020-08-03"
+      }
+     ],
+     "acct": "brokerage"
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 140000,
+     "tradable": false,
+     "why_not": null,
+     "manager": null,
+     "cash": true,
+     "expense_bps": null,
+     "holdings_count": null,
+     "top10_share": null,
+     "sleeve": null,
+     "basis_missing": false,
+     "classes": {
+      "CASH": 1.0
+     },
+     "sector": null,
+     "sectors": null,
+     "yield": 0.034,
+     "muni": false,
+     "top_holdings": null,
+     "style_box": null,
+     "region": {
+      "US": 1
+     },
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "lots": [
+      {
+       "id": "CASH",
+       "cost": 140000,
+       "mv": 140000,
+       "term": "LT",
+       "acquired": null
+      }
+     ],
+     "acct": "brokerage"
+    }
+   ],
+   "age": 64,
+   "liquidity_reserve": 80000
+  }
+ }
+}

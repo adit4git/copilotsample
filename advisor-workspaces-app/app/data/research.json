@@ -1,0 +1,441 @@
+{
+ "downgrades": [
+  {
+   "sym": "UNH",
+   "name": "UnitedHealth Group",
+   "sector": "Health Care",
+   "change": {
+    "sym": "UNH",
+    "date": "2026-10-13",
+    "from": "Buy",
+    "to": "Underperform",
+    "analyst_team": "US Managed Care",
+    "why": "Higher medical cost ratios and a widening regulatory review; estimates cut for 2026 and 2027."
+   },
+   "holders": [
+    {
+     "household_id": "okoye",
+     "name": "Okoye Household",
+     "mv": 110000,
+     "share": 0.11224489795918367,
+     "gain": -16000,
+     "tax_to_switch": -2400,
+     "decides": "Manager (Beacon Hill Appreciation SMA)"
+    }
+   ],
+   "alternatives": [
+    {
+     "sym": "ELV",
+     "name": "Elevance Health",
+     "rating": "Buy",
+     "industry": "Managed Health Care",
+     "yield": 0.016,
+     "beta": 0.75,
+     "style": "Large value",
+     "score": 83,
+     "why": [
+      "same sector",
+      "same industry",
+      "similar yield",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "ABBV",
+     "name": "AbbVie Inc",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.034,
+     "beta": 0.6,
+     "style": "Large blend",
+     "score": 68,
+     "why": [
+      "same sector",
+      "same style box",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "CI",
+     "name": "Cigna Group",
+     "rating": "Buy",
+     "industry": "Health Care Services",
+     "yield": 0.019,
+     "beta": 0.7,
+     "style": "Large value",
+     "score": 58,
+     "why": [
+      "same sector",
+      "similar yield",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "VTV",
+     "name": "Value ETF",
+     "rating": null,
+     "industry": "Diversified fund",
+     "yield": 0.023,
+     "beta": 1.0,
+     "style": "Large value",
+     "score": null,
+     "why": [
+      "removes single-stock risk"
+     ],
+     "product_id": "RESEARCH_VALUE-ETF-VTV"
+    }
+   ]
+  },
+  {
+   "sym": "CVS",
+   "name": "CVS Health",
+   "sector": "Health Care",
+   "change": {
+    "sym": "CVS",
+    "date": "2026-10-09",
+    "from": "Buy",
+    "to": "Neutral",
+    "analyst_team": "US Health Care Services",
+    "why": "Medicare Advantage cost trends are running above guidance; the team moves to the sidelines until 2027 bids are known."
+   },
+   "holders": [
+    {
+     "household_id": "castellano",
+     "name": "Castellano Family",
+     "mv": 80000,
+     "share": 0.025,
+     "gain": -18750,
+     "tax_to_switch": -4462,
+     "decides": "Manager (Crestline Large Cap Value SMA)"
+    }
+   ],
+   "alternatives": [
+    {
+     "sym": "CI",
+     "name": "Cigna Group",
+     "rating": "Buy",
+     "industry": "Health Care Services",
+     "yield": 0.019,
+     "beta": 0.7,
+     "style": "Large value",
+     "score": 92,
+     "why": [
+      "same sector",
+      "same industry",
+      "same style box",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "JNJ",
+     "name": "Johnson & Johnson",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.031,
+     "beta": 0.55,
+     "style": "Large value",
+     "score": 69,
+     "why": [
+      "same sector",
+      "same style box",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "MRK",
+     "name": "Merck & Co",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.035,
+     "beta": 0.5,
+     "style": "Large value",
+     "score": 69,
+     "why": [
+      "same sector",
+      "same style box",
+      "similar yield",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "VTV",
+     "name": "Value ETF",
+     "rating": null,
+     "industry": "Diversified fund",
+     "yield": 0.023,
+     "beta": 1.0,
+     "style": "Large value",
+     "score": null,
+     "why": [
+      "removes single-stock risk"
+     ],
+     "product_id": "RESEARCH_VALUE-ETF-VTV"
+    }
+   ]
+  },
+  {
+   "sym": "INTC",
+   "name": "Intel Corp",
+   "sector": "Information Technology",
+   "change": {
+    "sym": "INTC",
+    "date": "2026-10-02",
+    "from": "Neutral",
+    "to": "Underperform",
+    "analyst_team": "US Semiconductors",
+    "why": "Foundry customer wins are slower than planned and capital spending keeps free cash flow negative through 2027."
+   },
+   "holders": [
+    {
+     "household_id": "ashford",
+     "name": "Ashford Household",
+     "mv": 100000,
+     "share": 0.023255813953488372,
+     "gain": -50000,
+     "tax_to_switch": -11900,
+     "decides": "Manager (Ashcroft Large Cap Core SMA)"
+    }
+   ],
+   "alternatives": [
+    {
+     "sym": "ADI",
+     "name": "Analog Devices",
+     "rating": "Buy",
+     "industry": "Semiconductors",
+     "yield": 0.017,
+     "beta": 1.1,
+     "style": "Large blend",
+     "score": 78,
+     "why": [
+      "same sector",
+      "same industry",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "rating": "Buy",
+     "industry": "Semiconductors",
+     "yield": 0.0003,
+     "beta": 1.7,
+     "style": "Large growth",
+     "score": 76,
+     "why": [
+      "same sector",
+      "same industry",
+      "similar yield"
+     ]
+    },
+    {
+     "sym": "QCOM",
+     "name": "Qualcomm Inc",
+     "rating": "Buy",
+     "industry": "Semiconductors",
+     "yield": 0.021,
+     "beta": 1.25,
+     "style": "Large blend",
+     "score": 76,
+     "why": [
+      "same sector",
+      "same industry",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "VTV",
+     "name": "Value ETF",
+     "rating": null,
+     "industry": "Diversified fund",
+     "yield": 0.023,
+     "beta": 1.0,
+     "style": "Large value",
+     "score": null,
+     "why": [
+      "removes single-stock risk"
+     ],
+     "product_id": "RESEARCH_VALUE-ETF-VTV"
+    }
+   ]
+  },
+  {
+   "sym": "PFE",
+   "name": "Pfizer Inc",
+   "sector": "Health Care",
+   "change": {
+    "sym": "PFE",
+    "date": "2026-09-29",
+    "from": "Buy",
+    "to": "Neutral",
+    "analyst_team": "US Pharmaceuticals",
+    "why": "Two late-stage readouts missed; the dividend looks covered but 2027 earnings estimates come down about 8%."
+   },
+   "holders": [
+    {
+     "household_id": "castellano",
+     "name": "Castellano Family",
+     "mv": 120000,
+     "share": 0.0375,
+     "gain": -19440,
+     "tax_to_switch": -4872,
+     "decides": "Manager (Crestline Large Cap Value SMA)"
+    },
+    {
+     "household_id": "ashford",
+     "name": "Ashford Household",
+     "mv": 140000,
+     "share": 0.03255813953488372,
+     "gain": -40000,
+     "tax_to_switch": -9520,
+     "decides": "Manager (Ashcroft Large Cap Core SMA)"
+    }
+   ],
+   "alternatives": [
+    {
+     "sym": "JNJ",
+     "name": "Johnson & Johnson",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.031,
+     "beta": 0.55,
+     "style": "Large value",
+     "score": 89,
+     "why": [
+      "same sector",
+      "same industry",
+      "same style box",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "MRK",
+     "name": "Merck & Co",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.035,
+     "beta": 0.5,
+     "style": "Large value",
+     "score": 88,
+     "why": [
+      "same sector",
+      "same industry",
+      "same style box",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "ABBV",
+     "name": "AbbVie Inc",
+     "rating": "Buy",
+     "industry": "Pharmaceuticals",
+     "yield": 0.034,
+     "beta": 0.6,
+     "style": "Large blend",
+     "score": 75,
+     "why": [
+      "same sector",
+      "same industry",
+      "similar beta"
+     ]
+    },
+    {
+     "sym": "VTV",
+     "name": "Value ETF",
+     "rating": null,
+     "industry": "Diversified fund",
+     "yield": 0.023,
+     "beta": 1.0,
+     "style": "Large value",
+     "score": null,
+     "why": [
+      "removes single-stock risk"
+     ],
+     "product_id": "RESEARCH_VALUE-ETF-VTV"
+    }
+   ]
+  },
+  {
+   "sym": "TSLA",
+   "name": "Tesla Inc",
+   "sector": "Consumer Discretionary",
+   "change": {
+    "sym": "TSLA",
+    "date": "2026-09-24",
+    "from": "Neutral",
+    "to": "Underperform",
+    "analyst_team": "US Autos & Mobility",
+    "why": "Delivery growth slowing into 2027 while the valuation still assumes autonomy revenue the team now expects later."
+   },
+   "holders": [
+    {
+     "household_id": "reyes",
+     "name": "Reyes-Marín Household",
+     "mv": 1100000,
+     "share": 0.08870967741935484,
+     "gain": -400000,
+     "tax_to_switch": -95200,
+     "decides": "Advisor"
+    }
+   ],
+   "alternatives": [
+    {
+     "sym": "AMZN",
+     "name": "Amazon.com Inc",
+     "rating": "Buy",
+     "industry": "Broadline Retail",
+     "yield": 0.0,
+     "beta": 1.2,
+     "style": "Large growth",
+     "score": 65,
+     "why": [
+      "same sector",
+      "same style box",
+      "similar yield"
+     ]
+    },
+    {
+     "sym": "BKNG",
+     "name": "Booking Holdings",
+     "rating": "Buy",
+     "industry": "Hotels & Travel",
+     "yield": 0.007,
+     "beta": 1.3,
+     "style": "Large growth",
+     "score": 63,
+     "why": [
+      "same sector",
+      "same style box",
+      "similar yield"
+     ]
+    },
+    {
+     "sym": "LOW",
+     "name": "Lowe's Companies",
+     "rating": "Buy",
+     "industry": "Home Improvement Retail",
+     "yield": 0.019,
+     "beta": 1.0,
+     "style": "Large blend",
+     "score": 44,
+     "why": [
+      "same sector"
+     ]
+    },
+    {
+     "sym": "VUG",
+     "name": "Growth ETF",
+     "rating": null,
+     "industry": "Diversified fund",
+     "yield": 0.005,
+     "beta": 1.0,
+     "style": "Large growth",
+     "score": null,
+     "why": [
+      "removes single-stock risk"
+     ],
+     "product_id": "RESEARCH_GROWTH-ETF-VUG"
+    }
+   ]
+  }
+ ]
+}

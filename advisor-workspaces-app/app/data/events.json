@@ -1,0 +1,313 @@
+{
+ "news": [
+  {
+   "id": "n1",
+   "date": "2026-10-22",
+   "type": "market",
+   "source": "Market news",
+   "headline": "Tighter export rules for advanced AI chips",
+   "summary": "New rules limit sales of the most advanced processors to several countries from January. Chip makers fell; analysts expect a modest hit to 2027 data-center revenue.",
+   "moves": {
+    "names": {
+     "NVDA": -0.06,
+     "AVGO": -0.04,
+     "QCOM": -0.03
+    },
+    "sectors": {},
+    "classes": {}
+   },
+   "cio": "TECH",
+   "research": null,
+   "house": "The CIO moved technology from overweight to neutral on 20 October, citing crowded positioning and this policy risk. Research keeps a Buy on NVDA but cut its 2027 estimate 4%.",
+   "todo": "Review single-stock exposure to chip makers, including through funds.",
+   "route": "ws3"
+  },
+  {
+   "id": "n2",
+   "date": "2026-10-20",
+   "type": "cio",
+   "source": "CIO",
+   "headline": "CIO moves US large-cap growth to underweight, international to overweight",
+   "summary": "The quarterly allocation update trims large-cap growth by 2 points and adds to large-cap value and international developed stocks.",
+   "moves": {
+    "names": {},
+    "sectors": {},
+    "classes": {}
+   },
+   "view": {
+    "LCG": -1,
+    "LCV": 1,
+    "INTL": 1
+   },
+   "cio": "LCG",
+   "research": null,
+   "house": "Growth leadership is narrow and expensive; earnings are broadening. Portfolios heavy in large-cap growth now sit further from the tactical target.",
+   "todo": "Check households overweight large-cap growth against the new tactical target.",
+   "route": "ws1"
+  },
+  {
+   "id": "n3",
+   "date": "2026-10-16",
+   "type": "market",
+   "source": "Market news",
+   "headline": "Treasury yields jump after strong jobs report",
+   "summary": "The 10-year yield rose 0.25 points to 4.6% as payrolls beat expectations and rate-cut hopes faded. Bond prices fell.",
+   "moves": {
+    "names": {},
+    "sectors": {},
+    "classes": {
+     "UST": -0.012,
+     "IGC": -0.015,
+     "HY": -0.008
+    }
+   },
+   "cio": "UST",
+   "research": null,
+   "house": "The CIO keeps bond duration near the benchmark and prefers high-quality corporate and municipal bonds; higher yields improve future income.",
+   "todo": "Explain the bond moves to income-focused clients; no change in allocation needed.",
+   "route": "ws2"
+  },
+  {
+   "id": "n4",
+   "date": "2026-10-14",
+   "type": "market",
+   "source": "Market news",
+   "headline": "Oil falls 7% on supply outlook",
+   "summary": "Producers signalled higher output into 2027. Energy shares fell across the board.",
+   "moves": {
+    "names": {
+     "CVX": -0.05
+    },
+    "sectors": {
+     "ENER": -0.04
+    },
+    "classes": {}
+   },
+   "cio": "ENER",
+   "research": null,
+   "house": "The CIO moved energy to underweight on 14 October. Research keeps a Neutral on CVX.",
+   "todo": "Note energy exposure in dividend-heavy portfolios.",
+   "route": "ws1"
+  },
+  {
+   "id": "n5",
+   "date": "2026-10-09",
+   "type": "research",
+   "source": "Research",
+   "headline": "Research cuts CVS to Neutral",
+   "summary": "Cost trends in its insurance business are running above guidance; the team moves to the sidelines until next year's bids are known.",
+   "moves": {
+    "names": {
+     "CVS": -0.04
+    },
+    "sectors": {},
+    "classes": {}
+   },
+   "cio": "HLTH",
+   "research": "CVS",
+   "house": "The CIO stays overweight health care but selective within managed care. Similar companies with Buy ratings include CI and JNJ.",
+   "todo": "Where a manager runs the holding, ask the manager for its view; otherwise review alternatives.",
+   "route": "ws1"
+  },
+  {
+   "id": "n6",
+   "date": "2026-09-29",
+   "type": "research",
+   "source": "Research",
+   "headline": "Research cuts PFE to Neutral after trial misses",
+   "summary": "Two late-stage readouts missed; the dividend looks covered but 2027 estimates come down about 8%.",
+   "moves": {
+    "names": {
+     "PFE": -0.07
+    },
+    "sectors": {},
+    "classes": {}
+   },
+   "cio": "HLTH",
+   "research": "PFE",
+   "house": "Health care remains an overweight for the CIO. Research prefers JNJ and MRK in pharmaceuticals.",
+   "todo": "Review PFE holders; for manager-run sleeves, raise it with the manager.",
+   "route": "ws1"
+  },
+  {
+   "id": "n7",
+   "date": "2026-10-21",
+   "type": "market",
+   "source": "Market news",
+   "headline": "Large-cap tech rallies on strong cloud earnings",
+   "summary": "Software and device makers rose after cloud revenue beat estimates.",
+   "moves": {
+    "names": {
+     "MSFT": 0.04,
+     "AAPL": 0.03
+    },
+    "sectors": {
+     "TECH": 0.015
+    },
+    "classes": {}
+   },
+   "cio": "TECH",
+   "research": null,
+   "house": "Strong results, but the CIO is neutral on technology after its run; gains are a chance to trim concentrated positions.",
+   "todo": "Use the rally to revisit concentrated technology positions.",
+   "route": "ws3"
+  },
+  {
+   "id": "n8",
+   "date": "2026-10-19",
+   "type": "client",
+   "source": "Client question",
+   "household": "kaplan",
+   "headline": "Kaplan asks whether to sell AAPL before retiring",
+   "summary": "Client email: \"Should I sell my Apple shares now or wait until I retire? I don't want a huge tax bill.\"",
+   "moves": {
+    "names": {},
+    "sectors": {},
+    "classes": {}
+   },
+   "cio": "TECH",
+   "research": null,
+   "house": "Research rates AAPL Buy; the CIO is neutral on technology. AAPL is 28.9% of the account, well above the 10% guideline.",
+   "todo": "Build a multi-year sale plan that respects trading windows and the retirement income need.",
+   "route": "ws3"
+  },
+  {
+   "id": "n9",
+   "date": "2026-09-24",
+   "type": "research",
+   "source": "Research",
+   "headline": "Research cuts TSLA to Underperform",
+   "summary": "Delivery growth is slowing into 2027 while the valuation still assumes autonomy revenue the team now expects later.",
+   "moves": {
+    "names": {
+     "TSLA": -0.05
+    },
+    "sectors": {},
+    "classes": {}
+   },
+   "cio": "DISC",
+   "research": "TSLA",
+   "house": "No CIO change. Exposure among your households is only through broad index funds.",
+   "todo": "No action for these households; monitor.",
+   "route": null
+  }
+ ],
+ "intel_as_of": "2026-10-23",
+ "intel": [
+  {
+   "id": "f1",
+   "date": "2026-10-23",
+   "type": "research",
+   "source": "Research",
+   "headline": "Research upgrades JPM to Buy",
+   "abstract": "Net interest income is holding up better than expected and capital return is rising; the team raises its 2027 estimate 5%.",
+   "stance": "Buy (was Neutral)",
+   "sym": "JPM",
+   "rule": "research",
+   "tags": [
+    "financials",
+    "banks",
+    "JPM",
+    "US large cap"
+   ],
+   "status": "Published",
+   "version": "v1",
+   "client_use": true,
+   "expires": "2027-04-23",
+   "entitled": "All advisors"
+  },
+  {
+   "id": "f2",
+   "date": "2026-10-23",
+   "type": "cio",
+   "source": "CIO",
+   "headline": "CIO moves high-yield bonds from neutral to overweight",
+   "abstract": "Default expectations have eased and yields remain above their 10-year average; the CIO adds 1 point to high yield within fixed income.",
+   "stance": "High yield: Overweight (was Neutral)",
+   "view": {
+    "HY": 1
+   },
+   "rule": "view",
+   "tags": [
+    "fixed income",
+    "high yield",
+    "credit"
+   ],
+   "status": "Published",
+   "version": "v1",
+   "client_use": true,
+   "expires": null,
+   "entitled": "All advisors"
+  },
+  {
+   "id": "f3",
+   "date": "2026-10-22",
+   "type": "research",
+   "source": "Research",
+   "headline": "European banks: sector upgraded to Overweight",
+   "abstract": "Higher-for-longer rates and buybacks support earnings; the team prefers large lenders in France and Spain.",
+   "stance": "Sector: Overweight (was Neutral)",
+   "rule": "region-sector",
+   "region": "Europe",
+   "sector": "FIN",
+   "tags": [
+    "international",
+    "Europe",
+    "financials",
+    "banks"
+   ],
+   "status": "Published",
+   "version": "v1",
+   "client_use": false,
+   "expires": "2027-01-22",
+   "entitled": "Research subscribers (you are entitled)"
+  },
+  {
+   "id": "f4",
+   "date": "2026-10-23",
+   "type": "market",
+   "source": "Market news",
+   "headline": "Yen jumps 3% after the central bank signals higher rates",
+   "abstract": "A stronger yen weighs on Japanese exporters in local terms but lifts the dollar value of unhedged Japanese holdings.",
+   "stance": null,
+   "moves": {
+    "names": {},
+    "sectors": {},
+    "classes": {
+     "INTL": 0.006
+    }
+   },
+   "rule": "market",
+   "tags": [
+    "international",
+    "Japan",
+    "currency"
+   ],
+   "status": "Published",
+   "version": "v1",
+   "client_use": false,
+   "expires": null,
+   "entitled": "All advisors (third-party news)"
+  },
+  {
+   "id": "f5",
+   "date": "2026-09-30",
+   "type": "cio",
+   "source": "CIO",
+   "headline": "CIO keeps energy at neutral",
+   "abstract": "Supply discipline supports prices; the CIO holds energy at neutral.",
+   "stance": "Energy: Neutral",
+   "rule": "superseded",
+   "tags": [
+    "energy",
+    "sector view"
+   ],
+   "status": "Superseded",
+   "superseded_by": "CIO moved energy to underweight on 14 October",
+   "version": "v1",
+   "client_use": false,
+   "expires": null,
+   "entitled": "All advisors"
+  }
+ ]
+}

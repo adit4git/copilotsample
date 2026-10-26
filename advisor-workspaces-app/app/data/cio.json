@@ -1,0 +1,408 @@
+{
+ "cio": {
+  "updated": "2026-10-01",
+  "tactical": {
+   "LCG": -0.02,
+   "LCV": 0.015,
+   "SMID": 0.005,
+   "INTL": 0.015,
+   "EM": 0.0,
+   "UST": -0.01,
+   "IGC": 0.005,
+   "HY": -0.005,
+   "CASH": -0.005,
+   "HF": 0.0,
+   "PE": 0.0
+  },
+  "tolerance": {
+   "class": 0.03,
+   "group": 0.05
+  },
+  "views": [
+   {
+    "key": "LCG",
+    "kind": "class",
+    "view": "Underweight",
+    "was": "Neutral",
+    "date": "2026-10-20",
+    "why": "Gains are concentrated in a handful of companies and valuations are stretched; earnings growth is broadening to other parts of the market."
+   },
+   {
+    "key": "LCV",
+    "kind": "class",
+    "view": "Overweight",
+    "was": "Neutral",
+    "date": "2026-10-20",
+    "why": "Cheaper valuations and improving earnings revisions in financials, industrials and health care."
+   },
+   {
+    "key": "INTL",
+    "kind": "class",
+    "view": "Overweight",
+    "was": "Neutral",
+    "date": "2026-10-20",
+    "why": "A weaker dollar and lower valuations; European and Japanese earnings are recovering."
+   },
+   {
+    "key": "SMID",
+    "kind": "class",
+    "view": "Slight overweight",
+    "was": "Neutral",
+    "date": "2026-10-01",
+    "why": "Rate cuts help smaller companies that borrow at floating rates."
+   },
+   {
+    "key": "UST",
+    "kind": "class",
+    "view": "Underweight",
+    "was": "Underweight",
+    "date": "2026-10-01",
+    "why": "Prefer high-quality corporate and municipal bonds for extra yield; keep duration near the benchmark."
+   },
+   {
+    "key": "HY",
+    "kind": "class",
+    "view": "Slight underweight",
+    "was": "Neutral",
+    "date": "2026-10-01",
+    "why": "Credit spreads are tight; the extra yield does not pay for the risk."
+   },
+   {
+    "key": "TECH",
+    "kind": "sector",
+    "view": "Neutral",
+    "was": "Overweight",
+    "date": "2026-10-20",
+    "why": "Strong fundamentals but crowded positioning and new export rules for advanced chips."
+   },
+   {
+    "key": "HLTH",
+    "kind": "sector",
+    "view": "Overweight",
+    "was": "Overweight",
+    "date": "2026-10-01",
+    "why": "Defensive earnings and reasonable valuations; selective within managed care."
+   },
+   {
+    "key": "ENER",
+    "kind": "sector",
+    "view": "Underweight",
+    "was": "Neutral",
+    "date": "2026-10-14",
+    "why": "Supply growth points to softer oil prices into 2027."
+   },
+   {
+    "key": "FIN",
+    "kind": "sector",
+    "view": "Overweight",
+    "was": "Neutral",
+    "date": "2026-10-20",
+    "why": "A steeper yield curve supports bank lending margins."
+   }
+  ]
+ },
+ "perf": {
+  "as_of": "2026-09-30",
+  "periods": [
+   "1Y",
+   "3Y"
+  ],
+  "bench": {
+   "LCG": {
+    "1Y": 0.24,
+    "3Y": 0.18
+   },
+   "LCV": {
+    "1Y": 0.14,
+    "3Y": 0.11
+   },
+   "SMID": {
+    "1Y": 0.1,
+    "3Y": 0.07
+   },
+   "INTL": {
+    "1Y": 0.16,
+    "3Y": 0.09
+   },
+   "EM": {
+    "1Y": 0.12,
+    "3Y": 0.05
+   },
+   "UST": {
+    "1Y": 0.042,
+    "3Y": 0.015
+   },
+   "IGC": {
+    "1Y": 0.055,
+    "3Y": 0.028
+   },
+   "HY": {
+    "1Y": 0.08,
+    "3Y": 0.06
+   },
+   "CASH": {
+    "1Y": 0.046,
+    "3Y": 0.043
+   },
+   "HF": {
+    "1Y": 0.07,
+    "3Y": 0.05
+   },
+   "PE": {
+    "1Y": 0.11,
+    "3Y": 0.09
+   }
+  },
+  "sec": {
+   "VTI": {
+    "1Y": 0.1807,
+    "3Y": 0.1372
+   },
+   "ITOT": {
+    "1Y": 0.1807,
+    "3Y": 0.1372
+   },
+   "VOO": {
+    "1Y": 0.1897,
+    "3Y": 0.1447
+   },
+   "IVV": {
+    "1Y": 0.1897,
+    "3Y": 0.1447
+   },
+   "IDX-I": {
+    "1Y": 0.1896,
+    "3Y": 0.1446
+   },
+   "ESGV": {
+    "1Y": 0.1791,
+    "3Y": 0.1361
+   },
+   "QQQ": {
+    "1Y": 0.258,
+    "3Y": 0.203
+   },
+   "VGT": {
+    "1Y": 0.2891,
+    "3Y": 0.2391
+   },
+   "ARKK": {
+    "1Y": 0.0565,
+    "3Y": -0.0215
+   },
+   "VUG": {
+    "1Y": 0.2396,
+    "3Y": 0.1796
+   },
+   "SCHG": {
+    "1Y": 0.2396,
+    "3Y": 0.1796
+   },
+   "LCG-A": {
+    "1Y": 0.1955,
+    "3Y": 0.1405
+   },
+   "SCHD": {
+    "1Y": 0.1094,
+    "3Y": 0.0994
+   },
+   "DGRO": {
+    "1Y": 0.1642,
+    "3Y": 0.1302
+   },
+   "VTV": {
+    "1Y": 0.1396,
+    "3Y": 0.1096
+   },
+   "LCV-I": {
+    "1Y": 0.1385,
+    "3Y": 0.1075
+   },
+   "IJH": {
+    "1Y": 0.0995,
+    "3Y": 0.0695
+   },
+   "VXUS": {
+    "1Y": 0.1495,
+    "3Y": 0.0795
+   },
+   "VEA": {
+    "1Y": 0.1597,
+    "3Y": 0.0897
+   },
+   "IEFA": {
+    "1Y": 0.1593,
+    "3Y": 0.0893
+   },
+   "VWO": {
+    "1Y": 0.1193,
+    "3Y": 0.0493
+   },
+   "IEMG": {
+    "1Y": 0.1191,
+    "3Y": 0.0491
+   },
+   "VNQ": {
+    "1Y": 0.0687,
+    "3Y": 0.0287
+   },
+   "BAL-C": {
+    "1Y": 0.0954,
+    "3Y": 0.0615
+   },
+   "AGG": {
+    "1Y": 0.0469,
+    "3Y": 0.0199
+   },
+   "BND": {
+    "1Y": 0.0469,
+    "3Y": 0.0199
+   },
+   "LQD": {
+    "1Y": 0.0496,
+    "3Y": 0.0226
+   },
+   "VGSH": {
+    "1Y": 0.0296,
+    "3Y": 0.0146
+   },
+   "MUB": {
+    "1Y": 0.0545,
+    "3Y": 0.0275
+   },
+   "VTEB": {
+    "1Y": 0.0547,
+    "3Y": 0.0277
+   },
+   "NVDA": {
+    "1Y": 0.38,
+    "3Y": 0.72
+   },
+   "MSFT": {
+    "1Y": 0.12,
+    "3Y": 0.21
+   },
+   "AAPL": {
+    "1Y": 0.09,
+    "3Y": 0.17
+   },
+   "AMZN": {
+    "1Y": 0.18,
+    "3Y": 0.2
+   },
+   "GOOG": {
+    "1Y": 0.26,
+    "3Y": 0.22
+   },
+   "TSLA": {
+    "1Y": -0.08,
+    "3Y": 0.1
+   },
+   "COST": {
+    "1Y": 0.15,
+    "3Y": 0.24
+   },
+   "JPM": {
+    "1Y": 0.28,
+    "3Y": 0.22
+   },
+   "PFE": {
+    "1Y": -0.12,
+    "3Y": -0.14
+   },
+   "CVX": {
+    "1Y": 0.03,
+    "3Y": 0.05
+   },
+   "CVS": {
+    "1Y": -0.18,
+    "3Y": -0.15
+   },
+   "JNJ": {
+    "1Y": 0.07,
+    "3Y": 0.03
+   },
+   "PG": {
+    "1Y": 0.05,
+    "3Y": 0.06
+   },
+   "KO": {
+    "1Y": 0.06,
+    "3Y": 0.05
+   },
+   "UNH": {
+    "1Y": -0.25,
+    "3Y": -0.06
+   },
+   "HD": {
+    "1Y": 0.09,
+    "3Y": 0.1
+   },
+   "INTC": {
+    "1Y": -0.2,
+    "3Y": -0.18
+   },
+   "TXN": {
+    "1Y": 0.04,
+    "3Y": 0.06
+   },
+   "QCOM": {
+    "1Y": 0.1,
+    "3Y": 0.12
+   },
+   "ADI": {
+    "1Y": 0.12,
+    "3Y": 0.09
+   },
+   "MRK": {
+    "1Y": -0.04,
+    "3Y": 0.0
+   },
+   "ABBV": {
+    "1Y": 0.14,
+    "3Y": 0.15
+   },
+   "CI": {
+    "1Y": 0.06,
+    "3Y": 0.1
+   },
+   "ELV": {
+    "1Y": -0.1,
+    "3Y": 0.0
+   },
+   "BKNG": {
+    "1Y": 0.22,
+    "3Y": 0.25
+   },
+   "LOW": {
+    "1Y": 0.07,
+    "3Y": 0.08
+   },
+   "AUSTIN-4.0-32": {
+    "1Y": 0.032,
+    "3Y": 0.014
+   },
+   "NYSDA-5.0-34": {
+    "1Y": 0.034,
+    "3Y": 0.016
+   },
+   "PRIV": {
+    "1Y": 0.06,
+    "3Y": 0.08
+   },
+   "PRIV-SERIESB": {
+    "1Y": 0.0,
+    "3Y": 0.15
+   },
+   "MMF": {
+    "1Y": 0.046,
+    "3Y": 0.043
+   },
+   "CASH": {
+    "1Y": 0.046,
+    "3Y": 0.043
+   }
+  },
+  "note": "Illustrative returns. Attribution holds today's weights over the period; production uses the performance system's monthly holdings."
+ }
+}

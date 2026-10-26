@@ -1,0 +1,218 @@
+{
+ "content": [
+  {
+   "id": "c01",
+   "title": "Why an advisory program: ongoing advice, one fee",
+   "kind": "Client brochure",
+   "topics": [
+    "value",
+    "fees",
+    "fiduciary"
+   ],
+   "audience": "client",
+   "summary": "How an advisory program works: a fiduciary relationship, a portfolio built to the CIO's allocation, ongoing monitoring and one asset-based fee instead of commissions.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c02",
+   "title": "What you pay, and what you get",
+   "kind": "Fee disclosure",
+   "topics": [
+    "fees"
+   ],
+   "audience": "client",
+   "summary": "The program fee schedule, what it includes, underlying fund expenses, and when a commission account may cost less.",
+   "approved": "2026-09-01",
+   "expires": "2027-03-01"
+  },
+  {
+   "id": "c03",
+   "title": "Moving your portfolio without a big tax bill",
+   "kind": "One-page summary",
+   "topics": [
+    "transition",
+    "tax"
+   ],
+   "audience": "client",
+   "summary": "How appreciated positions move in kind and are sold over time within a yearly gain budget; losses are harvested along the way.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c04",
+   "title": "Investing cash in steps",
+   "kind": "One-page summary",
+   "topics": [
+    "cash",
+    "transition"
+   ],
+   "audience": "client",
+   "summary": "Why new cash can be invested in monthly steps over six months, and what that does and does not protect against.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c05",
+   "title": "Owning the index directly",
+   "kind": "Client brochure",
+   "topics": [
+    "concentrated",
+    "tax",
+    "sma"
+   ],
+   "audience": "client",
+   "summary": "How direct indexing works, how harvested losses offset gains elsewhere, and how a concentrated stock and its sector can be excluded.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c06",
+   "title": "Choices for a large single-stock position",
+   "kind": "Advisor guide",
+   "topics": [
+    "concentrated"
+   ],
+   "audience": "advisor",
+   "summary": "The sell, retain-and-protect, and gift paths; insider and restricted-stock steps; when to involve the capital markets specialists.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c07",
+   "title": "House views: this quarter's CIO outlook",
+   "kind": "Client brochure",
+   "topics": [
+    "cio",
+    "market"
+   ],
+   "audience": "client",
+   "summary": "The CIO's allocation calls and the reasons behind them, in plain language.",
+   "approved": "2026-10-01",
+   "expires": "2026-12-31"
+  },
+  {
+   "id": "c08",
+   "title": "How research ratings work",
+   "kind": "One-page summary",
+   "topics": [
+    "research"
+   ],
+   "audience": "client",
+   "summary": "What Buy, Neutral and Underperform mean, how often ratings change, and why a rating change is a reason to review, not an instruction to trade.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c09",
+   "title": "Separately managed accounts explained",
+   "kind": "Client brochure",
+   "topics": [
+    "sma",
+    "value"
+   ],
+   "audience": "client",
+   "summary": "What an SMA is, who the managers are, minimums, and how it differs from a mutual fund.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c10",
+   "title": "Talking about fees with confidence",
+   "kind": "Advisor guide",
+   "topics": [
+    "fees",
+    "value"
+   ],
+   "audience": "advisor",
+   "summary": "Approved wording for explaining the program fee, comparing it fairly with a commission account, and disclosing that compensation differs between options.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  },
+  {
+   "id": "c11",
+   "title": "Market update: rates, chips and oil",
+   "kind": "Client brochure",
+   "topics": [
+    "market",
+    "cio"
+   ],
+   "audience": "client",
+   "summary": "This week's market moves and what the CIO thinks they mean for long-term investors.",
+   "approved": "2026-10-22",
+   "expires": "2026-11-22"
+  },
+  {
+   "id": "c12",
+   "title": "Gifting appreciated stock",
+   "kind": "One-page summary",
+   "topics": [
+    "concentrated",
+    "tax"
+   ],
+   "audience": "client",
+   "summary": "Giving low-basis shares to family or charity: how it can reduce taxes and concentration at the same time.",
+   "approved": "2026-07-15",
+   "expires": "2027-07-15"
+  }
+ ],
+ "objections": [
+  {
+   "id": "o1",
+   "q": "Why pay an ongoing fee when I rarely trade?",
+   "a": "The fee pays for ongoing advice, portfolio construction to the CIO's allocation, monitoring and rebalancing, and tax management, not for trades. If you truly want to buy and hold with little advice, a commission account can cost less, and we will show you both.",
+   "content": "c10",
+   "topics": [
+    "fees"
+   ]
+  },
+  {
+   "id": "o2",
+   "q": "Do I have to sell everything to move?",
+   "a": "No. Most positions can move as they are. Appreciated holdings are sold over time within a yearly gain budget, and some may stay where they are.",
+   "content": "c03",
+   "topics": [
+    "transition",
+    "tax"
+   ]
+  },
+  {
+   "id": "o3",
+   "q": "My portfolio has done well. Why change it?",
+   "a": "Past returns came with more risk than your profile calls for. The proposal aims for similar expected return with less risk, and a plan if markets fall.",
+   "content": "c01",
+   "topics": [
+    "value"
+   ],
+   "requires": "risk_down"
+  },
+  {
+   "id": "o4",
+   "q": "I don't want to give up my company stock.",
+   "a": "You don't have to sell it all. We can reduce it in steps that fit your tax position, protect part of it, or give some away, and we follow any trading rules that apply to you.",
+   "content": "c06",
+   "topics": [
+    "concentrated"
+   ]
+  },
+  {
+   "id": "o5",
+   "q": "Is now a bad time to invest my cash?",
+   "a": "Nobody can time markets reliably. Investing in steps over several months spreads the entry point; it reduces regret, not long-run risk.",
+   "content": "c04",
+   "topics": [
+    "cash"
+   ]
+  },
+  {
+   "id": "o6",
+   "q": "Isn't a cheaper index-only option enough?",
+   "a": "It may be. The index-only portfolio costs less but has fewer services and no custom tax management. We will show both, and how advisor compensation differs.",
+   "content": "c02",
+   "topics": [
+    "fees",
+    "value"
+   ]
+  }
+ ]
+}

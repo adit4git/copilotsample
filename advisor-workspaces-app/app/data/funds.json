@@ -1,0 +1,2459 @@
+{
+ "funds": {
+  "VTI": {
+   "sym": "VTI",
+   "name": "US Total Market ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.45,
+    "LCV": 0.45,
+    "SMID": 0.1
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.012,
+   "expense_bps": 3,
+   "holdings_count": 3600,
+   "top10_share": 0.31,
+   "style_box": {
+    "LV": 0.3,
+    "LB": 0.3,
+    "LG": 0.3,
+    "MB": 0.06,
+    "SB": 0.04
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4733502538071066,
+    "gfc": -0.5511675126903552,
+    "covid": -0.3403045685279188,
+    "y2022": -0.1818020304568528
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.0638,
+    "MSFT": 0.057,
+    "AAPL": 0.0561,
+    "AMZN": 0.034,
+    "GOOG": 0.0331,
+    "META": 0.0247,
+    "AVGO": 0.0213,
+    "TSLA": 0.0179,
+    "JPM": 0.0127,
+    "COST": 0.0085,
+    "UNH": 0.0068,
+    "JNJ": 0.0068,
+    "PG": 0.0068,
+    "HD": 0.0068
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Owns essentially the whole US stock market at very low cost.",
+    "strengths": [
+     "About 3,600 holdings across all sizes",
+     "0.03% expense ratio",
+     "Very low turnover, tax efficient"
+    ],
+    "risks": [
+     "Market-cap weighted: the largest technology names are about a third of the fund"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "ITOT": {
+   "sym": "ITOT",
+   "name": "Core S&P Total US Stock ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.45,
+    "LCV": 0.45,
+    "SMID": 0.1
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.012,
+   "expense_bps": 3,
+   "holdings_count": 2500,
+   "top10_share": 0.33,
+   "style_box": {
+    "LV": 0.3,
+    "LB": 0.3,
+    "LG": 0.3,
+    "MB": 0.06,
+    "SB": 0.04
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4733502538071066,
+    "gfc": -0.5511675126903552,
+    "covid": -0.3403045685279188,
+    "y2022": -0.1818020304568528
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.0638,
+    "MSFT": 0.057,
+    "AAPL": 0.0561,
+    "AMZN": 0.034,
+    "GOOG": 0.0331,
+    "META": 0.0247,
+    "AVGO": 0.0213,
+    "TSLA": 0.0179,
+    "JPM": 0.0127,
+    "COST": 0.0085,
+    "UNH": 0.0068,
+    "JNJ": 0.0068,
+    "PG": 0.0068,
+    "HD": 0.0068
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Total US market exposure at very low cost; close substitute for VTI.",
+    "strengths": [
+     "About 2,500 holdings",
+     "0.03% expense ratio"
+    ],
+    "risks": [
+     "Same mega-cap technology weight as the market"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VOO": {
+   "sym": "VOO",
+   "name": "S&P 500 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.012,
+   "expense_bps": 3,
+   "holdings_count": 503,
+   "top10_share": 0.37,
+   "style_box": {
+    "LV": 0.32,
+    "LB": 0.33,
+    "LG": 0.35
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4733502538071066,
+    "gfc": -0.5511675126903552,
+    "covid": -0.3403045685279188,
+    "y2022": -0.1818020304568528
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Large-cap US core exposure through the S&P 500.",
+    "strengths": [
+     "Deep liquidity, 0.03% expense ratio"
+    ],
+    "risks": [
+     "No small-cap exposure; top 10 holdings are about 37%"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "IVV": {
+   "sym": "IVV",
+   "name": "Core S&P 500 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.012,
+   "expense_bps": 3,
+   "holdings_count": 503,
+   "top10_share": 0.37,
+   "style_box": {
+    "LV": 0.32,
+    "LB": 0.33,
+    "LG": 0.35
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4733502538071066,
+    "gfc": -0.5511675126903552,
+    "covid": -0.3403045685279188,
+    "y2022": -0.1818020304568528
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   },
+   "report": null
+  },
+  "IDX-I": {
+   "sym": "IDX-I",
+   "name": "S&P 500 Index Fund, institutional class",
+   "kind": "mf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.012,
+   "expense_bps": 4,
+   "holdings_count": 503,
+   "top10_share": 0.37,
+   "style_box": {
+    "LV": 0.32,
+    "LB": 0.33,
+    "LG": 0.35
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4733502538071066,
+    "gfc": -0.5511675126903552,
+    "covid": -0.3403045685279188,
+    "y2022": -0.1818020304568528
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Institutional-class S&P 500 index fund.",
+    "strengths": [
+     "0.04% expense ratio"
+    ],
+    "risks": [
+     "Mutual fund: capital gain distributions possible, unlike most ETFs"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "ESGV": {
+   "sym": "ESGV",
+   "name": "ESG US Equity ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.4,
+    "SMID": 0.1
+   },
+   "sleeve": "US Large Cap Core",
+   "yield": 0.01,
+   "expense_bps": 9,
+   "holdings_count": 1400,
+   "top10_share": 0.36,
+   "style_box": {
+    "LV": 0.3,
+    "LB": 0.3,
+    "LG": 0.3,
+    "MB": 0.06,
+    "SB": 0.04
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.49600000000000005,
+    "gfc": -0.5556,
+    "covid": -0.33119999999999994,
+    "y2022": -0.22073
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.38,
+    "FIN": 0.14,
+    "DISC": 0.11,
+    "COMM": 0.11,
+    "HLTH": 0.1,
+    "INDU": 0.07,
+    "STAP": 0.04,
+    "UTIL": 0.01,
+    "REAL": 0.03,
+    "MATL": 0.01
+   },
+   "top_holdings": {
+    "NVDA": 0.067,
+    "MSFT": 0.0599,
+    "AAPL": 0.0589,
+    "AMZN": 0.0357,
+    "GOOG": 0.0348,
+    "META": 0.0259,
+    "AVGO": 0.0224,
+    "TSLA": 0.0188,
+    "JPM": 0.0133,
+    "COST": 0.0089,
+    "UNH": 0.0071,
+    "JNJ": 0.0071,
+    "PG": 0.0071,
+    "HD": 0.0071
+   },
+   "report": {
+    "view": "Neutral",
+    "summary": "US stocks screened for ESG criteria.",
+    "strengths": [
+     "Values alignment at low cost"
+    ],
+    "risks": [
+     "No energy; more technology than the market"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "QQQ": {
+   "sym": "QQQ",
+   "name": "Nasdaq-100 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": "US Large Cap Growth",
+   "yield": 0.006,
+   "expense_bps": 20,
+   "holdings_count": 101,
+   "top10_share": 0.52,
+   "style_box": {
+    "LG": 0.8,
+    "LB": 0.15,
+    "MG": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.6197499999999998,
+    "gfc": -0.51715,
+    "covid": -0.31089999999999995,
+    "y2022": -0.2637149999999999
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.52,
+    "COMM": 0.16,
+    "DISC": 0.14,
+    "HLTH": 0.05,
+    "STAP": 0.05,
+    "INDU": 0.05,
+    "UTIL": 0.01,
+    "MATL": 0.01,
+    "ENER": 0.005,
+    "FIN": 0.005
+   },
+   "top_holdings": {
+    "NVDA": 0.095,
+    "MSFT": 0.085,
+    "AAPL": 0.08,
+    "AMZN": 0.055,
+    "GOOG": 0.053,
+    "AVGO": 0.05,
+    "META": 0.038,
+    "TSLA": 0.03,
+    "COST": 0.025
+   },
+   "report": {
+    "view": "Neutral",
+    "summary": "Concentrated large-cap growth exposure: the 100 largest non-financial Nasdaq companies.",
+    "strengths": [
+     "Liquid, strong long-run record"
+    ],
+    "risks": [
+     "About half in technology and about 52% in the top 10 holdings",
+     "No financials; deep drawdowns in 2000-02 and 2022"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VGT": {
+   "sym": "VGT",
+   "name": "Info Tech ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": "Sector: Information Technology",
+   "yield": 0.005,
+   "expense_bps": 9,
+   "holdings_count": 320,
+   "top10_share": 0.6,
+   "style_box": {
+    "LG": 0.85,
+    "MG": 0.1,
+    "SG": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 1.0
+   },
+   "top_holdings": {
+    "NVDA": 0.17,
+    "AAPL": 0.15,
+    "MSFT": 0.135,
+    "AVGO": 0.05,
+    "INTC": 0.006
+   },
+   "report": {
+    "view": "Neutral",
+    "summary": "Single-sector technology fund.",
+    "strengths": [
+     "Low cost for a sector fund"
+    ],
+    "risks": [
+     "One sector only; three stocks are about 45% of the fund",
+     "Not a core holding"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "ARKK": {
+   "sym": "ARKK",
+   "name": "Innovation ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.6,
+    "SMID": 0.4
+   },
+   "sleeve": "Thematic",
+   "yield": 0.0,
+   "expense_bps": 75,
+   "holdings_count": 35,
+   "top10_share": 0.62,
+   "style_box": {
+    "LG": 0.4,
+    "MG": 0.4,
+    "SG": 0.2
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.502,
+    "gfc": -0.5402,
+    "covid": -0.32230000000000003,
+    "y2022": -0.23075
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.3,
+    "HLTH": 0.22,
+    "COMM": 0.15,
+    "DISC": 0.18,
+    "FIN": 0.15
+   },
+   "top_holdings": {
+    "TSLA": 0.1
+   },
+   "report": {
+    "view": "Not recommended",
+    "summary": "Actively managed thematic fund of about 35 innovation stocks.",
+    "strengths": [
+     "High upside in strong growth markets"
+    ],
+    "risks": [
+     "Very high volatility: fell about 75% from its 2021 peak",
+     "0.75% expense ratio; concentrated, high turnover"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VUG": {
+   "sym": "VUG",
+   "name": "Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": "US Large Cap Growth",
+   "yield": 0.005,
+   "expense_bps": 4,
+   "holdings_count": 170,
+   "top10_share": 0.6,
+   "style_box": {
+    "LG": 0.85,
+    "LB": 0.1,
+    "MG": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.5989999999999999,
+    "gfc": -0.5395,
+    "covid": -0.31869999999999993,
+    "y2022": -0.26801999999999987
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.5,
+    "COMM": 0.13,
+    "DISC": 0.17,
+    "HLTH": 0.06,
+    "INDU": 0.05,
+    "FIN": 0.05,
+    "STAP": 0.02,
+    "MATL": 0.01,
+    "REAL": 0.01
+   },
+   "top_holdings": {
+    "NVDA": 0.12,
+    "MSFT": 0.11,
+    "AAPL": 0.11,
+    "AMZN": 0.065,
+    "GOOG": 0.06,
+    "META": 0.045,
+    "AVGO": 0.04,
+    "TSLA": 0.035,
+    "COST": 0.015
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Low-cost US large-cap growth.",
+    "strengths": [
+     "0.04% expense ratio"
+    ],
+    "risks": [
+     "Top 10 holdings about 60%; growth style can lag for long periods"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "SCHG": {
+   "sym": "SCHG",
+   "name": "US Large-Cap Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": "US Large Cap Growth",
+   "yield": 0.004,
+   "expense_bps": 4,
+   "holdings_count": 230,
+   "top10_share": 0.58,
+   "style_box": {
+    "LG": 0.85,
+    "LB": 0.1,
+    "MG": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.5989999999999999,
+    "gfc": -0.5395,
+    "covid": -0.31869999999999993,
+    "y2022": -0.26801999999999987
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.5,
+    "COMM": 0.13,
+    "DISC": 0.17,
+    "HLTH": 0.06,
+    "INDU": 0.05,
+    "FIN": 0.05,
+    "STAP": 0.02,
+    "MATL": 0.01,
+    "REAL": 0.01
+   },
+   "top_holdings": {
+    "NVDA": 0.12,
+    "MSFT": 0.11,
+    "AAPL": 0.11,
+    "AMZN": 0.065,
+    "GOOG": 0.06,
+    "META": 0.045,
+    "AVGO": 0.04,
+    "TSLA": 0.035,
+    "COST": 0.015
+   },
+   "report": null
+  },
+  "LCG-A": {
+   "sym": "LCG-A",
+   "name": "Large-Cap Growth Fund, Class A (front-end load)",
+   "kind": "mf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": "US Large Cap Growth",
+   "yield": 0.001,
+   "expense_bps": 95,
+   "holdings_count": 70,
+   "top10_share": 0.55,
+   "style_box": {
+    "LG": 0.85,
+    "LB": 0.1,
+    "MG": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.5989999999999999,
+    "gfc": -0.5395,
+    "covid": -0.31869999999999993,
+    "y2022": -0.26801999999999987
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.5,
+    "COMM": 0.13,
+    "DISC": 0.17,
+    "HLTH": 0.06,
+    "INDU": 0.05,
+    "FIN": 0.05,
+    "STAP": 0.02,
+    "MATL": 0.01,
+    "REAL": 0.01
+   },
+   "top_holdings": {
+    "MSFT": 0.09,
+    "NVDA": 0.08,
+    "AAPL": 0.07,
+    "AMZN": 0.06,
+    "GOOG": 0.05,
+    "META": 0.04
+   },
+   "report": {
+    "view": "Neutral",
+    "summary": "Actively managed large-cap growth fund, A shares.",
+    "strengths": [
+     "Experienced team"
+    ],
+    "risks": [
+     "5.75% front-end load and 0.95% expense ratio in the A share class; trails the low-cost index over 5 years"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "SCHD": {
+   "sym": "SCHD",
+   "name": "US Dividend Equity ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": "US Dividend Equity",
+   "yield": 0.037,
+   "expense_bps": 6,
+   "holdings_count": 100,
+   "top10_share": 0.41,
+   "style_box": {
+    "LV": 0.7,
+    "LB": 0.2,
+    "MV": 0.1
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.27999999999999997,
+    "gfc": -0.49990000000000007,
+    "covid": -0.3687,
+    "y2022": 0.03077000000000002
+   },
+   "sector": null,
+   "sectors": {
+    "ENER": 0.19,
+    "STAP": 0.19,
+    "HLTH": 0.16,
+    "INDU": 0.12,
+    "FIN": 0.09,
+    "TECH": 0.09,
+    "DISC": 0.08,
+    "COMM": 0.04,
+    "MATL": 0.03,
+    "UTIL": 0.01
+   },
+   "top_holdings": {
+    "CVX": 0.042,
+    "KO": 0.041,
+    "PFE": 0.04,
+    "HD": 0.04
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Quality dividend payers screened for financial strength.",
+    "strengths": [
+     "3.7% yield, 0.06% expense ratio",
+     "Lower volatility than the market"
+    ],
+    "risks": [
+     "Sector weights shift at the annual reconstitution; little technology"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "DGRO": {
+   "sym": "DGRO",
+   "name": "Core Dividend Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 0.7,
+    "LCG": 0.3
+   },
+   "sleeve": "US Dividend Equity",
+   "yield": 0.022,
+   "expense_bps": 8,
+   "holdings_count": 410,
+   "top10_share": 0.27,
+   "style_box": {
+    "LV": 0.5,
+    "LB": 0.35,
+    "LG": 0.15
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.34550000000000003,
+    "gfc": -0.5404999999999999,
+    "covid": -0.3539999999999999,
+    "y2022": -0.07774999999999997
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.18,
+    "FIN": 0.19,
+    "HLTH": 0.16,
+    "INDU": 0.12,
+    "STAP": 0.11,
+    "DISC": 0.07,
+    "ENER": 0.06,
+    "UTIL": 0.06,
+    "MATL": 0.03,
+    "COMM": 0.02
+   },
+   "top_holdings": {},
+   "report": null
+  },
+  "VTV": {
+   "sym": "VTV",
+   "name": "Value ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": "US Large Cap Value",
+   "yield": 0.023,
+   "expense_bps": 4,
+   "holdings_count": 330,
+   "top10_share": 0.22,
+   "style_box": {
+    "LV": 0.8,
+    "LB": 0.15,
+    "MV": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.2995,
+    "gfc": -0.5612,
+    "covid": -0.3697,
+    "y2022": -0.054490000000000004
+   },
+   "sector": null,
+   "sectors": {
+    "FIN": 0.23,
+    "HLTH": 0.16,
+    "INDU": 0.14,
+    "TECH": 0.1,
+    "STAP": 0.09,
+    "ENER": 0.08,
+    "UTIL": 0.05,
+    "COMM": 0.04,
+    "DISC": 0.05,
+    "MATL": 0.04,
+    "REAL": 0.02
+   },
+   "top_holdings": {
+    "JPM": 0.035,
+    "JNJ": 0.022,
+    "PG": 0.02,
+    "HD": 0.02,
+    "CVX": 0.016,
+    "UNH": 0.015,
+    "KO": 0.013,
+    "PFE": 0.01,
+    "CVS": 0.006,
+    "INTC": 0.006
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Low-cost US large-cap value.",
+    "strengths": [
+     "0.04% expense ratio, about 330 holdings"
+    ],
+    "risks": [
+     "Financials about 23%"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "LCV-I": {
+   "sym": "LCV-I",
+   "name": "US Large Cap Value Fund (Institutional shares)",
+   "kind": "mf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": "US Large Cap Value",
+   "yield": 0.02,
+   "expense_bps": 55,
+   "holdings_count": 90,
+   "top10_share": 0.3,
+   "style_box": {
+    "LV": 0.8,
+    "LB": 0.15,
+    "MV": 0.05
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.2995,
+    "gfc": -0.5612,
+    "covid": -0.3697,
+    "y2022": -0.054490000000000004
+   },
+   "sector": null,
+   "sectors": {
+    "FIN": 0.23,
+    "HLTH": 0.16,
+    "INDU": 0.14,
+    "TECH": 0.1,
+    "STAP": 0.09,
+    "ENER": 0.08,
+    "UTIL": 0.05,
+    "COMM": 0.04,
+    "DISC": 0.05,
+    "MATL": 0.04,
+    "REAL": 0.02
+   },
+   "top_holdings": {
+    "JPM": 0.035,
+    "JNJ": 0.022,
+    "PG": 0.02,
+    "HD": 0.02,
+    "CVX": 0.016,
+    "UNH": 0.015,
+    "KO": 0.013,
+    "PFE": 0.01,
+    "CVS": 0.006,
+    "INTC": 0.006
+   },
+   "report": {
+    "view": "Recommended",
+    "summary": "Actively managed large-cap value, institutional shares.",
+    "strengths": [
+     "Disciplined valuation process"
+    ],
+    "risks": [
+     "0.55% expense ratio"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "IJH": {
+   "sym": "IJH",
+   "name": "Core S&P Mid-Cap ETF",
+   "kind": "etf",
+   "classes": {
+    "SMID": 1.0
+   },
+   "sleeve": "US Small/Mid Cap",
+   "yield": 0.014,
+   "expense_bps": 5,
+   "holdings_count": 400,
+   "top10_share": 0.07,
+   "style_box": {
+    "MV": 0.35,
+    "MB": 0.35,
+    "MG": 0.3
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.29050000000000004,
+    "gfc": -0.5875,
+    "covid": -0.37520000000000003,
+    "y2022": -0.11607
+   },
+   "sector": null,
+   "sectors": {
+    "INDU": 0.2,
+    "FIN": 0.17,
+    "DISC": 0.14,
+    "TECH": 0.11,
+    "HLTH": 0.09,
+    "REAL": 0.08,
+    "MATL": 0.06,
+    "STAP": 0.05,
+    "ENER": 0.05,
+    "UTIL": 0.03,
+    "COMM": 0.02
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "US mid-cap core through the S&P MidCap 400.",
+    "strengths": [
+     "Profitability screen from the index committee",
+     "0.05% expense ratio"
+    ],
+    "risks": [
+     "Higher volatility than large caps"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VXUS": {
+   "sym": "VXUS",
+   "name": "Total International Stock ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 0.75,
+    "EM": 0.25
+   },
+   "sleeve": "International Developed",
+   "yield": 0.029,
+   "expense_bps": 5,
+   "holdings_count": 8500,
+   "top10_share": 0.1,
+   "style_box": {
+    "LV": 0.33,
+    "LB": 0.34,
+    "LG": 0.23,
+    "MB": 0.1
+   },
+   "region": {
+    "INTL": 0.75,
+    "EM": 0.25
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4725,
+    "gfc": -0.61,
+    "covid": -0.325,
+    "y2022": -0.15500000000000003
+   },
+   "sector": null,
+   "sectors": {
+    "FIN": 0.22,
+    "INDU": 0.17,
+    "TECH": 0.11,
+    "DISC": 0.1,
+    "HLTH": 0.09,
+    "STAP": 0.07,
+    "MATL": 0.07,
+    "COMM": 0.05,
+    "ENER": 0.05,
+    "UTIL": 0.03,
+    "REAL": 0.03
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "All non-US stocks, developed and emerging, in one fund.",
+    "strengths": [
+     "About 8,500 holdings, 0.05% expense ratio"
+    ],
+    "risks": [
+     "Currency risk; about a quarter in emerging markets"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VEA": {
+   "sym": "VEA",
+   "name": "Developed Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 1.0
+   },
+   "sleeve": "International Developed",
+   "yield": 0.03,
+   "expense_bps": 3,
+   "holdings_count": 3900,
+   "top10_share": 0.11,
+   "style_box": {
+    "LV": 0.35,
+    "LB": 0.35,
+    "LG": 0.2,
+    "MB": 0.1
+   },
+   "region": {
+    "INTL": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.48,
+    "gfc": -0.61,
+    "covid": -0.33,
+    "y2022": -0.14
+   },
+   "sector": null,
+   "sectors": {
+    "FIN": 0.22,
+    "INDU": 0.17,
+    "TECH": 0.11,
+    "DISC": 0.1,
+    "HLTH": 0.09,
+    "STAP": 0.07,
+    "MATL": 0.07,
+    "COMM": 0.05,
+    "ENER": 0.05,
+    "UTIL": 0.03,
+    "REAL": 0.03
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "Developed markets outside the US, including Canada and small caps.",
+    "strengths": [
+     "0.03% expense ratio"
+    ],
+    "risks": [
+     "Currency risk"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "IEFA": {
+   "sym": "IEFA",
+   "name": "Core MSCI EAFE ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 1.0
+   },
+   "sleeve": "International Developed",
+   "yield": 0.03,
+   "expense_bps": 7,
+   "holdings_count": 2700,
+   "top10_share": 0.12,
+   "style_box": {
+    "LV": 0.33,
+    "LB": 0.32,
+    "LG": 0.2,
+    "MB": 0.1,
+    "SB": 0.05
+   },
+   "region": {
+    "INTL": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.48,
+    "gfc": -0.61,
+    "covid": -0.33,
+    "y2022": -0.14
+   },
+   "sector": null,
+   "sectors": {
+    "FIN": 0.22,
+    "INDU": 0.17,
+    "TECH": 0.11,
+    "DISC": 0.1,
+    "HLTH": 0.09,
+    "STAP": 0.07,
+    "MATL": 0.07,
+    "COMM": 0.05,
+    "ENER": 0.05,
+    "UTIL": 0.03,
+    "REAL": 0.03
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "Developed markets outside North America, including small caps.",
+    "strengths": [
+     "0.07% expense ratio"
+    ],
+    "risks": [
+     "Currency risk; no Canada"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VWO": {
+   "sym": "VWO",
+   "name": "Emerging Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "EM": 1.0
+   },
+   "sleeve": "Emerging Markets",
+   "yield": 0.03,
+   "expense_bps": 7,
+   "holdings_count": 5900,
+   "top10_share": 0.2,
+   "style_box": {
+    "LV": 0.3,
+    "LB": 0.35,
+    "LG": 0.25,
+    "MB": 0.1
+   },
+   "region": {
+    "EM": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.45,
+    "gfc": -0.61,
+    "covid": -0.31,
+    "y2022": -0.2
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.24,
+    "FIN": 0.23,
+    "DISC": 0.13,
+    "COMM": 0.09,
+    "MATL": 0.07,
+    "INDU": 0.07,
+    "ENER": 0.05,
+    "STAP": 0.05,
+    "HLTH": 0.04,
+    "UTIL": 0.03
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "Broad emerging markets.",
+    "strengths": [
+     "0.07% expense ratio"
+    ],
+    "risks": [
+     "Political and currency risk; China weight"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "IEMG": {
+   "sym": "IEMG",
+   "name": "Core MSCI Emerging Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "EM": 1.0
+   },
+   "sleeve": "Emerging Markets",
+   "yield": 0.028,
+   "expense_bps": 9,
+   "holdings_count": 2900,
+   "top10_share": 0.22,
+   "style_box": {
+    "LV": 0.3,
+    "LB": 0.33,
+    "LG": 0.25,
+    "MB": 0.08,
+    "SB": 0.04
+   },
+   "region": {
+    "EM": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.45,
+    "gfc": -0.61,
+    "covid": -0.31,
+    "y2022": -0.2
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.24,
+    "FIN": 0.23,
+    "DISC": 0.13,
+    "COMM": 0.09,
+    "MATL": 0.07,
+    "INDU": 0.07,
+    "ENER": 0.05,
+    "STAP": 0.05,
+    "HLTH": 0.04,
+    "UTIL": 0.03
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Recommended",
+    "summary": "Broad emerging markets including small caps.",
+    "strengths": [
+     "About 2,900 holdings"
+    ],
+    "risks": [
+     "Political and currency risk"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VNQ": {
+   "sym": "VNQ",
+   "name": "Real Estate ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 0.5,
+    "SMID": 0.5
+   },
+   "sleeve": "Real Estate",
+   "yield": 0.038,
+   "expense_bps": 13,
+   "holdings_count": 155,
+   "top10_share": 0.47,
+   "style_box": {
+    "LV": 0.4,
+    "MV": 0.4,
+    "SV": 0.2
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.35,
+    "gfc": -0.7,
+    "covid": -0.41,
+    "y2022": -0.26
+   },
+   "sector": null,
+   "sectors": {
+    "REAL": 1.0
+   },
+   "top_holdings": {},
+   "report": {
+    "view": "Neutral",
+    "summary": "US real estate investment trusts.",
+    "strengths": [
+     "3.8% yield"
+    ],
+    "risks": [
+     "Rate sensitive; fell about 26% in 2022"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "BAL-C": {
+   "sym": "BAL-C",
+   "name": "Balanced Income Fund, Class C (12b-1 fee)",
+   "kind": "mf",
+   "classes": {
+    "LCG": 0.3,
+    "LCV": 0.3,
+    "UST": 0.12,
+    "IGC": 0.16,
+    "HY": 0.12
+   },
+   "sleeve": "Balanced",
+   "yield": 0.025,
+   "expense_bps": 170,
+   "holdings_count": 400,
+   "top10_share": 0.25,
+   "style_box": {
+    "LV": 0.32,
+    "LB": 0.33,
+    "LG": 0.35
+   },
+   "region": {
+    "US": 1
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.21921015228426396,
+    "gfc": -0.3547005076142132,
+    "covid": -0.23658274111675126,
+    "y2022": -0.1628012182741117
+   },
+   "sector": null,
+   "sectors": {
+    "TECH": 0.33,
+    "FIN": 0.13,
+    "DISC": 0.105,
+    "COMM": 0.1,
+    "HLTH": 0.09,
+    "INDU": 0.085,
+    "STAP": 0.05,
+    "ENER": 0.03,
+    "UTIL": 0.025,
+    "REAL": 0.02,
+    "MATL": 0.02
+   },
+   "top_holdings": {
+    "NVDA": 0.045,
+    "MSFT": 0.0402,
+    "AAPL": 0.0396,
+    "AMZN": 0.024,
+    "GOOG": 0.0234,
+    "META": 0.0174,
+    "AVGO": 0.015,
+    "TSLA": 0.0126,
+    "JPM": 0.009,
+    "COST": 0.006,
+    "UNH": 0.0048,
+    "JNJ": 0.0048,
+    "PG": 0.0048,
+    "HD": 0.0048
+   },
+   "report": {
+    "view": "Not recommended",
+    "summary": "Balanced fund (60% stocks / 40% bonds) in the C share class.",
+    "strengths": [
+     "One-fund balanced exposure"
+    ],
+    "risks": [
+     "1.70% expense ratio including a 1.00% 12b-1 fee",
+     "About 30% of the bond sleeve is below investment grade"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "AGG": {
+   "sym": "AGG",
+   "name": "US Aggregate Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 0.6,
+    "IGC": 0.4
+   },
+   "sleeve": "Core Fixed Income",
+   "yield": 0.041,
+   "expense_bps": 3,
+   "holdings_count": 12000,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.276,
+    "gfc": 0.07200000000000001,
+    "covid": -0.005999999999999998,
+    "y2022": -0.1382
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Recommended",
+    "summary": "Core US investment-grade bonds.",
+    "strengths": [
+     "About 72% Treasuries and agencies, 0.03% expense ratio"
+    ],
+    "risks": [
+     "Interest-rate risk: duration about 6 years; fell 13% in 2022"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "BND": {
+   "sym": "BND",
+   "name": "US Bond Market ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 0.6,
+    "IGC": 0.4
+   },
+   "sleeve": "Core Fixed Income",
+   "yield": 0.041,
+   "expense_bps": 3,
+   "holdings_count": 11000,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.276,
+    "gfc": 0.07200000000000001,
+    "covid": -0.005999999999999998,
+    "y2022": -0.1382
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Recommended",
+    "summary": "Core US investment-grade bonds.",
+    "strengths": [
+     "0.03% expense ratio"
+    ],
+    "risks": [
+     "Duration about 6 years"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "LQD": {
+   "sym": "LQD",
+   "name": "Investment Grade Corporate Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "sleeve": "Core Fixed Income",
+   "yield": 0.05,
+   "expense_bps": 14,
+   "holdings_count": 2900,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.24,
+    "gfc": -0.03,
+    "covid": -0.09,
+    "y2022": -0.158
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Neutral",
+    "summary": "Investment-grade corporate bonds.",
+    "strengths": [
+     "Higher yield than core bonds"
+    ],
+    "risks": [
+     "About half rated BBB; duration about 8 years"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VGSH": {
+   "sym": "VGSH",
+   "name": "Short-Term Treasury ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 1.0
+   },
+   "sleeve": "Short Duration Income",
+   "yield": 0.039,
+   "expense_bps": 4,
+   "holdings_count": 95,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.3,
+    "gfc": 0.14,
+    "covid": 0.05,
+    "y2022": -0.125
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Recommended",
+    "summary": "1-3 year US Treasuries.",
+    "strengths": [
+     "Low rate and credit risk"
+    ],
+    "risks": [
+     "Lower yield than longer bonds when rates fall"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "MUB": {
+   "sym": "MUB",
+   "name": "National Muni Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "sleeve": "Municipal Fixed Income",
+   "yield": 0.031,
+   "expense_bps": 5,
+   "holdings_count": 6000,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": true,
+   "scret": {
+    "dotcom": 0.22,
+    "gfc": 0.01,
+    "covid": -0.09,
+    "y2022": -0.085
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Recommended",
+    "summary": "National investment-grade municipal bonds.",
+    "strengths": [
+     "Federally tax-exempt income"
+    ],
+    "risks": [
+     "Duration about 6 years; less useful in low brackets"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "VTEB": {
+   "sym": "VTEB",
+   "name": "Tax-Exempt Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "sleeve": "Municipal Fixed Income",
+   "yield": 0.031,
+   "expense_bps": 3,
+   "holdings_count": 9000,
+   "top10_share": null,
+   "style_box": null,
+   "region": {
+    "US": 1.0
+   },
+   "muni": true,
+   "scret": {
+    "dotcom": 0.22,
+    "gfc": 0.01,
+    "covid": -0.09,
+    "y2022": -0.085
+   },
+   "sector": null,
+   "sectors": null,
+   "top_holdings": null,
+   "report": {
+    "view": "Recommended",
+    "summary": "National investment-grade municipal bonds at very low cost.",
+    "strengths": [
+     "0.03% expense ratio, tax-exempt income"
+    ],
+    "risks": [
+     "Duration about 6 years"
+    ],
+    "date": "2026-09-30"
+   }
+  },
+  "NVDA": {
+   "sym": "NVDA",
+   "name": "NVIDIA Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.0003,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "MSFT": {
+   "sym": "MSFT",
+   "name": "Microsoft Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.007,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "AAPL": {
+   "sym": "AAPL",
+   "name": "Apple Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.004,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "AMZN": {
+   "sym": "AMZN",
+   "name": "Amazon.com Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.0,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4,
+    "gfc": -0.57,
+    "covid": -0.34,
+    "y2022": -0.37
+   },
+   "sector": "DISC",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "GOOG": {
+   "sym": "GOOG",
+   "name": "Alphabet Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.004,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.7,
+    "gfc": -0.5,
+    "covid": -0.3,
+    "y2022": -0.4
+   },
+   "sector": "COMM",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "TSLA": {
+   "sym": "TSLA",
+   "name": "Tesla Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.0,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4,
+    "gfc": -0.57,
+    "covid": -0.34,
+    "y2022": -0.37
+   },
+   "sector": "DISC",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "COST": {
+   "sym": "COST",
+   "name": "Costco Wholesale Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.005,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.05,
+    "gfc": -0.3,
+    "covid": -0.24,
+    "y2022": -0.006
+   },
+   "sector": "STAP",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "JPM": {
+   "sym": "JPM",
+   "name": "JPMorgan Chase",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.021,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.2,
+    "gfc": -0.8,
+    "covid": -0.43,
+    "y2022": -0.105
+   },
+   "sector": "FIN",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "PFE": {
+   "sym": "PFE",
+   "name": "Pfizer Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.065,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "CVX": {
+   "sym": "CVX",
+   "name": "Chevron Corp",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.045,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.53,
+    "covid": -0.57,
+    "y2022": 0.66
+   },
+   "sector": "ENER",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "CVS": {
+   "sym": "CVS",
+   "name": "CVS Health",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.042,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "JNJ": {
+   "sym": "JNJ",
+   "name": "Johnson & Johnson",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.031,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "PG": {
+   "sym": "PG",
+   "name": "Procter & Gamble",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.025,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.05,
+    "gfc": -0.3,
+    "covid": -0.24,
+    "y2022": -0.006
+   },
+   "sector": "STAP",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "KO": {
+   "sym": "KO",
+   "name": "Coca-Cola Co",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.029,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": 0.05,
+    "gfc": -0.3,
+    "covid": -0.24,
+    "y2022": -0.006
+   },
+   "sector": "STAP",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "UNH": {
+   "sym": "UNH",
+   "name": "UnitedHealth Group",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.017,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "HD": {
+   "sym": "HD",
+   "name": "Home Depot",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.023,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4,
+    "gfc": -0.57,
+    "covid": -0.34,
+    "y2022": -0.37
+   },
+   "sector": "DISC",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "INTC": {
+   "sym": "INTC",
+   "name": "Intel Corp",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.0,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "TXN": {
+   "sym": "TXN",
+   "name": "Texas Instruments",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.029,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "QCOM": {
+   "sym": "QCOM",
+   "name": "Qualcomm Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.021,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "ADI": {
+   "sym": "ADI",
+   "name": "Analog Devices",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.017,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "MRK": {
+   "sym": "MRK",
+   "name": "Merck & Co",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.035,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "ABBV": {
+   "sym": "ABBV",
+   "name": "AbbVie Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.034,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "CI": {
+   "sym": "CI",
+   "name": "Cigna Group",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.019,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "ELV": {
+   "sym": "ELV",
+   "name": "Elevance Health",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.016,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LV": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.25,
+    "gfc": -0.38,
+    "covid": -0.28,
+    "y2022": -0.02
+   },
+   "sector": "HLTH",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "BKNG": {
+   "sym": "BKNG",
+   "name": "Booking Holdings",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.007,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LG": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4,
+    "gfc": -0.57,
+    "covid": -0.34,
+    "y2022": -0.37
+   },
+   "sector": "DISC",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  },
+  "LOW": {
+   "sym": "LOW",
+   "name": "Lowe's Companies",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1.0
+   },
+   "sleeve": null,
+   "yield": 0.019,
+   "expense_bps": null,
+   "holdings_count": null,
+   "top10_share": null,
+   "style_box": {
+    "LB": 1.0
+   },
+   "region": {
+    "US": 1.0
+   },
+   "muni": false,
+   "scret": {
+    "dotcom": -0.4,
+    "gfc": -0.57,
+    "covid": -0.34,
+    "y2022": -0.37
+   },
+   "sector": "DISC",
+   "sectors": null,
+   "top_holdings": null,
+   "report": null
+  }
+ }
+}

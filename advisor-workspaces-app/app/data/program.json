@@ -1,0 +1,266 @@
+{
+ "fees": {
+  "program": {
+   "name": "Advisory program",
+   "tiers": [
+    [
+     1000000,
+     0.01
+    ],
+    [
+     5000000,
+     0.008
+    ],
+    [
+     10000000,
+     0.0065
+    ],
+    [
+     null,
+     0.005
+    ]
+   ],
+   "note": "Tiered annual fee on assets in the program, billed quarterly; no trade commissions."
+  },
+  "lower_cost": {
+   "name": "Advisory program: index-only portfolio",
+   "rate": 0.0045,
+   "fund_bps": 4,
+   "note": "Lower fee with fewer services (no SMA managers or custom tax management); advisor compensation differs from the full program."
+  },
+  "sma_bps": 30,
+  "di_bps": 20,
+  "model_fund_bps": 5,
+  "brokerage": {
+   "commission": 0.0075,
+   "turnover": 0.12,
+   "note": "Commission on each trade (illustrative full-service rate) plus the funds' own expenses, including sales loads and 12b-1 fees."
+  }
+ },
+ "strategies": [
+  {
+   "id": "cio-model",
+   "name": "CIO Model Portfolio (ETF)",
+   "kind": "Model",
+   "min": 50000,
+   "fee_bps": 5,
+   "covers": [
+    "LCG",
+    "LCV",
+    "SMID",
+    "INTL",
+    "EM",
+    "UST",
+    "IGC",
+    "HY",
+    "CASH"
+   ],
+   "tax": false,
+   "desc": "Low-cost funds that follow the CIO strategic allocation and tactical views for the client's profile."
+  },
+  {
+   "id": "core-di",
+   "name": "Core Equity Direct Indexing",
+   "kind": "SMA",
+   "min": 250000,
+   "fee_bps": 20,
+   "covers": [
+    "LCG",
+    "LCV",
+    "SMID"
+   ],
+   "tax": true,
+   "exclude": true,
+   "desc": "Owns the index companies directly, harvests losses to offset gains, and can exclude a concentrated stock and tilt away from its sector."
+  },
+  {
+   "id": "tm-lc",
+   "name": "Tax-Managed Large Cap SMA",
+   "kind": "SMA",
+   "min": 250000,
+   "fee_bps": 30,
+   "covers": [
+    "LCG",
+    "LCV"
+   ],
+   "tax": true,
+   "desc": "Actively managed large-cap portfolio that takes in existing stocks and sells them over time within a gain budget."
+  },
+  {
+   "id": "value-sma",
+   "name": "Large Cap Value SMA",
+   "kind": "SMA",
+   "min": 100000,
+   "fee_bps": 35,
+   "covers": [
+    "LCV"
+   ],
+   "tax": false,
+   "desc": "Quality value companies with growing dividends."
+  },
+  {
+   "id": "intl-sma",
+   "name": "International Equity SMA",
+   "kind": "SMA",
+   "min": 250000,
+   "fee_bps": 35,
+   "covers": [
+    "INTL",
+    "EM"
+   ],
+   "tax": false,
+   "desc": "Developed and emerging markets companies, actively managed."
+  },
+  {
+   "id": "muni-ladder",
+   "name": "Municipal Ladder SMA",
+   "kind": "SMA",
+   "min": 250000,
+   "fee_bps": 20,
+   "covers": [
+    "IGC",
+    "UST"
+   ],
+   "tax": true,
+   "desc": "Individual high-grade municipal bonds laddered over 1 to 10 years; tax-exempt income."
+  },
+  {
+   "id": "dividend",
+   "name": "Dividend Income Model",
+   "kind": "Model",
+   "min": 50000,
+   "fee_bps": 8,
+   "covers": [
+    "LCV",
+    "IGC"
+   ],
+   "tax": false,
+   "desc": "Funds tilted to dividends and interest for clients who want income."
+  },
+  {
+   "id": "alts",
+   "name": "Alternative Investments Platform",
+   "kind": "Fund",
+   "min": 250000,
+   "fee_bps": 100,
+   "covers": [
+    "HF",
+    "PE"
+   ],
+   "tax": false,
+   "desc": "Hedge fund and private equity access for qualified clients; limited liquidity."
+  }
+ ],
+ "concentration": {
+  "threshold": 0.1,
+  "deck_threshold": 0.2,
+  "exclude_over": 0.5,
+  "positions": {
+   "henderson:NVDA": {
+    "insider": false,
+    "restricted": "",
+    "intent": [
+     "gift"
+    ],
+    "note": "Wants to give shares to the grandchildren's trust in 2026."
+   },
+   "henderson:MSFT": {
+    "insider": false,
+    "restricted": "",
+    "intent": [],
+    "note": ""
+   },
+   "kaplan:AAPL": {
+    "insider": true,
+    "restricted": "Employee: pre-clearance and quarterly trading windows apply. A pre-arranged sale plan lets sales continue through closed windows.",
+    "intent": [
+     "income"
+    ],
+    "note": "RSUs from 12 years at the company; retiring in 18 months."
+   },
+   "brennan:NVDA": {
+    "insider": true,
+    "restricted": "Employee: shares vest quarterly; trading only in open windows.",
+    "intent": [
+     "liquidity"
+    ],
+    "note": "Saving for a home down payment in 2027."
+   },
+   "brennan:AAPL": {
+    "insider": false,
+    "restricted": "",
+    "intent": [],
+    "note": ""
+   },
+   "delgado:COST": {
+    "insider": true,
+    "restricted": "Employee: pre-clearance required; quarterly trading windows.",
+    "intent": [],
+    "note": "Company stock from 25 years of employee purchase plans."
+   }
+  },
+  "cash_needs": {
+   "kaplan": {
+    "2027": 150000,
+    "2028": 300000,
+    "2029": 300000,
+    "2030": 300000
+   },
+   "brennan": {
+    "2027": 120000
+   },
+   "henderson": {},
+   "castellano": {},
+   "okonkwo": {},
+   "delgado": {
+    "2027": 80000,
+    "2028": 80000
+   }
+  },
+  "solutions": [
+   {
+    "id": "staged",
+    "name": "Staged sale in brokerage",
+    "desc": "Sell the highest-basis lots first, each tax year within the gain budget."
+   },
+   {
+    "id": "tm-sma",
+    "name": "Tax-managed SMA through the tax-efficient transition",
+    "desc": "Move the shares in kind; the manager sells them down over time and builds a diversified portfolio around them."
+   },
+   {
+    "id": "di",
+    "name": "Direct indexing with the stock excluded",
+    "desc": "Harvested losses offset the gains from trimming; the index sleeve excludes the stock and leans away from its sector."
+   },
+   {
+    "id": "gift",
+    "name": "Gift low-basis lots",
+    "desc": "Give the lowest-basis shares to family or a donor-advised fund; removes the embedded gain from the client's tax return."
+   },
+   {
+    "id": "hedge",
+    "name": "Protect with a collar or exchange fund (specialist referral)",
+    "desc": "Keeps the shares but limits downside, or swaps them into a diversified pool; arranged by the capital markets specialists."
+   }
+  ]
+ },
+ "pathway": {
+  "as_of": "2026-10-24",
+  "thresholds": {
+   "high_cost_bps": 50,
+   "excess_cash_pct": 0.05,
+   "gains_min": 5000,
+   "losses_min": 25000,
+   "call_days": 90,
+   "trading_rival": 0.5
+  },
+  "trading_cost_bps": 5,
+  "segments": {
+   "low": "Low: cash, fixed income and C shares, with low embedded gains",
+   "medium": "Medium: some embedded gains or share-class constraints",
+   "hard": "Hard: taxable with high embedded gains, A shares or clients aged 80 and over"
+  },
+  "note": "Illustrative thresholds for the prototype; production uses the approved screen thresholds."
+ }
+}

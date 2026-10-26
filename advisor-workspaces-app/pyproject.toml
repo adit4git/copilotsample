@@ -1,0 +1,11 @@
+[project]
+name = "atlas-advisor-workspaces"
+version = "6.2.0"
+description = "FastAPI proof of concept of the Atlas advisor workspaces: brokerage-to-advisory opportunities, routes, proposal and handoff"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1", "pydantic>=2.8,<3"]
+[project.optional-dependencies]
+test = ["pytest>=8,<9", "httpx>=0.27,<1"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
