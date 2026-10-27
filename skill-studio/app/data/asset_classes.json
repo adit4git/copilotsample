@@ -1,0 +1,22 @@
+{
+ "LCV": {
+  "label": "U.S. Large Cap Value",
+  "index_alternative": "f01"
+ },
+ "LCG": {
+  "label": "U.S. Large Cap Growth",
+  "index_alternative": "f04"
+ },
+ "SMID": {
+  "label": "U.S. Small/Mid Cap",
+  "index_alternative": "f05"
+ },
+ "INTL": {
+  "label": "International Developed Equity",
+  "index_alternative": "f06"
+ },
+ "MUNI": {
+  "label": "Municipal Bonds",
+  "index_alternative": "f07"
+ }
+}

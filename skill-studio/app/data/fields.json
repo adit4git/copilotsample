@@ -1,0 +1,212 @@
+{
+ "item": {
+  "name": {
+   "label": "name",
+   "syn": [
+    "name"
+   ],
+   "unit": "text"
+  },
+  "status": {
+   "label": "research status",
+   "syn": [
+    "status",
+    "research status",
+    "rating",
+    "watch list",
+    "watchlist",
+    "terminated"
+   ],
+   "unit": "text",
+   "values": [
+    "Recommended",
+    "Neutral",
+    "Watch",
+    "Terminated"
+   ]
+  },
+  "vehicle": {
+   "label": "vehicle",
+   "syn": [
+    "vehicle",
+    "sma",
+    "fund"
+   ],
+   "unit": "text",
+   "values": [
+    "SMA",
+    "Fund"
+   ]
+  },
+  "fee_bps": {
+   "label": "fee",
+   "syn": [
+    "fee",
+    "fees",
+    "cost",
+    "costs",
+    "expense",
+    "expense ratio",
+    "management fee"
+   ],
+   "unit": "bp"
+  },
+  "te": {
+   "label": "tracking error",
+   "syn": [
+    "tracking error",
+    "te"
+   ],
+   "unit": "pct_number"
+  },
+  "ir": {
+   "label": "information ratio",
+   "syn": [
+    "information ratio",
+    "ir"
+   ],
+   "unit": "number"
+  },
+  "style_consistency": {
+   "label": "style consistency",
+   "syn": [
+    "style consistency",
+    "style drift",
+    "consistency"
+   ],
+   "unit": "fraction"
+  },
+  "tax_managed": {
+   "label": "tax management",
+   "syn": [
+    "tax-managed",
+    "tax managed",
+    "tax management",
+    "tax-aware"
+   ],
+   "unit": "bool"
+  },
+  "accepting_new": {
+   "label": "open to new accounts",
+   "syn": [
+    "accepting new",
+    "open to new",
+    "capacity",
+    "closed"
+   ],
+   "unit": "bool"
+  },
+  "track_years": {
+   "label": "track record",
+   "syn": [
+    "track record",
+    "years of track record",
+    "history",
+    "track"
+   ],
+   "unit": "years"
+  },
+  "min_usd": {
+   "label": "minimum",
+   "syn": [
+    "minimum",
+    "minimum investment",
+    "account minimum"
+   ],
+   "unit": "usd"
+  },
+  "risk": {
+   "label": "risk level",
+   "syn": [
+    "risk level",
+    "risk rating",
+    "risk score"
+   ],
+   "unit": "number"
+  },
+  "esg_score": {
+   "label": "ESG score",
+   "syn": [
+    "esg score",
+    "esg",
+    "sustainability score"
+   ],
+   "unit": "number"
+  },
+  "overlap_pct": {
+   "label": "overlap with client holdings",
+   "syn": [
+    "overlap"
+   ],
+   "unit": "fraction",
+   "computed_by": "lookthrough-overlap"
+  },
+  "score": {
+   "label": "score",
+   "syn": [
+    "score",
+    "weighted score"
+   ],
+   "unit": "number",
+   "computed_by": "score-candidates"
+  }
+ },
+ "client": {
+  "taxable": {
+   "label": "taxable account",
+   "syn": [
+    "taxable"
+   ],
+   "unit": "bool"
+  },
+  "large_embedded_gains": {
+   "label": "large embedded gains",
+   "syn": [
+    "embedded gains",
+    "large gains",
+    "unrealized gains"
+   ],
+   "unit": "bool"
+  },
+  "risk_max": {
+   "label": "highest risk level allowed",
+   "syn": [
+    "risk profile",
+    "risk tolerance"
+   ],
+   "unit": "number"
+  },
+  "account_value": {
+   "label": "account value",
+   "syn": [
+    "account value",
+    "account size"
+   ],
+   "unit": "usd"
+  }
+ },
+ "concentration": {
+  "top_share": {
+   "label": "largest single-stock share",
+   "syn": [
+    "single stock",
+    "single-stock",
+    "concentration",
+    "largest position",
+    "single company"
+   ],
+   "unit": "fraction",
+   "computed_by": "concentration-facts"
+  }
+ },
+ "request": {
+  "amount": {
+   "label": "amount to invest",
+   "syn": [
+    "amount",
+    "investment amount"
+   ],
+   "unit": "usd"
+  }
+ }
+}

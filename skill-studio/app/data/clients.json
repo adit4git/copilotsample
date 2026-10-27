@@ -1,0 +1,69 @@
+{
+ "note": "Illustrative, fictional households.",
+ "clients": [
+  {
+   "id": "henderson",
+   "name": "Henderson Family Trust",
+   "profile": "Moderate",
+   "risk_max": 3,
+   "taxable": true,
+   "large_embedded_gains": true,
+   "account_value": 49700000,
+   "gain_budget": 994000,
+   "exposure": {
+    "NVDA": 0.229,
+    "MSFT": 0.106,
+    "AAPL": 0.031,
+    "AMZN": 0.024,
+    "JPM": 0.018,
+    "GOOG": 0.016
+   },
+   "request": {
+    "asset_class": "LCV",
+    "amount": 5130000
+   },
+   "next_meeting": "Annual review in 2 days"
+  },
+  {
+   "id": "kaplan",
+   "name": "Kaplan Household",
+   "profile": "Moderately Aggressive",
+   "risk_max": 4,
+   "taxable": true,
+   "large_embedded_gains": false,
+   "account_value": 8700000,
+   "gain_budget": 250000,
+   "exposure": {
+    "AAPL": 0.289,
+    "MSFT": 0.041,
+    "JNJ": 0.032,
+    "KO": 0.021
+   },
+   "request": {
+    "asset_class": "LCG",
+    "amount": 1200000
+   },
+   "next_meeting": "Retirement planning in 1 day"
+  },
+  {
+   "id": "okonkwo",
+   "name": "Okonkwo Holdings LLC",
+   "profile": "Moderate",
+   "risk_max": 3,
+   "taxable": false,
+   "large_embedded_gains": false,
+   "account_value": 26900000,
+   "gain_budget": 0,
+   "exposure": {
+    "MSFT": 0.041,
+    "JPM": 0.033,
+    "XOM": 0.022
+   },
+   "request": {
+    "asset_class": "LCV",
+    "amount": 4000000
+   },
+   "next_meeting": "Liquidity deployment in 6 days"
+  }
+ ]
+}
