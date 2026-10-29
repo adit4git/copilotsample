@@ -1,0 +1,646 @@
+{
+ "C1-meridian-consolidated-statement-kaplan.pdf": {
+  "household": "kaplan",
+  "pages": 28,
+  "page_types": [
+   "summary",
+   "chart",
+   "chart",
+   "holdings",
+   "holdings",
+   "holdings",
+   "holdings",
+   "holdings",
+   "activity",
+   "activity",
+   "other",
+   "other",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure"
+  ],
+  "total": 5468566.05,
+  "owner": "David and Ruth Kaplan",
+  "account": "6604",
+  "as_of": "2026-09-30",
+  "holdings": [
+   {
+    "sym": "AAPL",
+    "desc": "Apple Inc",
+    "qty": 1200,
+    "price": 228.5,
+    "value": 274200.0,
+    "cost": 151000,
+    "section": "Equities"
+   },
+   {
+    "sym": "MSFT",
+    "desc": "Microsoft Corp",
+    "qty": 400,
+    "price": 512.4,
+    "value": 204960.0,
+    "cost": 98000,
+    "section": "Equities"
+   },
+   {
+    "sym": "AMZN",
+    "desc": "Amazon.com Inc",
+    "qty": 900,
+    "price": 221.3,
+    "value": 199170.0,
+    "cost": 120500,
+    "section": "Equities"
+   },
+   {
+    "sym": "GOOG",
+    "desc": "Alphabet Inc Class C",
+    "qty": 1000,
+    "price": 245.1,
+    "value": 245100.0,
+    "cost": 141000,
+    "section": "Equities"
+   },
+   {
+    "sym": "META",
+    "desc": "Meta Platforms Inc",
+    "qty": 260,
+    "price": 712.8,
+    "value": 185328.0,
+    "cost": 88000,
+    "section": "Equities"
+   },
+   {
+    "sym": "AVGO",
+    "desc": "Broadcom Inc",
+    "qty": 500,
+    "price": 335.2,
+    "value": 167600.0,
+    "cost": 41000,
+    "section": "Equities"
+   },
+   {
+    "sym": "JPM",
+    "desc": "JPMorgan Chase & Co",
+    "qty": 700,
+    "price": 298.4,
+    "value": 208880.0,
+    "cost": 120000,
+    "section": "Equities"
+   },
+   {
+    "sym": "JNJ",
+    "desc": "Johnson & Johnson",
+    "qty": 600,
+    "price": 178.9,
+    "value": 107340.0,
+    "cost": 96000,
+    "section": "Equities"
+   },
+   {
+    "sym": "PG",
+    "desc": "Procter & Gamble Co",
+    "qty": 650,
+    "price": 152.3,
+    "value": 98995.0,
+    "cost": 91000,
+    "section": "Equities"
+   },
+   {
+    "sym": "KO",
+    "desc": "Coca-Cola Co",
+    "qty": 1400,
+    "price": 68.7,
+    "value": 96180.0,
+    "cost": 79000,
+    "section": "Equities"
+   },
+   {
+    "sym": "HD",
+    "desc": "Home Depot Inc",
+    "qty": 240,
+    "price": 402.1,
+    "value": 96504.0,
+    "cost": 70500,
+    "section": "Equities"
+   },
+   {
+    "sym": "COST",
+    "desc": "Costco Wholesale Corp",
+    "qty": 110,
+    "price": 935.6,
+    "value": 102916.0,
+    "cost": 61000,
+    "section": "Equities"
+   },
+   {
+    "sym": "UNH",
+    "desc": "UnitedHealth Group Inc",
+    "qty": 220,
+    "price": 341.2,
+    "value": 75064.0,
+    "cost": 98000,
+    "section": "Equities"
+   },
+   {
+    "sym": "CVX",
+    "desc": "Chevron Corp",
+    "qty": 520,
+    "price": 158.4,
+    "value": 82368.0,
+    "cost": 76000,
+    "section": "Equities"
+   },
+   {
+    "sym": "TXN",
+    "desc": "Texas Instruments Inc",
+    "qty": 380,
+    "price": 188.6,
+    "value": 71668.0,
+    "cost": 62000,
+    "section": "Equities"
+   },
+   {
+    "sym": "QCOM",
+    "desc": "Qualcomm Inc",
+    "qty": 450,
+    "price": 162.3,
+    "value": 73035.0,
+    "cost": 58000,
+    "section": "Equities"
+   },
+   {
+    "sym": "LOW",
+    "desc": "Lowe's Companies Inc",
+    "qty": 300,
+    "price": 254.7,
+    "value": 76410.0,
+    "cost": 61000,
+    "section": "Equities"
+   },
+   {
+    "sym": "ABBV",
+    "desc": "AbbVie Inc",
+    "qty": 420,
+    "price": 221.9,
+    "value": 93198.0,
+    "cost": 57000,
+    "section": "Equities"
+   },
+   {
+    "sym": "MRK",
+    "desc": "Merck & Co Inc",
+    "qty": 600,
+    "price": 86.4,
+    "value": 51840.0,
+    "cost": 62000,
+    "section": "Equities"
+   },
+   {
+    "sym": "PFE",
+    "desc": "Pfizer Inc",
+    "qty": 1800,
+    "price": 25.1,
+    "value": 45180.0,
+    "cost": 61000,
+    "section": "Equities"
+   },
+   {
+    "sym": "VTI",
+    "desc": "US Total Market ETF",
+    "qty": 900,
+    "price": 318.2,
+    "value": 286380.0,
+    "cost": 210000,
+    "section": "Equities"
+   },
+   {
+    "sym": "SCHD",
+    "desc": "US Dividend Equity ETF",
+    "qty": 6000,
+    "price": 27.4,
+    "value": 164400.0,
+    "cost": 152000,
+    "section": "Equities"
+   },
+   {
+    "sym": "IJH",
+    "desc": "Core S&P Mid-Cap ETF",
+    "qty": 2500,
+    "price": 63.1,
+    "value": 157750.0,
+    "cost": 131000,
+    "section": "Equities"
+   },
+   {
+    "sym": "QQQ",
+    "desc": "Nasdaq-100 ETF",
+    "qty": 350,
+    "price": 512.8,
+    "value": 179480.0,
+    "cost": 120000,
+    "section": "Equities"
+   },
+   {
+    "sym": "VNQ",
+    "desc": "Real Estate ETF",
+    "qty": 900,
+    "price": 92.1,
+    "value": 82890.0,
+    "cost": 86000,
+    "section": "Equities"
+   },
+   {
+    "sym": "ARKK",
+    "desc": "Innovation ETF",
+    "qty": 1500,
+    "price": 62.4,
+    "value": 93600.0,
+    "cost": 141000,
+    "section": "Equities"
+   },
+   {
+    "sym": "IEFA",
+    "desc": "Core MSCI EAFE ETF",
+    "qty": 4200,
+    "price": 81.4,
+    "value": 341880.0,
+    "cost": 280000,
+    "section": "Equities"
+   },
+   {
+    "sym": "VWO",
+    "desc": "Emerging Markets ETF",
+    "qty": 3300,
+    "price": 49.6,
+    "value": 163680.0,
+    "cost": 150000,
+    "section": "Equities"
+   },
+   {
+    "sym": "QZLGX",
+    "desc": "Quill Zenith Large Growth Fund",
+    "qty": 3100,
+    "price": 41.2,
+    "value": 127720.0,
+    "cost": 98000,
+    "section": "Equities"
+   },
+   {
+    "sym": "ORGLX",
+    "desc": "Orion Global Leaders Fund Class A",
+    "qty": 4100,
+    "price": 23.85,
+    "value": 97785.0,
+    "cost": 90000,
+    "section": "Equities"
+   },
+   {
+    "sym": null,
+    "desc": "New York St Dorm Auth Rev 5.000% 03/15/2034",
+    "qty": 150000,
+    "price": 108.42,
+    "value": 162630.0,
+    "cost": 158000,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "California St GO 4.000% 10/01/2036",
+    "qty": 125000,
+    "price": 102.15,
+    "value": 127687.5,
+    "cost": 127500,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "Texas Water Dev Board Rev 4.500% 10/15/2038",
+    "qty": 100000,
+    "price": 104.3,
+    "value": 104300.0,
+    "cost": 101000,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "US Treasury Note 4.125% 11/15/2032",
+    "qty": 200000,
+    "price": 100.84,
+    "value": 201680.0,
+    "cost": 198500,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "US Treasury Note 3.875% 08/15/2034",
+    "qty": 175000,
+    "price": 98.62,
+    "value": 172585.0,
+    "cost": 176000,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "Apple Inc 3.250% 02/23/2031 Corporate Bond",
+    "qty": 100000,
+    "price": 97.4,
+    "value": 97400.0,
+    "cost": 99200,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "JPMorgan Chase & Co 4.950% 06/01/2033 Corporate Bond",
+    "qty": 120000,
+    "price": 101.85,
+    "value": 122220.0,
+    "cost": 121000,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "Meridian Government Money Market Fund",
+    "qty": 186412.55,
+    "price": 1.0,
+    "value": 186412.55,
+    "cost": 186412.55,
+    "section": "Cash and equivalents"
+   },
+   {
+    "sym": null,
+    "desc": "Bank Deposit Sweep",
+    "qty": 42150.0,
+    "price": 1.0,
+    "value": 42150.0,
+    "cost": 42150.0,
+    "section": "Cash and equivalents"
+   }
+  ],
+  "pie": [
+   {
+    "label": "U.S. equity",
+    "pct": 68.5
+   },
+   {
+    "label": "International equity",
+    "pct": 9.24
+   },
+   {
+    "label": "Fixed income",
+    "pct": 18.08
+   },
+   {
+    "label": "Cash and equivalents",
+    "pct": 4.18
+   }
+  ],
+  "bar": [
+   {
+    "label": "Information technology",
+    "pct": 30.97
+   },
+   {
+    "label": "Communication services",
+    "pct": 16.84
+   },
+   {
+    "label": "Health care",
+    "pct": 14.58
+   },
+   {
+    "label": "Consumer discretionary",
+    "pct": 14.56
+   },
+   {
+    "label": "Consumer staples",
+    "pct": 11.66
+   },
+   {
+    "label": "Financials",
+    "pct": 8.17
+   },
+   {
+    "label": "Energy",
+    "pct": 3.22
+   }
+  ]
+ },
+ "C2-meridian-ira-scan-kaplan.pdf": {
+  "household": "kaplan",
+  "pages": 12,
+  "page_types": [
+   "summary",
+   "chart",
+   "holdings",
+   "holdings",
+   "holdings",
+   "activity",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure",
+   "disclosure"
+  ],
+  "total": 2917221.55,
+  "owner": "Ruth Kaplan",
+  "account": "6604",
+  "as_of": "2026-09-30",
+  "holdings": [
+   {
+    "sym": "AAPL",
+    "desc": "Apple Inc",
+    "qty": 1200,
+    "price": 228.5,
+    "value": 274200.0,
+    "cost": 151000,
+    "section": "Equities"
+   },
+   {
+    "sym": "MSFT",
+    "desc": "Microsoft Corp",
+    "qty": 400,
+    "price": 512.4,
+    "value": 204960.0,
+    "cost": 98000,
+    "section": "Equities"
+   },
+   {
+    "sym": "JPM",
+    "desc": "JPMorgan Chase & Co",
+    "qty": 700,
+    "price": 298.4,
+    "value": 208880.0,
+    "cost": 120000,
+    "section": "Equities"
+   },
+   {
+    "sym": "PG",
+    "desc": "Procter & Gamble Co",
+    "qty": 650,
+    "price": 152.3,
+    "value": 98995.0,
+    "cost": 91000,
+    "section": "Equities"
+   },
+   {
+    "sym": "KO",
+    "desc": "Coca-Cola Co",
+    "qty": 1400,
+    "price": 68.7,
+    "value": 96180.0,
+    "cost": 79000,
+    "section": "Equities"
+   },
+   {
+    "sym": "HD",
+    "desc": "Home Depot Inc",
+    "qty": 240,
+    "price": 402.1,
+    "value": 96504.0,
+    "cost": 70500,
+    "section": "Equities"
+   },
+   {
+    "sym": "UNH",
+    "desc": "UnitedHealth Group Inc",
+    "qty": 220,
+    "price": 341.2,
+    "value": 75064.0,
+    "cost": 98000,
+    "section": "Equities"
+   },
+   {
+    "sym": "CVX",
+    "desc": "Chevron Corp",
+    "qty": 520,
+    "price": 158.4,
+    "value": 82368.0,
+    "cost": 76000,
+    "section": "Equities"
+   },
+   {
+    "sym": "TXN",
+    "desc": "Texas Instruments Inc",
+    "qty": 380,
+    "price": 188.6,
+    "value": 71668.0,
+    "cost": 62000,
+    "section": "Equities"
+   },
+   {
+    "sym": "VTI",
+    "desc": "US Total Market ETF",
+    "qty": 900,
+    "price": 318.2,
+    "value": 286380.0,
+    "cost": 210000,
+    "section": "Equities"
+   },
+   {
+    "sym": "SCHD",
+    "desc": "US Dividend Equity ETF",
+    "qty": 6000,
+    "price": 27.4,
+    "value": 164400.0,
+    "cost": 152000,
+    "section": "Equities"
+   },
+   {
+    "sym": "ARKK",
+    "desc": "Innovation ETF",
+    "qty": 1500,
+    "price": 62.4,
+    "value": 93600.0,
+    "cost": 141000,
+    "section": "Equities"
+   },
+   {
+    "sym": "IEFA",
+    "desc": "Core MSCI EAFE ETF",
+    "qty": 4200,
+    "price": 81.4,
+    "value": 341880.0,
+    "cost": 280000,
+    "section": "Equities"
+   },
+   {
+    "sym": "VWO",
+    "desc": "Emerging Markets ETF",
+    "qty": 3300,
+    "price": 49.6,
+    "value": 163680.0,
+    "cost": 150000,
+    "section": "Equities"
+   },
+   {
+    "sym": "ORGLX",
+    "desc": "Orion Global Leaders Fund Class A",
+    "qty": 4100,
+    "price": 23.85,
+    "value": 97785.0,
+    "cost": 90000,
+    "section": "Equities"
+   },
+   {
+    "sym": null,
+    "desc": "US Treasury Note 4.125% 11/15/2032",
+    "qty": 200000,
+    "price": 100.84,
+    "value": 201680.0,
+    "cost": 198500,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "US Treasury Note 3.875% 08/15/2034",
+    "qty": 175000,
+    "price": 98.62,
+    "value": 172585.0,
+    "cost": 176000,
+    "section": "Fixed income"
+   },
+   {
+    "sym": null,
+    "desc": "Meridian Government Money Market Fund",
+    "qty": 186412.55,
+    "price": 1.0,
+    "value": 186412.55,
+    "cost": 186412.55,
+    "section": "Cash and equivalents"
+   }
+  ],
+  "pie": [
+   {
+    "label": "U.S. equity",
+    "pct": 63.45
+   },
+   {
+    "label": "International equity",
+    "pct": 17.33
+   },
+   {
+    "label": "Fixed income",
+    "pct": 12.83
+   },
+   {
+    "label": "Cash and equivalents",
+    "pct": 6.39
+   }
+  ],
+  "bar": []
+ }
+}

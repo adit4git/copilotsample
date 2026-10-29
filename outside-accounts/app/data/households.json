@@ -1,0 +1,2111 @@
+{
+ "note": "Illustrative households. Inside accounts are the Portfolio Review households; Rivera is a prospect with no accounts at the firm.",
+ "households": {
+  "henderson": {
+   "name": "Henderson Family Trust",
+   "id": "henderson",
+   "profile": "Moderate",
+   "model_name": "CIO Moderate, Tier 2",
+   "band": [
+    0.08259999999999999,
+    0.1035
+   ],
+   "gain_budget": 994000.0,
+   "hy_limit": 0.08,
+   "meeting": "in 2 days, Annual review",
+   "incoming": {
+    "amount": 5000000.0,
+    "date": "2026-11-15"
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.1661,
+    "LCV": 0.1661,
+    "SMID": 0.0688,
+    "INTL": 0.11460000000000001,
+    "EM": 0.0344,
+    "UST": 0.11570000000000001,
+    "IGC": 0.1329,
+    "HY": 0.0514,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "goals": [
+    {
+     "type": "return",
+     "target_return": 0.065
+    },
+    {
+     "type": "downside",
+     "max_loss": 0.3,
+     "scenario": "gfc"
+    }
+   ],
+   "target_stress": {
+    "dotcom": -0.19,
+    "gfc": -0.341,
+    "covid": -0.217,
+    "y2022": -0.122
+   },
+   "relationship": "client",
+   "holdings": [
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 10600000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.0003,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 2100000.0,
+       "mv": 10600000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "MSFT",
+     "name": "Microsoft Corp",
+     "kind": "stock",
+     "mv": 4900000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.006999999999999999,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 2400000.0,
+       "mv": 4900000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 6200000.0,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "yield": 0.012,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 5100000.0,
+       "mv": 6200000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.473,
+      "gfc": -0.551,
+      "covid": -0.34,
+      "y2022": -0.182
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "top_holdings": {
+      "NVDA": 0.064,
+      "MSFT": 0.057,
+      "AAPL": 0.056,
+      "AMZN": 0.034,
+      "GOOG": 0.033,
+      "META": 0.025,
+      "AVGO": 0.021,
+      "TSLA": 0.018,
+      "JPM": 0.013,
+      "COST": 0.009,
+      "UNH": 0.007,
+      "JNJ": 0.007,
+      "PG": 0.007,
+      "HD": 0.007
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Total Market ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "MUB",
+     "name": "National Muni Bond ETF",
+     "kind": "etf",
+     "mv": 9800000.0,
+     "classes": {
+      "IGC": 1.0
+     },
+     "yield": 0.031000000000000003,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 10400000.0,
+       "mv": 9800000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 5.0,
+     "holdings_count": 6000,
+     "top10_share": null,
+     "top_holdings": {},
+     "sectors": {},
+     "style_box": {},
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: National Muni Bond ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 5100000.0,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "yield": 0.040999999999999995,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 5600000.0,
+       "mv": 5100000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.138
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "top_holdings": {},
+     "sectors": {},
+     "style_box": {},
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Aggregate Bond ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "VXUS",
+     "name": "Total International Stock ETF",
+     "kind": "etf",
+     "mv": 4300000.0,
+     "classes": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "yield": 0.028999999999999998,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 4900000.0,
+       "mv": 4300000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.472,
+      "gfc": -0.61,
+      "covid": -0.325,
+      "y2022": -0.155
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 5.0,
+     "holdings_count": 8500,
+     "top10_share": 0.1,
+     "top_holdings": {},
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "style_box": {
+      "LV": 0.35,
+      "LB": 0.35,
+      "LG": 0.2,
+      "MB": 0.1
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Total International Stock ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 7300000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 7300000.0,
+       "mv": 7300000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    },
+    {
+     "sym": "AUSTIN-4.0-32",
+     "name": "City of Austin GO 4.0% 2032",
+     "kind": "bond",
+     "mv": 1100000.0,
+     "classes": {
+      "IGC": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 1080000.0,
+       "mv": 1100000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "notes": "Individual bond or CD: held to maturity",
+     "tradable": false,
+     "cash": false
+    },
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 400000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.0003,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": null,
+       "mv": 400000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    }
+   ]
+  },
+  "kaplan": {
+   "name": "Kaplan Household",
+   "id": "kaplan",
+   "profile": "Moderate",
+   "model_name": "CIO Moderate, Tier 2",
+   "band": [
+    0.08259999999999999,
+    0.1035
+   ],
+   "gain_budget": 174000.0,
+   "hy_limit": 0.08,
+   "meeting": "in 1 days, Retirement planning",
+   "incoming": {
+    "amount": 0,
+    "date": null
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.1812,
+    "LCV": 0.1812,
+    "SMID": 0.075,
+    "INTL": 0.125,
+    "EM": 0.0375,
+    "UST": 0.11570000000000001,
+    "IGC": 0.1329,
+    "HY": 0.0514,
+    "CASH": 0.05,
+    "HF": 0.025,
+    "PE": 0.025
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "goals": [
+    {
+     "type": "downside",
+     "max_loss": 0.25,
+     "scenario": "gfc"
+    }
+   ],
+   "target_stress": {
+    "dotcom": -0.204,
+    "gfc": -0.355,
+    "covid": -0.228,
+    "y2022": -0.126
+   },
+   "relationship": "client",
+   "holdings": [
+    {
+     "sym": "AAPL",
+     "name": "Apple Inc",
+     "kind": "stock",
+     "mv": 2400000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.004,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 600000.0,
+       "mv": 2400000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 2100000.0,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "yield": 0.012,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 1700000.0,
+       "mv": 2100000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.473,
+      "gfc": -0.551,
+      "covid": -0.34,
+      "y2022": -0.182
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "top_holdings": {
+      "NVDA": 0.064,
+      "MSFT": 0.057,
+      "AAPL": 0.056,
+      "AMZN": 0.034,
+      "GOOG": 0.033,
+      "META": 0.025,
+      "AVGO": 0.021,
+      "TSLA": 0.018,
+      "JPM": 0.013,
+      "COST": 0.009,
+      "UNH": 0.007,
+      "JNJ": 0.007,
+      "PG": 0.007,
+      "HD": 0.007
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Total Market ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "VXUS",
+     "name": "Total International Stock ETF",
+     "kind": "etf",
+     "mv": 1100000.0,
+     "classes": {
+      "INTL": 0.75,
+      "EM": 0.25
+     },
+     "yield": 0.028999999999999998,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 1200000.0,
+       "mv": 1100000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.472,
+      "gfc": -0.61,
+      "covid": -0.325,
+      "y2022": -0.155
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 5.0,
+     "holdings_count": 8500,
+     "top10_share": 0.1,
+     "top_holdings": {},
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "style_box": {
+      "LV": 0.35,
+      "LB": 0.35,
+      "LG": 0.2,
+      "MB": 0.1
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Total International Stock ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "BND",
+     "name": "US Bond Market ETF",
+     "kind": "etf",
+     "mv": 1900000.0,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "yield": 0.040999999999999995,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 2000000.0,
+       "mv": 1900000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.138
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 11000,
+     "top10_share": null,
+     "top_holdings": {},
+     "sectors": {},
+     "style_box": {},
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Bond Market ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 1200000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 1200000.0,
+       "mv": 1200000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    }
+   ]
+  },
+  "castellano": {
+   "name": "Castellano Family",
+   "id": "castellano",
+   "profile": "Moderate",
+   "model_name": "CIO Moderate, Tier 2",
+   "band": [
+    0.08259999999999999,
+    0.1035
+   ],
+   "gain_budget": 64000.0,
+   "hy_limit": 0.08,
+   "meeting": "in 5 days, Tax strategy review",
+   "incoming": {
+    "amount": 0,
+    "date": null
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.2115,
+    "LCV": 0.2115,
+    "SMID": 0.08750000000000001,
+    "INTL": 0.1458,
+    "EM": 0.0438,
+    "UST": 0.09640000000000001,
+    "IGC": 0.1107,
+    "HY": 0.0429,
+    "CASH": 0.05,
+    "HF": 0,
+    "PE": 0
+   },
+   "model_w": {
+    "LCG": 0.145,
+    "LCV": 0.145,
+    "SMID": 0.06,
+    "INTL": 0.1,
+    "EM": 0.03,
+    "UST": 0.135,
+    "IGC": 0.155,
+    "HY": 0.06,
+    "CASH": 0.07,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "goals": [
+    {
+     "type": "income",
+     "annual_income": 75000
+    }
+   ],
+   "target_stress": {
+    "dotcom": -0.25,
+    "gfc": -0.397,
+    "covid": -0.254,
+    "y2022": -0.133
+   },
+   "relationship": "client",
+   "holdings": [
+    {
+     "sym": "ITOT",
+     "name": "Core S&P Total US Stock ETF",
+     "kind": "etf",
+     "mv": 900000.0,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "yield": 0.012,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 500000.0,
+       "mv": 600000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 2",
+       "cost": 290000.0,
+       "mv": 300000.0,
+       "term": "ST"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.473,
+      "gfc": -0.551,
+      "covid": -0.34,
+      "y2022": -0.182
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 2500,
+     "top10_share": 0.33,
+     "top_holdings": {
+      "NVDA": 0.064,
+      "MSFT": 0.057,
+      "AAPL": 0.056,
+      "AMZN": 0.034,
+      "GOOG": 0.033,
+      "META": 0.025,
+      "AVGO": 0.021,
+      "TSLA": 0.018,
+      "JPM": 0.013,
+      "COST": 0.009,
+      "UNH": 0.007,
+      "JNJ": 0.007,
+      "PG": 0.007,
+      "HD": 0.007
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Core S&P Total US Stock ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "IEFA",
+     "name": "Core MSCI EAFE ETF",
+     "kind": "etf",
+     "mv": 520000.0,
+     "classes": {
+      "INTL": 1.0
+     },
+     "yield": 0.03,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 360000.0,
+       "mv": 320000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 2",
+       "cost": 206000.0,
+       "mv": 200000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.48,
+      "gfc": -0.61,
+      "covid": -0.33,
+      "y2022": -0.14
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 7.0,
+     "holdings_count": 2700,
+     "top10_share": 0.12,
+     "top_holdings": {},
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "style_box": {
+      "LV": 0.35,
+      "LB": 0.35,
+      "LG": 0.2,
+      "MB": 0.1
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Core MSCI EAFE ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "JPM",
+     "name": "JPMorgan Chase",
+     "kind": "stock",
+     "mv": 260000.0,
+     "classes": {
+      "LCV": 1.0
+     },
+     "yield": 0.021,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 64000.0,
+       "mv": 104000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 2",
+       "cost": 70000.0,
+       "mv": 65000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 3",
+       "cost": 48000.0,
+       "mv": 52000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 4",
+       "cost": 38000.0,
+       "mv": 39000.0,
+       "term": "ST"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.2,
+      "gfc": -0.8,
+      "covid": -0.43,
+      "y2022": -0.105
+     },
+     "notes": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "tradable": false,
+     "cash": false,
+     "sector": "FIN",
+     "style_box": {
+      "LV": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "PFE",
+     "name": "Pfizer Inc",
+     "kind": "stock",
+     "mv": 120000.0,
+     "classes": {
+      "LCV": 1.0
+     },
+     "yield": 0.065,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 93000.0,
+       "mv": 75000.0,
+       "term": "LT"
+      },
+      {
+       "id": "Lot 2",
+       "cost": 46000.0,
+       "mv": 45000.0,
+       "term": "ST"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.38,
+      "covid": -0.28,
+      "y2022": -0.02
+     },
+     "notes": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "tradable": false,
+     "cash": false,
+     "sector": "HLTH",
+     "style_box": {
+      "LV": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "CVX",
+     "name": "Chevron Corp",
+     "kind": "stock",
+     "mv": 140000.0,
+     "classes": {
+      "LCV": 1.0
+     },
+     "yield": 0.045,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 128000.0,
+       "mv": 140000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.53,
+      "covid": -0.57,
+      "y2022": 0.66
+     },
+     "notes": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "tradable": false,
+     "cash": false,
+     "sector": "ENER",
+     "style_box": {
+      "LV": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "CVS",
+     "name": "CVS Health",
+     "kind": "stock",
+     "mv": 80000.0,
+     "classes": {
+      "LCV": 1.0
+     },
+     "yield": 0.042,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 99000.0,
+       "mv": 80000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.25,
+      "gfc": -0.38,
+      "covid": -0.28,
+      "y2022": -0.02
+     },
+     "notes": "Manager-run: traded by Crestline Large Cap Value SMA",
+     "tradable": false,
+     "cash": false,
+     "sector": "HLTH",
+     "style_box": {
+      "LV": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "LCV-I",
+     "name": "US Large Cap Value Fund (Institutional shares)",
+     "kind": "mf",
+     "mv": 250000.0,
+     "classes": {
+      "LCV": 1.0
+     },
+     "yield": 0.02,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 236000.0,
+       "mv": 250000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.299,
+      "gfc": -0.561,
+      "covid": -0.37,
+      "y2022": -0.054
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 55.0,
+     "holdings_count": 90,
+     "top10_share": 0.3,
+     "top_holdings": {
+      "JPM": 0.035,
+      "JNJ": 0.022,
+      "PG": 0.02,
+      "HD": 0.02,
+      "CVX": 0.016,
+      "UNH": 0.015,
+      "KO": 0.013,
+      "PFE": 0.01,
+      "CVS": 0.006,
+      "INTC": 0.006
+     },
+     "sectors": {
+      "FIN": 0.23,
+      "HLTH": 0.16,
+      "INDU": 0.14,
+      "TECH": 0.1,
+      "STAP": 0.09,
+      "ENER": 0.08,
+      "UTIL": 0.05,
+      "DISC": 0.05,
+      "COMM": 0.04,
+      "MATL": 0.04,
+      "REAL": 0.02
+     },
+     "style_box": {
+      "LV": 0.8,
+      "LB": 0.15,
+      "MV": 0.05
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Large Cap Value Fund (Institutional shares) offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "NYSDA-5.0-34",
+     "name": "NY State Dormitory Authority 5.0% 2034",
+     "kind": "bond",
+     "mv": 450000.0,
+     "classes": {
+      "IGC": 1.0
+     },
+     "yield": 0.035,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 462000.0,
+       "mv": 450000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.22,
+      "gfc": 0.01,
+      "covid": -0.09,
+      "y2022": -0.085
+     },
+     "notes": "Individual bond or CD: held to maturity",
+     "tradable": false,
+     "cash": false
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 320000.0,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "yield": 0.040999999999999995,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 333000.0,
+       "mv": 320000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.138
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "top_holdings": {},
+     "sectors": {},
+     "style_box": {},
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Aggregate Bond ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 160000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 160000.0,
+       "mv": 160000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    }
+   ]
+  },
+  "okonkwo": {
+   "name": "Okonkwo Holdings LLC",
+   "id": "okonkwo",
+   "profile": "Moderately Aggressive",
+   "model_name": "CIO Moderately Aggressive, Tier 2",
+   "band": [
+    0.1035,
+    0.1253
+   ],
+   "gain_budget": 632000.0,
+   "hy_limit": 0.1,
+   "meeting": "in 6 days, Liquidity deployment",
+   "incoming": {
+    "amount": 0,
+    "date": null
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.15480000000000002,
+    "LCV": 0.1468,
+    "SMID": 0.0635,
+    "INTL": 0.1032,
+    "EM": 0.0317,
+    "UST": 0.0852,
+    "IGC": 0.10800000000000001,
+    "HY": 0.056799999999999996,
+    "CASH": 0.05,
+    "HF": 0.1,
+    "PE": 0.1
+   },
+   "model_w": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "goals": [
+    {
+     "type": "return",
+     "target_return": 0.065
+    }
+   ],
+   "target_stress": {
+    "dotcom": -0.199,
+    "gfc": -0.349,
+    "covid": -0.213,
+    "y2022": -0.117
+   },
+   "relationship": "client",
+   "holdings": [
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 14200000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 14200000.0,
+       "mv": 14200000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    },
+    {
+     "sym": "VTI",
+     "name": "US Total Market ETF",
+     "kind": "etf",
+     "mv": 6400000.0,
+     "classes": {
+      "LCG": 0.45,
+      "LCV": 0.45,
+      "SMID": 0.1
+     },
+     "yield": 0.012,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 5900000.0,
+       "mv": 6400000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.473,
+      "gfc": -0.551,
+      "covid": -0.34,
+      "y2022": -0.182
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 3600,
+     "top10_share": 0.31,
+     "top_holdings": {
+      "NVDA": 0.064,
+      "MSFT": 0.057,
+      "AAPL": 0.056,
+      "AMZN": 0.034,
+      "GOOG": 0.033,
+      "META": 0.025,
+      "AVGO": 0.021,
+      "TSLA": 0.018,
+      "JPM": 0.013,
+      "COST": 0.009,
+      "UNH": 0.007,
+      "JNJ": 0.007,
+      "PG": 0.007,
+      "HD": 0.007
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.3,
+      "LB": 0.3,
+      "LG": 0.3,
+      "MB": 0.06,
+      "SB": 0.04
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Total Market ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "IEFA",
+     "name": "Core MSCI EAFE ETF",
+     "kind": "etf",
+     "mv": 3100000.0,
+     "classes": {
+      "INTL": 1.0
+     },
+     "yield": 0.03,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 3000000.0,
+       "mv": 3100000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.48,
+      "gfc": -0.61,
+      "covid": -0.33,
+      "y2022": -0.14
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 7.0,
+     "holdings_count": 2700,
+     "top10_share": 0.12,
+     "top_holdings": {},
+     "sectors": {
+      "FIN": 0.22,
+      "INDU": 0.17,
+      "TECH": 0.11,
+      "DISC": 0.1,
+      "HLTH": 0.09,
+      "STAP": 0.07,
+      "MATL": 0.07,
+      "COMM": 0.05,
+      "ENER": 0.05,
+      "UTIL": 0.03,
+      "REAL": 0.03
+     },
+     "style_box": {
+      "LV": 0.35,
+      "LB": 0.35,
+      "LG": 0.2,
+      "MB": 0.1
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Core MSCI EAFE ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "AGG",
+     "name": "US Aggregate Bond ETF",
+     "kind": "etf",
+     "mv": 4700000.0,
+     "classes": {
+      "UST": 0.6,
+      "IGC": 0.4
+     },
+     "yield": 0.040999999999999995,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 4800000.0,
+       "mv": 4700000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.276,
+      "gfc": 0.072,
+      "covid": -0.006,
+      "y2022": -0.138
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 3.0,
+     "holdings_count": 12000,
+     "top10_share": null,
+     "top_holdings": {},
+     "sectors": {},
+     "style_box": {},
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: US Aggregate Bond ETF offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "PRIV",
+     "name": "Private RE Interest",
+     "kind": "alt",
+     "mv": 3200000.0,
+     "classes": {
+      "PE": 1.0
+     },
+     "yield": 0.03,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 3000000.0,
+       "mv": 3200000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.35,
+      "gfc": -0.4,
+      "covid": -0.15,
+      "y2022": -0.1
+     },
+     "notes": "Private real estate interest; no redemption right",
+     "tradable": false,
+     "cash": false
+    }
+   ]
+  },
+  "brennan": {
+   "name": "Brennan Household",
+   "id": "brennan",
+   "profile": "Aggressive",
+   "model_name": "CIO Aggressive, Tier 1",
+   "band": [
+    0.1247,
+    0.147
+   ],
+   "gain_budget": 18000.0,
+   "hy_limit": 0.12,
+   "meeting": "in 6 days, Advisory proposal",
+   "incoming": {
+    "amount": 0,
+    "date": null
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.27649999999999997,
+    "LCV": 0.256,
+    "SMID": 0.1024,
+    "INTL": 0.16390000000000002,
+    "EM": 0.0512,
+    "UST": 0.0167,
+    "IGC": 0.038900000000000004,
+    "HY": 0.0444,
+    "CASH": 0.05,
+    "HF": 0,
+    "PE": 0
+   },
+   "model_w": {
+    "LCG": 0.27,
+    "LCV": 0.25,
+    "SMID": 0.1,
+    "INTL": 0.16,
+    "EM": 0.05,
+    "UST": 0.015,
+    "IGC": 0.035,
+    "HY": 0.04,
+    "CASH": 0.03,
+    "HF": 0.05,
+    "PE": 0
+   },
+   "goals": [],
+   "target_stress": {
+    "dotcom": -0.359,
+    "gfc": -0.494,
+    "covid": -0.303,
+    "y2022": -0.143
+   },
+   "relationship": "client",
+   "holdings": [
+    {
+     "sym": "LCG-A",
+     "name": "Large-Cap Growth Fund, Class A (front-end load)",
+     "kind": "mf",
+     "mv": 180000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.001,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 140000.0,
+       "mv": 180000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.599,
+      "gfc": -0.539,
+      "covid": -0.319,
+      "y2022": -0.268
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 95.0,
+     "holdings_count": 70,
+     "top10_share": 0.55,
+     "top_holdings": {
+      "MSFT": 0.09,
+      "NVDA": 0.08,
+      "AAPL": 0.07,
+      "AMZN": 0.06,
+      "GOOG": 0.05,
+      "META": 0.04
+     },
+     "sectors": {
+      "TECH": 0.5,
+      "DISC": 0.17,
+      "COMM": 0.13,
+      "HLTH": 0.06,
+      "INDU": 0.05,
+      "FIN": 0.05,
+      "STAP": 0.02,
+      "MATL": 0.01,
+      "REAL": 0.01
+     },
+     "style_box": {
+      "LG": 0.85,
+      "LB": 0.1,
+      "MG": 0.05
+     },
+     "report": {
+      "view": "Neutral",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Large-Cap Growth Fund, Class A (front-end load) offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "BAL-C",
+     "name": "Balanced Income Fund, Class C (12b-1 fee)",
+     "kind": "mf",
+     "mv": 90000.0,
+     "classes": {
+      "LCG": 0.3,
+      "LCV": 0.3,
+      "UST": 0.12,
+      "IGC": 0.16,
+      "HY": 0.12
+     },
+     "yield": 0.025,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 85000.0,
+       "mv": 90000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.219,
+      "gfc": -0.355,
+      "covid": -0.237,
+      "y2022": -0.163
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 170.0,
+     "holdings_count": 400,
+     "top10_share": 0.25,
+     "top_holdings": {
+      "NVDA": 0.045,
+      "MSFT": 0.0402,
+      "AAPL": 0.0396,
+      "AMZN": 0.024,
+      "GOOG": 0.0234,
+      "META": 0.0174,
+      "AVGO": 0.015,
+      "TSLA": 0.0126,
+      "JPM": 0.009,
+      "COST": 0.006,
+      "UNH": 0.0048,
+      "JNJ": 0.0048,
+      "PG": 0.0048,
+      "HD": 0.0048
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.32,
+      "LB": 0.33,
+      "LG": 0.35
+     },
+     "report": {
+      "view": "Not recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: Balanced Income Fund, Class C (12b-1 fee) offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "IDX-I",
+     "name": "S&P 500 Index Fund, institutional class",
+     "kind": "mf",
+     "mv": 150000.0,
+     "classes": {
+      "LCG": 0.5,
+      "LCV": 0.5
+     },
+     "yield": 0.012,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 110000.0,
+       "mv": 150000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.473,
+      "gfc": -0.551,
+      "covid": -0.34,
+      "y2022": -0.182
+     },
+     "notes": "fund",
+     "tradable": true,
+     "cash": false,
+     "expense_bps": 4.0,
+     "holdings_count": 503,
+     "top10_share": 0.37,
+     "top_holdings": {
+      "NVDA": 0.075,
+      "MSFT": 0.067,
+      "AAPL": 0.066,
+      "AMZN": 0.04,
+      "GOOG": 0.039,
+      "META": 0.029,
+      "AVGO": 0.025,
+      "TSLA": 0.021,
+      "JPM": 0.015,
+      "COST": 0.01,
+      "UNH": 0.008,
+      "JNJ": 0.008,
+      "PG": 0.008,
+      "HD": 0.008
+     },
+     "sectors": {
+      "TECH": 0.33,
+      "FIN": 0.13,
+      "DISC": 0.105,
+      "COMM": 0.1,
+      "HLTH": 0.09,
+      "INDU": 0.085,
+      "STAP": 0.05,
+      "ENER": 0.03,
+      "UTIL": 0.025,
+      "REAL": 0.02,
+      "MATL": 0.02
+     },
+     "style_box": {
+      "LV": 0.32,
+      "LB": 0.33,
+      "LG": 0.35
+     },
+     "report": {
+      "view": "Recommended",
+      "date": "2026-10-01",
+      "summary": "Illustrative research: S&P 500 Index Fund, institutional class offers exposure to its stated mandate; review fit, concentration, liquidity and costs.",
+      "strengths": [
+       "Transparent asset-class exposure",
+       "Documented implementation approach"
+      ],
+      "risk": "Market conditions and portfolio concentrations can change results."
+     }
+    },
+    {
+     "sym": "NVDA",
+     "name": "NVIDIA Corp",
+     "kind": "stock",
+     "mv": 260000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.0003,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 45000.0,
+       "mv": 260000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "AAPL",
+     "name": "Apple Inc",
+     "kind": "stock",
+     "mv": 110000.0,
+     "classes": {
+      "LCG": 1.0
+     },
+     "yield": 0.004,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 70000.0,
+       "mv": 110000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.8,
+      "gfc": -0.53,
+      "covid": -0.3,
+      "y2022": -0.28
+     },
+     "notes": "",
+     "tradable": true,
+     "cash": false,
+     "sector": "TECH",
+     "style_box": {
+      "LG": 1
+     },
+     "expense_bps": 0
+    },
+    {
+     "sym": "PRIV-SERIESB",
+     "name": "Private placement, Series B preferred (startup)",
+     "kind": "alt",
+     "mv": 60000.0,
+     "classes": {
+      "PE": 1.0
+     },
+     "yield": 0.0,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 25000.0,
+       "mv": 60000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": -0.35,
+      "gfc": -0.4,
+      "covid": -0.15,
+      "y2022": -0.1
+     },
+     "notes": "Restricted private placement",
+     "tradable": false,
+     "cash": false
+    },
+    {
+     "sym": "MMF",
+     "name": "Government money market fund",
+     "kind": "cash",
+     "mv": 30000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.036000000000000004,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 30000.0,
+       "mv": 30000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    },
+    {
+     "sym": "CASH",
+     "name": "Sweep / T-Bills",
+     "kind": "cash",
+     "mv": 20000.0,
+     "classes": {
+      "CASH": 1.0
+     },
+     "yield": 0.034,
+     "lots": [
+      {
+       "id": "Lot 1",
+       "cost": 20000.0,
+       "mv": 20000.0,
+       "term": "LT"
+      }
+     ],
+     "scret": {
+      "dotcom": 0.1,
+      "gfc": 0.02,
+      "covid": 0.003,
+      "y2022": 0.015
+     },
+     "notes": "",
+     "tradable": false,
+     "cash": true
+    }
+   ]
+  },
+  "rivera": {
+   "name": "Rivera Household",
+   "id": "rivera",
+   "profile": "Moderately Aggressive",
+   "model_name": "CIO Moderately Aggressive, Tier 1",
+   "band": [
+    0.1035,
+    0.1253
+   ],
+   "gain_budget": 75000.0,
+   "hy_limit": 0.1,
+   "meeting": "in 4 days, Prospect review",
+   "incoming": {
+    "amount": 0,
+    "date": null
+   },
+   "rates": {
+    "taxable": true,
+    "lt": 0.238,
+    "st": 0.408,
+    "federal": 0.37
+   },
+   "limits": {
+    "single_stock": 0.1,
+    "single_fund": 0.25,
+    "turnover": 0.4,
+    "drift_pts": 5
+   },
+   "target": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "model_w": {
+    "LCG": 0.195,
+    "LCV": 0.185,
+    "SMID": 0.08,
+    "INTL": 0.13,
+    "EM": 0.04,
+    "UST": 0.075,
+    "IGC": 0.095,
+    "HY": 0.05,
+    "CASH": 0.05,
+    "HF": 0.05,
+    "PE": 0.05
+   },
+   "goals": [
+    {
+     "type": "return",
+     "target_return": 0.065
+    }
+   ],
+   "target_stress": {
+    "dotcom": -0.199,
+    "gfc": -0.349,
+    "covid": -0.213,
+    "y2022": -0.117
+   },
+   "relationship": "prospect",
+   "holdings": []
+  }
+ }
+}

@@ -1,0 +1,1572 @@
+{
+ "as_of": "2026-10-15",
+ "note": "Illustrative approved list built from the Portfolio Review fund and stock shelf. Fictional CUSIP-style identifiers.",
+ "approved": [
+  {
+   "sym": "VTI",
+   "cusip": "X92DC5B40",
+   "name": "US Total Market ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.45,
+    "LCV": 0.45,
+    "SMID": 0.1
+   },
+   "expense_bps": 3.0,
+   "yield": 0.012,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.55,
+    "covid": -0.34,
+    "y2022": -0.18
+   },
+   "top_holdings": {
+    "NVDA": 0.064,
+    "MSFT": 0.057,
+    "AAPL": 0.056,
+    "AMZN": 0.034,
+    "GOOG": 0.033,
+    "META": 0.025,
+    "AVGO": 0.021,
+    "TSLA": 0.018,
+    "JPM": 0.013,
+    "COST": 0.009,
+    "UNH": 0.007,
+    "JNJ": 0.007,
+    "PG": 0.007,
+    "HD": 0.007
+   }
+  },
+  {
+   "sym": "ITOT",
+   "cusip": "X97F1225C",
+   "name": "Core S&P Total US Stock ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.45,
+    "LCV": 0.45,
+    "SMID": 0.1
+   },
+   "expense_bps": 3.0,
+   "yield": 0.012,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.55,
+    "covid": -0.34,
+    "y2022": -0.18
+   },
+   "top_holdings": {
+    "NVDA": 0.064,
+    "MSFT": 0.057,
+    "AAPL": 0.056,
+    "AMZN": 0.034,
+    "GOOG": 0.033,
+    "META": 0.025,
+    "AVGO": 0.021,
+    "TSLA": 0.018,
+    "JPM": 0.013,
+    "COST": 0.009,
+    "UNH": 0.007,
+    "JNJ": 0.007,
+    "PG": 0.007,
+    "HD": 0.007
+   }
+  },
+  {
+   "sym": "VOO",
+   "cusip": "X9F1E6B93",
+   "name": "S&P 500 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "expense_bps": 3.0,
+   "yield": 0.012,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.55,
+    "covid": -0.34,
+    "y2022": -0.18
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   }
+  },
+  {
+   "sym": "IVV",
+   "cusip": "X97F28049",
+   "name": "Core S&P 500 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "expense_bps": 3.0,
+   "yield": 0.012,
+   "view": "no report",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.55,
+    "covid": -0.34,
+    "y2022": -0.18
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   }
+  },
+  {
+   "sym": "IDX-I",
+   "cusip": "X9850C2C0",
+   "name": "S&P 500 Index Fund, institutional class",
+   "kind": "mf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "expense_bps": 4.0,
+   "yield": 0.012,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.55,
+    "covid": -0.34,
+    "y2022": -0.18
+   },
+   "top_holdings": {
+    "NVDA": 0.075,
+    "MSFT": 0.067,
+    "AAPL": 0.066,
+    "AMZN": 0.04,
+    "GOOG": 0.039,
+    "META": 0.029,
+    "AVGO": 0.025,
+    "TSLA": 0.021,
+    "JPM": 0.015,
+    "COST": 0.01,
+    "UNH": 0.008,
+    "JNJ": 0.008,
+    "PG": 0.008,
+    "HD": 0.008
+   }
+  },
+  {
+   "sym": "ESGV",
+   "cusip": "X90AB4937",
+   "name": "ESG US Equity ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.4,
+    "SMID": 0.1
+   },
+   "expense_bps": 9.0,
+   "yield": 0.01,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.5,
+    "gfc": -0.56,
+    "covid": -0.33,
+    "y2022": -0.22
+   },
+   "top_holdings": {
+    "NVDA": 0.064,
+    "MSFT": 0.057,
+    "AAPL": 0.056,
+    "AMZN": 0.034,
+    "GOOG": 0.033,
+    "META": 0.025,
+    "AVGO": 0.021,
+    "TSLA": 0.018,
+    "JPM": 0.013,
+    "COST": 0.009,
+    "UNH": 0.007,
+    "JNJ": 0.007,
+    "PG": 0.007,
+    "HD": 0.007
+   }
+  },
+  {
+   "sym": "QQQ",
+   "cusip": "X993DE563",
+   "name": "Nasdaq-100 ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "expense_bps": 20.0,
+   "yield": 0.006,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.62,
+    "gfc": -0.52,
+    "covid": -0.31,
+    "y2022": -0.26
+   },
+   "top_holdings": {
+    "NVDA": 0.095,
+    "MSFT": 0.085,
+    "AAPL": 0.08,
+    "AMZN": 0.055,
+    "GOOG": 0.053,
+    "AVGO": 0.05,
+    "META": 0.038,
+    "TSLA": 0.03,
+    "COST": 0.025
+   }
+  },
+  {
+   "sym": "VGT",
+   "cusip": "X980F54AF",
+   "name": "Info Tech ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "expense_bps": 9.0,
+   "yield": 0.005,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "top_holdings": {
+    "NVDA": 0.12,
+    "MSFT": 0.11,
+    "AAPL": 0.11,
+    "AMZN": 0.065,
+    "GOOG": 0.06,
+    "META": 0.045,
+    "AVGO": 0.04,
+    "TSLA": 0.035,
+    "COST": 0.015
+   }
+  },
+  {
+   "sym": "ARKK",
+   "cusip": "X9CBD9A06",
+   "name": "Innovation ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 0.6,
+    "SMID": 0.4
+   },
+   "expense_bps": 75.0,
+   "yield": 0.0,
+   "view": "Not recommended",
+   "status": "review",
+   "scret": {
+    "dotcom": -0.5,
+    "gfc": -0.54,
+    "covid": -0.32,
+    "y2022": -0.23
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VUG",
+   "cusip": "X9B990511",
+   "name": "Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "expense_bps": 4.0,
+   "yield": 0.005,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.6,
+    "gfc": -0.54,
+    "covid": -0.32,
+    "y2022": -0.27
+   },
+   "top_holdings": {
+    "NVDA": 0.12,
+    "MSFT": 0.11,
+    "AAPL": 0.11,
+    "AMZN": 0.065,
+    "GOOG": 0.06,
+    "META": 0.045,
+    "AVGO": 0.04,
+    "TSLA": 0.035,
+    "COST": 0.015
+   }
+  },
+  {
+   "sym": "SCHG",
+   "cusip": "X9FFA2AAC",
+   "name": "US Large-Cap Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "expense_bps": 4.0,
+   "yield": 0.004,
+   "view": "no report",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.6,
+    "gfc": -0.54,
+    "covid": -0.32,
+    "y2022": -0.27
+   },
+   "top_holdings": {
+    "NVDA": 0.12,
+    "MSFT": 0.11,
+    "AAPL": 0.11,
+    "AMZN": 0.065,
+    "GOOG": 0.06,
+    "META": 0.045,
+    "AVGO": 0.04,
+    "TSLA": 0.035,
+    "COST": 0.015
+   }
+  },
+  {
+   "sym": "LCG-A",
+   "cusip": "X97E8266A",
+   "name": "Large-Cap Growth Fund, Class A (front-end load)",
+   "kind": "mf",
+   "classes": {
+    "LCG": 1.0
+   },
+   "expense_bps": 95.0,
+   "yield": 0.001,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.6,
+    "gfc": -0.54,
+    "covid": -0.32,
+    "y2022": -0.27
+   },
+   "top_holdings": {
+    "MSFT": 0.09,
+    "NVDA": 0.08,
+    "AAPL": 0.07,
+    "AMZN": 0.06,
+    "GOOG": 0.05,
+    "META": 0.04
+   }
+  },
+  {
+   "sym": "SCHD",
+   "cusip": "X9C98AC23",
+   "name": "US Dividend Equity ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "expense_bps": 6.0,
+   "yield": 0.037000000000000005,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.28,
+    "gfc": -0.5,
+    "covid": -0.37,
+    "y2022": 0.03
+   },
+   "top_holdings": {
+    "CVX": 0.042,
+    "KO": 0.041,
+    "PFE": 0.04,
+    "HD": 0.04
+   }
+  },
+  {
+   "sym": "DGRO",
+   "cusip": "X977E4464",
+   "name": "Core Dividend Growth ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 0.7000000000000001,
+    "LCG": 0.3
+   },
+   "expense_bps": 8.0,
+   "yield": 0.022000000000000002,
+   "view": "no report",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.35,
+    "gfc": -0.54,
+    "covid": -0.35,
+    "y2022": -0.08
+   },
+   "top_holdings": {
+    "JPM": 0.035,
+    "JNJ": 0.022,
+    "PG": 0.02,
+    "HD": 0.02,
+    "CVX": 0.016,
+    "UNH": 0.015,
+    "KO": 0.013,
+    "PFE": 0.01,
+    "CVS": 0.006,
+    "INTC": 0.006
+   }
+  },
+  {
+   "sym": "VTV",
+   "cusip": "X906E75D1",
+   "name": "Value ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "expense_bps": 4.0,
+   "yield": 0.023,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.3,
+    "gfc": -0.56,
+    "covid": -0.37,
+    "y2022": -0.05
+   },
+   "top_holdings": {
+    "JPM": 0.035,
+    "JNJ": 0.022,
+    "PG": 0.02,
+    "HD": 0.02,
+    "CVX": 0.016,
+    "UNH": 0.015,
+    "KO": 0.013,
+    "PFE": 0.01,
+    "CVS": 0.006,
+    "INTC": 0.006
+   }
+  },
+  {
+   "sym": "LCV-I",
+   "cusip": "X9C86865A",
+   "name": "US Large Cap Value Fund (Institutional shares)",
+   "kind": "mf",
+   "classes": {
+    "LCV": 1.0
+   },
+   "expense_bps": 55.0,
+   "yield": 0.02,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.3,
+    "gfc": -0.56,
+    "covid": -0.37,
+    "y2022": -0.05
+   },
+   "top_holdings": {
+    "JPM": 0.035,
+    "JNJ": 0.022,
+    "PG": 0.02,
+    "HD": 0.02,
+    "CVX": 0.016,
+    "UNH": 0.015,
+    "KO": 0.013,
+    "PFE": 0.01,
+    "CVS": 0.006,
+    "INTC": 0.006
+   }
+  },
+  {
+   "sym": "IJH",
+   "cusip": "X917DD0AA",
+   "name": "Core S&P Mid-Cap ETF",
+   "kind": "etf",
+   "classes": {
+    "SMID": 1.0
+   },
+   "expense_bps": 5.0,
+   "yield": 0.013999999999999999,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.29,
+    "gfc": -0.59,
+    "covid": -0.38,
+    "y2022": -0.12
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VXUS",
+   "cusip": "X91CDE2F5",
+   "name": "Total International Stock ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 0.75,
+    "EM": 0.25
+   },
+   "expense_bps": 5.0,
+   "yield": 0.028999999999999998,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.47,
+    "gfc": -0.61,
+    "covid": -0.33,
+    "y2022": -0.16
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VEA",
+   "cusip": "X91521810",
+   "name": "Developed Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 1.0
+   },
+   "expense_bps": 3.0,
+   "yield": 0.03,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.48,
+    "gfc": -0.61,
+    "covid": -0.33,
+    "y2022": -0.14
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "IEFA",
+   "cusip": "X9504E018",
+   "name": "Core MSCI EAFE ETF",
+   "kind": "etf",
+   "classes": {
+    "INTL": 1.0
+   },
+   "expense_bps": 7.0,
+   "yield": 0.03,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.48,
+    "gfc": -0.61,
+    "covid": -0.33,
+    "y2022": -0.14
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VWO",
+   "cusip": "X9C958E63",
+   "name": "Emerging Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "EM": 1.0
+   },
+   "expense_bps": 7.0,
+   "yield": 0.03,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.45,
+    "gfc": -0.61,
+    "covid": -0.31,
+    "y2022": -0.2
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "IEMG",
+   "cusip": "X9FF18529",
+   "name": "Core MSCI Emerging Markets ETF",
+   "kind": "etf",
+   "classes": {
+    "EM": 1.0
+   },
+   "expense_bps": 9.0,
+   "yield": 0.027999999999999997,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.45,
+    "gfc": -0.61,
+    "covid": -0.31,
+    "y2022": -0.2
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VNQ",
+   "cusip": "X9C112B97",
+   "name": "Real Estate ETF",
+   "kind": "etf",
+   "classes": {
+    "LCV": 0.5,
+    "SMID": 0.5
+   },
+   "expense_bps": 13.0,
+   "yield": 0.038,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.35,
+    "gfc": -0.7,
+    "covid": -0.41,
+    "y2022": -0.26
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "BAL-C",
+   "cusip": "X902A4F92",
+   "name": "Balanced Income Fund, Class C (12b-1 fee)",
+   "kind": "mf",
+   "classes": {
+    "LCG": 0.3,
+    "LCV": 0.3,
+    "UST": 0.12,
+    "IGC": 0.16,
+    "HY": 0.12
+   },
+   "expense_bps": 170.0,
+   "yield": 0.025,
+   "view": "Not recommended",
+   "status": "review",
+   "scret": {
+    "dotcom": -0.22,
+    "gfc": -0.35,
+    "covid": -0.24,
+    "y2022": -0.16
+   },
+   "top_holdings": {
+    "NVDA": 0.045,
+    "MSFT": 0.0402,
+    "AAPL": 0.0396,
+    "AMZN": 0.024,
+    "GOOG": 0.0234,
+    "META": 0.0174,
+    "AVGO": 0.015,
+    "TSLA": 0.0126,
+    "JPM": 0.009,
+    "COST": 0.006,
+    "UNH": 0.0048,
+    "JNJ": 0.0048,
+    "PG": 0.0048,
+    "HD": 0.0048
+   }
+  },
+  {
+   "sym": "AGG",
+   "cusip": "X9D66FBC6",
+   "name": "US Aggregate Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 0.6,
+    "IGC": 0.4
+   },
+   "expense_bps": 3.0,
+   "yield": 0.040999999999999995,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.28,
+    "gfc": 0.07,
+    "covid": -0.01,
+    "y2022": -0.14
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "BND",
+   "cusip": "X9DDFDB0C",
+   "name": "US Bond Market ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 0.6,
+    "IGC": 0.4
+   },
+   "expense_bps": 3.0,
+   "yield": 0.040999999999999995,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.28,
+    "gfc": 0.07,
+    "covid": -0.01,
+    "y2022": -0.14
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "LQD",
+   "cusip": "X91D3D162",
+   "name": "Investment Grade Corporate Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "expense_bps": 14.0,
+   "yield": 0.05,
+   "view": "Neutral",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.24,
+    "gfc": -0.03,
+    "covid": -0.09,
+    "y2022": -0.16
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VGSH",
+   "cusip": "X91DEE22E",
+   "name": "Short-Term Treasury ETF",
+   "kind": "etf",
+   "classes": {
+    "UST": 1.0
+   },
+   "expense_bps": 4.0,
+   "yield": 0.039,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.3,
+    "gfc": 0.14,
+    "covid": 0.05,
+    "y2022": -0.12
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "MUB",
+   "cusip": "X9F041670",
+   "name": "National Muni Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "expense_bps": 5.0,
+   "yield": 0.031000000000000003,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.22,
+    "gfc": 0.01,
+    "covid": -0.09,
+    "y2022": -0.09
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "VTEB",
+   "cusip": "X9D099D46",
+   "name": "Tax-Exempt Bond ETF",
+   "kind": "etf",
+   "classes": {
+    "IGC": 1.0
+   },
+   "expense_bps": 3.0,
+   "yield": 0.031000000000000003,
+   "view": "Recommended",
+   "status": "approved",
+   "scret": {
+    "dotcom": 0.22,
+    "gfc": 0.01,
+    "covid": -0.09,
+    "y2022": -0.09
+   },
+   "top_holdings": {}
+  },
+  {
+   "sym": "NVDA",
+   "cusip": "X9110BE08",
+   "name": "NVIDIA Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "MSFT",
+   "cusip": "X91CF7457",
+   "name": "Microsoft Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "AAPL",
+   "cusip": "X982E2E18",
+   "name": "Apple Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "AMZN",
+   "cusip": "X9C0EDAC7",
+   "name": "Amazon.com Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "DISC",
+   "top_holdings": {}
+  },
+  {
+   "sym": "GOOG",
+   "cusip": "X953E8D03",
+   "name": "Alphabet Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "COMM",
+   "top_holdings": {}
+  },
+  {
+   "sym": "TSLA",
+   "cusip": "X9EBCCC60",
+   "name": "Tesla Inc",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "DISC",
+   "top_holdings": {}
+  },
+  {
+   "sym": "COST",
+   "cusip": "X975FDE9A",
+   "name": "Costco Wholesale Corp",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "STAP",
+   "top_holdings": {}
+  },
+  {
+   "sym": "JPM",
+   "cusip": "X908DA114",
+   "name": "JPMorgan Chase",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "FIN",
+   "top_holdings": {}
+  },
+  {
+   "sym": "PFE",
+   "cusip": "X9A146E58",
+   "name": "Pfizer Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "CVX",
+   "cusip": "X9B860E61",
+   "name": "Chevron Corp",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "ENER",
+   "top_holdings": {}
+  },
+  {
+   "sym": "CVS",
+   "cusip": "X95E1DD81",
+   "name": "CVS Health",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "JNJ",
+   "cusip": "X9EFDB1B0",
+   "name": "Johnson & Johnson",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "PG",
+   "cusip": "X96FEDDCB",
+   "name": "Procter & Gamble",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "STAP",
+   "top_holdings": {}
+  },
+  {
+   "sym": "KO",
+   "cusip": "X9DA9FB11",
+   "name": "Coca-Cola Co",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "STAP",
+   "top_holdings": {}
+  },
+  {
+   "sym": "UNH",
+   "cusip": "X9EF9D47C",
+   "name": "UnitedHealth Group",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "HD",
+   "cusip": "X9BD51575",
+   "name": "Home Depot",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "DISC",
+   "top_holdings": {}
+  },
+  {
+   "sym": "INTC",
+   "cusip": "X9F9B7BD1",
+   "name": "Intel Corp",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "TXN",
+   "cusip": "X9C391D00",
+   "name": "Texas Instruments",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "QCOM",
+   "cusip": "X97D0E332",
+   "name": "Qualcomm Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "ADI",
+   "cusip": "X9468FA57",
+   "name": "Analog Devices",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "MRK",
+   "cusip": "X9DD4C4CB",
+   "name": "Merck & Co",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "ABBV",
+   "cusip": "X93775190",
+   "name": "AbbVie Inc",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "CI",
+   "cusip": "X91384422",
+   "name": "Cigna Group",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "ELV",
+   "cusip": "X9E4BC803",
+   "name": "Elevance Health",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "HLTH",
+   "top_holdings": {}
+  },
+  {
+   "sym": "BKNG",
+   "cusip": "X961C505F",
+   "name": "Booking Holdings",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "DISC",
+   "top_holdings": {}
+  },
+  {
+   "sym": "LOW",
+   "cusip": "X9D8B9679",
+   "name": "Lowe's Companies",
+   "kind": "stock",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "DISC",
+   "top_holdings": {}
+  },
+  {
+   "sym": "META",
+   "cusip": "X940BB78A",
+   "name": "Meta Platforms",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "COMM",
+   "top_holdings": {}
+  },
+  {
+   "sym": "AVGO",
+   "cusip": "X9D221718",
+   "name": "Broadcom",
+   "kind": "stock",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 0,
+   "yield": 0.01,
+   "view": "Covered",
+   "status": "approved",
+   "scret": {
+    "dotcom": -0.8,
+    "gfc": -0.53,
+    "covid": -0.3,
+    "y2022": -0.28
+   },
+   "sector": "TECH",
+   "top_holdings": {}
+  }
+ ],
+ "reference": [
+  {
+   "sym": "QZLGX",
+   "name": "Quill Zenith Large Growth Fund",
+   "kind": "mf",
+   "classes": {
+    "LCG": 1
+   },
+   "expense_bps": 88,
+   "yield": 0.002,
+   "reason": "Fund family not on the approved list",
+   "cusip": "X9BE0F569"
+  },
+  {
+   "sym": "TRVLX",
+   "name": "Trevale Value Opportunities Fund",
+   "kind": "mf",
+   "classes": {
+    "LCV": 1
+   },
+   "expense_bps": 79,
+   "yield": 0.014,
+   "reason": "Fund family not on the approved list",
+   "cusip": "X9FA2D12D"
+  },
+  {
+   "sym": "SULCX",
+   "name": "Summit US Large Cap Index Fund",
+   "kind": "plan",
+   "classes": {
+    "LCG": 0.5,
+    "LCV": 0.5
+   },
+   "expense_bps": 5,
+   "yield": 0.012,
+   "reason": "Retirement-plan fund; only available inside the plan",
+   "cusip": "X9EF88129"
+  },
+  {
+   "sym": "SINTX",
+   "name": "Summit International Index Fund",
+   "kind": "plan",
+   "classes": {
+    "INTL": 0.75,
+    "EM": 0.25
+   },
+   "expense_bps": 8,
+   "yield": 0.028,
+   "reason": "Retirement-plan fund; only available inside the plan",
+   "cusip": "X9AF32C21"
+  },
+  {
+   "sym": "SCBDX",
+   "name": "Summit Core Bond Fund",
+   "kind": "plan",
+   "classes": {
+    "UST": 0.6,
+    "IGC": 0.4
+   },
+   "expense_bps": 10,
+   "yield": 0.04,
+   "reason": "Retirement-plan fund; only available inside the plan",
+   "cusip": "X96352AF1"
+  }
+ ],
+ "category_rules": [
+  {
+   "id": "CAT-UST",
+   "match": [
+    "us treasury",
+    "u.s. treasury",
+    "treasury note",
+    "treasury bond",
+    "treasury bill"
+   ],
+   "kind": "bond",
+   "classes": {
+    "UST": 1
+   },
+   "outcome": "approved",
+   "reason": "U.S. Treasury: accepted in kind under the government-bond category rule; held to maturity"
+  },
+  {
+   "id": "CAT-CORP",
+   "match": [
+    "corporate bond",
+    " corp bond",
+    " sr nt",
+    " senior note"
+   ],
+   "kind": "bond",
+   "classes": {
+    "IGC": 1
+   },
+   "outcome": "approved",
+   "reason": "Individual corporate bond: accepted in kind under the corporate-bond category rule if rated investment grade; held to maturity"
+  },
+  {
+   "id": "CAT-MUNI",
+   "match": [
+    " auth ",
+    " board ",
+    " city of ",
+    " county ",
+    " dev ",
+    " rev ",
+    " school dist",
+    " st go ",
+    "dormitory",
+    "go ",
+    "muni ",
+    "municipal",
+    "revenue bond",
+    "water "
+   ],
+   "kind": "bond",
+   "classes": {
+    "IGC": 1
+   },
+   "outcome": "approved",
+   "reason": "Investment-grade municipal bond: accepted in kind under the individual-bond category rule; held to maturity"
+  },
+  {
+   "id": "CAT-CD",
+   "match": [
+    "certificate of deposit",
+    "brokered cd",
+    " cd "
+   ],
+   "kind": "cash",
+   "classes": {
+    "CASH": 1
+   },
+   "outcome": "cash",
+   "reason": "Certificate of deposit: cash equivalent until maturity"
+  },
+  {
+   "id": "CAT-MMF",
+   "match": [
+    "money market",
+    "sweep",
+    "cash",
+    "savings",
+    "stable value"
+   ],
+   "kind": "cash",
+   "classes": {
+    "CASH": 1
+   },
+   "outcome": "cash",
+   "reason": "Cash or money market"
+  },
+  {
+   "id": "CAT-PRIV",
+   "match": [
+    "private placement",
+    "series c",
+    "series b",
+    "preferred (private",
+    "limited partnership"
+   ],
+   "kind": "alt",
+   "classes": {
+    "PE": 1
+   },
+   "outcome": "held_away",
+   "reason": "Private or restricted security: cannot be transferred; stays held away"
+  }
+ ]
+}

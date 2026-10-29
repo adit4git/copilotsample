@@ -1,0 +1,509 @@
+{
+ "H1-harborview-brokerage-henderson.pdf": {
+  "household": "henderson",
+  "kind": "pdf-text",
+  "institution": "Harborview Securities",
+  "account_type": "Individual brokerage (taxable)",
+  "account": "4417",
+  "owner": "Henderson Family Trust",
+  "as_of": "2026-09-30",
+  "total": 3412560.22,
+  "holdings": [
+   {
+    "sym": "NVDA",
+    "desc": "NVIDIA Corp",
+    "qty": 2800,
+    "price": 182.1,
+    "value": 509880.0,
+    "cost": 118300.0,
+    "pct": null
+   },
+   {
+    "sym": "AAPL",
+    "desc": "Apple Inc",
+    "qty": 2400,
+    "price": 228.5,
+    "value": 548400.0,
+    "cost": 301200.0,
+    "pct": null
+   },
+   {
+    "sym": "VOO",
+    "desc": "S&P 500 ETF",
+    "qty": 900,
+    "price": 552.3,
+    "value": 497070.0,
+    "cost": 402500.0,
+    "pct": null
+   },
+   {
+    "sym": "ARKK",
+    "desc": "Innovation ETF",
+    "qty": 6000,
+    "price": 62.4,
+    "value": 374400.0,
+    "cost": 498000.0,
+    "pct": null
+   },
+   {
+    "sym": "QZLGX",
+    "desc": "Quill Zenith Large Growth Fund",
+    "qty": 9500,
+    "price": 41.2,
+    "value": 391400.0,
+    "cost": 300150.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Lumina Bio Series C (private placement)",
+    "qty": 1,
+    "price": 250000.0,
+    "value": 250000.0,
+    "cost": 250000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Harborview Government Money Market",
+    "qty": 841410.22,
+    "price": 1.0,
+    "value": 841410.22,
+    "cost": 841410.22,
+    "pct": null
+   }
+  ],
+  "allocation": [
+   {
+    "label": "Equities",
+    "value": 2321150.0,
+    "pct": 68.0
+   },
+   {
+    "label": "Alternative investments",
+    "value": 250000.0,
+    "pct": 7.3
+   },
+   {
+    "label": "Cash and money market",
+    "value": 841410.22,
+    "pct": 24.7
+   }
+  ]
+ },
+ "H2-summit-401k-screenshot.png": {
+  "household": "henderson",
+  "kind": "image",
+  "institution": "Summit Retirement Plan",
+  "account_type": "401(k) plan",
+  "account": null,
+  "owner": "Margaret Henderson",
+  "as_of": "2026-10-10",
+  "total": 1184320.0,
+  "holdings": [
+   {
+    "sym": null,
+    "desc": "Summit 2035 Target Date Fund",
+    "qty": null,
+    "price": null,
+    "value": 520400.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "SULCX",
+    "desc": "Summit US Large Cap Index Fund",
+    "qty": null,
+    "price": null,
+    "value": 310250.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "SINTX",
+    "desc": "Summit International Index Fund",
+    "qty": null,
+    "price": null,
+    "value": 118430.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "SCBDX",
+    "desc": "Summit Core Bond Fund",
+    "qty": null,
+    "price": null,
+    "value": 140240.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Stable Value Fund",
+    "qty": null,
+    "price": null,
+    "value": 95000.0,
+    "cost": null,
+    "pct": null
+   }
+  ],
+  "allocation": [
+   {
+    "label": "Stocks",
+    "pct": 68.0
+   },
+   {
+    "label": "Bonds",
+    "pct": 24.0
+   },
+   {
+    "label": "Stable value",
+    "pct": 8.0
+   }
+  ]
+ },
+ "H3-northfield-holdings-export.xlsx": {
+  "household": "henderson",
+  "kind": "xlsx",
+  "institution": "Northfield Wealth Partners",
+  "account_type": "Joint taxable",
+  "account": "8820",
+  "owner": "Henderson Family Trust",
+  "as_of": "2026-09-30",
+  "total": 1927300.0,
+  "holdings": [
+   {
+    "sym": "MSFT",
+    "desc": "Microsoft Corp",
+    "qty": 1100,
+    "price": 512.4,
+    "value": 563640.0,
+    "cost": 210000.0,
+    "pct": null
+   },
+   {
+    "sym": "VTV",
+    "desc": "Value ETF",
+    "qty": 1500,
+    "price": 182.6,
+    "value": 273900.0,
+    "cost": 240000.0,
+    "pct": null
+   },
+   {
+    "sym": "VEA",
+    "desc": "Developed Markets ETF",
+    "qty": 4000,
+    "price": 54.1,
+    "value": 216400.0,
+    "cost": 205000.0,
+    "pct": null
+   },
+   {
+    "sym": "AGG",
+    "desc": "US Aggregate Bond ETF",
+    "qty": 2500,
+    "price": 99.2,
+    "value": 248000.0,
+    "cost": 262500.0,
+    "pct": null
+   },
+   {
+    "sym": "LQD",
+    "desc": "Investment Grade Corporate Bond ETF",
+    "qty": 1200,
+    "price": 108.5,
+    "value": 130200.0,
+    "cost": 128000.0,
+    "pct": null
+   },
+   {
+    "sym": "BAL-C",
+    "desc": "Balanced Income Fund, Class C",
+    "qty": 8000,
+    "price": 11.25,
+    "value": 90000.0,
+    "cost": 84000.0,
+    "pct": null
+   },
+   {
+    "sym": "TRVLX",
+    "desc": "Trevale Value Opportunities Fund",
+    "qty": 5200,
+    "price": 31.8,
+    "value": 165360.0,
+    "cost": 150000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "New York City GO 3.50% 08/01/2031",
+    "qty": 200,
+    "price": 987.5,
+    "value": 197500.0,
+    "cost": 201000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Cash & Sweep",
+    "qty": 42300.0,
+    "price": 1.0,
+    "value": 42300.0,
+    "cost": 42300.0,
+    "pct": null
+   }
+  ],
+  "allocation": []
+ },
+ "H4-lakeshore-bank-photo.jpg": {
+  "household": "henderson",
+  "kind": "image",
+  "institution": "Lakeshore Bank & Trust",
+  "account_type": "Deposit accounts",
+  "account": "5530",
+  "owner": "Henderson Family Trust",
+  "as_of": "2026-09-30",
+  "total": 335412.37,
+  "holdings": [
+   {
+    "sym": null,
+    "desc": "Certificate of Deposit 12-month 2.90% APY, matures 03/15/2027",
+    "qty": null,
+    "price": null,
+    "value": 250000.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Money Market Savings",
+    "qty": null,
+    "price": null,
+    "value": 85412.37,
+    "cost": null,
+    "pct": null
+   }
+  ],
+  "allocation": [
+   {
+    "label": "Cash",
+    "pct": 100.0
+   }
+  ]
+ },
+ "H5-crestmark-annuity-scan.pdf": {
+  "household": "henderson",
+  "kind": "pdf-scan",
+  "institution": "Crestmark Life",
+  "account_type": "Variable annuity",
+  "account": "0912",
+  "owner": "Robert Henderson",
+  "as_of": "2026-09-30",
+  "total": 612400.0,
+  "holdings": [
+   {
+    "sym": null,
+    "desc": "Equity Index Subaccount",
+    "qty": null,
+    "price": null,
+    "value": 336820.0,
+    "cost": null,
+    "pct": 55
+   },
+   {
+    "sym": null,
+    "desc": "Bond Subaccount",
+    "qty": null,
+    "price": null,
+    "value": 214340.0,
+    "cost": null,
+    "pct": 35
+   },
+   {
+    "sym": null,
+    "desc": "Money Market Subaccount",
+    "qty": null,
+    "price": null,
+    "value": 61240.0,
+    "cost": null,
+    "pct": 10
+   }
+  ],
+  "allocation": []
+ },
+ "R1-bayline-positions-rivera.csv": {
+  "household": "rivera",
+  "kind": "csv",
+  "institution": "Bayline Brokerage",
+  "account_type": "Individual",
+  "account": "2209",
+  "owner": "Daniel Rivera",
+  "as_of": "2026-10-15",
+  "total": 766000.0,
+  "holdings": [
+   {
+    "sym": "TSLA",
+    "desc": "Tesla Inc",
+    "qty": 1700,
+    "price": 248.3,
+    "value": 422110.0,
+    "cost": 95000.0,
+    "pct": null
+   },
+   {
+    "sym": "QQQ",
+    "desc": "Nasdaq-100 ETF",
+    "qty": 300,
+    "price": 512.8,
+    "value": 153840.0,
+    "cost": 120000.0,
+    "pct": null
+   },
+   {
+    "sym": "VNQ",
+    "desc": "Real Estate ETF",
+    "qty": 900,
+    "price": 92.1,
+    "value": 82890.0,
+    "cost": 88000.0,
+    "pct": null
+   },
+   {
+    "sym": "IEFA",
+    "desc": "Core MSCI EAFE ETF",
+    "qty": 1000,
+    "price": 81.4,
+    "value": 81400.0,
+    "cost": 70000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Cash",
+    "qty": 25760.0,
+    "price": 1.0,
+    "value": 25760.0,
+    "cost": 25760.0,
+    "pct": null
+   }
+  ],
+  "allocation": []
+ },
+ "R2-pathway-robo-screenshot.png": {
+  "household": "rivera",
+  "kind": "image",
+  "institution": "Pathway Invest",
+  "account_type": "Taxable investment account",
+  "account": null,
+  "owner": "Rivera Household",
+  "as_of": "2026-10-14",
+  "total": 418250.0,
+  "holdings": [
+   {
+    "sym": "VTI",
+    "desc": "Total US Stock",
+    "qty": null,
+    "price": null,
+    "value": 167300.0,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "VXUS",
+    "desc": "International Stock",
+    "qty": null,
+    "price": null,
+    "value": 104562.5,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "BND",
+    "desc": "US Bonds",
+    "qty": null,
+    "price": null,
+    "value": 104562.5,
+    "cost": null,
+    "pct": null
+   },
+   {
+    "sym": "VTEB",
+    "desc": "Municipal Bonds",
+    "qty": null,
+    "price": null,
+    "value": 41825.0,
+    "cost": null,
+    "pct": null
+   }
+  ],
+  "allocation": [
+   {
+    "label": "Stocks",
+    "pct": 65.0
+   },
+   {
+    "label": "Bonds",
+    "pct": 35.0
+   }
+  ]
+ },
+ "R3-harborview-ira-rivera.pdf": {
+  "household": "rivera",
+  "kind": "pdf-text",
+  "institution": "Harborview Securities",
+  "account_type": "Traditional IRA",
+  "account": "7731",
+  "owner": "Daniel Rivera",
+  "as_of": "2026-09-30",
+  "total": 304000.0,
+  "holdings": [
+   {
+    "sym": "IVV",
+    "desc": "Core S&P 500 ETF",
+    "qty": 250,
+    "price": 663.1,
+    "value": 165775.0,
+    "cost": 120000.0,
+    "pct": null
+   },
+   {
+    "sym": "SCHD",
+    "desc": "US Dividend Equity ETF",
+    "qty": 2000,
+    "price": 27.4,
+    "value": 54800.0,
+    "cost": 50000.0,
+    "pct": null
+   },
+   {
+    "sym": "ZQXI",
+    "desc": "Zephyr Quantum Innovation ETF",
+    "qty": 1500,
+    "price": 18.2,
+    "value": 27300.0,
+    "cost": 30000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Brokered CD 4.10% 06/30/2027",
+    "qty": 50,
+    "price": 1000.0,
+    "value": 50000.0,
+    "cost": 50000.0,
+    "pct": null
+   },
+   {
+    "sym": null,
+    "desc": "Harborview Government Money Market",
+    "qty": 6125.0,
+    "price": 1.0,
+    "value": 6125.0,
+    "cost": 6125.0,
+    "pct": null
+   }
+  ],
+  "allocation": []
+ }
+}

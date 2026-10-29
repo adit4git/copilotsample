@@ -1,0 +1,338 @@
+{
+ "rf": 0.033,
+ "classes": {
+  "LCG": {
+   "label": "U.S. Large Cap Growth",
+   "group": "Equity",
+   "er": 0.066,
+   "vol": 0.17500000000000002
+  },
+  "LCV": {
+   "label": "U.S. Large Cap Value",
+   "group": "Equity",
+   "er": 0.07,
+   "vol": 0.155
+  },
+  "SMID": {
+   "label": "U.S. Small/Mid Cap",
+   "group": "Equity",
+   "er": 0.076,
+   "vol": 0.20500000000000002
+  },
+  "INTL": {
+   "label": "International Developed Equity",
+   "group": "Equity",
+   "er": 0.07400000000000001,
+   "vol": 0.17
+  },
+  "EM": {
+   "label": "Emerging Markets Equity",
+   "group": "Equity",
+   "er": 0.08199999999999999,
+   "vol": 0.22
+  },
+  "UST": {
+   "label": "U.S. Treasuries",
+   "group": "Fixed income",
+   "er": 0.040999999999999995,
+   "vol": 0.055
+  },
+  "IGC": {
+   "label": "U.S. Corporates (IG)",
+   "group": "Fixed income",
+   "er": 0.049,
+   "vol": 0.07
+  },
+  "HY": {
+   "label": "U.S. High Yield",
+   "group": "Fixed income",
+   "er": 0.061,
+   "vol": 0.095
+  },
+  "CASH": {
+   "label": "Cash",
+   "group": "Cash",
+   "er": 0.033,
+   "vol": 0.006
+  },
+  "HF": {
+   "label": "Hedge Funds",
+   "group": "Alternatives",
+   "er": 0.057999999999999996,
+   "vol": 0.075
+  },
+  "PE": {
+   "label": "Private Equity",
+   "group": "Alternatives",
+   "er": 0.096,
+   "vol": 0.23
+  }
+ },
+ "corr": {
+  "LCG|LCG": 1.0,
+  "LCG|LCV": 0.833,
+  "LCG|SMID": 0.82,
+  "LCG|INTL": 0.741,
+  "LCG|EM": 0.675,
+  "LCG|UST": -0.188,
+  "LCG|IGC": 0.162,
+  "LCG|HY": 0.526,
+  "LCG|CASH": -0.005,
+  "LCG|HF": 0.565,
+  "LCG|PE": 0.656,
+  "LCV|LCG": 0.833,
+  "LCV|LCV": 1.0,
+  "LCV|SMID": 0.807,
+  "LCV|INTL": 0.73,
+  "LCV|EM": 0.668,
+  "LCV|UST": -0.14,
+  "LCV|IGC": 0.215,
+  "LCV|HY": 0.555,
+  "LCV|CASH": 0.0,
+  "LCV|HF": 0.57,
+  "LCV|PE": 0.65,
+  "SMID|LCG": 0.82,
+  "SMID|LCV": 0.807,
+  "SMID|SMID": 1.0,
+  "SMID|INTL": 0.719,
+  "SMID|EM": 0.666,
+  "SMID|UST": -0.187,
+  "SMID|IGC": 0.189,
+  "SMID|HY": 0.564,
+  "SMID|CASH": -0.005,
+  "SMID|HF": 0.571,
+  "SMID|PE": 0.648,
+  "INTL|LCG": 0.741,
+  "INTL|LCV": 0.73,
+  "INTL|SMID": 0.719,
+  "INTL|INTL": 1.0,
+  "INTL|EM": 0.596,
+  "INTL|UST": -0.125,
+  "INTL|IGC": 0.195,
+  "INTL|HY": 0.5,
+  "INTL|CASH": 0.0,
+  "INTL|HF": 0.51,
+  "INTL|PE": 0.58,
+  "EM|LCG": 0.675,
+  "EM|LCV": 0.668,
+  "EM|SMID": 0.666,
+  "EM|INTL": 0.596,
+  "EM|EM": 1.0,
+  "EM|UST": -0.166,
+  "EM|IGC": 0.174,
+  "EM|HY": 0.506,
+  "EM|CASH": -0.005,
+  "EM|HF": 0.489,
+  "EM|PE": 0.546,
+  "UST|LCG": -0.188,
+  "UST|LCV": -0.14,
+  "UST|SMID": -0.187,
+  "UST|INTL": -0.125,
+  "UST|EM": -0.166,
+  "UST|UST": 1.0,
+  "UST|IGC": 0.713,
+  "UST|HY": 0.077,
+  "UST|CASH": 0.095,
+  "UST|HF": -0.058,
+  "UST|PE": -0.163,
+  "IGC|LCG": 0.162,
+  "IGC|LCV": 0.215,
+  "IGC|SMID": 0.189,
+  "IGC|INTL": 0.195,
+  "IGC|EM": 0.174,
+  "IGC|UST": 0.713,
+  "IGC|IGC": 1.0,
+  "IGC|HY": 0.48,
+  "IGC|CASH": 0.08,
+  "IGC|HF": 0.265,
+  "IGC|PE": 0.17,
+  "HY|LCG": 0.526,
+  "HY|LCV": 0.555,
+  "HY|SMID": 0.564,
+  "HY|INTL": 0.5,
+  "HY|EM": 0.506,
+  "HY|UST": 0.077,
+  "HY|IGC": 0.48,
+  "HY|HY": 1.0,
+  "HY|CASH": 0.02,
+  "HY|HF": 0.52,
+  "HY|PE": 0.495,
+  "CASH|LCG": -0.005,
+  "CASH|LCV": 0.0,
+  "CASH|SMID": -0.005,
+  "CASH|INTL": 0.0,
+  "CASH|EM": -0.005,
+  "CASH|UST": 0.095,
+  "CASH|IGC": 0.08,
+  "CASH|HY": 0.02,
+  "CASH|CASH": 1.0,
+  "CASH|HF": 0.005,
+  "CASH|PE": -0.005,
+  "HF|LCG": 0.565,
+  "HF|LCV": 0.57,
+  "HF|SMID": 0.571,
+  "HF|INTL": 0.51,
+  "HF|EM": 0.489,
+  "HF|UST": -0.058,
+  "HF|IGC": 0.265,
+  "HF|HY": 0.52,
+  "HF|CASH": 0.005,
+  "HF|HF": 1.0,
+  "HF|PE": 0.477,
+  "PE|LCG": 0.656,
+  "PE|LCV": 0.65,
+  "PE|SMID": 0.648,
+  "PE|INTL": 0.58,
+  "PE|EM": 0.546,
+  "PE|UST": -0.163,
+  "PE|IGC": 0.17,
+  "PE|HY": 0.495,
+  "PE|CASH": -0.005,
+  "PE|HF": 0.477,
+  "PE|PE": 1.0
+ },
+ "scenarios": [
+  {
+   "id": "dotcom",
+   "label": "Technology bubble",
+   "window": "24 Mar 2000 to 9 Oct 2002"
+  },
+  {
+   "id": "gfc",
+   "label": "Housing and financial crisis",
+   "window": "9 Oct 2007 to 9 Mar 2009"
+  },
+  {
+   "id": "covid",
+   "label": "COVID disruption",
+   "window": "19 Feb 2020 to 23 Mar 2020"
+  },
+  {
+   "id": "y2022",
+   "label": "2022 rate shock",
+   "window": "Calendar year 2022"
+  }
+ ],
+ "cio": {
+  "as_of": "1 Oct 2026",
+  "headline": "Stay invested at target risk; favour quality bonds over cash and broaden equity beyond the largest technology names.",
+  "groups": {
+   "equity": {
+    "stance": "Neutral",
+    "note": "Earnings are holding up, but valuations leave little room for disappointment. Hold equities at target weight and diversify away from the largest technology names."
+   },
+   "fixed": {
+    "stance": "Overweight",
+    "note": "Yields remain attractive against their 10-year history. Add high-quality bonds and moderate duration."
+   },
+   "cash": {
+    "stance": "Underweight",
+    "note": "Rates on cash are expected to fall over the next year. Put excess cash to work in steps."
+   },
+   "alt": {
+    "stance": "Neutral",
+    "note": "Use for diversification where suitable and where liquidity needs allow."
+   }
+  },
+  "classes": {
+   "LCG": "Underweight",
+   "LCV": "Overweight",
+   "SMID": "Neutral",
+   "INTL": "Overweight",
+   "EM": "Neutral",
+   "UST": "Overweight",
+   "IGC": "Neutral",
+   "HY": "Underweight",
+   "CASH": "Underweight",
+   "HF": "Neutral",
+   "PE": "Neutral"
+  }
+ },
+ "disclosures": {
+  "history": "Historical stress results apply rounded, approximate index moves from past events to today\u2019s holdings. They are illustrative, are not a forecast, and do not include fees, rebalancing or the path within each window. Individual securities, especially single stocks, can fall much further than their sector or asset class did. Past performance does not guarantee future results.",
+  "tax": "Tax figures are illustrative estimates from cost basis on file and the rates shown; they are not tax advice. Lots without cost basis are excluded. Confirm with the client\u2019s tax advisor before trading.",
+  "research": "Research ratings, fund reports and manager briefings shown are illustrative demo content. Alternatives are surfaced for advisor consideration, not as recommendations to the client."
+ },
+ "fill": {
+  "LCG": "VUG",
+  "LCV": "SCHD",
+  "SMID": "IJH",
+  "INTL": "IEFA",
+  "EM": "VWO",
+  "UST": "VGSH",
+  "IGC": "MUB",
+  "HY": null,
+  "CASH": null,
+  "HF": null,
+  "PE": null
+ },
+ "class_scret": {
+  "LCG": {
+   "dotcom": -0.6,
+   "gfc": -0.54,
+   "covid": -0.32,
+   "y2022": -0.27
+  },
+  "LCV": {
+   "dotcom": -0.28,
+   "gfc": -0.5,
+   "covid": -0.37,
+   "y2022": 0.03
+  },
+  "SMID": {
+   "dotcom": -0.29,
+   "gfc": -0.59,
+   "covid": -0.38,
+   "y2022": -0.12
+  },
+  "INTL": {
+   "dotcom": -0.48,
+   "gfc": -0.61,
+   "covid": -0.33,
+   "y2022": -0.14
+  },
+  "EM": {
+   "dotcom": -0.45,
+   "gfc": -0.61,
+   "covid": -0.31,
+   "y2022": -0.2
+  },
+  "UST": {
+   "dotcom": 0.3,
+   "gfc": 0.14,
+   "covid": 0.05,
+   "y2022": -0.12
+  },
+  "IGC": {
+   "dotcom": 0.24,
+   "gfc": -0.03,
+   "covid": -0.09,
+   "y2022": -0.16
+  },
+  "HY": {
+   "dotcom": -0.06,
+   "gfc": -0.33,
+   "covid": -0.2,
+   "y2022": -0.11
+  },
+  "CASH": {
+   "dotcom": 0.1,
+   "gfc": 0.02,
+   "covid": 0.003,
+   "y2022": 0.015
+  },
+  "HF": {
+   "dotcom": 0.05,
+   "gfc": -0.21,
+   "covid": -0.09,
+   "y2022": -0.04
+  },
+  "PE": {
+   "dotcom": -0.35,
+   "gfc": -0.4,
+   "covid": -0.15,
+   "y2022": -0.1
+  }
+ },
+ "class_scret_note": "Class-level proxies used for outside holdings that are not on the approved list (no security-level history on file)."
+}
